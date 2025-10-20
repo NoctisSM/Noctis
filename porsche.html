@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Intentional-Interfaces">
+    <title>Noctis — Porsche</title>
+    <style>
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-smooth: always;
+            appearance: none;
+            border: none;
+            border-radius: 0;
+            box-sizing: border-box;
+            color: inherit;
+            font: inherit;
+            font-synthesis: none;
+            margin: 0;
+            padding: 0;
+            text-rendering: optimizeLegibility;
+        }
+
+        body {
+            font-smooth: always;
+            -webkit-font-smoothing: antialiased;
+            color: #ffffff;
+            background-color: #000000;
+            font-family: sans-serif;
+            font-size: 14px;
+            letter-spacing: .01em;
+            line-height: 120%;
+            text-rendering: optimizeLegibility;
+        }
+
+        a {
+            color: inherit;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        .masthead {
+            background-color: #000000;
+            color: #ffffff;
+            left: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 12;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .space-between {
+            justify-content: space-between;
+        }
+
+        .p8 {
+            padding: 8px;
+        }
+
+        .pt0 {
+            padding-top: 0;
+        }
+
+        .mla {
+            margin-left: auto;
+        }
+
+        .mb16 {
+            margin-bottom: 16px;
+        }
+
+        .mta {
+            margin-top: auto;
+        }
+
+        .link {
+            text-decoration: none;
+            transition: opacity .2s ease;
+        }
+
+        .link:hover {
+            opacity: .5;
+        }
+
+        .ul {
+            text-decoration: underline;
+        }
+
+        .link-large {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .grid {
+            display: grid;
+            gap: 8px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media(max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        .gap-240 {
+            gap: 240px;
+        }
+
+        @media(max-width: 768px) {
+            .gap-240 {
+                gap: 80px;
+            }
+        }
+
+        .pos-rel {
+            position: relative;
+        }
+
+        .project-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image.full-height {
+            height: auto;
+        }
+
+        .ratio-2-1 {
+            aspect-ratio: 2/1;
+            width: 100%;
+        }
+
+        .ratio-4-5 {
+            aspect-ratio: 4/5;
+            width: 100%;
+        }
+
+        .ratio-16-9 {
+            aspect-ratio: 16/9;
+            width: 100%;
+        }
+
+        .spacer {
+            height: 224px;
+        }
+
+        @media(max-width: 768px) {
+            .spacer {
+                height: 80px;
+            }
+        }
+
+        .max-480 {
+            max-width: 480px;
+        }
+
+        .max-100 {
+            width: 100px;
+        }
+
+        .bg-grey {
+            background-color: rgba(0,0,0,.1);
+        }
+
+        .information {
+            opacity: 1;
+        }
+
+        .information p {
+            line-height: 1.4;
+        }
+
+        .information b {
+            font-weight: 600;
+        }
+
+        main {
+            margin-top: 30px;
+        }
+
+        @media(max-width: 768px) {
+            .m-hide {
+                display: none;
+            }
+            .m-gap-80 {
+                row-gap: 80px;
+            }
+            .m-pt40 {
+                padding-top: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="masthead">
+        <div class="flex p8">
+            <p><a class="link" href="index.html"><b>Noctis</b></a> · Intentional Interfaces</p>
+            <a class="mla ul" href="about.html">Information</a>
+        </div>
+    </header>
+
+    <main>
+        <br></br>
+        <a href="https://configurator.porsche.com/en-US/model-start/911/9921B2/pre-config?index=0" class="link ul link-large" target="_blank" rel="noopener noreferrer" style="font-weight: bold;">
+            View Porsche 911 Configurator
+        </a>
+        <br></br>
+        <div class="p8 pt0 flex flex-col gap-240 m-pt40">
+            <div class="project-image full-height">
+                <img src="images/pcar2.jpg" alt="Discover Design Recommendations">
+            </div>
+        </div>
+        <div class="information flex space-between p8">
+            <div class="max-480 mb16">
+                <p>
+                    <b>Porsche</b> (2025)<br><br>
+                    <b>Challenge</b><br>
+                    Although the Porsche online configurator allowed almost unlimited options, the freedom wasn't without drawbacks. Buyers were often overwhelmed when they tried to set up their configuration. Without a simple and clear starting point, customers became confused, adding more time to the configuration process and reducing their overall satisfaction.<br><br>
+                    
+                    <b>Solution</b><br>
+                    During my internship, I proposed the "Discover Design Recommendations" concept. A new way to facilitate the customer journey through the configuration process. This feature was made possible with the introduction of the pre-configured builds, from a selection of winning mixtures and the dealer's suggestions by hand. The customers could then:<br><br>
+
+                    Pick a recommendation and adjust it further to match the requirements of their own.<br><br>
+
+                    Utilize recommendations as their baseline before deviating from them.<br><br>
+
+                    Disregard recommendations completely and begin fresh.<br><br>
+
+                    The layout was balanced between guidance and freedom, giving the users the feeling that they were led without being restricted in their creative work.<br><br>
+                    
+                    <b>Impact</b><br>
+                    The feature brought a more inviting and natural point of departure, making it possible for customers to arrive at a gratifying first configuration faster than before and eliminating the decision fatigue problem. Early testing and dealer feedback pointed to various effects, among which are:<br><br>
+
+                    Customers were more inspired and confident when they began the process.<br><br>
+
+                    The configurator was more accessible to first-time users, leading to a greater satisfaction overall.<br><br>
+
+                    Dealers noticed that after engaging with the recommendations, customers became more informed and decisive.<br><br>
+
+                    By rethinking the start of the configuration journey, the "Discover Design Recommendations" section enabled the Porsche configurator to be more inviting, efficient, and interactive.<br><br>
+                    
+                    <b>Services:</b><br>
+                    └ UX Research<br>
+                    └ Interface Design (Web, Mobile)<br>
+                                        
+                    <b>Credit:</b><br>
+                    └ Creative Direction: Malte Siegel<br>
+                    └ Lead Designer: SM (me)<br>
+                    └ 3D Visualization: 3D Team<br>
+                    └ Development: Frontend Engineering Team
+                </p>
+            </div>
+
+            <div class="max-100 mta m-hide">
+                <a href="accessories.html">
+                    <div class="project-image ratio-4-5 bg-grey">
+                        <img src="images/accessories.jpg" alt="Invisalign Accessories">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
