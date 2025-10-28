@@ -35,6 +35,16 @@
             color: #000000;
         }
 
+        img {
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
         /* Links */
         a {
             color: inherit;
@@ -82,6 +92,14 @@
 
         .mla {
             margin-left: auto;
+        }
+
+        .mta {
+            margin-top: auto;
+        }
+
+        .mb16 {
+            margin-bottom: 16px;
         }
 
         /* Header */
@@ -377,6 +395,25 @@
             margin-bottom: 16px;
         }
 
+        /* Navigation styles */
+        .max-100 {
+            width: 100px;
+        }
+
+        .project-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ratio-4-5 {
+            aspect-ratio: 4/5;
+            width: 100%;
+        }
+
+        .bg-grey {
+            background-color: rgba(0,0,0,.1);
+        }
+
         /* Animations */
         @keyframes fadeUp {
             to {
@@ -459,6 +496,10 @@
 
             .content-box {
                 padding: 24px 20px;
+            }
+
+            .m-hide {
+                display: none;
             }
         }
     </style>
@@ -690,7 +731,7 @@
                     </div>
                 </section>
 
-                <section class="section" style="margin-bottom: 120px;">
+                <section class="section">
                     <h2 class="section-title">Reflection</h2>
                     <div class="grid-3">
                         <div class="card">
@@ -719,26 +760,23 @@
                                 <li>Creating scalable system</li>
                                 <li>Ensuring brand consistency</li>
                             </ul>
-                            <b>Services:</b><br>
-                            └ UX Research<br>
-                            └ Interface Design (Web, Mobile)<br>
-                                        
-                            <b>Credit:</b><br>
-                            └ Creative Direction: Malte Siegel<br>
-                            └ Lead Designer: SM (me)<br>
-                            └ 3D Visualization: 3D Team<br>
-                            └ Development: Frontend Engineering Team
-                        </div>
-                        <div class="max-100 mta m-hide">
-                            <a href="accessories.html">
-                        <div class="project-image ratio-4-5 bg-grey">
-                            <img src="images/accessories.jpg" alt="Invisalign Accessories">
-                        </div>
-                            </a>
-                        </div>
                         </div>
                     </div>
                 </section>
+
+                <!-- Navigation to next project -->
+                <div class="flex space-between p8" style="margin-top: 80px; padding-bottom: 60px;">
+                    <div style="max-width: 480px;">
+                        <p style="opacity: 0.7; line-height: 1.4;">Next Project</p>
+                    </div>
+                    <div class="max-100 mta m-hide">
+                        <a href="accessories.html">
+                            <div class="project-image ratio-4-5 bg-grey">
+                                <img src="images/accessories.jpg" alt="Invisalign Accessories">
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
