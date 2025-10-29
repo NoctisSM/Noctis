@@ -70,11 +70,11 @@
         /* Shooting stars */
         .shooting-star {
             position: fixed;
-            width: 2px;
-            height: 2px;
+            width: 3px;
+            height: 3px;
             background: white;
             border-radius: 50%;
-            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px 3px rgba(255, 255, 255, 1);
             z-index: 1;
             pointer-events: none;
             opacity: 0;
@@ -84,11 +84,28 @@
             content: '';
             position: absolute;
             top: 0;
-            right: 2px;
-            width: 100px;
+            right: 3px;
+            width: 150px;
             height: 2px;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.8), transparent);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            background: linear-gradient(to right, 
+                rgba(255, 255, 255, 1) 0%, 
+                rgba(255, 255, 255, 0.8) 20%,
+                rgba(255, 255, 255, 0.6) 40%,
+                rgba(255, 255, 255, 0.3) 70%,
+                transparent 100%);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: shimmer 0.3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            }
+            50% {
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+            }
         }
 
         /* Custom Cursor */
@@ -105,28 +122,11 @@
             mix-blend-mode: difference;
         }
 
-        .cursor-follower {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            transition: all 0.3s ease;
-            mix-blend-mode: difference;
-        }
-
         .cursor.hover {
             width: 60px;
             height: 60px;
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .cursor-follower.hover {
-            width: 80px;
-            height: 80px;
         }
 
         @media (max-width: 768px) {
@@ -334,23 +334,9 @@
             font-weight: 300;
         }
 
-        /* Instructions */
-        .instructions {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 14px;
-            z-index: 0;
-            pointer-events: none;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 0.7; }
+        /* Magnetic effect */
+        .magnetic {
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* Responsive adjustments */
@@ -377,11 +363,6 @@
             }
         }
 
-        /* Magnetic effect */
-        .magnetic {
-            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
         /* Page transition */
         .page-transition {
             opacity: 0;
@@ -398,7 +379,6 @@
 <body>
     <!-- Custom Cursor -->
     <div class="cursor"></div>
-    <div class="cursor-follower"></div>
 
     <!-- Shooting star -->
     <div class="shooting-star"></div>
@@ -453,13 +433,10 @@
     <script>
         // Custom Cursor Animation
         const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
         let mouseX = 0;
         let mouseY = 0;
         let cursorX = 0;
         let cursorY = 0;
-        let followerX = 0;
-        let followerY = 0;
 
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
@@ -469,14 +446,9 @@
         function animateCursor() {
             cursorX += (mouseX - cursorX) * 0.3;
             cursorY += (mouseY - cursorY) * 0.3;
-            
-            followerX += (mouseX - followerX) * 0.15;
-            followerY += (mouseY - followerY) * 0.15;
 
             cursor.style.left = cursorX + 'px';
             cursor.style.top = cursorY + 'px';
-            cursorFollower.style.left = followerX + 'px';
-            cursorFollower.style.top = followerY + 'px';
 
             requestAnimationFrame(animateCursor);
         }
@@ -488,12 +460,10 @@
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.classList.add('hover');
-                cursorFollower.classList.add('hover');
             });
             
             el.addEventListener('mouseleave', () => {
                 cursor.classList.remove('hover');
-                cursorFollower.classList.remove('hover');
             });
         });
 
@@ -518,42 +488,41 @@
         const shootingStar = document.querySelector('.shooting-star');
         
         function createShootingStar() {
-            // Random starting position (top area of screen)
+            // Random starting position anywhere on screen
             const startX = Math.random() * window.innerWidth;
-            const startY = Math.random() * (window.innerHeight * 0.3); // Top 30% of screen
+            const startY = Math.random() * window.innerHeight;
+            
+            // Random angle for direction (in degrees)
+            const angle = Math.random() * 360;
+            const angleRad = angle * (Math.PI / 180);
+            
+            // Calculate end point based on angle (travel far enough to leave screen)
+            const distance = 2000;
+            const endX = Math.cos(angleRad) * distance;
+            const endY = Math.sin(angleRad) * distance;
             
             shootingStar.style.left = startX + 'px';
             shootingStar.style.top = startY + 'px';
             shootingStar.style.opacity = '1';
+            shootingStar.style.transform = `rotate(${angle}deg)`;
             
-            // Animate the shooting star
+            // Create straight line animation
+            const duration = 2; // 2 seconds
+            
             shootingStar.style.animation = 'none';
             setTimeout(() => {
-                shootingStar.style.animation = 'shoot 2s ease-in forwards';
+                shootingStar.style.transition = `left ${duration}s linear, top ${duration}s linear, opacity ${duration}s linear`;
+                shootingStar.style.left = (startX + endX) + 'px';
+                shootingStar.style.top = (startY + endY) + 'px';
+                shootingStar.style.opacity = '0';
             }, 10);
             
-            // Hide after animation
+            // Reset after animation
             setTimeout(() => {
+                shootingStar.style.transition = 'none';
                 shootingStar.style.opacity = '0';
-            }, 2000);
+            }, duration * 1000 + 100);
         }
-        
-        // Create shooting star animation
-        const shootKeyframes = `
-            @keyframes shoot {
-                0% {
-                    transform: translate(0, 0) rotate(-45deg);
-                    opacity: 1;
-                }
-                100% {
-                    transform: translate(-800px, 800px) rotate(-45deg);
-                    opacity: 0;
-                }
-            }
-        `;
-        const styleSheet = document.createElement('style');
-        styleSheet.textContent = shootKeyframes;
-        document.head.appendChild(styleSheet);
         
         // Trigger shooting star every 10 seconds
         setInterval(createShootingStar, 10000);
