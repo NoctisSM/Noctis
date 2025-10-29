@@ -2,333 +2,321 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Intentional-Interfaces">
-    <title>Noctis — Invisalign Main Website</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <meta name="description" content="Invisalign.com Consumer Web Case Study">
+    <title> Invisalign.com Website — UX Case Study</title>
     <style>
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            font-smooth: always;
-            appearance: none;
-            border: none;
-            border-radius: 0;
-            box-sizing: border-box;
-            color: inherit;
-            font: inherit;
-            font-synthesis: none;
-            margin: 0;
-            padding: 0;
-            text-rendering: optimizeLegibility;
-        }
-
-        body {
-            font-smooth: always;
-            -webkit-font-smoothing: antialiased;
-            color: #ffffff;
-            background-color: #000000;
-            font-family: sans-serif;
-            font-size: 14px;
-            letter-spacing: .01em;
-            line-height: 120%;
-            text-rendering: optimizeLegibility;
-        }
-
-        a {
-            color: inherit;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-        }
-
-        .masthead {
-            background-color: #000000;
-            color: #ffffff;
-            left: 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 12;
-        }
-
-        .flex {
-            display: flex;
-        }
-
-        .flex-col {
-            flex-direction: column;
-        }
-
-        .space-between {
-            justify-content: space-between;
-        }
-
-        .p8 {
-            padding: 8px;
-        }
-
-        .pt0 {
-            padding-top: 0;
-        }
-
-        .mla {
-            margin-left: auto;
-        }
-
-        .mb16 {
-            margin-bottom: 16px;
-        }
-
-        .mta {
-            margin-top: auto;
-        }
-
-        .link {
-            text-decoration: none;
-            transition: opacity .2s ease;
-        }
-
-        .link:hover {
-            opacity: .5;
-        }
-
-        .ul {
-            text-decoration: underline;
-        }
-
-        .link-large {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .grid {
-            display: grid;
-            gap: 8px;
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @media(max-width: 768px) {
-            .grid {
-                grid-template-columns: repeat(1, 1fr);
-            }
-        }
-
-        .gap-240 {
-            gap: 240px;
-        }
-
-        @media(max-width: 768px) {
-            .gap-240 {
-                gap: 80px;
-            }
-        }
-
-        .pos-rel {
-            position: relative;
-        }
-
-        .project-image {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image.full-height {
-            height: auto;
-        }
-
-        .ratio-2-1 {
-            aspect-ratio: 2/1;
-            width: 100%;
-        }
-
-        .ratio-4-5 {
-            aspect-ratio: 4/5;
-            width: 100%;
-        }
-
-        .ratio-16-9 {
-            aspect-ratio: 16/9;
-            width: 100%;
-        }
-
-        .spacer {
-            height: 224px;
-        }
-
-        @media(max-width: 768px) {
-            .spacer {
-                height: 80px;
-            }
-        }
-
-        .max-480 {
-            max-width: 480px;
-        }
-
-        .max-100 {
-            width: 100px;
-        }
-
-        .bg-grey {
-            background-color: rgba(0,0,0,.1);
-        }
-
-        .information {
-            opacity: 1;
-        }
-
-        .information p {
-            line-height: 1.4;
-        }
-
-        .information b {
-            font-weight: 600;
-        }
-
-        main {
-            margin-top: 30px;
-        }
-
-        @media(max-width: 768px) {
-            .m-hide {
-                display: none;
-            }
-            .m-gap-80 {
-                row-gap: 80px;
-            }
-            .m-pt40 {
-                padding-top: 40px;
-            }
-        }
-
-        /* Hero Section Styles */
-        .hero-section {
-            margin-bottom: 40px;
-        }
-
-        .hero-left {
-            width: 100%;
-        }
-
-        .hero-title {
-            font-size: 36px;
-            font-weight: 700;
-            line-height: 0.85;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            margin-bottom: 40px;
-            width: 100%;
-        }
-
-        .hero-description {
-            font-size: 14px;
-            color: #cccccc;
-            line-height: 1.4;
-            max-width: 100%;
-            margin-bottom: 40px;
-        }
-
-        .hero-right {
-            height: 500px;
-            background-color: rgba(255,255,255,.1);
-            border: 1px dashed #444444;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666666;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        @media(max-width: 768px) {
-            .hero-section {
-                margin-bottom: 40px;
-            }
-            
-            .hero-title {
-                font-size: 48px;
-            }
-            
-            .hero-right {
-                height: 300px;
-            }
+        *, *:before, *:after { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; appearance: none; border: none; border-radius: 0; box-sizing: border-box; color: inherit; font: inherit; margin: 0; padding: 0; text-rendering: optimizeLegibility;}
+        body {font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size: 12px;line-height: 1.2;color: #fff;background: #000;letter-spacing: 0.01em;}
+        ::selection {background: #fff;color: #000;}
+        a {color: inherit;text-decoration: none;cursor: pointer;transition: opacity 0.2s ease;}
+        a:hover {opacity: 0.5;}
+        .ul {text-decoration: underline;}
+        .flex {display: flex;}
+        .flex-col {flex-direction: column;}
+        .align-center {align-items: center;}
+        .space-between {justify-content: space-between;}
+        .p8 {padding: 8px;}
+        .mla {margin-left: auto;}
+        .masthead {background-color:rgba(0,0,0,0.95);backdrop-filter:blur(10px);position:fixed;top:0;left:0;width:100%;z-index:12;border-bottom:1px solid rgba(255,255,255,0.1);}
+        main {margin-top:40px;padding:8px;}
+        .container {max-width:1200px;margin:0 auto;padding:40px 20px;}
+        .hero {padding:80px 20px 60px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:60px;}
+        .hero-title {font-size:48px;font-weight:400;margin-bottom:16px;line-height:1.2;}
+        .hero-subtitle {font-size:16px;opacity:0.7;line-height:1.5;max-width:700px;}
+        .process-pills {display:flex;flex-wrap:wrap;gap:12px;margin:32px 0;}
+        .pill {background: #019ACE;color:#fff;padding:12px 24px;border-radius:30px;font-size:14px;font-weight:500;}
+        .project-meta-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin:60px 0;padding:40px 0;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);}
+        .meta-item h3 {font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.5;margin-bottom:8px;}
+        .meta-item p {font-size:14px;line-height:1.6;}
+        .section {margin-bottom:80px;}
+        .section-title {font-size:32px;font-weight:400;margin-bottom:24px;}
+        .section-text {font-size:14px;line-height:1.7;opacity:0.8;margin-bottom:20px;}
+        .content-box {background:rgba(255,255,255,0.03);border:1px solid #019ACE;border-radius:0;padding:40px;margin:32px 0;}
+        .content-box.white-bg {background:#f5f5f5;color:#000;}
+        .content-box.light-blue-bg {background:#E8F4F8;color:#000;}
+        .two-col {display:grid;grid-template-columns:1fr 1fr;gap:60px;margin:40px 0;}
+        ul {list-style:none;padding:0;}
+        ul li {font-size:14px;line-height:1.8;opacity:0.8;padding:8px 0;padding-left:24px;position:relative;}
+        ul li:before {content:'';position:absolute;left:0;top:18px;width:8px;height:8px;background:#019ACE;border-radius:50%;}
+        ul li.check:before {content:'✓';background:none;color:#019ACE;font-weight:bold;font-size:16px;top:8px;}
+        ul li.cross:before {content:'✗';background:none;color:#ff4444;font-weight:bold;font-size:16px;top:8px;}
+        .competitor-grid {display:grid;grid-template-columns:1fr;gap:40px;margin:40px 0;}
+        .competitor {background:rgba(255,255,255,0.03);border:1px solid #019ACE;padding:32px;}
+        .competitor h3 {font-size:20px;font-weight:500;margin-bottom:24px;}
+        .competitor h4 {font-size:14px;font-weight:600;margin:20px 0 12px 0;text-transform:uppercase;letter-spacing:0.05em;}
+        .competitor-mockup {background:#f0f0f0;height:200px;margin-bottom:24px;display:flex;align-items:center;justify-content:center;color:#999;font-size:12px;}
+        .user-comments {display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:40px 0;}
+        .comment-card {background:#fff;color:#000;padding:24px;border-radius:8px;position:relative;}
+        .comment-text {font-size:13px;line-height:1.6;margin-bottom:16px;}
+        .comment-author {display:flex;align-items:center;gap:12px;justify-content:flex-end;}
+        .author-avatar {width:40px;height:40px;border-radius:50%;background:#019ACE;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;}
+        .persona-grid {display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:40px 0;}
+        .persona-card {background:rgba(255,255,255,0.03);border:1px solid #019ACE;padding:0;overflow:hidden;}
+        .persona-image {width:100%;height:300px;background:linear-gradient(135deg,#019ACE 0%,#0178a3 100%);display:flex;align-items:center;justify-content:center;position:relative;}
+        .persona-quote {position:absolute;bottom:20px;left:20px;right:20px;background:rgba(0,0,0,0.8);padding:16px;font-size:13px;font-style:italic;}
+        .persona-content {padding:32px;}
+        .persona-name {font-size:20px;font-weight:500;margin-bottom:24px;color:#019ACE;}
+        .persona-section {margin-bottom:24px;}
+        .persona-section h4 {font-size:12px;font-weight:600;color:#ff4444;margin-bottom:12px;text-transform:uppercase;}
+        .persona-section.goals h4 {color:#019ACE;}
+        .persona-info-grid {display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;padding:24px;background:rgba(1,154,206,0.1);}
+        .persona-info-item {display:flex;flex-direction:column;gap:8px;}
+        .persona-info-label {font-size:11px;text-transform:uppercase;opacity:0.6;}
+        .persona-info-value {font-size:14px;font-weight:500;}
+        .persona-bio {font-size:13px;line-height:1.6;opacity:0.8;background:rgba(255,255,255,0.03);padding:24px;margin:24px 0;}
+        .survey-label {font-size:13px;margin-bottom:8px;display:flex;justify-content:space-between;}
+        .survey-bar-bg {background:rgba(255,255,255,0.1);height:8px;border-radius:4px;overflow:hidden;}
+        .survey-bar-fill {background:#019ACE;height:100%;transition:width 0.6s ease;}
+        .wireframe-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin:40px 0;}
+        .wireframe {background:#f5f5f5;border:1px solid #019ACE;padding:20px;aspect-ratio:9/16;display:flex;flex-direction:column;gap:12px;}
+        .wireframe-header {background:#ddd;height:60px;border-radius:4px;}
+        .wireframe-hero {background:#e8e8e8;height:200px;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#999;font-size:12px;}
+        .wireframe-grid-items {display:grid;grid-template-columns:repeat(2,1fr);gap:12px;flex:1;}
+        .wireframe-item {background:#e8e8e8;border-radius:4px;}
+        .mockup-showcase {background:rgba(1,154,206,0.05);padding:60px 40px;margin:60px 0;display:flex;justify-content:center;align-items:center;min-height:500px;}
+        .mockup-devices {display:grid;grid-template-columns:repeat(3,1fr);gap:24px;transform:perspective(1000px);}
+        .device-mockup {background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.3);transform:rotateY(-5deg);}
+        .device-mockup:nth-child(2) {transform:rotateY(0deg) scale(1.05);z-index:2;}
+        .device-mockup:nth-child(3) {transform:rotateY(5deg);}
+        .device-screen {aspect-ratio:9/16;background:linear-gradient(135deg,#f5f5f5 0%,#e0e0e0 100%);display:flex;align-items:center;justify-content:center;color:#999;font-size:11px;}
+        .results-highlight {background:rgba(1,154,206,0.1);border:2px solid #019ACE;padding:32px;margin:40px 0;text-align:center;font-size:16px;line-height:1.8;font-weight:500;}
+        @keyframes fadeIn {from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+        .fade-in {animation:fadeIn 0.6s ease forwards;}
+        @media (max-width: 768px) {
+            .hero-title {font-size:32px;}
+            .project-meta-grid,.two-col,.persona-grid,.wireframe-grid,.mockup-devices {grid-template-columns:1fr;}
+            .user-comments {grid-template-columns:1fr;}
+            .process-pills {flex-direction:column;}
+            .pill {text-align:center;}
+            .section-title {font-size:24px;}
+            .content-box {padding:24px;}
         }
     </style>
 </head>
 <body>
     <header class="masthead">
-        <div class="flex p8">
-            <p><a class="link" href="index.html"><b>Noctis</b></a> · Intentional Interfaces</p>
+        <div class="flex p8 align-center">
+            <p>
+                <a href="index.html"><strong>Noctis</strong></a>
+                ·&nbsp;Intentional Interfaces
+            </p>
             <a class="mla ul" href="about.html">Information</a>
         </div>
     </header>
-
     <main>
-        <div class="p8 pt0 flex flex-col m-pt40">
-            <br></br>
-                <a href="https://invisalign.com" class="link ul link-large" target="_blank" rel="noopener noreferrer" style="font-weight: bold;">
-                    View Invisalign Main Website
-                </a>
-            <br></br>
-            <div class="project-image full-height">
-                <img src="images/invisalign.png" alt="Invisalign">
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="hero fade-in">
+                <h1 class="hero-title">Invisalign.com Website — UX Case Study</h1>
+                <p class="hero-subtitle">A full analysis of the official Invisalign consumer website and its experience delivering orthodontic solutions online. Includes competitor analysis and design recommendations for OrthoFX and SmileDirectClub.</p>
+                <div style="margin-top: 24px;">
+                    <a href="https://www.invisalign.com/" target="_blank" rel="noopener noreferrer" class="ul" style="font-size: 14px; opacity: 0.8;">View Current Invisalign.com →</a>
+                </div>
+                <div class="process-pills">
+                    <div class="pill">Competitive Analysis</div>
+                    <div class="pill">User Flows</div>
+                    <div class="pill">Personas</div>
+                    <div class="pill">Usability Study</div>
+                    <div class="pill">Accessibility Review</div>
+                    <div class="pill">Visual Design Audit</div>
+                    <div class="pill">Prototype</div>
+                </div>
             </div>
+            <!-- Project Meta -->
+            <div class="project-meta-grid">
+                <div class="meta-item"><h3>Where</h3><p>Remote: U.S. Consumer Market</p></div>
+                <div class="meta-item"><h3>What</h3><p>Responsive Web, Mobile</p></div>
+                <div class="meta-item"><h3>Why</h3><p>Consumer Orthodontics Portal</p></div>
+                <div class="meta-item"><h3>Role</h3><p>UX Researcher, Designer</p></div>
+                <div class="meta-item"><h3>Category</h3><p>UX/UI, Healthcare, SaaS</p></div>
+                <div class="meta-item"><h3>When</h3><p>September 2025 - October 2025</p></div>
             </div>
-        </div>
-
-        <div class="information flex space-between p8">
-            <div class="max-480 mb16">
-                <p>
-                    <b>Invisalign</b> (2021)<br><br>
-                    <b>Challenge</b><br>
-                    Even though Invisalign® offered a modern alternative to braces, many people didn’t know where to start. Between treatment options, costs, and uncertainty about how long it would take, potential patients often felt overwhelmed. The idea of straightening teeth was tied to discomfort, restrictions, and long commitments. Without a clear and approachable entry point, many simply delayed getting started despite wanting change.<br><br>
-                    
-                    <b>Solution</b><br>
-                    During my time researching the Invisalign experience, I explored ways to make the treatment journey more intuitive and inviting. The focus was on guidance without pressure, helping people feel confident about beginning their transformation. The redesigned flow centered around three main ideas:<br><br>
-
-                    Personalized starting points using 3D scans to show what their new smile could look like.<br><br>
-
-                    Clear next steps from meeting the doctor to seeing early results in just weeks.<br><br>
-
-                    Flexible control, allowing patients to remove aligners, adjust to their lifestyle, and progress comfortably at their own pace.<br><br>
-
-                    The process was designed to balance structure with freedom, giving people the sense that they were being guided, not constrained.<br><br>
-                    
-                    <b>Impact</b><br>
-                    The new approach gave patients a more natural and confident way to begin their smile journey. What once felt intimidating became approachable. Early feedback highlighted a few clear shifts:<br><br>
-
-                    Patients felt more in control and excited from the very beginning.<br><br>
-
-                    The experience was less clinical and more personal, removing the anxiety around orthodontic treatment.<br><br>
-
-                    Doctors noticed higher engagement, with patients arriving more informed and motivated.<br><br>
-
-                    By rethinking the start of the Invisalign experience, the process became smoother and faster, turning what used to be a complex medical decision into an empowering first step toward a new smile.<br><br>
-                    
-                    <b>Services:</b><br>
-                    └ UX Research<br>
-                    └ Interface Design (Web, Mobile)<br>
-                    └ Experience Design (Web, Mobile)<br>
-                                        
-                    <b>Credit:</b><br>
-                    └ Creative Direction: Ryan Coyne, Nick Tompkins, Kristin Sun, Kamal Bhandal<br>
-                    └ Lead Designer: SM (me)<br>
-                    └ 3D Visualization: 3D Team<br>
-                    └ Development: Frontend Engineering Team
+            <!-- Competitive Analysis -->
+            <section class="section">
+                <h2 class="section-title">Competitive analysis</h2>
+                <p class="section-text">
+                    To understand Invisalign.com’s strengths and areas for growth, I compared its homepage journey, offer presentation, and digital experience with its principal consumer competitors: OrthoFX and SmileDirectClub.<br>
+                    <br><b>About the research</b>: I performed heuristic walkthroughs (desktop + mobile), catalogued onboarding, visual messaging, conversion triggers, and accessibility features for each platform. Shown below are key differences and sample findings.
                 </p>
-            </div>
+                <div class="competitor-grid">
+                    <div class="competitor">
+                        <h3>Invisalign.com</h3>
+                        <div class="competitor-mockup">Homepage Screenshot Placeholder</div>
+                        <h4>The Good</h4>
+                        <ul>
+                            <li class="check">Compelling hero visuals communicating product confidence.</li>
+                            <li class="check">Clear evidence/credibility (doctor-recommended, "20 million smiles" stat).</li>
+                            <li class="check">The three-step treatment overview is approachable for new users.</li>
+                            <li class="check">Mobile-friendly, easy-to-read typography and strong call-to-action buttons.</li>
+                            <li class="check">Accessible color contrast on majority of elements; AA compliance in key areas.</li>
+                        </ul>
+                        <h4>The Bad</h4>
+                        <ul>
+                            <li class="cross">Some information-dense FAQ sections can feel overwhelming to first-time users.</li>
+                            <li class="cross">Important calls to action (doctor search, "find a provider") are occasionally buried in the flow.</li>
+                            <li class="cross">No virtual try-on or AR preview is available, unlike some DTC competitors.</li>
+                        </ul>
+                    </div>
+                    <div class="competitor">
+                        <h3>OrthoFX</h3>
+                        <div class="competitor-mockup">Homepage Screenshot Placeholder (OrthoFX)</div>
+                        <h4>The Good</h4>
+                        <ul>
+                            <li class="check">Leading with user-friendly comparison charts for cost and treatment duration.</li>
+                            <li class="check">Immediate virtual consult options available from homepage.</li>
+                            <li class="check">Distinct color-coded plans and transparent pricing communication.</li>
+                        </ul>
+                        <h4>The Bad</h4>
+                        <ul>
+                            <li class="cross">Less mature visual identity, with some inconsistent spacing and interactive elements.</li>
+                            <li class="cross">Mobile site has slightly cluttered call-to-action stack above the fold.</li>
+                            <li class="cross">Less clinical/credentialed focus; feels more DTC and less "medically authoritative".</li>
+                        </ul>
+                    </div>
+                    <div class="competitor">
+                        <h3>SmileDirectClub</h3>
+                        <div class="competitor-mockup">Homepage Screenshot Placeholder (SmileDirectClub)</div>
+                        <h4>The Good</h4>
+                        <ul>
+                            <li class="check">Direct-to-consumer sign-up is simple and fast (no office visit required).</li>
+                            <li class="check">Use of interactive "smile preview" tool to visualize results on photos.</li>
+                            <li class="check">Strong, playful visual language with lots of customer "before and after" stories.</li>
+                        </ul>
+                        <h4>The Bad</h4>
+                        <ul>
+                            <li class="cross">Lacks in-depth provider information and offline options compared to Invisalign.</li>
+                            <li class="cross">Support and FAQ buried under marketing copy; less focus on the science or credentials.</li>
+                            <li class="cross">Accessibility for visual impairment is not as robust (low contrast in hero areas, etc).</li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 style="font-size: 20px; margin: 40px 0 24px 0;">Problems from the comments</h3>
+                <div class="user-comments">
+                    <div class="comment-card">
+                        <p class="comment-text">Had trouble finding a provider and wish there was a virtual try-on tool.</p>
+                        <div class="comment-author"><strong>Anonymous</strong><div class="author-avatar">A</div></div>
+                    </div>
+                    <div class="comment-card">
+                        <p class="comment-text">Loved the before/after galleries. Would like more cost transparency up front.</p>
+                        <div class="comment-author"><strong>Sarah</strong><div class="author-avatar">S</div></div>
+                    </div>
+                    <div class="comment-card">
+                        <p class="comment-text">Mobile site is easy to scroll — but too much small text in the FAQ.</p>
+                        <div class="comment-author"><strong>David</strong><div class="author-avatar">D</div></div>
+                    </div>
+                </div>
+            </section>
+            <!-- Personas -->
+            <section class="section">
+                <h2 class="section-title">Personas</h2>
+                <p class="section-text">I synthesized two core personas based on user surveys and stakeholder interviews to encapsulate key needs for Invisalign.com shoppers and prospects.</p>
+                <div class="persona-grid">
+                    <div class="persona-card">
+                        <div class="persona-image">
+                            <div class="persona-quote">
+                                "I want a treatment that fits my busy work and family schedule, and I want to see what my smile could look like before I commit."
+                            </div>
+                        </div>
+                        <div class="persona-content">
+                            <h3 class="persona-name">Maria Vasquez</h3>
+                            <div class="persona-info-grid">
+                                <div class="persona-info-item"><span class="persona-info-label">Age</span><span class="persona-info-value">36</span></div>
+                                <div class="persona-info-item"><span class="persona-info-label">Location</span><span class="persona-info-value">Phoenix, AZ</span></div>
+                                <div class="persona-info-item"><span class="persona-info-label">Occupation</span><span class="persona-info-value">Teacher</span></div>
+                                <div class="persona-info-item"><span class="persona-info-label">Family Status</span><span class="persona-info-value">Parent</span></div>
+                            </div>
+                            <div class="persona-section">
+                                <h4>Frustrations</h4>
+                                <ul>
+                                    <li>Uncertain about insurance coverage for clear aligners.</li>
+                                    <li>Overwhelmed by technical/scientific info or pop-up modals.</li>
+                                    <li>Wants to know the likely outcome before committing time/money.</li>
+                                </ul>
+                            </div>
+                            <div class="persona-section goals">
+                                <h4>Goals</h4>
+                                <ul>
+                                    <li class="check">A simple online preview of how her teeth could look post-treatment.</li>
+                                    <li class="check">A way to connect with a local doctor or support specialist.</li>
+                                    <li class="check">Clear, upfront pricing with no hidden fees.</li>
+                                </ul>
+                            </div>
+                            <div class="persona-bio">
+                                <strong>About Maria</strong><br><br>
+                                Maria is busy balancing her teaching career and young kids. Shopping for clear aligners must be on her own time and feel low-stress, with easy access to in-person care if needed. She values transparent pricing and service guarantees.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="persona-card">
+                        <div class="persona-image">
+                            <div class="persona-quote">
+                                "I want treatment I can do from home, but I still want real dental supervision and fast customer support."
+                            </div>
+                        </div>
+                        <div class="persona-content">
+                            <h3 class="persona-name">Jordan Lee</h3>
+                            <div class="persona-info-grid">
+                                <div class="persona-info-item"><span class="persona-info-label">Age</span><span class="persona-info-value">29</span></div>
+                                <div class="persona-info-item"><span class="persona-info-label">Location</span><span class="persona-info-value">Denver, CO</span></div>
+                                <div class="persona-info-item"><span class="persona-info-label">Occupation</span><span class="persona-info-value">Product Manager</span></div>
+                                <div class="persona-info-item"><span class="persona-info-label">Family Status</span><span class="persona-info-value">Single</span></div>
+                            </div>
+                            <div class="persona-section">
+                                <h4>Frustrations</h4>
+                                <ul>
+                                    <li>Comparison overload between DTC brands and doctors' offices.</li>
+                                    <li>Can't easily book a consult without a phone call or email tag.</li>
+                                    <li>Unclear billing or shipping policies for impression kits.</li>
+                                </ul>
+                            </div>
+                            <div class="persona-section goals">
+                                <h4>Goals</h4>
+                                <ul>
+                                    <li class="check">Self-directed treatment tracking from home.</li>
+                                    <li class="check">Direct line to customer support and dental professional.</li>
+                                    <li class="check">Personalized, digital-first onboarding experience.</li>
+                                </ul>
+                            </div>
+                            <div class="persona-bio">
+                                <strong>About Jordan</strong><br><br>
+                                Jordan expects most services to be available digitally and on demand. He wants clear aligner treatment with maximum convenience and expects transparency, easy access to real support, and a sense of control throughout the process.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Accessibility Check -->
+            <section class="section">
+                <h2 class="section-title">Accessibility check</h2>
+                <div class="content-box">
+                    <div style="background:#f0f0f0;height:240px;display:flex;align-items:center;justify-content:center;color:#999;">
+                        Accessibility Screenshot Placeholder
+                    </div>
+                    <p class="section-text" style="margin-top:20px;">
+                        Conducted a full accessibility audit. Most homepage contrast ratios meet AA standards, and alt tags are present, but the interactive FAQ and hero banner have some areas for improvement. The mobile experience is strong for colorblind individuals and those with low vision, except for smaller CTA text.
+                    </p>
+                </div>
+            </section>
+            <!-- User Survey -->
+            <section class="section">
+                <h2 class="section-title">User survey</h2>
+                <p class="section-text">
+                    Conducted a remote survey of 27 current or potential orthodontic consumers via Facebook and WhatsApp group. Participants ranged from age 18 to 55 who had considered clear aligner therapy.
+                </p>
+                <div class="content-box">
+                    <div style="background:#f0f0f0;height:160px;display:flex;align-items:center;justify-content:center;color:#999;margin-bottom:20px;">
+                        Survey Results Chart Placeholder
+                    </div>
+                    <div style="margin:20px 0;">
+                        <div class="survey-label">Doctor Recommendation <span>35%</span></div>
+                        <div class="survey-bar-bg"><div class="survey-bar-fill" style="width:35%;"></div></div>
+                        <div class="survey-label">Price <span>25%</span></div>
+                        <div class="survey-bar-bg"><div class="survey-bar-fill" style="width:25%;"></div></div>
+                        <div class="survey-label">Treatment Time <span>15%</span></div>
+                        <div class="survey-bar-bg"><div class="survey-bar-fill" style="width:15%;"></div></div>
+                        <div class="survey-label">Reviews/Testimonies <span>10%</span></div>
+                        <div class="survey-bar-bg"><div class="survey-bar-fill" style="width:10%;"></div
 
             <div class="max-100 mta m-hide">
                 <a href="dashboard.html">
