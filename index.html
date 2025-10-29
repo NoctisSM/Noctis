@@ -27,9 +27,68 @@
             line-height: 1.2;
             color: #ffffff;
             background: #000000;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, white, transparent),
+                radial-gradient(2px 2px at 60px 70px, white, transparent),
+                radial-gradient(1px 1px at 50px 50px, white, transparent),
+                radial-gradient(1px 1px at 130px 80px, white, transparent),
+                radial-gradient(2px 2px at 90px 10px, white, transparent),
+                radial-gradient(1px 1px at 200px 150px, white, transparent),
+                radial-gradient(1px 1px at 175px 25px, white, transparent),
+                radial-gradient(2px 2px at 250px 100px, white, transparent),
+                radial-gradient(1px 1px at 300px 50px, white, transparent),
+                radial-gradient(1px 1px at 400px 200px, white, transparent),
+                radial-gradient(2px 2px at 450px 80px, white, transparent),
+                radial-gradient(1px 1px at 500px 150px, white, transparent),
+                radial-gradient(1px 1px at 350px 120px, white, transparent),
+                radial-gradient(circle at 50% 50%, rgba(25, 25, 112, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(75, 0, 130, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 80%, rgba(0, 0, 50, 0.3) 0%, transparent 50%);
+            background-size: 550px 550px, 550px 550px, 550px 550px, 550px 550px, 550px 550px, 
+                            550px 550px, 550px 550px, 550px 550px, 550px 550px, 550px 550px,
+                            550px 550px, 550px 550px, 550px 550px,
+                            200% 200%, 200% 200%, 200% 200%;
+            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px, 0 0,
+                                40px 60px, 130px 270px, 70px 100px, 0 0, 40px 60px,
+                                130px 270px, 70px 100px, 0 0,
+                                50% 50%, 80% 20%, 20% 80%;
             letter-spacing: 0.01em;
             cursor: none;
             overflow-x: hidden;
+            animation: twinkle 200s linear infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        /* Shooting stars */
+        .shooting-star {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .shooting-star::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 2px;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.8), transparent);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
         /* Custom Cursor */
@@ -142,7 +201,7 @@
             transform: translateX(0);
         }
 
-        /* Ferris Wheel Container */
+        /* Carousel Container */
         .banner {
             width: 100%;
             height: 100vh;
@@ -155,34 +214,71 @@
         }
 
         .banner .slider {
-            position: absolute;
-            width: 280px;
-            height: 350px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) perspective(1000px) rotateX(-16deg) rotateY(0deg);
-            transform-style: preserve-3d;
-            z-index: 2;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
             transition: transform 0.1s ease-out;
         }
 
         .banner .slider .item {
-            position: absolute;
-            inset: 0;
-            transform: 
-                rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-                translateZ(380px);
-            border-radius: 12px;
+            width: 220px;
+            height: 280px;
+            flex-shrink: 0;
             overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.6),
+                0 0 40px rgba(138, 43, 226, 0.3);
+            border: 2px solid rgba(138, 43, 226, 0.4);
             background: #000000;
-            transition: box-shadow 0.3s ease;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+        }
+
+        .banner .slider .item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(138, 43, 226, 0.6) 0%,
+                rgba(75, 0, 130, 0.5) 25%,
+                rgba(0, 100, 255, 0.4) 50%,
+                rgba(0, 150, 255, 0.3) 75%,
+                transparent 100%
+            );
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+            filter: blur(60px);
+            pointer-events: none;
+        }
+
+        .banner .slider .item:hover::before {
+            opacity: 1;
+            animation: mistPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes mistPulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
         }
 
         .banner .slider .item:hover {
-            box-shadow: 0 12px 48px rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 12px 48px rgba(138, 43, 226, 0.6), 
+                0 0 80px rgba(0, 100, 255, 0.5);
+            border-color: rgba(0, 150, 255, 0.7);
+            transform: translateY(-10px) scale(1.05);
         }
 
         .banner .slider .item img {
@@ -260,34 +356,24 @@
         /* Responsive adjustments */
         @media screen and (max-width: 1023px) {
             .banner .slider {
-                width: 200px;
-                height: 250px;
+                gap: 30px;
+                padding: 0 30px;
             }
             .banner .slider .item {
-                transform: 
-                    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-                    translateZ(280px);
-            }
-            .banner .content h1 {
-                font-size: 3em;
+                width: 180px;
+                height: 230px;
             }
         }
 
         @media screen and (max-width: 767px) {
             .banner .slider {
-                width: 140px;
-                height: 180px;
+                gap: 20px;
+                padding: 0 20px;
+                flex-wrap: wrap;
             }
             .banner .slider .item {
-                transform: 
-                    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-                    translateZ(180px);
-            }
-            .banner .content h1 {
-                font-size: 2em;
-            }
-            .banner .content .tagline {
-                font-size: 1em;
+                width: 140px;
+                height: 180px;
             }
         }
 
@@ -307,67 +393,15 @@
                 opacity: 1;
             }
         }
-
-        /* Background grid effect */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                repeating-linear-gradient(
-                    to right, transparent 0 100px,
-                    rgba(255, 255, 255, 0.02) 100px 101px
-                ),
-                repeating-linear-gradient(
-                    to bottom, transparent 0 100px,
-                    rgba(255, 255, 255, 0.02) 100px 101px
-                );
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Neon mist gradient effect */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(
-                ellipse at center,
-                rgba(138, 43, 226, 0.15) 0%,
-                rgba(75, 0, 130, 0.12) 25%,
-                rgba(0, 100, 255, 0.1) 50%,
-                rgba(0, 150, 255, 0.05) 75%,
-                transparent 100%
-            );
-            pointer-events: none;
-            z-index: 0;
-            animation: mistPulse 8s ease-in-out infinite;
-            filter: blur(60px);
-        }
-
-        @keyframes mistPulse {
-            0%, 100% {
-                opacity: 0.6;
-                transform: translate(-50%, -50%) scale(1);
-            }
-            50% {
-                opacity: 0.8;
-                transform: translate(-50%, -50%) scale(1.1);
-            }
-        }
     </style>
 </head>
 <body>
     <!-- Custom Cursor -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
+
+    <!-- Shooting star -->
+    <div class="shooting-star"></div>
 
     <header class="masthead">
         <div class="flex">
@@ -389,26 +423,26 @@
                 Move your cursor to rotate
             </div>
 
-            <div class="slider" style="--quantity: 4">
-                <div class="item" style="--position: 1">
+            <div class="slider">
+                <div class="item">
                     <a href="porsche.html">
                         <img src="images/pcar.jpg" alt="Porsche Configurator">
                         <div class="project-info">Porsche · Configurator</div>
                     </a>
                 </div>
-                <div class="item" style="--position: 2">
+                <div class="item">
                     <a href="accessories.html">
                         <img src="images/accessories.jpg" alt="Invisalign E-Commerce">
                         <div class="project-info">Invisalign · E-Commerce Website</div>
                     </a>
                 </div>
-                <div class="item" style="--position: 3">
+                <div class="item">
                     <a href="aligner.html">
                         <img src="images/aligner.jpg" alt="Invisalign Aligners">
                         <div class="project-info">Invisalign · Invisible Aligners</div>
                     </a>
                 </div>
-                <div class="item" style="--position: 4">
+                <div class="item">
                     <a href="dashboard.html">
                         <img src="images/dashboard.jpg" alt="Patient Dashboard">
                         <div class="project-info">Invisalign · Patient Dashboard</div>
@@ -484,75 +518,51 @@
             });
         });
 
-        // Cursor-controlled Ferris Wheel Rotation
-        const slider = document.querySelector('.slider');
-        let currentRotation = 0;
-        let targetRotation = 0;
-        let previousMouseX = window.innerWidth / 2;
-
-        // Hide instructions after first interaction
-        const instructions = document.querySelector('.instructions');
-        let hasInteracted = false;
-
-        document.addEventListener('mousemove', (e) => {
-            if (!hasInteracted) {
-                instructions.style.opacity = '0';
-                instructions.style.transition = 'opacity 0.5s ease';
-                hasInteracted = true;
-                setTimeout(() => {
-                    instructions.style.display = 'none';
-                }, 500);
-            }
-
-            // Calculate rotation based on horizontal mouse movement
-            const deltaX = e.clientX - previousMouseX;
-            targetRotation += deltaX * 0.5; // Adjust sensitivity here
-            previousMouseX = e.clientX;
-        });
-
-        // Smooth rotation animation
-        function updateRotation() {
-            // Smooth interpolation
-            currentRotation += (targetRotation - currentRotation) * 0.1;
-            
-            // Apply rotation to slider
-            slider.style.transform = `translate(-50%, -50%) perspective(1000px) rotateX(-16deg) rotateY(${currentRotation}deg)`;
-            
-            requestAnimationFrame(updateRotation);
-        }
-        updateRotation();
-
-        // Reset mouse position on window resize
-        window.addEventListener('resize', () => {
-            previousMouseX = window.innerWidth / 2;
-        });
-
-        // Add touch support for mobile
-        let touchStartX = 0;
+        // Random Shooting Star Effect - One every 10 seconds
+        const shootingStar = document.querySelector('.shooting-star');
         
-        document.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            if (!hasInteracted) {
-                instructions.style.opacity = '0';
-                hasInteracted = true;
+        function createShootingStar() {
+            // Random starting position (top area of screen)
+            const startX = Math.random() * window.innerWidth;
+            const startY = Math.random() * (window.innerHeight * 0.3); // Top 30% of screen
+            
+            shootingStar.style.left = startX + 'px';
+            shootingStar.style.top = startY + 'px';
+            shootingStar.style.opacity = '1';
+            
+            // Animate the shooting star
+            shootingStar.style.animation = 'none';
+            setTimeout(() => {
+                shootingStar.style.animation = 'shoot 2s ease-in forwards';
+            }, 10);
+            
+            // Hide after animation
+            setTimeout(() => {
+                shootingStar.style.opacity = '0';
+            }, 2000);
+        }
+        
+        // Create shooting star animation
+        const shootKeyframes = `
+            @keyframes shoot {
+                0% {
+                    transform: translate(0, 0) rotate(-45deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translate(-800px, 800px) rotate(-45deg);
+                    opacity: 0;
+                }
             }
-        });
-
-        document.addEventListener('touchmove', (e) => {
-            const touchX = e.touches[0].clientX;
-            const deltaX = touchX - touchStartX;
-            targetRotation += deltaX * 0.3;
-            touchStartX = touchX;
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                targetRotation -= 30;
-            } else if (e.key === 'ArrowRight') {
-                targetRotation += 30;
-            }
-        });
+        `;
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = shootKeyframes;
+        document.head.appendChild(styleSheet);
+        
+        // Trigger shooting star every 10 seconds
+        setInterval(createShootingStar, 10000);
+        // Initial shooting star after 3 seconds
+        setTimeout(createShootingStar, 3000);
     </script>
 </body>
 </html>
