@@ -3,321 +3,1152 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Invisalign.com Consumer Web Case Study">
-    <title> Invisalign.com Website — UX Case Study</title>
+    <title>Invisalign E-Commerce Website - Noctis</title>
     <style>
-        *, *:before, *:after { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; appearance: none; border: none; border-radius: 0; box-sizing: border-box; color: inherit; font: inherit; margin: 0; padding: 0; text-rendering: optimizeLegibility;}
-        body {font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size: 12px;line-height: 1.2;color: #fff;background: #000;letter-spacing: 0.01em;}
-        ::selection {background: #fff;color: #000;}
-        a {color: inherit;text-decoration: none;cursor: pointer;transition: opacity 0.2s ease;}
-        a:hover {opacity: 0.5;}
-        .ul {text-decoration: underline;}
-        .flex {display: flex;}
-        .flex-col {flex-direction: column;}
-        .align-center {align-items: center;}
-        .space-between {justify-content: space-between;}
-        .p8 {padding: 8px;}
-        .mla {margin-left: auto;}
-        .masthead {background-color:rgba(0,0,0,0.95);backdrop-filter:blur(10px);position:fixed;top:0;left:0;width:100%;z-index:12;border-bottom:1px solid rgba(255,255,255,0.1);}
-        main {margin-top:40px;padding:8px;}
-        .container {max-width:1200px;margin:0 auto;padding:40px 20px;}
-        .hero {padding:80px 20px 60px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:60px;}
-        .hero-title {font-size:48px;font-weight:400;margin-bottom:16px;line-height:1.2;}
-        .hero-subtitle {font-size:16px;opacity:0.7;line-height:1.5;max-width:700px;}
-        .process-pills {display:flex;flex-wrap:wrap;gap:12px;margin:32px 0;}
-        .pill {background: #019ACE;color:#fff;padding:12px 24px;border-radius:30px;font-size:14px;font-weight:500;}
-        .project-meta-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin:60px 0;padding:40px 0;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);}
-        .meta-item h3 {font-size:11px;text-transform:uppercase;letter-spacing:0.08em;opacity:0.5;margin-bottom:8px;}
-        .meta-item p {font-size:14px;line-height:1.6;}
-        .section {margin-bottom:80px;}
-        .section-title {font-size:32px;font-weight:400;margin-bottom:24px;}
-        .section-text {font-size:14px;line-height:1.7;opacity:0.8;margin-bottom:20px;}
-        .content-box {background:rgba(255,255,255,0.03);border:1px solid #019ACE;border-radius:0;padding:40px;margin:32px 0;}
-        .content-box.white-bg {background:#f5f5f5;color:#000;}
-        .content-box.light-blue-bg {background:#E8F4F8;color:#000;}
-        .two-col {display:grid;grid-template-columns:1fr 1fr;gap:60px;margin:40px 0;}
-        ul {list-style:none;padding:0;}
-        ul li {font-size:14px;line-height:1.8;opacity:0.8;padding:8px 0;padding-left:24px;position:relative;}
-        ul li:before {content:'';position:absolute;left:0;top:18px;width:8px;height:8px;background:#019ACE;border-radius:50%;}
-        ul li.check:before {content:'✓';background:none;color:#019ACE;font-weight:bold;font-size:16px;top:8px;}
-        ul li.cross:before {content:'✗';background:none;color:#ff4444;font-weight:bold;font-size:16px;top:8px;}
-        .competitor-grid {display:grid;grid-template-columns:1fr;gap:40px;margin:40px 0;}
-        .competitor {background:rgba(255,255,255,0.03);border:1px solid #019ACE;padding:32px;}
-        .competitor h3 {font-size:20px;font-weight:500;margin-bottom:24px;}
-        .competitor h4 {font-size:14px;font-weight:600;margin:20px 0 12px 0;text-transform:uppercase;letter-spacing:0.05em;}
-        .competitor-mockup {background:#f0f0f0;height:200px;margin-bottom:24px;display:flex;align-items:center;justify-content:center;color:#999;font-size:12px;}
-        .user-comments {display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:40px 0;}
-        .comment-card {background:#fff;color:#000;padding:24px;border-radius:8px;position:relative;}
-        .comment-text {font-size:13px;line-height:1.6;margin-bottom:16px;}
-        .comment-author {display:flex;align-items:center;gap:12px;justify-content:flex-end;}
-        .author-avatar {width:40px;height:40px;border-radius:50%;background:#019ACE;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;}
-        .persona-grid {display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:40px 0;}
-        .persona-card {background:rgba(255,255,255,0.03);border:1px solid #019ACE;padding:0;overflow:hidden;}
-        .persona-image {width:100%;height:300px;background:linear-gradient(135deg,#019ACE 0%,#0178a3 100%);display:flex;align-items:center;justify-content:center;position:relative;}
-        .persona-quote {position:absolute;bottom:20px;left:20px;right:20px;background:rgba(0,0,0,0.8);padding:16px;font-size:13px;font-style:italic;}
-        .persona-content {padding:32px;}
-        .persona-name {font-size:20px;font-weight:500;margin-bottom:24px;color:#019ACE;}
-        .persona-section {margin-bottom:24px;}
-        .persona-section h4 {font-size:12px;font-weight:600;color:#ff4444;margin-bottom:12px;text-transform:uppercase;}
-        .persona-section.goals h4 {color:#019ACE;}
-        .persona-info-grid {display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;padding:24px;background:rgba(1,154,206,0.1);}
-        .persona-info-item {display:flex;flex-direction:column;gap:8px;}
-        .persona-info-label {font-size:11px;text-transform:uppercase;opacity:0.6;}
-        .persona-info-value {font-size:14px;font-weight:500;}
-        .persona-bio {font-size:13px;line-height:1.6;opacity:0.8;background:rgba(255,255,255,0.03);padding:24px;margin:24px 0;}
-        .survey-label {font-size:13px;margin-bottom:8px;display:flex;justify-content:space-between;}
-        .survey-bar-bg {background:rgba(255,255,255,0.1);height:8px;border-radius:4px;overflow:hidden;}
-        .survey-bar-fill {background:#019ACE;height:100%;transition:width 0.6s ease;}
-        .wireframe-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin:40px 0;}
-        .wireframe {background:#f5f5f5;border:1px solid #019ACE;padding:20px;aspect-ratio:9/16;display:flex;flex-direction:column;gap:12px;}
-        .wireframe-header {background:#ddd;height:60px;border-radius:4px;}
-        .wireframe-hero {background:#e8e8e8;height:200px;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#999;font-size:12px;}
-        .wireframe-grid-items {display:grid;grid-template-columns:repeat(2,1fr);gap:12px;flex:1;}
-        .wireframe-item {background:#e8e8e8;border-radius:4px;}
-        .mockup-showcase {background:rgba(1,154,206,0.05);padding:60px 40px;margin:60px 0;display:flex;justify-content:center;align-items:center;min-height:500px;}
-        .mockup-devices {display:grid;grid-template-columns:repeat(3,1fr);gap:24px;transform:perspective(1000px);}
-        .device-mockup {background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.3);transform:rotateY(-5deg);}
-        .device-mockup:nth-child(2) {transform:rotateY(0deg) scale(1.05);z-index:2;}
-        .device-mockup:nth-child(3) {transform:rotateY(5deg);}
-        .device-screen {aspect-ratio:9/16;background:linear-gradient(135deg,#f5f5f5 0%,#e0e0e0 100%);display:flex;align-items:center;justify-content:center;color:#999;font-size:11px;}
-        .results-highlight {background:rgba(1,154,206,0.1);border:2px solid #019ACE;padding:32px;margin:40px 0;text-align:center;font-size:16px;line-height:1.8;font-weight:500;}
-        @keyframes fadeIn {from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-        .fade-in {animation:fadeIn 0.6s ease forwards;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #000000;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover { opacity: 0.6; }
+
+        .ul { text-decoration: underline; }
+
+        /* Header */
+        .masthead {
+            background: rgba(0, 0, 0, 0.95);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .masthead-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Container */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 24px 60px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.7;
+            margin-bottom: 24px;
+        }
+
+        /* Pills */
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 32px 0;
+        }
+
+        .pill {
+            background: #019ACE;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Meta Grid */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 40px 0;
+        }
+
+        .meta-item h3 {
+            font-size: 11px;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin-bottom: 8px;
+            letter-spacing: 0.1em;
+        }
+
+        .meta-item p {
+            font-size: 16px;
+        }
+
+        /* Section */
+        .section {
+            margin: 80px 0;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+
+        .section h3 {
+            font-size: 24px;
+            font-weight: 400;
+            margin: 40px 0 20px;
+        }
+
+        .section p {
+            font-size: 16px;
+            line-height: 1.7;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        /* Two Column */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 40px 0;
+        }
+
+        /* Lists */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 8px 0 8px 24px;
+            position: relative;
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 16px;
+            width: 8px;
+            height: 8px;
+            background: #019ACE;
+            border-radius: 50%;
+        }
+
+        .check::before {
+            content: '✓';
+            background: none;
+            color: #019ACE;
+            font-weight: bold;
+            font-size: 16px;
+            top: 8px;
+        }
+
+        .cross::before {
+            content: '✗';
+            background: none;
+            color: #ff4444;
+            font-weight: bold;
+            font-size: 16px;
+            top: 8px;
+        }
+
+        /* Competitor */
+        .competitor {
+            padding: 32px 0;
+            margin: 24px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .competitor h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .competitor h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 20px 0 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Comments */
+        .comments {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .comment {
+            background: #fff;
+            color: #000;
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        .comment-text {
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .comment-author {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: #019ACE;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Personas */
+        .persona-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 60px 0;
+        }
+
+        .persona {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 32px;
+        }
+
+        .persona-img {
+            height: 300px;
+            background: linear-gradient(135deg, #019ACE, #0178a3);
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+            margin-bottom: 32px;
+            border: 1px solid #019ACE;
+        }
+
+        .persona-quote {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 16px;
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        .persona-content {
+            padding: 0;
+        }
+
+        .persona-name {
+            font-size: 24px;
+            color: #019ACE;
+            margin-bottom: 24px;
+        }
+
+        .persona-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            padding: 24px 0;
+            margin: 24px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .persona-info-item label {
+            font-size: 12px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .persona-info-item span {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .persona-section {
+            margin: 24px 0;
+        }
+
+        .persona-section h4 {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            color: #ff4444;
+        }
+
+        .goals h4 {
+            color: #019ACE;
+        }
+
+        .persona-bio {
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.8;
+            padding: 24px 0;
+            margin: 24px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Survey */
+        .survey-bar {
+            margin: 24px 0;
+        }
+
+        .survey-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .bar-bg {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: #019ACE;
+        }
+
+        /* Journey Map */
+        .journey {
+            padding: 40px 0;
+            margin: 60px 0;
+            overflow-x: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: 120px repeat(5, 200px);
+            gap: 12px;
+            min-width: 1100px;
+        }
+
+        .journey-label {
+            font-size: 13px;
+            font-weight: 600;
+            padding: 12px 0;
+        }
+
+        .journey-cell {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            font-size: 12px;
+            line-height: 1.5;
+            min-height: 80px;
+        }
+
+        .stage {
+            padding: 16px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .stage-1 { background: #FDB813; color: #000; }
+        .stage-2 { background: #FF8C42; color: #000; }
+        .stage-3 { background: #FFB3BA; color: #000; }
+        .stage-4 { background: #FF6B6B; color: #fff; }
+
+        .mood {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        /* Flow */
+        .flow {
+            padding: 60px 0;
+            margin: 60px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .flow h3 {
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+
+        .flow-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .flow-node {
+            background: #fff;
+            color: #000;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .flow-arrow {
+            color: #019ACE;
+            font-size: 24px;
+        }
+
+        /* Design System */
+        .colors {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .color {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            border: 1px solid #019ACE;
+        }
+
+        .typo {
+            font-size: 48px;
+            font-weight: 600;
+            margin: 24px 0;
+            letter-spacing: -0.02em;
+        }
+
+        /* Screenshot boxes */
+        .screenshot {
+            border: 1px solid #019ACE;
+            padding: 40px;
+            margin: 40px 0;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            opacity: 0.5;
+        }
+
+        /* Highlight sections */
+        .highlight {
+            padding: 40px 0;
+            margin: 60px 0;
+            font-size: 18px;
+            line-height: 1.8;
+            font-weight: 400;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .highlight h2 {
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+
+        /* Summary */
+        .summary {
+            padding: 60px 0;
+            margin: 80px 0 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .summary h2 {
+            font-size: 36px;
+            margin-bottom: 32px;
+        }
+
+        .summary p {
+            font-size: 16px;
+            line-height: 1.8;
+            opacity: 0.85;
+            margin-bottom: 24px;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero-title {font-size:32px;}
-            .project-meta-grid,.two-col,.persona-grid,.wireframe-grid,.mockup-devices {grid-template-columns:1fr;}
-            .user-comments {grid-template-columns:1fr;}
-            .process-pills {flex-direction:column;}
-            .pill {text-align:center;}
-            .section-title {font-size:24px;}
-            .content-box {padding:24px;}
+            .hero h1 { font-size: 32px; }
+            .meta-grid, .two-col, .persona-grid, .comments {
+                grid-template-columns: 1fr;
+            }
+            .section h2 { font-size: 24px; }
+            .pills { flex-direction: column; }
+            .pill { text-align: center; }
         }
     </style>
 </head>
 <body>
     <header class="masthead">
-        <div class="flex p8 align-center">
-            <p>
-                <a href="index.html"><strong>Noctis</strong></a>
-                ·&nbsp;Intentional Interfaces
-            </p>
-            <a class="mla ul" href="about.html">Information</a>
+        <div class="masthead-inner">
+            <p><a href="index.html"><strong>Noctis</strong></a> · Intentional Interfaces</p>
+            <a href="about.html" class="ul">Information</a>
         </div>
     </header>
-    <main>
-        <div class="container">
-            <!-- Hero Section -->
-            <div class="hero fade-in">
-                <h1 class="hero-title">Invisalign.com Website — UX Case Study</h1>
-                <p class="hero-subtitle">A full analysis of the official Invisalign consumer website and its experience delivering orthodontic solutions online. Includes competitor analysis and design recommendations for OrthoFX and SmileDirectClub.</p>
-                <div style="margin-top: 24px;">
-                    <a href="https://www.invisalign.com/" target="_blank" rel="noopener noreferrer" class="ul" style="font-size: 14px; opacity: 0.8;">View Current Invisalign.com →</a>
-                </div>
-                <div class="process-pills">
-                    <div class="pill">Competitive Analysis</div>
-                    <div class="pill">User Flows</div>
-                    <div class="pill">Personas</div>
-                    <div class="pill">Usability Study</div>
-                    <div class="pill">Accessibility Review</div>
-                    <div class="pill">Visual Design Audit</div>
-                    <div class="pill">Prototype</div>
-                </div>
-            </div>
-            <!-- Project Meta -->
-            <div class="project-meta-grid">
-                <div class="meta-item"><h3>Where</h3><p>Remote: U.S. Consumer Market</p></div>
-                <div class="meta-item"><h3>What</h3><p>Responsive Web, Mobile</p></div>
-                <div class="meta-item"><h3>Why</h3><p>Consumer Orthodontics Portal</p></div>
-                <div class="meta-item"><h3>Role</h3><p>UX Researcher, Designer</p></div>
-                <div class="meta-item"><h3>Category</h3><p>UX/UI, Healthcare, SaaS</p></div>
-                <div class="meta-item"><h3>When</h3><p>September 2025 - October 2025</p></div>
-            </div>
-            <!-- Competitive Analysis -->
-            <section class="section">
-                <h2 class="section-title">Competitive analysis</h2>
-                <p class="section-text">
-                    To understand Invisalign.com’s strengths and areas for growth, I compared its homepage journey, offer presentation, and digital experience with its principal consumer competitors: OrthoFX and SmileDirectClub.<br>
-                    <br><b>About the research</b>: I performed heuristic walkthroughs (desktop + mobile), catalogued onboarding, visual messaging, conversion triggers, and accessibility features for each platform. Shown below are key differences and sample findings.
-                </p>
-                <div class="competitor-grid">
-                    <div class="competitor">
-                        <h3>Invisalign.com</h3>
-                        <div class="competitor-mockup">Homepage Screenshot Placeholder</div>
-                        <h4>The Good</h4>
-                        <ul>
-                            <li class="check">Compelling hero visuals communicating product confidence.</li>
-                            <li class="check">Clear evidence/credibility (doctor-recommended, "20 million smiles" stat).</li>
-                            <li class="check">The three-step treatment overview is approachable for new users.</li>
-                            <li class="check">Mobile-friendly, easy-to-read typography and strong call-to-action buttons.</li>
-                            <li class="check">Accessible color contrast on majority of elements; AA compliance in key areas.</li>
-                        </ul>
-                        <h4>The Bad</h4>
-                        <ul>
-                            <li class="cross">Some information-dense FAQ sections can feel overwhelming to first-time users.</li>
-                            <li class="cross">Important calls to action (doctor search, "find a provider") are occasionally buried in the flow.</li>
-                            <li class="cross">No virtual try-on or AR preview is available, unlike some DTC competitors.</li>
-                        </ul>
-                    </div>
-                    <div class="competitor">
-                        <h3>OrthoFX</h3>
-                        <div class="competitor-mockup">Homepage Screenshot Placeholder (OrthoFX)</div>
-                        <h4>The Good</h4>
-                        <ul>
-                            <li class="check">Leading with user-friendly comparison charts for cost and treatment duration.</li>
-                            <li class="check">Immediate virtual consult options available from homepage.</li>
-                            <li class="check">Distinct color-coded plans and transparent pricing communication.</li>
-                        </ul>
-                        <h4>The Bad</h4>
-                        <ul>
-                            <li class="cross">Less mature visual identity, with some inconsistent spacing and interactive elements.</li>
-                            <li class="cross">Mobile site has slightly cluttered call-to-action stack above the fold.</li>
-                            <li class="cross">Less clinical/credentialed focus; feels more DTC and less "medically authoritative".</li>
-                        </ul>
-                    </div>
-                    <div class="competitor">
-                        <h3>SmileDirectClub</h3>
-                        <div class="competitor-mockup">Homepage Screenshot Placeholder (SmileDirectClub)</div>
-                        <h4>The Good</h4>
-                        <ul>
-                            <li class="check">Direct-to-consumer sign-up is simple and fast (no office visit required).</li>
-                            <li class="check">Use of interactive "smile preview" tool to visualize results on photos.</li>
-                            <li class="check">Strong, playful visual language with lots of customer "before and after" stories.</li>
-                        </ul>
-                        <h4>The Bad</h4>
-                        <ul>
-                            <li class="cross">Lacks in-depth provider information and offline options compared to Invisalign.</li>
-                            <li class="cross">Support and FAQ buried under marketing copy; less focus on the science or credentials.</li>
-                            <li class="cross">Accessibility for visual impairment is not as robust (low contrast in hero areas, etc).</li>
-                        </ul>
-                    </div>
-                </div>
-                <h3 style="font-size: 20px; margin: 40px 0 24px 0;">Problems from the comments</h3>
-                <div class="user-comments">
-                    <div class="comment-card">
-                        <p class="comment-text">Had trouble finding a provider and wish there was a virtual try-on tool.</p>
-                        <div class="comment-author"><strong>Anonymous</strong><div class="author-avatar">A</div></div>
-                    </div>
-                    <div class="comment-card">
-                        <p class="comment-text">Loved the before/after galleries. Would like more cost transparency up front.</p>
-                        <div class="comment-author"><strong>Sarah</strong><div class="author-avatar">S</div></div>
-                    </div>
-                    <div class="comment-card">
-                        <p class="comment-text">Mobile site is easy to scroll — but too much small text in the FAQ.</p>
-                        <div class="comment-author"><strong>David</strong><div class="author-avatar">D</div></div>
-                    </div>
-                </div>
-            </section>
-            <!-- Personas -->
-            <section class="section">
-                <h2 class="section-title">Personas</h2>
-                <p class="section-text">I synthesized two core personas based on user surveys and stakeholder interviews to encapsulate key needs for Invisalign.com shoppers and prospects.</p>
-                <div class="persona-grid">
-                    <div class="persona-card">
-                        <div class="persona-image">
-                            <div class="persona-quote">
-                                "I want a treatment that fits my busy work and family schedule, and I want to see what my smile could look like before I commit."
-                            </div>
-                        </div>
-                        <div class="persona-content">
-                            <h3 class="persona-name">Maria Vasquez</h3>
-                            <div class="persona-info-grid">
-                                <div class="persona-info-item"><span class="persona-info-label">Age</span><span class="persona-info-value">36</span></div>
-                                <div class="persona-info-item"><span class="persona-info-label">Location</span><span class="persona-info-value">Phoenix, AZ</span></div>
-                                <div class="persona-info-item"><span class="persona-info-label">Occupation</span><span class="persona-info-value">Teacher</span></div>
-                                <div class="persona-info-item"><span class="persona-info-label">Family Status</span><span class="persona-info-value">Parent</span></div>
-                            </div>
-                            <div class="persona-section">
-                                <h4>Frustrations</h4>
-                                <ul>
-                                    <li>Uncertain about insurance coverage for clear aligners.</li>
-                                    <li>Overwhelmed by technical/scientific info or pop-up modals.</li>
-                                    <li>Wants to know the likely outcome before committing time/money.</li>
-                                </ul>
-                            </div>
-                            <div class="persona-section goals">
-                                <h4>Goals</h4>
-                                <ul>
-                                    <li class="check">A simple online preview of how her teeth could look post-treatment.</li>
-                                    <li class="check">A way to connect with a local doctor or support specialist.</li>
-                                    <li class="check">Clear, upfront pricing with no hidden fees.</li>
-                                </ul>
-                            </div>
-                            <div class="persona-bio">
-                                <strong>About Maria</strong><br><br>
-                                Maria is busy balancing her teaching career and young kids. Shopping for clear aligners must be on her own time and feel low-stress, with easy access to in-person care if needed. She values transparent pricing and service guarantees.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="persona-card">
-                        <div class="persona-image">
-                            <div class="persona-quote">
-                                "I want treatment I can do from home, but I still want real dental supervision and fast customer support."
-                            </div>
-                        </div>
-                        <div class="persona-content">
-                            <h3 class="persona-name">Jordan Lee</h3>
-                            <div class="persona-info-grid">
-                                <div class="persona-info-item"><span class="persona-info-label">Age</span><span class="persona-info-value">29</span></div>
-                                <div class="persona-info-item"><span class="persona-info-label">Location</span><span class="persona-info-value">Denver, CO</span></div>
-                                <div class="persona-info-item"><span class="persona-info-label">Occupation</span><span class="persona-info-value">Product Manager</span></div>
-                                <div class="persona-info-item"><span class="persona-info-label">Family Status</span><span class="persona-info-value">Single</span></div>
-                            </div>
-                            <div class="persona-section">
-                                <h4>Frustrations</h4>
-                                <ul>
-                                    <li>Comparison overload between DTC brands and doctors' offices.</li>
-                                    <li>Can't easily book a consult without a phone call or email tag.</li>
-                                    <li>Unclear billing or shipping policies for impression kits.</li>
-                                </ul>
-                            </div>
-                            <div class="persona-section goals">
-                                <h4>Goals</h4>
-                                <ul>
-                                    <li class="check">Self-directed treatment tracking from home.</li>
-                                    <li class="check">Direct line to customer support and dental professional.</li>
-                                    <li class="check">Personalized, digital-first onboarding experience.</li>
-                                </ul>
-                            </div>
-                            <div class="persona-bio">
-                                <strong>About Jordan</strong><br><br>
-                                Jordan expects most services to be available digitally and on demand. He wants clear aligner treatment with maximum convenience and expects transparency, easy access to real support, and a sense of control throughout the process.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Accessibility Check -->
-            <section class="section">
-                <h2 class="section-title">Accessibility check</h2>
-                <div class="content-box">
-                    <div style="background:#f0f0f0;height:240px;display:flex;align-items:center;justify-content:center;color:#999;">
-                        Accessibility Screenshot Placeholder
-                    </div>
-                    <p class="section-text" style="margin-top:20px;">
-                        Conducted a full accessibility audit. Most homepage contrast ratios meet AA standards, and alt tags are present, but the interactive FAQ and hero banner have some areas for improvement. The mobile experience is strong for colorblind individuals and those with low vision, except for smaller CTA text.
-                    </p>
-                </div>
-            </section>
-            <!-- User Survey -->
-            <section class="section">
-                <h2 class="section-title">User survey</h2>
-                <p class="section-text">
-                    Conducted a remote survey of 27 current or potential orthodontic consumers via Facebook and WhatsApp group. Participants ranged from age 18 to 55 who had considered clear aligner therapy.
-                </p>
-                <div class="content-box">
-                    <div style="background:#f0f0f0;height:160px;display:flex;align-items:center;justify-content:center;color:#999;margin-bottom:20px;">
-                        Survey Results Chart Placeholder
-                    </div>
-                    <div style="margin:20px 0;">
-                        <div class="survey-label">Doctor Recommendation <span>35%</span></div>
-                        <div class="survey-bar-bg"><div class="survey-bar-fill" style="width:35%;"></div></div>
-                        <div class="survey-label">Price <span>25%</span></div>
-                        <div class="survey-bar-bg"><div class="survey-bar-fill" style="width:25%;"></div></div>
-                        <div class="survey-label">Treatment Time <span>15%</span></div>
-                        <div class="survey-bar-bg"><div class="survey-bar-fill" style="width:15%;"></div></div>
-                        <div class="survey-label">Reviews/Testimonies <span>10%</span></div>
-                        <div class="survey-bar-bg"><div class="survey-bar-fill" style="width:10%;"></div
 
+    <main>
+        <div class="hero">
+            <h1>Invisalign E-Commerce Website</h1>
+            <p>Order your Invisalign accessories online</p>
+            <a href="https://shop.invisalign.com" target="_blank" class="ul">View Invisalign E-Commerce Website →</a>
+
+            <div class="pills">
+                <div class="pill">Market Research</div>
+                <div class="pill">Competitive analysis</div>
+                <div class="pill">User Survey</div>
+                <div class="pill">Personas</div>
+                <div class="pill">Storyboarding</div>
+                <div class="pill">User journey map</div>
+                <div class="pill">Flow diagram</div>
+                <div class="pill">Lo-fi wireframes</div>
+                <div class="pill">Alignment and grid</div>
+                <div class="pill">Hi-fi UI</div>
+                <div class="pill">Prototype</div>
+                <div class="pill">Mini usability study</div>
+                <div class="pill">Accessibility evaluation</div>
+            </div>
+        </div>
+
+        <div class="meta-grid">
+            <div class="meta-item">
+                <h3>Where</h3>
+                <p>Raleigh, North Carolina</p>
+            </div>
+            <div class="meta-item">
+                <h3>What</h3>
+                <p>Android, iOS, Desktop</p>
+            </div>
+            <div class="meta-item">
+                <h3>Why</h3>
+                <p>E-Commerce Website</p>
+            </div>
+            <div class="meta-item">
+                <h3>Role</h3>
+                <p>UX/UI Designer, UX Researcher</p>
+            </div>
+            <div class="meta-item">
+                <h3>Category</h3>
+                <p>Medical</p>
+            </div>
+            <div class="meta-item">
+                <h3>When</h3>
+                <p>March 2020 - January 2021</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2>Competitive analysis</h2>
+            <p>I opened and then analyzed these three websites, one of which is a direct competitor and two are indirect. I compared the ordering experience of each website as a new user and a returning user. What's more is I juxtaposed negative comments from the App Store and Android App Store to get the essence of what the users struggle with the most while using them and what they are not too keen on.</p>
+
+            <div class="competitor">
+                <h3>Bloomingdale's</h3>
+                <div class="screenshot">[Bloomingdale's website screenshot]</div>
+                <h4>The Good</h4>
+                <ul>
+                    <li class="check">The website has a simple, modern, and clean design with big headings and colors with high contrast.</li>
+                    <li class="check">The meaning behind the UI icons is explained.</li>
+                    <li class="check">The ordering process is smooth, and there are many filters and categories of products.</li>
+                </ul>
+                <h4>The Bad</h4>
+                <ul>
+                    <li class="cross">The navigation is unintuitive and takes time to get used to.</li>
+                    <li class="cross">The expand feature sometimes seems too long. Thus, it should be folded by default.</li>
+                    <li class="cross">Names of some products are clipped.</li>
+                </ul>
+            </div>
+
+            <div class="competitor">
+                <h3>Asos</h3>
+                <div class="screenshot">[Asos website screenshot]</div>
+                <h4>The Good</h4>
+                <ul>
+                    <li class="check">The navigation icons are big and have labels under them.</li>
+                    <li class="check">There are filters for different clothing types, such as men, women, and children.</li>
+                    <li class="check">The website is available in different languages.</li>
+                </ul>
+                <h4>The Bad</h4>
+                <ul>
+                    <li class="cross">Light gray text on the white background has a contrast ratio of 1.77, thus it's not accessible.</li>
+                    <li class="cross">There is no possibility to create an account using social links.</li>
+                </ul>
+            </div>
+
+            <div class="competitor">
+                <h3>Nike</h3>
+                <div class="screenshot">[Nike website screenshot]</div>
+                <h4>The Good</h4>
+                <ul>
+                    <li class="check">Modern and clean design with big headings and colors with high contrast.</li>
+                    <li class="check">Customizable products, variety of products to choose from.</li>
+                    <li class="check">Clear brand identity, including colors, logo, typeface, style, motion, imagery, and photography.</li>
+                </ul>
+                <h4>The Bad</h4>
+                <ul>
+                    <li class="cross">Icons sometimes don't have labels underneath.</li>
+                    <li class="cross">The menu makes it a little bit hard to navigate.</li>
+                </ul>
+            </div>
+
+            <h3>Problems from the comments</h3>
+            <div class="comments">
+                <div class="comment">
+                    <p class="comment-text">It's a shame that you have to enter the card number every time.</p>
+                    <div class="comment-author">
+                        <strong>Kevin</strong>
+                        <div class="avatar">K</div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <p class="comment-text">You can't repeat orders, and there is no support button anywhere.</p>
+                    <div class="comment-author">
+                        <strong>Matthew</strong>
+                        <div class="avatar">M</div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <p class="comment-text">Sometimes you can't quick-add a product to your shopping cart.</p>
+                    <div class="comment-author">
+                        <strong>Julia</strong>
+                        <div class="avatar">J</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Personas</h2>
+            <p>I created two personas to help me explore the needs of a larger group of users and designed the website with specific target users in mind.</p>
+
+            <div class="persona-grid">
+                <div class="persona">
+                    <div class="persona-img">
+                        <div class="persona-quote">"I'm always in a hurry, and I'm also impatient. That's why I hate waiting in long queues!"</div>
+                    </div>
+                    <div class="persona-content">
+                        <h3 class="persona-name">Julia Schaumburg</h3>
+                        
+                        <div class="persona-info">
+                            <div class="persona-info-item">
+                                <label>Age</label>
+                                <span>32</span>
+                            </div>
+                            <div class="persona-info-item">
+                                <label>Location</label>
+                                <span>Salt Lake City, Utah</span>
+                            </div>
+                            <div class="persona-info-item">
+                                <label>Occupation</label>
+                                <span>Marketing Manager</span>
+                            </div>
+                            <div class="persona-info-item">
+                                <label>Family Status</label>
+                                <span>Single</span>
+                            </div>
+                        </div>
+
+                        <div class="persona-section">
+                            <h4>Frustrations</h4>
+                            <ul>
+                                <li>The navigation is unintuitive and takes time to get used to.</li>
+                                <li>The expand feature sometimes seems too long. Thus, it should be folded by default.</li>
+                                <li>Names of some products are clipped.</li>
+                            </ul>
+                        </div>
+
+                        <div class="persona-section goals">
+                            <h4>Goals</h4>
+                            <ul>
+                                <li>The website has a simple, modern, and clean design with big headings and colors with high contrast.</li>
+                                <li>The meaning behind the UI icons is explained.</li>
+                                <li>The ordering process is smooth, and there are many filters and categories of products.</li>
+                            </ul>
+                        </div>
+
+                        <div class="persona-bio">
+                            <strong>About Julia</strong><br><br>
+                            Julia is a busy, urban professional who values convenience and efficiency in her shopping habits. She is tech-savvy and often researches products online before making a purchase, either on her laptop or smartphone. Julia is health-conscious and prioritizes buying high-quality, sustainable, and organic products for both herself and her home.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="persona">
+                    <div class="persona-img">
+                        <div class="persona-quote">"I hate having to go in person to shop. I'd rather have my clothes shipped to me!"</div>
+                    </div>
+                    <div class="persona-content">
+                        <h3 class="persona-name">David Mygrant</h3>
+                        
+                        <div class="persona-info">
+                            <div class="persona-info-item">
+                                <label>Age</label>
+                                <span>28</span>
+                            </div>
+                            <div class="persona-info-item">
+                                <label>Location</label>
+                                <span>Reno, Nevada</span>
+                            </div>
+                            <div class="persona-info-item">
+                                <label>Occupation</label>
+                                <span>Software Engineer</span>
+                            </div>
+                            <div class="persona-info-item">
+                                <label>Family Status</label>
+                                <span>Single</span>
+                            </div>
+                        </div>
+
+                        <div class="persona-section">
+                            <h4>Frustrations</h4>
+                            <ul>
+                                <li>The website has slow loading times.</li>
+                                <li>Websites with inadequate or non-functioning search features can make it difficult for users to find specific products.</li>
+                                <li>Websites with broken links or error pages can create a negative impression.</li>
+                            </ul>
+                        </div>
+
+                        <div class="persona-section goals">
+                            <h4>Goals</h4>
+                            <ul>
+                                <li>A well-designed website will have a powerful search engine that allows users to find the products they're looking for.</li>
+                                <li>Site loads quickly and ultimately reduces user frustration.</li>
+                                <li>A well-designed e-commerce website will provide detailed product information, including specifications, images, and customer reviews.</li>
+                            </ul>
+                        </div>
+
+                        <div class="persona-bio">
+                            <strong>About David</strong><br><br>
+                            David is a young, tech-savvy professional who values both affordability and quality in his shopping choices. He is always on the lookout for the latest gadgets and technology products, and spends a lot of time researching products before making a purchase.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>User survey</h2>
+            <p>I conducted a quick survey among people who use e-commerce websites with a tracking system regularly on Facebook.</p>
+
+            <div style="margin: 40px 0;">
+                <h3 style="margin-bottom: 24px;">What's the most important factor you take into account while deciding to order from an e-commerce website?</h3>
+                <p style="margin-bottom: 32px;">27 participants</p>
+
+                <div class="survey-bar">
+                    <div class="survey-label">
+                        <span>Price</span>
+                        <span>40%</span>
+                    </div>
+                    <div class="bar-bg">
+                        <div class="bar-fill" style="width: 40%"></div>
+                    </div>
+                </div>
+
+                <div class="survey-bar">
+                    <div class="survey-label">
+                        <span>Delivery Time</span>
+                        <span>20%</span>
+                    </div>
+                    <div class="bar-bg">
+                        <div class="bar-fill" style="width: 20%"></div>
+                    </div>
+                </div>
+
+                <div class="survey-bar">
+                    <div class="survey-label">
+                        <span>Reviews</span>
+                        <span>15%</span>
+                    </div>
+                    <div class="bar-bg">
+                        <div class="bar-fill" style="width: 15%"></div>
+                    </div>
+                </div>
+
+                <div class="survey-bar">
+                    <div class="survey-label">
+                        <span>Information about the product and its images</span>
+                        <span>10%</span>
+                    </div>
+                    <div class="bar-bg">
+                        <div class="bar-fill" style="width: 10%"></div>
+                    </div>
+                </div>
+
+                <div class="survey-bar">
+                    <div class="survey-label">
+                        <span>Customization</span>
+                        <span>10%</span>
+                    </div>
+                    <div class="bar-bg">
+                        <div class="bar-fill" style="width: 10%"></div>
+                    </div>
+                </div>
+
+                <div class="survey-bar">
+                    <div class="survey-label">
+                        <span>Other</span>
+                        <span>5%</span>
+                    </div>
+                    <div class="bar-bg">
+                        <div class="bar-fill" style="width: 5%"></div>
+                    </div>
+                </div>
+
+                <h3 style="margin: 40px 0 24px;">Notable comments</h3>
+                <div class="comments">
+                    <div class="comment">
+                        <p class="comment-text">I like to know when my product ships.</p>
+                        <div class="comment-author">
+                            <strong>Kevin</strong>
+                            <div class="avatar">K</div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <p class="comment-text">I like the option to reorder a product.</p>
+                        <div class="comment-author">
+                            <strong>Matthew</strong>
+                            <div class="avatar">M</div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <p class="comment-text">I like getting coupons and gift cards.</p>
+                        <div class="comment-author">
+                            <strong>Julia</strong>
+                            <div class="avatar">J</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>User journey map</h2>
+            <p>Next, I created a user journey map to identify the pain points and feelings the customer might go through while ordering traditionally. I also enlisted solutions to the problems my redesign would solve.</p>
+
+            <div class="journey">
+                <div style="margin-bottom: 24px;">
+                    <h3 style="font-size: 20px; margin-bottom: 8px;">Persona: Julia Schaumburg</h3>
+                    <p style="font-size: 18px; font-weight: 600; margin-top: 8px;">Goal: Trying to buy the clothes they want and beat rush hour traffic</p>
+                </div>
+
+                <div class="journey-grid">
+                    <div></div>
+                    <div class="stage stage-1">Goes to the store</div>
+                    <div class="stage stage-1">Browse clothes</div>
+                    <div class="stage stage-2">Try clothes on</div>
+                    <div class="stage stage-3">Wait in line</div>
+                    <div class="stage stage-4">Pay for clothes</div>
+
+                    <div class="journey-label">Action</div>
+                    <div class="journey-cell">Goes to the store</div>
+                    <div class="journey-cell">Browse clothes</div>
+                    <div class="journey-cell">Try clothes on</div>
+                    <div class="journey-cell">Wait in line</div>
+                    <div class="journey-cell">Pay for clothes</div>
+
+                    <div class="journey-label">Mood</div>
+                    <div class="mood">😐</div>
+                    <div class="mood">🙁</div>
+                    <div class="mood">🙂</div>
+                    <div class="mood">😟</div>
+                    <div class="mood">🙂</div>
+
+                    <div class="journey-label">Tasklist</div>
+                    <div class="journey-cell">• Decide on clothing type, whether she wants to buy tops or bottoms<br>• Enter the store<br>• See that the store is busy and there are lines everywhere</div>
+                    <div class="journey-cell">• Look at the overhead signs of the store to see where she wants to start</div>
+                    <div class="journey-cell">• It's finally her turn to try their clothes on<br>• They take pictures of the different outfit pairings</div>
+                    <div class="journey-cell">• Checks to see they have all the items they need<br>• Gets walks ready</div>
+                    <div class="journey-cell">• Pay for clothes<br>• Waited 2 hours shopping for 4 items but is glad she has them<br>• Rush to car to avoid rush hour traffic</div>
+
+                    <div class="journey-label">Feelings</div>
+                    <div class="journey-cell">• Irritated that there are so many people in the store and doomed to wait in a queue forever</div>
+                    <div class="journey-cell">• Annoyed at other people who have big orders</div>
+                    <div class="journey-cell">• Annoyed at having to wait in line to try her clothes on<br>• Annoyed at finding clothes in her size</div>
+                    <div class="journey-cell">• Frustrated at having to wait longer<br>• Annoyed that there is always something unexpected</div>
+                    <div class="journey-cell">• Happy to get the clothes she wanted</div>
+
+                    <div class="journey-label">Painpoints</div>
+                    <div class="journey-cell">• Irritated that there are so many people in the store and doomed to wait in a queue forever</div>
+                    <div class="journey-cell">• Waiting in a queue while everyone is doing the same, which takes time to manage each customer and do anything else<br>• Some orders take more time than expected, so the waiting time is longer</div>
+                    <div class="journey-cell">• Anxious about not getting all the clothes to try on<br>• Frustrated about checking whether to see if you have the right amount of cash or the right credit card</div>
+                    <div class="journey-cell">• There is some issue with the cash register, and it needs to be reset<br>• The waiting time extends</div>
+                    <div class="journey-cell">• Thinking why the store manager couldn't do something to lessen the queues<br>• Might not be able to beat rush hour traffic</div>
+
+                    <div class="journey-label">Improvement Opportunities</div>
+                    <div class="journey-cell">• Create a new experience so clients can order clothes and pay for them beforehand and collect them without waiting in queues</div>
+                    <div class="journey-cell">• Directly order from the website<br>• Pay for the order in advance<br>• See tracking details</div>
+                    <div class="journey-cell">• Create a new experience so clients can order clothes and pay for them beforehand and collect them without waiting in queues</div>
+                    <div class="journey-cell">• Option to pay in installments on the website</div>
+                    <div class="journey-cell">• Order items directly from the website without waiting in queues and pick them up at your own comfort of your home</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="highlight">
+                <h2>INITIAL RESEARCH RESULTS</h2>
+                <p>As the carried out research shows, there is a growing need for e-commerce apps, and every company that provides services should have one such app.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Flow diagram</h2>
+            <p>To outline all the necessary functionality, I created a simple flow diagram of the main tasks the user can do. One of the flows is shown below. Fall state flows were also created, but are not shown due to space constraints.</p>
+
+            <div class="flow">
+                <h3>Main user flow</h3>
+                
+                <div class="flow-row">
+                    <div class="flow-node">Registration</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-node">Home</div>
+                </div>
+
+                <div class="flow-row">
+                    <div class="flow-node">Profile</div>
+                    <div class="flow-node">Orders</div>
+                    <div class="flow-node">Search product</div>
+                </div>
+
+                <div class="flow-row">
+                    <div class="flow-node">Account info</div>
+                    <div class="flow-node">Payment details</div>
+                    <div class="flow-node">Latest orders</div>
+                    <div class="flow-node">Product list</div>
+                </div>
+
+                <div class="flow-row">
+                    <div style="width: 200px;"></div>
+                    <div class="flow-node">Product details</div>
+                </div>
+
+                <div class="flow-row">
+                    <div class="flow-node">Delivery</div>
+                    <div class="flow-arrow">←</div>
+                    <div class="flow-node">Checkout</div>
+                    <div class="flow-arrow">←</div>
+                    <div class="flow-node">Details</div>
+                    <div class="flow-arrow">←</div>
+                    <div class="flow-node">Cart</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Market research</h2>
+            
+            <div class="two-col">
+                <div>
+                    <h3>THE CLAIM</h3>
+                    <ul>
+                        <li class="check">E-commerce websites have become more and more popular.</li>
+                        <li class="check">According to eMarketer, e-commerce websites were among "the three fastest-growing categories in 2020."</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>THE PROBLEM</h3>
+                    <ul>
+                        <li class="check">With the arrival of the COVID-19 pandemic, e-commerce websites maintained the flow of consuming and buying products by ensuring that the product is delivered in a safe, socially distanced, and convenient way.</li>
+                        <li class="check">Amazon states that <strong>demand for contactless shopping is still increasing</strong>, "as consumers who ordered products via their website out of necessity throughout the pandemic continue to do so."</li>
+                        <li class="check">According to the previously mentioned report, "<strong>consumers appear to prefer ordering from a retailer's own app rather than going in person</strong>." The report also stresses the fact that "<strong>more consumers than ever say they would be encouraged to spend more if their favorite retailers offered time-saving services</strong>."</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="highlight">
+                <h2>TIME TO START DESIGNING!</h2>
+                <p>Once I went to my end user's head, it was time to sketch out the first flows and initial low-fidelity wireframes, as well as a prototype based on them.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>High-fidelity UI Design</h2>
+            <p>Once the initial flow was completed and the wireframes were ready, I started creating a couple of the main screens of the app. Using the company's brand guidelines was the most important thing. I created a simple <strong>UI Style Guide</strong> to maintain consistency. Thus, for colors, I went with the <strong>HSL color model</strong> to get exact tints and shadows of the main colors. Then I created a <strong>typography scale</strong> to ensure the hierarchy throughout the project is preserved.</p>
+
+            <div style="margin: 60px 0;">
+                <div class="two-col">
+                    <div>
+                        <h3>Colors</h3>
+                        <p style="margin-bottom: 16px;"><strong>Primary</strong></p>
+                        <div class="colors">
+                            <div class="color" style="background: #019ACE;"></div>
+                            <div class="color" style="background: #000080;"></div>
+                        </div>
+
+                        <p style="margin: 24px 0 16px;"><strong>Secondary</strong></p>
+                        <div class="colors">
+                            <div class="color" style="background: #B8860B;"></div>
+                            <div class="color" style="background: #FFA500;"></div>
+                            <div class="color" style="background: #FF6B6B;"></div>
+                            <div class="color" style="background: #E91E63;"></div>
+                            <div class="color" style="background: #CDDC39;"></div>
+                            <div class="color" style="background: #FF0000;"></div>
+                        </div>
+
+                        <p style="margin: 24px 0 16px;"><strong>Neutrals I</strong></p>
+                        <div class="colors">
+                            <div class="color" style="background: #9E9E9E;"></div>
+                            <div class="color" style="background: #757575;"></div>
+                            <div class="color" style="background: #616161;"></div>
+                            <div class="color" style="background: #424242;"></div>
+                            <div class="color" style="background: #212121;"></div>
+                            <div class="color" style="background: #000000;"></div>
+                        </div>
+
+                        <p style="margin: 24px 0 16px;"><strong>Neutrals II</strong></p>
+                        <div class="colors">
+                            <div class="color" style="background: #FFFFFF;"></div>
+                            <div class="color" style="background: #FAFAFA;"></div>
+                            <div class="color" style="background: #F5F5F5;"></div>
+                            <div class="color" style="background: #EEEEEE;"></div>
+                            <div class="color" style="background: #BDBDBD;"></div>
+                            <div class="color" style="background: #9E9E9E;"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Typeface</h3>
+                        <p style="margin: 16px 0;">Roboto<br>Regular, <strong>Medium, Semi Bold, Bold</strong></p>
+                        <div class="typo">AaBbCcDdEeFfGgHh</div>
+                        
+                        <h3 style="margin-top: 40px;">Align with the brand guidelines</h3>
+                        <p style="font-size: 16px; line-height: 1.6; margin-top: 16px;">With the colorful brand guidelines of Invisalign's products, the feeling of being friendly was established.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Storyboarding</h2>
+            <p>I then created UX storyboards for one persona to help me visually predict and explore a user's experience with my website. These were created using the Storyboard Mix-and-match plugin via Figma</p>
+
+            <div style="margin: 40px 0;">
+                <div style="margin-bottom: 32px;">
+                    <h3 style="font-size: 20px; margin-bottom: 8px;">Persona: Julia Schaumburg</h3>
+                    <p><strong>User story/Scenario:</strong> Use the local e-commerce website quickly order goods.</p>
+                </div>
+
+                <h4 style="margin-bottom: 16px;">Big picture</h4>
+                <p style="font-size: 16px; line-height: 1.6; margin-bottom: 32px;">Julia is about to leave the house and wonders if her favorite store will be cramped as always. → Julia is in front of the store, where there is already a very long queue, and is angry, as are other clients. → Julia sees an advert on the storefront that the bakery has just launched a new website that lets you order goodies and collect them at a convenient time. → Julia downloads the newly launched website and creates a new account. She also adds her payment method. → Julia orders her favorite clothes and pays via the website. Her order will be ready in 2 hours, or she has the option to ship it to her house. → Julia collects her order and is happy that it took quickly to complete. Now she won't be late for rush hour traffic.</p>
+                
+                <div class="screenshot">[Storyboard illustrations]</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Prototype validation</h2>
+            <p>After the prototype was created, I tested it on 5 users. I made a research plan where I outlined research goals, questions I wanted to know the answer from, KPIs, methodology, information about the participants, and a script with tasks to complete. Mainly I wanted to be sure that the ordering process was smooth without any friction and leads to the product being purchased and that later the user knows when and how the product can be picked up. This was tested and carried on in-person using Figma's prototype mirror share app.</p>
+
+            <p style="margin-top: 20px;">The tasks included adding one item and then more items into the cart, multiplying the product's quantity, and then proceeding to the checkout screen and completing the order. Side tasks included toggling the description tab and using coupon codes. Throughout the tasks, I asked users to talk through their thought process and speak out when something was unclear or irritated them.</p>
+
+            <p style="margin-top: 20px;">After the usability study, I asked the participants to complete a short System Usability Scale questionnaire.</p>
+
+            <p style="margin-top: 20px;">After collecting insights from the participants, I made an affinity diagram to organize a large number of ideas into their natural relationships.</p>
+
+            <p style="margin-top: 20px;">Then I made a usability study presentation to showcase the study's insights and recommendations.</p>
+
+            <h3>Study results</h3>
+            <p style="margin-top: 20px;"><strong>60% of participants</strong> (3 out of 5) weren't able to purchase any product(s). However, all of the users were able to add the desired items to their carts, use coupon codes, and toggle the description button. The main friction of these two users who couldn't purchase the product(s) was that they weren't aware that paying through the website is only possible by owning a credit card.</p>
+
+            <p style="margin-top: 20px;">In a later update, PayPal and Stripe were added to satisfy customer frustration.</p>
+        </section>
+
+        <section class="section">
+            <h2>Accessibility check</h2>
+            <p>The app has been evaluated for contrast to match at least AA standards. Every frame was checked with contrast checker tools, such as the Figma plugin "A11y - Color Contrast Checker" and then by hand with the "Contrast Checker" by WebAIM.</p>
+
+            <div class="screenshot">[Product page screenshot showing accessibility evaluation]</div>
+        </section>
+
+        <section class="section">
+            <h2>Wireframes and initial insights</h2>
+            <p>Once the flow diagram was established, I started sketching with pen and paper the low-fidelity wireframes of the main user flow. However, due to space constraints, I decided to show only a couple of the digital lo-fi wireframes I designed. The initial wireframes were made to adapt to the Apple users (as a form of following the Material Design's guidelines).</p>
+
+            <div class="screenshot">[Wireframe mockups]</div>
+
+            <h3>Getting feedback</h3>
+            <ul>
+                <li class="check">After the lo-fi wireframes were designed, I made a prototype to test on a couple of users. I made a research plan where I outlined research goals, enlisted questions to be asked, KPIs, methodology, information about the participants, and a script with tasks to complete.</li>
+                <li class="check">After collecting insights from the participants, I made an affinity diagram to seek a pattern in the participants' behavior and their frustrations while going through the prototype.</li>
+                <li class="check">Then I made a usability study presentation to showcase the study's quick recap, insights, and recommendations.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <div class="screenshot" style="min-height: 600px;">[Final UI Mockups - Homepage, Product Pages, Checkout Flow]</div>
+        </section>
+
+        <section class="summary">
+            <h2>PROJECT SUMMARY</h2>
+            <p>During this 10-month journey working on the Invisalign e-commerce website, I had the opportunity to tackle a comprehensive UX/UI design project that encompassed the entire design process from initial research through final implementation. This project was both demanding and incredibly rewarding, providing me with invaluable insights into creating user-centered digital experiences in the medical e-commerce space.</p>
+
+            <p>The project began with extensive market research to understand the landscape of e-commerce websites during the COVID-19 pandemic. I conducted competitive analyses of major retail platforms, including Bloomingdale's, Asos, and Nike, examining their strengths and weaknesses to identify opportunities for improvement. Through user surveys with 27 participants and detailed persona development, I gained deep insights into what users truly value when shopping online: price, delivery time, product information, and ease of use.</p>
+
+            <p>One of the most valuable aspects of this project was creating detailed user journey maps and understanding the emotional highs and lows customers experience during their shopping journey. Mapping out Julia's frustrations with in-store shopping—from long queues to time constraints which helped me identify clear opportunities for an online solution that would eliminate these pain points. The storyboarding process allowed me to visualize how the website would fit seamlessly into users' lives, transforming a frustrating shopping experience into a convenient, time-saving solution.</p>
+
+            <p>The design phase involved creating comprehensive wireframes, developing a cohesive design system aligned with Invisalign's brand guidelines, and building high-fidelity prototypes. I paid special attention to accessibility, ensuring all designs met AA contrast standards. The use of Invisalign's colorful brand palette helped establish a friendly, approachable feeling that was essential for creating trust in a medical product e-commerce platform.</p>
+
+            <p>The prototype validation phase proved to be one of the most enlightening parts of the project. Testing with 5 users revealed a critical insight: 60% of participants couldn't complete purchases because they were unaware that only credit cards were accepted. This finding led to a significant improvement by adding PayPal and Stripe as payment options, which demonstrated the immense value of user testing in identifying and solving real problems before launch.</p>
+
+            <p>Throughout this project, I learned that great design is iterative and user-focused. Every decision, from the information architecture to the checkout flow, needed to be validated with real users. I became proficient in various UX research methodologies, including surveys, interviews, usability testing, and affinity mapping. I also deepened my understanding of accessibility standards and the importance of creating inclusive digital experiences.</p>
+
+            <p>While I'm proud of what was accomplished, I recognize there's always room for growth and improvement. The field of UX/UI design is constantly evolving, and this project taught me the importance of staying curious, being open to feedback, and always advocating for the end user. The skills and insights I gained from this project, from research and strategy to visual design and testing, have been instrumental in shaping my approach to design challenges.</p>
+
+            <p>Looking back, this project reinforced my passion for creating meaningful digital experiences that solve real problems for real people. The transition from identifying user pain points to delivering a solution that makes their lives easier is what makes UX design so fulfilling. I'm grateful for the opportunity to have worked on a project that not only challenged me professionally but also contributed to making medical products more accessible through thoughtful, user-centered design.</p>
+        </section>
+
+        <div style="display: flex; justify-content: flex-end; padding: 60px 0;">
             <div class="max-100 mta m-hide">
                 <a href="dashboard.html">
                     <div class="project-image ratio-4-5 bg-grey">
@@ -326,6 +1157,47 @@
                 </a>
             </div>
         </div>
+
     </main>
+
+    <style>
+        .max-100 {
+            width: 100px;
+        }
+
+        .mta {
+            margin-top: auto;
+        }
+
+        .project-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ratio-4-5 {
+            aspect-ratio: 4/5;
+            width: 100%;
+        }
+
+        .bg-grey {
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #019ACE;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .m-hide {
+                display: none;
+            }
+        }
+    </style>
 </body>
 </html>
