@@ -20,7 +20,6 @@
             padding: 0;
             text-rendering: optimizeLegibility;
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             font-size: 12px;
@@ -29,54 +28,19 @@
             background: #000000;
             letter-spacing: 0.01em;
         }
-
         ::selection {
             background: #ffffff;
             color: #000000;
         }
-
-        /* Links */
-        a {
-            color: inherit;
-            text-decoration: none;
-            cursor: pointer;
-            transition: opacity 0.2s ease;
-        }
-
-        a:hover {
-            opacity: 0.5;
-        }
-
-        .ul {
-            text-decoration: underline;
-        }
-
-        /* Layout utilities */
-        .flex {
-            display: flex;
-        }
-
-        .flex-col {
-            flex-direction: column;
-        }
-
-        .align-center {
-            align-items: center;
-        }
-
-        .space-between {
-            justify-content: space-between;
-        }
-
-        .p8 {
-            padding: 8px;
-        }
-
-        .mla {
-            margin-left: auto;
-        }
-
-        /* Header */
+        a { color: inherit; text-decoration: none; cursor: pointer; transition: opacity 0.2s ease; }
+        a:hover { opacity: 0.5; }
+        .ul { text-decoration: underline; }
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .align-center { align-items: center; }
+        .space-between { justify-content: space-between; }
+        .p8 { padding: 8px; }
+        .mla { margin-left: auto; }
         .masthead {
             background-color: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
@@ -87,683 +51,80 @@
             z-index: 12;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        /* Main content */
-        main {
-            margin-top: 40px;
-            padding: 8px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Hero section */
-        .hero {
-            padding: 80px 20px 60px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 60px;
-        }
-
-        .hero-title {
-            font-size: 48px;
-            font-weight: 400;
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: 16px;
-            opacity: 0.7;
-            line-height: 1.5;
-            max-width: 700px;
-        }
-
-        /* Process pills */
-        .process-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 32px 0;
-        }
-
-        .pill {
-            background: #019ACE;
-            color: #ffffff;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        /* Project meta grid */
-        .project-meta-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin: 60px 0;
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .meta-item h3 {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            opacity: 0.5;
-            margin-bottom: 8px;
-        }
-
-        .meta-item p {
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* Section styles */
-        .section {
-            margin-bottom: 80px;
-        }
-
-        .section-title {
-            font-size: 32px;
-            font-weight: 400;
-            margin-bottom: 24px;
-        }
-
-        .section-text {
-            font-size: 14px;
-            line-height: 1.7;
-            opacity: 0.8;
-            margin-bottom: 20px;
-        }
-
-        /* Content boxes */
-        .content-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid #019ACE;
-            border-radius: 0;
-            padding: 40px;
-            margin: 32px 0;
-        }
-
-        .content-box.white-bg {
-            background: #f5f5f5;
-            color: #000000;
-        }
-
-        .content-box.light-blue-bg {
-            background: #E8F4F8;
-            color: #000000;
-        }
-
-        /* Two column layout */
-        .two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin: 40px 0;
-        }
-
-        .col-header {
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 24px;
-        }
-
-        /* Lists */
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        ul li {
-            font-size: 14px;
-            line-height: 1.8;
-            opacity: 0.8;
-            padding: 8px 0;
-            padding-left: 24px;
-            position: relative;
-        }
-
-        ul li:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 18px;
-            width: 8px;
-            height: 8px;
-            background: #019ACE;
-            border-radius: 50%;
-        }
-
-        ul li.check:before {
-            content: '✓';
-            background: none;
-            color: #019ACE;
-            font-weight: bold;
-            font-size: 16px;
-            top: 8px;
-        }
-
-        ul li.cross:before {
-            content: '✗';
-            background: none;
-            color: #ff4444;
-            font-weight: bold;
-            font-size: 16px;
-            top: 8px;
-        }
-
-        /* Competitive analysis */
-        .competitor-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            margin: 40px 0;
-        }
-
-        .competitor {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid #019ACE;
-            padding: 32px;
-        }
-
-        .competitor h3 {
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 24px;
-        }
-
-        .competitor h4 {
-            font-size: 14px;
-            font-weight: 600;
-            margin: 20px 0 12px 0;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .competitor-mockup {
-            background: #f0f0f0;
-            height: 200px;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 12px;
-        }
-
-        /* User comments */
-        .user-comments {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin: 40px 0;
-        }
-
-        .comment-card {
-            background: #ffffff;
-            color: #000000;
-            padding: 24px;
-            border-radius: 8px;
-            position: relative;
-        }
-
-        .comment-text {
-            font-size: 13px;
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-
-        .comment-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            justify-content: flex-end;
-        }
-
-        .author-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #019ACE;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        /* Persona cards */
-        .persona-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin: 40px 0;
-        }
-
-        .persona-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid #019ACE;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .persona-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #019ACE 0%, #0178a3 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .persona-quote {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 16px;
-            font-size: 13px;
-            font-style: italic;
-        }
-
-        .persona-content {
-            padding: 32px;
-        }
-
-        .persona-name {
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 24px;
-            color: #019ACE;
-        }
-
-        .persona-section {
-            margin-bottom: 24px;
-        }
-
-        .persona-section h4 {
-            font-size: 12px;
-            font-weight: 600;
-            color: #ff4444;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-        }
-
-        .persona-section.goals h4 {
-            color: #019ACE;
-        }
-
-        .persona-info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin: 24px 0;
-            padding: 24px;
-            background: rgba(1, 154, 206, 0.1);
-        }
-
-        .persona-info-item {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .persona-info-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            opacity: 0.6;
-        }
-
-        .persona-info-value {
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .persona-bio {
-            font-size: 13px;
-            line-height: 1.6;
-            opacity: 0.8;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 24px;
-            margin: 24px 0;
-        }
-
-        /* Survey results */
-        .survey-bar {
-            margin: 20px 0;
-        }
-
-        .survey-label {
-            font-size: 13px;
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .survey-bar-bg {
-            background: rgba(255, 255, 255, 0.1);
-            height: 8px;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .survey-bar-fill {
-            background: #019ACE;
-            height: 100%;
-            transition: width 0.6s ease;
-        }
-
-        /* Journey map */
-        .journey-map {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid #019ACE;
-            padding: 40px;
-            margin: 40px 0;
-            overflow-x: auto;
-        }
-
-        .journey-header {
-            display: grid;
-            grid-template-columns: 150px repeat(5, 1fr);
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .journey-stage {
-            text-align: center;
-            padding: 16px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .journey-stage.yellow {
-            background: #FDB813;
-            color: #000;
-        }
-
-        .journey-stage.orange {
-            background: #FF8C42;
-            color: #000;
-        }
-
-        .journey-stage.pink {
-            background: #FFB3BA;
-            color: #000;
-        }
-
-        .journey-stage.red {
-            background: #FF6B6B;
-            color: #fff;
-        }
-
-        .journey-row {
-            display: grid;
-            grid-template-columns: 150px repeat(5, 1fr);
-            gap: 16px;
-            margin-bottom: 16px;
-            align-items: start;
-        }
-
-        .journey-label {
-            font-size: 12px;
-            font-weight: 600;
-            padding: 12px 0;
-        }
-
-        .journey-cell {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 12px;
-            font-size: 11px;
-            line-height: 1.5;
-            min-height: 80px;
-        }
-
-        .mood-indicator {
-            text-align: center;
-            font-size: 24px;
-            padding: 8px;
-        }
-
-        /* Flow diagram */
-        .flow-diagram {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid #019ACE;
-            padding: 60px 40px;
-            margin: 40px 0;
-            text-align: center;
-        }
-
-        .flow-title {
-            font-size: 32px;
-            font-weight: 400;
-            margin-bottom: 60px;
-        }
-
-        .flow-nodes {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-
-        .flow-node {
-            background: #ffffff;
-            color: #000000;
-            padding: 24px 40px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            position: relative;
-        }
-
-        .flow-arrow {
-            color: #019ACE;
-            font-size: 24px;
-        }
-
-        .flow-label {
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 11px;
-            color: #019ACE;
-            white-space: nowrap;
-        }
-
-        /* Design system */
-        .color-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            gap: 16px;
-            margin: 24px 0;
-        }
-
-        .color-swatch {
-            aspect-ratio: 1;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .typography-sample {
-            font-size: 48px;
-            font-weight: 600;
-            margin: 24px 0;
-            letter-spacing: -0.02em;
-        }
-
-        /* Wireframes */
-        .wireframe-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-            margin: 40px 0;
-        }
-
-        .wireframe {
-            background: #f5f5f5;
-            border: 1px solid #019ACE;
-            padding: 20px;
-            aspect-ratio: 9/16;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .wireframe-header {
-            background: #ddd;
-            height: 60px;
-            border-radius: 4px;
-        }
-
-        .wireframe-hero {
-            background: #e8e8e8;
-            height: 200px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 12px;
-        }
-
-        .wireframe-grid-items {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            flex: 1;
-        }
-
-        .wireframe-item {
-            background: #e8e8e8;
-            border-radius: 4px;
-        }
-
-        /* Mockup showcase */
-        .mockup-showcase {
-            background: rgba(1, 154, 206, 0.05);
-            padding: 60px 40px;
-            margin: 60px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 500px;
-        }
-
-        .mockup-devices {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            transform: perspective(1000px);
-        }
-
-        .device-mockup {
-            background: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            transform: rotateY(-5deg);
-        }
-
-        .device-mockup:nth-child(2) {
-            transform: rotateY(0deg) scale(1.05);
-            z-index: 2;
-        }
-
-        .device-mockup:nth-child(3) {
-            transform: rotateY(5deg);
-        }
-
-        .device-screen {
-            aspect-ratio: 9/16;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 11px;
-        }
-
-        /* Results */
-        .results-highlight {
-            background: rgba(1, 154, 206, 0.1);
-            border: 2px solid #019ACE;
-            padding: 32px;
-            margin: 40px 0;
-            text-align: center;
-            font-size: 16px;
-            line-height: 1.8;
-            font-weight: 500;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        /* Responsive */
+        main { margin-top: 40px; padding: 8px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .hero { padding: 80px 20px 60px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 60px;}
+        .hero-title { font-size: 48px; font-weight: 400; margin-bottom: 16px; line-height: 1.2; }
+        .hero-subtitle { font-size: 16px; opacity: 0.7; line-height: 1.5; max-width: 700px; }
+        .process-pills { display: flex; flex-wrap: wrap; gap: 12px; margin: 32px 0; }
+        .pill { background: #019ACE; color: #ffffff; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: 500; }
+        .project-meta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin: 60px 0; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);}
+        .meta-item h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.5; margin-bottom: 8px;}
+        .meta-item p { font-size: 14px; line-height: 1.6;}
+        .section { margin-bottom: 80px;}
+        .section-title { font-size: 32px; font-weight: 400; margin-bottom: 24px;}
+        .section-text { font-size: 14px; line-height: 1.7; opacity: 0.8; margin-bottom: 20px;}
+        .content-box { background: rgba(255,255,255,0.03); border: 1px solid #019ACE; border-radius: 0; padding: 40px; margin: 32px 0; }
+        .content-box.white-bg { background: #f5f5f5; color: #000; }
+        .content-box.light-blue-bg { background: #E8F4F8; color: #000; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin: 40px 0;}
+        .col-header { font-size: 24px; font-weight: 500; margin-bottom: 24px;}
+        ul { list-style: none; padding: 0;}
+        ul li { font-size: 14px; line-height: 1.8; opacity: 0.8; padding: 8px 0; padding-left: 24px; position: relative;}
+        ul li:before { content: ''; position: absolute; left: 0; top: 18px; width: 8px; height: 8px; background: #019ACE; border-radius: 50%; }
+        ul li.check:before { content: '✓'; background: none; color: #019ACE; font-weight: bold; font-size: 16px; top: 8px;}
+        ul li.cross:before { content: '✗'; background: none; color: #ff4444; font-weight: bold; font-size: 16px; top: 8px;}
+        .competitor-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin: 40px 0;}
+        .competitor { background: rgba(255,255,255,0.03); border: 1px solid #019ACE; padding: 32px;}
+        .competitor h3 { font-size: 20px; font-weight: 500; margin-bottom: 24px;}
+        .competitor h4 { font-size: 14px; font-weight: 600; margin: 20px 0 12px 0; text-transform: uppercase; letter-spacing: 0.05em;}
+        .competitor-mockup { background: #f0f0f0; height: 200px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 12px;}
+        .user-comments { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 40px 0;}
+        .comment-card { background: #fff; color: #000; padding: 24px; border-radius: 8px; position: relative;}
+        .comment-text { font-size: 13px; line-height: 1.6; margin-bottom: 16px;}
+        .comment-author { display: flex; align-items: center; gap: 12px; justify-content: flex-end;}
+        .author-avatar { width: 40px; height: 40px; border-radius: 50%; background: #019ACE; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600;}
+        .persona-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0;}
+        .persona-card { background: rgba(255,255,255,0.03); border: 1px solid #019ACE; padding: 0; overflow: hidden;}
+        .persona-image { width: 100%; height: 300px; background: linear-gradient(135deg, #019ACE 0%, #0178a3 100%); display: flex; align-items: center; justify-content: center; position: relative;}
+        .persona-quote { position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(0,0,0,0.8); padding: 16px; font-size: 13px; font-style: italic;}
+        .persona-content { padding: 32px;}
+        .persona-name { font-size: 20px; font-weight: 500; margin-bottom: 24px; color: #019ACE;}
+        .persona-section { margin-bottom: 24px;}
+        .persona-section h4 { font-size: 12px; font-weight: 600; color: #ff4444; margin-bottom: 12px; text-transform: uppercase;}
+        .persona-section.goals h4 { color: #019ACE; }
+        .persona-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; padding: 24px; background: rgba(1, 154, 206, 0.1);}
+        .persona-info-item { display: flex; flex-direction: column; gap: 8px; }
+        .persona-info-label { font-size: 11px; text-transform: uppercase; opacity: 0.6; }
+        .persona-info-value { font-size: 14px; font-weight: 500;}
+        .persona-bio { font-size: 13px; line-height: 1.6; opacity: 0.8; background: rgba(255,255,255,0.03); padding: 24px; margin: 24px 0;}
+        .survey-bar { margin: 20px 0;}
+        .survey-label { font-size: 13px; margin-bottom: 8px; display: flex; justify-content: space-between;}
+        .survey-bar-bg { background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden;}
+        .survey-bar-fill { background: #019ACE; height: 100%; transition: width 0.6s ease;}
+        .wireframe-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin: 40px 0;}
+        .wireframe { background: #f5f5f5; border: 1px solid #019ACE; padding: 20px; aspect-ratio: 9/16; display: flex; flex-direction: column; gap: 12px;}
+        .wireframe-header { background: #ddd; height: 60px; border-radius: 4px;}
+        .wireframe-hero { background: #e8e8e8; height: 200px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 12px;}
+        .wireframe-grid-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; flex: 1;}
+        .wireframe-item { background: #e8e8e8; border-radius: 4px;}
+        .mockup-showcase { background: rgba(1,154,206,0.05); padding: 60px 40px; margin: 60px 0; display: flex; justify-content: center; align-items: center; min-height: 500px;}
+        .mockup-devices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; transform: perspective(1000px);}
+        .device-mockup { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); transform: rotateY(-5deg);}
+        .device-mockup:nth-child(2) { transform: rotateY(0deg) scale(1.05); z-index: 2;}
+        .device-mockup:nth-child(3) { transform: rotateY(5deg);}
+        .device-screen { aspect-ratio: 9/16; background: linear-gradient(135deg,#f5f5f5 0%,#e0e0e0 100%); display: flex; align-items: center; justify-content: center; color: #999; font-size: 11px;}
+        .results-highlight { background: rgba(1,154,206,0.1); border: 2px solid #019ACE; padding: 32px; margin: 40px 0; text-align: center; font-size: 16px; line-height: 1.8; font-weight: 500;}
+        @keyframes fadeIn { from { opacity:0; transform:translateY(20px);} to { opacity:1; transform:translateY(0);}}
+        .fade-in { animation: fadeIn 0.6s ease forwards;}
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 32px;
-            }
-
-            .project-meta-grid,
-            .two-col,
-            .persona-grid,
-            .wireframe-grid,
-            .mockup-devices {
-                grid-template-columns: 1fr;
-            }
-
-            .user-comments {
-                grid-template-columns: 1fr;
-            }
-
-            .process-pills {
-                flex-direction: column;
-            }
-
-            .pill {
-                text-align: center;
-            }
-
-            .journey-header,
-            .journey-row {
-                grid-template-columns: 1fr;
-            }
-
-            .flow-nodes {
-                flex-direction: column;
-            }
-
-            .section-title {
-                font-size: 24px;
-            }
-
-            .content-box {
-                padding: 24px;
-            }
+            .hero-title { font-size: 32px;}
+            .project-meta-grid, .two-col, .persona-grid, .wireframe-grid, .mockup-devices { grid-template-columns: 1fr;}
+            .user-comments { grid-template-columns: 1fr;}
+            .process-pills { flex-direction: column;}
+            .pill { text-align: center;}
+            .section-title { font-size: 24px;}
+            .content-box { padding: 24px;}
         }
     </style>
 </head>
@@ -771,15 +132,12 @@
     <header class="masthead">
         <div class="flex p8 align-center">
             <p>
-                <a href="index.html">
-                    <strong>Noctis</strong>
-                </a>
+                <a href="index.html"><strong>Noctis</strong></a>
                 ·&nbsp;Intentional Interfaces
             </p>
             <a class="mla ul" href="about.html">Information</a>
         </div>
     </header>
-
     <main>
         <div class="container">
             <!-- Hero Section -->
@@ -789,8 +147,6 @@
                 <div style="margin-top: 24px;">
                     <a href="https://shop.invisalign.com" target="_blank" rel="noopener noreferrer" class="ul" style="font-size: 14px; opacity: 0.8;">View Invisalign E-Commerce Website →</a>
                 </div>
-
-                <!-- Process Pills -->
                 <div class="process-pills">
                     <div class="pill">Market Research</div>
                     <div class="pill">Competitive analysis</div>
@@ -807,58 +163,36 @@
                     <div class="pill">Accessibility evaluation</div>
                 </div>
             </div>
-
-            <!-- Project Meta -->
+            <!-- Project Meta Grid -->
             <div class="project-meta-grid">
-                <div class="meta-item">
-                    <h3>Where</h3>
-                    <p>Raleigh, North Carolina</p>
-                </div>
-                <div class="meta-item">
-                    <h3>What</h3>
-                    <p>Android, iOS, Desktop</p>
-                </div>
-                <div class="meta-item">
-                    <h3>Why</h3>
-                    <p>E-Commerce Website</p>
-                </div>
-                <div class="meta-item">
-                    <h3>Role</h3>
-                    <p>Designer, Researcher</p>
-                </div>
-                <div class="meta-item">
-                    <h3>Category</h3>
-                    <p>Designer, Researcher</p>
-                </div>
-                <div class="meta-item">
-                    <h3>When</h3>
-                    <p>March 2020 - August 2020</p>
-                </div>
+                <div class="meta-item"><h3>Where</h3><p>Raleigh, North Carolina</p></div>
+                <div class="meta-item"><h3>What</h3><p>Android, iOS, Desktop</p></div>
+                <div class="meta-item"><h3>Why</h3><p>E-Commerce Website</p></div>
+                <div class="meta-item"><h3>Role</h3><p>UX Designer, UX Researcher</p></div>
+                <div class="meta-item"><h3>Category</h3><p>UX Designer, UX Researcher</p></div>
+                <div class="meta-item"><h3>When</h3><p>March 2020 - August 2020</p></div>
             </div>
-
             <!-- Competitive Analysis -->
             <section class="section">
                 <h2 class="section-title">Competitive analysis</h2>
-                <p class="section-text">I opened and then analyzed these three websites, one of which is a direct competitor and two are indirect. I compared the ordering experience of each website as a new user and a returning user. What's more is I juxtaposed negative comments from the App Store and Android App Store to get the essence of what the users struggle with the most while using them and what they are not too keen on.</p>
-
+                <p class="section-text">I opened and then analyzed these three websites, one of which is a direct competitor, and two are indirect. I compared the ordering experience of each website as a new user and a returning user. What's more is I juxtaposed negative comments from the App Store and Android App Store to get the essence of what the users struggle with the most while using them and what they are not too keen on.</p>
                 <div class="competitor-grid">
                     <div class="competitor">
                         <h3>Bloomingdale's</h3>
                         <div class="competitor-mockup">Website Screenshot Placeholder</div>
                         <h4>The Good</h4>
                         <ul>
-                            <li class="check">The website has simple, modern and clean design with big headings and colors with high contrast.</li>
+                            <li class="check">The website has a simple, modern, and clean design with big headings and colors with high contrast.</li>
                             <li class="check">The meaning behind the UI icons is explained.</li>
-                            <li class="check">The ordering process is smooth and there are many filters and categories of products.</li>
+                            <li class="check">The ordering process is smooth, and there are many filters and categories of products.</li>
                         </ul>
                         <h4>The Bad</h4>
                         <ul>
                             <li class="cross">The navigation is unintuitive and takes time to get used to.</li>
-                            <li class="cross">The expand feature seems sometimes too long. Thus, it should be folded on default.</li>
+                            <li class="cross">The expand feature sometimes seems too long. Thus, it should be folded by default.</li>
                             <li class="cross">Names of some products are clipped.</li>
                         </ul>
                     </div>
-
                     <div class="competitor">
                         <h3>Asos</h3>
                         <div class="competitor-mockup">Website Screenshot Placeholder</div>
@@ -874,7 +208,6 @@
                             <li class="cross">There is no possibility to create an account using social links.</li>
                         </ul>
                     </div>
-
                     <div class="competitor">
                         <h3>Nike</h3>
                         <div class="competitor-mockup">Website Screenshot Placeholder</div>
@@ -891,39 +224,27 @@
                         </ul>
                     </div>
                 </div>
-
                 <!-- User Comments -->
                 <h3 style="font-size: 20px; margin: 40px 0 24px 0;">Problems from the comments</h3>
                 <div class="user-comments">
                     <div class="comment-card">
                         <p class="comment-text">It's a shame that you have to enter the card number every time.</p>
-                        <div class="comment-author">
-                            <strong>Kevin</strong>
-                            <div class="author-avatar">K</div>
-                        </div>
+                        <div class="comment-author"><strong>Kevin</strong><div class="author-avatar">K</div></div>
                     </div>
                     <div class="comment-card">
                         <p class="comment-text">You can't repeat orders, and there is no support button anywhere.</p>
-                        <div class="comment-author">
-                            <strong>Matthew</strong>
-                            <div class="author-avatar">M</div>
-                        </div>
+                        <div class="comment-author"><strong>Matthew</strong><div class="author-avatar">M</div></div>
                     </div>
                     <div class="comment-card">
                         <p class="comment-text">Sometimes you can't quick-add a product to your shopping cart.</p>
-                        <div class="comment-author">
-                            <strong>Julia</strong>
-                            <div class="author-avatar">J</div>
-                        </div>
+                        <div class="comment-author"><strong>Julia</strong><div class="author-avatar">J</div></div>
                     </div>
                 </div>
             </section>
-
             <!-- Personas -->
             <section class="section">
                 <h2 class="section-title">Personas</h2>
                 <p class="section-text">I created two personas to help me explore the needs of a larger group of users and designed the website with specific target users in mind.</p>
-
                 <div class="persona-grid">
                     <div class="persona-card">
                         <div class="persona-image">
@@ -933,44 +254,199 @@
                         </div>
                         <div class="persona-content">
                             <h3 class="persona-name">Julia Schaumburg</h3>
-                            
                             <div class="persona-info-grid">
-                                <div class="persona-info-item">
-                                    <span class="persona-info-label">Age</span>
-                                    <span class="persona-info-value">32</span>
-                                </div>
-                                <div class="persona-info-item">
-                                    <span class="persona-info-label">Location</span>
-                                    <span class="persona-info-value">Salt Lake City, Utah</span>
-                                </div>
-                                <div class="persona-info-item">
-                                    <span class="persona-info-label">Occupation</span>
-                                    <span class="persona-info-value">Marketing Manager</span>
-                                </div>
-                                <div class="persona-info-item">
-                                    <span class="persona-info-label">Family Status</span>
-                                    <span class="persona-info-value">Single</span>
-                                </div>
+                                <div class="persona-info-item"><span class="persona-info-label">Age</span><span class="persona-info-value">32</span></div>
+                                <div class="persona-info-item"><span class="persona-info-label">Location</span><span class="persona-info-value">Salt Lake City, Utah</span></div>
+                                <div class="persona-info-item"><span class="persona-info-label">Occupation</span><span class="persona-info-value">Marketing Manager</span></div>
+                                <div class="persona-info-item"><span class="persona-info-label">Family Status</span><span class="persona-info-value">Single</span></div>
                             </div>
-
                             <div class="persona-section">
                                 <h4>Frustrations</h4>
                                 <ul>
                                     <li>The navigation is unintuitive and takes time to get used to.</li>
-                                    <li>The expand feature seems sometimes too long. Thus, it should be folded on default.</li>
+                                    <li>The expand feature sometimes seems too long. Thus, it should be folded by default.</li>
                                     <li>Names of some products are clipped.</li>
                                 </ul>
                             </div>
-
                             <div class="persona-section goals">
                                 <h4>Goals</h4>
                                 <ul>
-                                    <li class="check">The website has simple, modern and clean design with big headings and colors with high contrast.</li>
+                                    <li class="check">The website has a simple, modern, and clean design with big headings and colors with high contrast.</li>
                                     <li class="check">The meaning behind the UI icons is explained.</li>
-                                    <li class="check">The ordering process is smooth and there are many filters and categories of products.</li>
+                                    <li class="check">The ordering process is smooth, and there are many filters and categories of products.</li>
                                 </ul>
                             </div>
-
                             <div class="persona-bio">
                                 <strong>About Julia</strong><br><br>
-                                Julia is a busy, urban professional who values convenience and efficiency in her shopping habits. She is tech-savvy and often researches products online before making a purchase, either on her laptop or smartphone. Julia is health-conscious and prioritizes buying high-
+                                Julia is a busy, urban professional who values convenience and efficiency in her shopping habits. She is tech-savvy and often researches products online before making a purchase, either on her laptop or smartphone. Julia is health-conscious and prioritizes buying high-quality, sustainable, and organic products for both herself. She enjoys treating herself to luxury items and is willing to splurge on high-end beauty and fashion products. Julia shops both in-store and online, but prefers the latter for the wider selection and more personalized recommendations. When shopping in-person, Julia appreciates a well-curated and visually appealing store environment.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="persona-card">
+                        <div class="persona-image">
+                            <div class="persona-quote">
+                                "I hate having to go in person to shop. I'd rather have my clothes shipped to me!"
+                            </div>
+                        </div>
+                        <div class="persona-content">
+                            <h3 class="persona-name">Michael Mygrant</h3>
+                            <div class="persona-info-grid">
+                                <div class="persona-info-item"><span class="persona-info-label">Age</span><span class="persona-info-value">28</span></div>
+                                <div class="persona-info-item"><span class="persona-info-label">Location</span><span class="persona-info-value">Reno, Nevada</span></div>
+                                <div class="persona-info-item"><span class="persona-info-label">Occupation</span><span class="persona-info-value">Software Engineer</span></div>
+                                <div class="persona-info-item"><span class="persona-info-label">Family Status</span><span class="persona-info-value">Single</span></div>
+                            </div>
+                            <div class="persona-section">
+                                <h4>Frustrations</h4>
+                                <ul>
+                                    <li>The website has slow loading times.</li>
+                                    <li>Websites with inadequate or non-functioning search features can make it difficult for users to find specific products.</li>
+                                    <li>Websites with broken links or error pages can create a negative impression.</li>
+                                </ul>
+                            </div>
+                            <div class="persona-section goals">
+                                <h4>Goals</h4>
+                                <ul>
+                                    <li class="check">A well-designed website will have a powerful search engine that allows users to easily find the products they're looking for.</li>
+                                    <li class="check">Site loads quickly and ultimately reduces user frustration.</li>
+                                    <li class="check">A well-designed e-commerce website will provide detailed product information, including specifications, images, and customer reviews.</li>
+                                </ul>
+                            </div>
+                            <div class="persona-bio">
+                                <strong>About David</strong><br><br>
+                                David is a young, tech-savvy professional who values both affordability and quality in his shopping choices. He is always on the lookout for the latest gadgets and technology products, and spends a lot of time researching products online before making a purchase. When shopping in-person, David appreciates a straightforward and organized store layout, with clear signage and knowledgeable staff. He is also interested in sports and fitness and often shops for athletic gear and supplements. Despite his love for technology, David also enjoys outdoor activities and will shop for camping and hiking equipment. When shopping online, he values a smooth and seamless checkout process, as well as clear and detailed product information.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                <h2 class="section-title">Accessibility check</h2>
+                <div class="content-box">
+                    <div style="background:#f0f0f0;height:240px;display:flex;align-items:center;justify-content:center;color:#999;">
+                        Accessibility Screenshot Placeholder
+                    </div>
+                    <p class="section-text" style="margin-top:20px;">
+                        The app has been evaluated for contrast to match at least AA standards. Every frame was checked with contrast checker tools, such as Figma plugin A11y - Color Contrast Checker and then by hand with the Contrast Checker by WebAIM.
+                    </p>
+                </div>
+            </section>
+            <section class="section">
+                <h2 class="section-title">User survey</h2>
+                <p class="section-text">I conducted a quick survey among people who use e-commerce websites with a tracking system on a regular basis on Facebook.</p>
+                <div class="content-box">
+                    <div style="background:#f0f0f0;height:160px;display:flex;align-items:center;justify-content:center;color:#999;margin-bottom:20px;">
+                        Survey Graph Placeholder
+                    </div>
+                    <div style="margin:20px 0;">
+                        <div class="survey-label">Price <span>40%</span></div>
+                        <div class="survey-bar-bg"><div class="survey-bar-fill" style="width:40%;"></div></div>
+                        <div class="survey-label">Delivery Time <span>20%</span></div>
+                        <div class="survey-bar-bg"><div class="survey-bar-fill" style="width:20%;"></div></div>
+                        <div class="survey-label">Reviews <span>15%</span></div>
+                        <div class="survey-bar-bg"><div class="survey-bar-fill" style="width:15%;"></div></div>
+                        <div class="survey-label">Information about the product and its images <span>10%</span></div>
+                        <div class="survey-bar-bg"><div class="survey-bar-fill" style="width:10%;"></div></div>
+                        <div class="survey-label">Customization <span>10%</span></div>
+                        <div class="survey-bar-bg"><div class="survey-bar-fill" style="width:10%;"></div></div>
+                        <div class="survey-label">Other <span>5%</span></div>
+                        <div class="survey-bar-bg"><div class="survey-bar-fill" style="width:5%;"></div></div>
+                    </div>
+                    <div class="user-comments" style="margin-top:32px;">
+                        <div class="comment-card">
+                            <p class="comment-text">I like to know when my product ships.</p>
+                            <div class="comment-author"><strong>Kevin</strong><div class="author-avatar">K</div></div>
+                        </div>
+                        <div class="comment-card">
+                            <p class="comment-text">I like the option to reorder a product.</p>
+                            <div class="comment-author"><strong>Matthew</strong><div class="author-avatar">M</div></div>
+                        </div>
+                        <div class="comment-card">
+                            <p class="comment-text">I like getting coupons and gift cards.</p>
+                            <div class="comment-author"><strong>Julia</strong><div class="author-avatar">J</div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                <h2 class="section-title">Wireframes and initial insights</h2>
+                <p class="section-text">
+                    Once the flow diagram was established, I started sketching with pen and paper the low fidelity wireframes of the main user flow. However, due to space constraints, I decided to show only a couple of the digital lo-fi wireframes I designed. The initial wireframes were made to adapt to the Apple users (as a form of following the Material Design's guidelines).
+                </p>
+                <div class="wireframe-grid">
+                    <div class="wireframe">
+                        <div class="wireframe-hero">Wireframe Placeholder 1</div>
+                    </div>
+                    <div class="wireframe">
+                        <div class="wireframe-hero">Wireframe Placeholder 2</div>
+                    </div>
+                </div>
+                <div class="content-box" style="margin-top:24px;">
+                    <h3 class="section-title" style="font-size:18px;">Getting feedback</h3>
+                    <ul>
+                        <li class="check">After the lo-fi wireframes were designed, I made a prototype to test on a couple of users.</li>
+                        <li class="check">I made a research plan with goals, KPIs, methodology, and participant info.</li>
+                        <li class="check">After collecting insights, I made an affinity diagram to seek patterns in behavior and frustrations.</li>
+                        <li class="check">Usability study presentation showcased quick recap, insights, and recommendations.</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="section">
+                <h2 class="section-title">Prototype validation</h2>
+                <div class="content-box">
+                    <p class="section-text">
+                        After the prototype was created, I tested it on 5 users. I made a research plan outlining research goals, questions, KPIs, methodology, info about participants, and a script with tasks. The main focus was ensuring a smooth ordering process without friction, leading to product purchase and pickup. Tested and carried out with Figma’s prototype mirror share app.<br><br>
+                        Tasks included adding items to the cart, multiplying quantities, checking out, using coupon codes, and toggling description tabs. Participants completed a System Usability Scale questionnaire. After collecting insights, I made an affinity diagram to organize ideas.<br><br>
+                        The usability study presentation then showcased the insights and recommendations.
+                    </p>
+                </div>
+            </section>
+            <section class="section">
+                <h2 class="section-title">Study results</h2>
+                <div class="results-highlight">
+                    <strong>60% of participants</strong> (3 out of 5) weren’t able to purchase any product(s). However, all users could add desired items to their carts, use coupon codes, and toggle the description button. The main friction: unaware that payment required a credit card. PayPal and Stripe were later added to satisfy customer frustration.
+                </div>
+            </section>
+            <section class="section">
+                <h2 class="section-title">High-fidelity UI Design</h2>
+                <div class="content-box">
+                    <div class="color-grid">
+                        <div class="color-swatch" style="background:#019ACE;"></div>
+                        <div class="color-swatch" style="background:#191970;"></div>
+                        <div class="color-swatch" style="background:#D4AF37;"></div>
+                        <div class="color-swatch" style="background:#FF4545;"></div>
+                        <div class="color-swatch" style="background:#fec400;"></div>
+                        <div class="color-swatch" style="background:#fff;"></div>
+                        <div class="color-swatch" style="background:#eee;"></div>
+                        <div class="color-swatch" style="background:#ddd;"></div>
+                        <div class="color-swatch" style="background:#bbb;"></div>
+                        <div class="color-swatch" style="background:#333;"></div>
+                    </div>
+                    <div class="typography-sample" style="color:#fff;">
+                        AaBbCcDdEeFfGgHh
+                    </div>
+                    <p class="section-text">
+                        Colors, font, and layout were designed to align with brand guidelines. The typography scale and color model using HSL ensured visual hierarchy and accessibility.
+                    </p>
+                </div>
+            </section>
+            <section class="section">
+                <h2 class="section-title">UI Mockups</h2>
+                <div class="mockup-showcase">
+                    <div class="mockup-devices">
+                        <div class="device-mockup">
+                            <div class="device-screen">UI Mockup 1 Placeholder</div>
+                        </div>
+                        <div class="device-mockup">
+                            <div class="device-screen">UI Mockup 2 Placeholder</div>
+                        </div>
+                        <div class="device-mockup">
+                            <div class="device-screen">UI Mockup 3 Placeholder</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
