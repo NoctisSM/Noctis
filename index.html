@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Intentional Interfaces">
     <title>Noctis</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
         /* Reset and base styles */
         *, *:before, *:after {
@@ -24,112 +23,81 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 12px;
+            font-size: 14px;
             line-height: 1.2;
             color: #ffffff;
             background: #000000;
             letter-spacing: 0.01em;
+            cursor: none;
+            overflow-x: hidden;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.15s ease;
+            transition-property: width, height, border, background;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor.hover {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .cursor-follower.hover {
+            width: 80px;
+            height: 80px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                cursor: auto;
+            }
+            .cursor, .cursor-follower {
+                display: none;
+            }
         }
 
         ::selection {
-            background: #000000;
+            background: #ffffff;
+            color: #000000;
         }
 
         /* Links */
         a {
             color: inherit;
             text-decoration: none;
-            cursor: pointer;
+            cursor: none;
             transition: opacity 0.2s ease;
         }
 
         a:hover {
-            opacity: 0.5;
+            opacity: 0.7;
         }
 
         .ul {
             text-decoration: underline;
-        }
-
-        /* Layout utilities */
-        .flex {
-            display: flex;
-        }
-
-        .flex-col {
-            flex-direction: column;
-        }
-
-        .align-center {
-            align-items: center;
-        }
-
-        .justify-center {
-            justify-content: center;
-        }
-
-        .space-between {
-            justify-content: space-between;
-        }
-
-        .gap-8 {
-            gap: 8px;
-        }
-
-        .p8 {
-            padding: 8px;
-        }
-
-        .mla {
-            margin-left: auto;
-        }
-
-        .mta {
-            margin-top: auto;
-        }
-
-        .mba {
-            margin-bottom: auto;
-        }
-
-        .pos-rel {
-            position: relative;
-        }
-
-        .overflow {
-            overflow: hidden;
-        }
-
-        /* Grid system */
-        .grid {
-            display: grid;
-            gap: 8px;
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .grid-4 {
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        @media (max-width: 991px) {
-            .grid-4 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: repeat(1, 1fr);
-            }
-            .grid-4 {
-                grid-template-columns: repeat(1, 1fr);
-            }
-        }
-
-        /* Aspect ratios */
-        .ratio-4-5 {
-            aspect-ratio: 4/5;
-            width: 100%;
         }
 
         /* Header */
@@ -141,122 +109,197 @@
             left: 0;
             width: 100%;
             z-index: 12;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        }
-
-        /* Main content */
-        main {
-            margin-top: 40px;
-            min-height: calc(100vh - 40px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             padding: 8px;
         }
 
-        .container {
+        .masthead .flex {
             display: flex;
-            flex-direction: column;
-            min-height: calc(100vh - 56px);
+            align-items: center;
         }
 
-        /* Project grid */
-        .projects-grid {
-            margin: auto 0;
-            padding: 40px 20px;
+        .masthead .mla {
+            margin-left: auto;
         }
 
-        .projects-container {
-            background: #000000;
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-        }
-
-        @media (max-width: 768px) {
-            .projects-grid {
-                padding: 20px 8px;
-                margin-bottom: 32px;
-            }
-            .projects-container {
-                padding: 24px 16px;
-            }
-            main {
-                padding-top: 32px;
-            }
-        }
-
-        /* Project cards */
-        .project-card {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 0.6s ease forwards;
-            background: #000000;
-            border-radius: 8px;
-            padding: 16px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.03);
-            transition: box-shadow 0.2s ease, border-color 0.2s ease;
-        }
-
-        .project-card:hover {
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-            border-color: rgba(0, 0, 0, 0.12);
-        }
-
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-        .project-card:nth-child(4) { animation-delay: 0.4s; }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .project-image {
+        .nav-item {
             position: relative;
-            overflow: hidden;
-            background: #000000;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #ffffff;
+            transform: translateX(-100%);
             transition: transform 0.3s ease;
-            border-radius: 6px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
-        .project-image:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        .nav-item:hover::after {
+            transform: translateX(0);
         }
 
-        .project-image img {
+        /* Ferris Wheel Container */
+        .banner {
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner .slider {
+            position: absolute;
+            width: 280px;
+            height: 350px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) perspective(1000px) rotateX(-16deg) rotateY(0deg);
+            transform-style: preserve-3d;
+            z-index: 2;
+            transition: transform 0.1s ease-out;
+        }
+
+        .banner .slider .item {
+            position: absolute;
+            inset: 0;
+            transform: 
+                rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+                translateZ(550px);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #000000;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .banner .slider .item:hover {
+            box-shadow: 0 12px 48px rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .banner .slider .item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        .project-title {
-            font-size: 16px;
+        .banner .slider .item .project-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
             color: #ffffff;
+            font-size: 14px;
             font-weight: 500;
-            padding: 0 4px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        /* Mobile adjustments */
-        @media (max-width: 768px) {
-            .m-gap-40 {
-                row-gap: 40px;
+        .banner .slider .item:hover .project-info {
+            opacity: 1;
+        }
+
+        /* Content overlay */
+        .banner .content {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .banner .content h1 {
+            font-size: 4em;
+            font-weight: 700;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .banner .content .tagline {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 300;
+        }
+
+        /* Instructions */
+        .instructions {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+            z-index: 0;
+            pointer-events: none;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 1023px) {
+            .banner .slider {
+                width: 200px;
+                height: 250px;
             }
+            .banner .slider .item {
+                transform: 
+                    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+                    translateZ(400px);
+            }
+            .banner .content h1 {
+                font-size: 3em;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .banner .slider {
+                width: 140px;
+                height: 180px;
+            }
+            .banner .slider .item {
+                transform: 
+                    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+                    translateZ(250px);
+            }
+            .banner .content h1 {
+                font-size: 2em;
+            }
+            .banner .content .tagline {
+                font-size: 1em;
+            }
+        }
+
+        /* Magnetic effect */
+        .magnetic {
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* Page transition */
         .page-transition {
             opacity: 0;
-            animation: fadeIn 0.4s ease 0.2s forwards;
+            animation: fadeIn 0.6s ease 0.2s forwards;
         }
 
         @keyframes fadeIn {
@@ -265,112 +308,216 @@
             }
         }
 
-        /* Placeholder for missing images */
-        .image-placeholder {
+        /* Background grid effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 14px;
+            background-image:
+                repeating-linear-gradient(
+                    to right, transparent 0 100px,
+                    rgba(255, 255, 255, 0.02) 100px 101px
+                ),
+                repeating-linear-gradient(
+                    to bottom, transparent 0 100px,
+                    rgba(255, 255, 255, 0.02) 100px 101px
+                );
+            pointer-events: none;
+            z-index: 0;
         }
     </style>
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
     <header class="masthead">
-        <div class="flex p8 align-center">
-            <p>
-                <a href="index.html">
-                    <strong>Noctis</strong>
+        <div class="flex">
+            <p class="nav-item">
+                <a href="index.html" class="magnetic">
+                    <strong style="font-weight: 700;">Noctis</strong>
                 </a>
                 ·&nbsp;Intentional Interfaces
             </p>
-            <a class="mla ul" href="about.html">Information</a>
+            <div class="mla">
+                <a class="ul nav-item magnetic" href="about.html">Information</a>
+            </div>
         </div>
     </header>
 
     <div class="page-transition">
-        <main>
-            <div class="container">
-                <div class="projects-grid">
-                    <div class="projects-container">
-                        <div class="grid grid-4 m-gap-40">
-                        <!-- Porsche Project -->
-                         <div class="project-card">
-                            <a href="porsche.html">
-                                <div class="project-image ratio-4-5">
-                                    <img src="images/pcar.jpg" alt="P Car">
-                                </div>
-                            </a>
-                            <a href="porsche.html" class="project-title">
-                                Porsche · Configurator
-                            </a>
-                        </div>
+        <div class="banner">
+            <div class="instructions">
+                Move your cursor to rotate
+            </div>
 
-                        <!-- Align Technology Project -->
-                        <div class="project-card">
-                            <a href="accessories.html">
-                                <div class="project-image ratio-4-5">
-                                    <img src="images/accessories.jpg" alt="Accessories">
-                                </div>
-                            </a>
-                            <a href="accessories.html" class="project-title">
-                                Invisalign · E-Commerce Website
-                            </a>
-                        </div>
-
-                        <!-- Invisalign Project -->
-                        <div class="project-card">
-                            <a href="aligner.html">
-                                <div class="project-image ratio-4-5">
-                                    <img src="images/aligner.jpg" alt="Aligner">
-                                </div>
-                            </a>
-                            <a href="aligner.html" class="project-title">
-                                Invisalign · Invisible Aligners
-                            </a>
-                        </div>
-
-                        <!-- Dashboard Project -->
-                        <div class="project-card">
-                            <a href="dashboard.html">
-                                <div class="project-image ratio-4-5">
-                                    <img src="images/dashboard.jpg" alt="Dashboard">
-                                </div>
-                            </a>
-                            <a href="dashboard.html" class="project-title">
-                                Invisalign · Patient Dashboard
-                            </a>
-                        </div>
-                                            </div>
-                    </div>
+            <div class="slider" style="--quantity: 4">
+                <div class="item" style="--position: 1">
+                    <a href="porsche.html">
+                        <img src="images/pcar.jpg" alt="Porsche Configurator">
+                        <div class="project-info">Porsche · Configurator</div>
+                    </a>
+                </div>
+                <div class="item" style="--position: 2">
+                    <a href="accessories.html">
+                        <img src="images/accessories.jpg" alt="Invisalign E-Commerce">
+                        <div class="project-info">Invisalign · E-Commerce Website</div>
+                    </a>
+                </div>
+                <div class="item" style="--position: 3">
+                    <a href="aligner.html">
+                        <img src="images/aligner.jpg" alt="Invisalign Aligners">
+                        <div class="project-info">Invisalign · Invisible Aligners</div>
+                    </a>
+                </div>
+                <div class="item" style="--position: 4">
+                    <a href="dashboard.html">
+                        <img src="images/dashboard.jpg" alt="Patient Dashboard">
+                        <div class="project-info">Invisalign · Patient Dashboard</div>
+                    </a>
                 </div>
             </div>
-        </main>
+
+
+        </div>
     </div>
 
     <script>
-        // Simple fade-in animation trigger
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.project-card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.animationPlayState = 'running';
-                }, index * 100);
+        // Custom Cursor Animation
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        let followerX = 0;
+        let followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.3;
+            cursorY += (mouseY - cursorY) * 0.3;
+            
+            followerX += (mouseX - followerX) * 0.15;
+            followerY += (mouseY - followerY) * 0.15;
+
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            cursorFollower.style.left = followerX + 'px';
+            cursorFollower.style.top = followerY + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Hover effects
+        const interactiveElements = document.querySelectorAll('a, .item');
+        
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+                cursorFollower.classList.add('hover');
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+                cursorFollower.classList.remove('hover');
             });
         });
 
-        // Add hover effects
-        document.querySelectorAll('.project-image').forEach(image => {
-            image.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.02)';
+        // Magnetic effect for nav items
+        const magneticElements = document.querySelectorAll('.magnetic');
+        
+        magneticElements.forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                el.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
             });
             
-            image.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'translate(0, 0)';
             });
+        });
+
+        // Cursor-controlled Ferris Wheel Rotation
+        const slider = document.querySelector('.slider');
+        let currentRotation = 0;
+        let targetRotation = 0;
+        let previousMouseX = window.innerWidth / 2;
+
+        // Hide instructions after first interaction
+        const instructions = document.querySelector('.instructions');
+        let hasInteracted = false;
+
+        document.addEventListener('mousemove', (e) => {
+            if (!hasInteracted) {
+                instructions.style.opacity = '0';
+                instructions.style.transition = 'opacity 0.5s ease';
+                hasInteracted = true;
+                setTimeout(() => {
+                    instructions.style.display = 'none';
+                }, 500);
+            }
+
+            // Calculate rotation based on horizontal mouse movement
+            const deltaX = e.clientX - previousMouseX;
+            targetRotation += deltaX * 0.5; // Adjust sensitivity here
+            previousMouseX = e.clientX;
+        });
+
+        // Smooth rotation animation
+        function updateRotation() {
+            // Smooth interpolation
+            currentRotation += (targetRotation - currentRotation) * 0.1;
+            
+            // Apply rotation to slider
+            slider.style.transform = `translate(-50%, -50%) perspective(1000px) rotateX(-16deg) rotateY(${currentRotation}deg)`;
+            
+            requestAnimationFrame(updateRotation);
+        }
+        updateRotation();
+
+        // Reset mouse position on window resize
+        window.addEventListener('resize', () => {
+            previousMouseX = window.innerWidth / 2;
+        });
+
+        // Add touch support for mobile
+        let touchStartX = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            if (!hasInteracted) {
+                instructions.style.opacity = '0';
+                hasInteracted = true;
+            }
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            const touchX = e.touches[0].clientX;
+            const deltaX = touchX - touchStartX;
+            targetRotation += deltaX * 0.3;
+            touchStartX = touchX;
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                targetRotation -= 30;
+            } else if (e.key === 'ArrowRight') {
+                targetRotation += 30;
+            }
         });
     </script>
 </body>
