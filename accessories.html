@@ -272,6 +272,17 @@
             padding: 24px;
             margin-bottom: 32px;
             border: 1px solid #019ACE;
+            overflow: hidden;
+        }
+
+        .persona-img img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
         }
 
         .persona-quote {
@@ -279,6 +290,8 @@
             padding: 16px;
             font-size: 14px;
             font-style: italic;
+            position: relative;
+            z-index: 2;
         }
 
         .persona-content {
@@ -469,17 +482,26 @@
             letter-spacing: -0.02em;
         }
 
-        /* Screenshot boxes */
+        /* Screenshot boxes - FIXED TO DISPLAY IMAGES PROPERLY */
         .screenshot {
             border: 1px solid #019ACE;
-            padding: 40px;
+            padding: 0;
             margin: 40px 0;
             min-height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 14px;
-            opacity: 0.5;
+            opacity: 1;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
 
         /* Highlight sections */
@@ -593,7 +615,7 @@
 
             <div class="competitor">
                 <h3>Bloomingdale's</h3>
-                <div class="screenshot"><img src="images/bloomingdales.png" alt="Bloomingdale's"></div></div>
+                <div class="screenshot"><img src="images/bloomingdales.png" alt="Bloomingdale's"></div>
                 <h4>The Good</h4>
                 <ul>
                     <li class="check">The website has a simple, modern, and clean design with large headings and high contrast colors.</li>
@@ -725,11 +747,11 @@
 
                 <div class="persona">
                     <div class="persona-img">
-                        <img src="images/david_martinez.jpg" alt="Michael Mygrant">
+                        <img src="images/david_martinez.jpg" alt="David Mygrant">
                         <div class="persona-quote">"I hate having to go in person to shop. I'd rather have my clothes shipped to me!"</div>
                     </div>
                     <div class="persona-content">
-                        <h3 class="persona-name">Michael Mygrant</h3>
+                        <h3 class="persona-name">David Mygrant</h3>
                         
                         <div class="persona-info">
                             <div class="persona-info-item">
