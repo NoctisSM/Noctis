@@ -248,11 +248,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 24px;
+            padding: 0;
             margin-bottom: 32px;
             border: 1px solid #019ACE;
             font-size: 14px;
-            opacity: 0.5;
             overflow: hidden;
         }
 
@@ -263,7 +262,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            opacity: 1;
+            z-index: 1;
         }
 
         .persona-quote {
@@ -276,6 +275,7 @@
             font-size: 14px;
             font-style: italic;
             opacity: 1;
+            z-index: 2;
         }
 
         .persona-name {
@@ -811,7 +811,8 @@
 
             <div class="persona-grid">
                 <div class="persona">
-                    <div class="persona-img"><img src="images/sophia_chen.jpg" alt="Sophia Chen"></div>
+                    <div class="persona-img">
+                        <img src="images/sophia_chen.jpg" alt="Sophia Chen">
                         <div class="persona-quote">"I want my Porsche to reflect my personal style, but I need guidance on what works together aesthetically."</div>
                     </div>
                     <div class="persona-content">
@@ -863,7 +864,8 @@
                 </div>
 
                 <div class="persona">
-                    <div class="persona-img"><img src="images/david_martinez.jpg" alt="David Martinez"></div>
+                    <div class="persona-img">
+                        <img src="images/david_martinez.jpg" alt="David Martinez">
                         <div class="persona-quote">"I trust Porsche's expertise. Show me what you recommend and I'll go from there."</div>
                     </div>
                     <div class="persona-content">
@@ -992,7 +994,7 @@
                 <li>Preserve complete freedom while reducing initial paralysis</li>
             </ul>
 
-            <div class="screenshot"><img src="images/design_recommendations.png" alt="Design Recommendations"> </div>
+            <div class="screenshot">[Design Recommendations gallery showing three curated builds]</div>
         </section>
 
         <section class="section">
