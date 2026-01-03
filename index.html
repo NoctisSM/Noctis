@@ -399,136 +399,93 @@
     </header>
 
     <div class="page-transition">
-        <div class="banner">
-            <div class="slider">
-                <div class="item">
-                    <a href="porsche.html">
-                        <img src="images/pcar.jpg" alt="Porsche Configurator">
-                        <div class="project-info">Porsche · Configurator</div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="accessories.html">
-                        <img src="images/accessories.jpg" alt="Invisalign E-Commerce">
-                        <div class="project-info">Invisalign · E-Commerce Website</div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="aligner.html">
-                        <img src="images/aligner.jpg" alt="Invisalign Aligners">
-                        <div class="project-info">Invisalign · Invisible Aligners</div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="dashboard.html">
-                        <img src="images/dashboard.jpg" alt="Patient Dashboard">
-                        <div class="project-info">Invisalign · Patient Dashboard</div>
-                    </a>
-                </div>
-            </div>
+        <!-- Hero section -->
+        <main style="max-width: 900px; margin: 0 auto; padding: 120px 24px 80px;">
+            <section style="margin-bottom: 48px;">
+                <p style="font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.7; margin-bottom: 12px;">
+                    User Experience Designer · MS HCI @ Georgia Tech
+                </p>
+                <h1 style="font-size: 32px; line-height: 1.3; margin-bottom: 16px;">
+                    Designing intentional interfaces for complex, decision‑heavy systems.
+                </h1>
+                <p style="font-size: 14px; line-height: 1.6; opacity: 0.8; max-width: 520px;">
+                    Previously at Porsche, Align Technology, and Dahlstrom Technologies. 
+                    Focused on workflows, configurators, and data‑dense experiences that balance guidance with user control.
+                </p>
+            </section>
 
+            <!-- Projects list (Brandon-style vertical cards) -->
+            <section style="display: flex; flex-direction: column; gap: 28px;">
+                <!-- Porsche -->
+                <a href="porsche.html" class="project-card magnetic" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.12);">
+                    <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.7;">
+                        PRODUCT DESIGN · FULL PROCESS · 2025
+                    </div>
+                    <div style="font-size: 18px; font-weight: 500;">
+                        Porsche Design Recommendations
+                    </div>
+                    <div style="font-size: 13px; opacity: 0.8;">
+                        Led the configurator entry experience to reduce decision fatigue, improving completion from 36% to 78% and cutting configuration time by over 50%.
+                    </div>
+                </a>
 
-        </div>
+                <!-- Invisalign E‑commerce -->
+                <a href="accessories.html" class="project-card magnetic" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.12);">
+                    <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.7;">
+                        UX / UI DESIGN · E‑COMMERCE
+                    </div>
+                    <div style="font-size: 18px; font-weight: 500;">
+                        Invisalign Accessories Storefront
+                    </div>
+                    <div style="font-size: 13px; opacity: 0.8;">
+                        Designed and shipped a refreshed shopping flow that removed key friction points and contributed to a 6× lift in conversion.
+                    </div>
+                </a>
+
+                <!-- Invisalign Aligners -->
+                <a href="aligner.html" class="project-card magnetic" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.12);">
+                    <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.7;">
+                        PRODUCT DESIGN · MARKETING SITE
+                    </div>
+                    <div style="font-size: 18px; font-weight: 500;">
+                        Invisalign Aligner Experience
+                    </div>
+                    <div style="font-size: 13px; opacity: 0.8;">
+                        Crafted a storytelling‑driven landing experience that clarified value props and increased engagement across key product pages.
+                    </div>
+                </a>
+
+                <!-- Invisalign Dashboard -->
+                <a href="dashboard.html" class="project-card magnetic" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12);">
+                    <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.7;">
+                        PRODUCT DESIGN · DASHBOARDS
+                    </div>
+                    <div style="font-size: 18px; font-weight: 500;">
+                        Invisalign Patient Dashboard
+                    </div>
+                    <div style="font-size: 13px; opacity: 0.8;">
+                        Redesigned a patient dashboard to surface the right information at the right time, supporting treatment adherence and clearer progress tracking.
+                    </div>
+                </a>
+
+                <!-- (Optional) Thesis / Dispatch project – add when page is ready -->
+                <!--
+                <a href="dispatch.html" class="project-card magnetic" style="display:flex;flex-direction:column;gap:4px;padding:16px 0;border-top:1px solid rgba(255,255,255,0.12);">
+                    <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.16em;opacity:0.7;">
+                        UX RESEARCH · DECISION SUPPORT
+                    </div>
+                    <div style="font-size:18px;font-weight:500;">
+                        Police Dispatch HUD (MS HCI Thesis)
+                    </div>
+                    <div style="font-size:13px;opacity:0.8;">
+                        Designed and evaluated a situational‑awareness HUD for officers, focusing on filtering, information hierarchy, and cognitive load in high‑stakes contexts.
+                    </div>
+                </a>
+                -->
+            </section>
+        </main>
     </div>
-
     <script>
-        // Custom Cursor Animation
-        const cursor = document.querySelector('.cursor');
-        let mouseX = 0;
-        let mouseY = 0;
-        let cursorX = 0;
-        let cursorY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        function animateCursor() {
-            cursorX += (mouseX - cursorX) * 0.3;
-            cursorY += (mouseY - cursorY) * 0.3;
-
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
-
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        // Hover effects
-        const interactiveElements = document.querySelectorAll('a, .item');
-        
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.classList.add('hover');
-            });
-            
-            el.addEventListener('mouseleave', () => {
-                cursor.classList.remove('hover');
-            });
-        });
-
-        // Magnetic effect for nav items
-        const magneticElements = document.querySelectorAll('.magnetic');
-        
-        magneticElements.forEach(el => {
-            el.addEventListener('mousemove', (e) => {
-                const rect = el.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                
-                el.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-            });
-            
-            el.addEventListener('mouseleave', () => {
-                el.style.transform = 'translate(0, 0)';
-            });
-        });
-
-        // Random Shooting Star Effect - One every 10 seconds
-        const shootingStar = document.querySelector('.shooting-star');
-        
-        function createShootingStar() {
-            // Random starting position anywhere on screen
-            const startX = Math.random() * window.innerWidth;
-            const startY = Math.random() * window.innerHeight;
-            
-            // Random angle for direction (in degrees)
-            const angle = Math.random() * 360;
-            const angleRad = angle * (Math.PI / 180);
-            
-            // Calculate end point based on angle (travel far enough to leave screen)
-            const distance = 2000;
-            const endX = Math.cos(angleRad) * distance;
-            const endY = Math.sin(angleRad) * distance;
-            
-            shootingStar.style.left = startX + 'px';
-            shootingStar.style.top = startY + 'px';
-            shootingStar.style.opacity = '1';
-            shootingStar.style.transform = `rotate(${angle}deg)`;
-            
-            // Create straight line animation
-            const duration = 2; // 2 seconds
-            
-            shootingStar.style.animation = 'none';
-            setTimeout(() => {
-                shootingStar.style.transition = `left ${duration}s linear, top ${duration}s linear, opacity ${duration}s linear`;
-                shootingStar.style.left = (startX + endX) + 'px';
-                shootingStar.style.top = (startY + endY) + 'px';
-                shootingStar.style.opacity = '0';
-            }, 10);
-            
-            // Reset after animation
-            setTimeout(() => {
-                shootingStar.style.transition = 'none';
-                shootingStar.style.opacity = '0';
-            }, duration * 1000 + 100);
-        }
-        
-        // Trigger shooting star every 10 seconds
-        setInterval(createShootingStar, 10000);
-        // Initial shooting star after 3 seconds
-        setTimeout(createShootingStar, 3000);
     </script>
 </body>
 </html>
