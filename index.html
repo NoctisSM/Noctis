@@ -15,10 +15,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #ffffff;
-            color: #111111;
-            font-size: 14px;
-            line-height: 1.5;
+            background: #f4f7ff;
+            color: #1b1b1f;
         }
 
         a {
@@ -27,33 +25,102 @@
         }
 
         a:hover {
-            opacity: 0.7;
+            opacity: 0.8;
         }
 
         .page {
-            max-width: 760px;
+            max-width: 1120px;
             margin: 0 auto;
-            padding: 32px 20px 80px;
+            padding: 24px 24px 80px;
         }
 
-        header {
+        /* Top nav + logo bar */
+        .top-nav {
             display: flex;
             align-items: center;
-            margin-bottom: 40px;
+            justify-content: center;
+            gap: 80px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
         }
 
-        header .name {
+        .top-nav a {
+            opacity: 0.7;
+        }
+
+        .top-nav a:hover {
+            opacity: 1;
+        }
+
+        .logo-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            border: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 600;
+            font-size: 20px;
         }
 
-        header .tagline {
-            margin-left: 8px;
-            opacity: 0.6;
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 120px 16px 96px;
+            background: linear-gradient(to bottom, #f4f7ff 0%, #ffffff 55%);
         }
 
-        header nav {
-            margin-left: auto;
+        .hero-name {
+            font-size: 64px;
+            letter-spacing: 0.12em;
+            font-weight: 700;
+            margin-bottom: 24px;
         }
 
-        header nav a {
+        .hero-tagline {
+            font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+            font-size: 15px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0.75;
+        }
+
+        /* Projects grid */
+        .projects {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px 32px;
+        }
+
+        .project {
+            background: linear-gradient(to bottom right,#f4f8ff,#ffffff);
+            border-radius: 28px;
+            padding: 24px 24px 28px;
+            box-shadow: 0 18px 40px rgba(15,23,42,0.09);
+            border: 1px solid rgba(15,23,42,0.05);
+        }
+
+        .project-image {
+            border-radius: 22px;
+            overflow: hidden;
+            margin-bottom: 18px;
+        }
+
+        .project-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .project-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .project-desc {
             
