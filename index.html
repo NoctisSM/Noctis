@@ -95,6 +95,34 @@
         .project {
             text-decoration: none;
             display: block;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .project.coming-soon {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        /* Custom Cursor */
+        .custom-cursor {
+            position: fixed;
+            padding: 8px 16px;
+            background: #1a1a1a;
+            color: #ffffff;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.2s;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+
+        .custom-cursor.active {
+            opacity: 1;
         }
 
         .project-image {
@@ -109,6 +137,10 @@
 
         .project:hover .project-image {
             transform: scale(0.98);
+        }
+
+        .project.coming-soon:hover .project-image {
+            transform: none;
         }
 
         .project-image img {
@@ -188,6 +220,9 @@
     </style>
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+
     <header>
         <a href="index.html" class="logo">Noctis</a>
         <nav>
@@ -196,37 +231,11 @@
     </header>
 
     <section class="hero">
-        <h1>SAMHITH MITRA</h1>
-        <p>Previously at Porsche Cars, Dahlstrom Technologies, Align Technology, & Reviver.</p>
+        <h1>NOCTIS</h1>
+        <p>INTENTIONAL INTERFACES</p>
     </section>
-    
-    <section class="projects">
-        <a href="porsche.html" class="project">
-            <div class="project-image">
-                <img src="images/policetool.jpg" alt="Situational Awareness Tool for Police Officers">
-            </div>
-            <h2 class="project-title">Situational Awareness Tool</h2>
-            <p class="project-description">Police Officers</p>
-            <div class="project-tags">
-                <span class="tag">Product Design</span>
-                <span class="tag">Full Process</span>
-                <span class="tag">2026</span>
-            </div>
-        </a>
-        
-        <a href="porsche.html" class="project">
-            <div class="project-image">
-                <img src="images/lendingclub.jpg" alt="Lending Club">
-            </div>
-            <h2 class="project-title">Gen-Z</h2>
-            <p class="project-description">Centric Finance</p>
-            <div class="project-tags">
-                <span class="tag">Product Design</span>
-                <span class="tag">Full Process</span>
-                <span class="tag">2025</span>
-            </div>
-        </a>
 
+    <section class="projects">
         <a href="porsche.html" class="project">
             <div class="project-image">
                 <img src="images/pcar.jpg" alt="Porsche Configurator">
@@ -236,10 +245,10 @@
             <div class="project-tags">
                 <span class="tag">Product Design</span>
                 <span class="tag">Full Process</span>
-                <span class="tag">2025</span>
+                <span class="tag">2024</span>
             </div>
         </a>
-        
+
         <a href="accessories.html" class="project">
             <div class="project-image">
                 <img src="images/accessories.jpg" alt="Invisalign E-Commerce">
@@ -249,11 +258,11 @@
             <div class="project-tags">
                 <span class="tag">Product Design</span>
                 <span class="tag">Design Systems</span>
-                <span class="tag">2022</span>
+                <span class="tag">2025</span>
             </div>
         </a>
 
-        <a href="aligner.html" class="project">
+        <a href="aligner.html" class="project coming-soon">
             <div class="project-image">
                 <img src="images/aligner.jpg" alt="Invisalign Aligners">
             </div>
@@ -261,11 +270,11 @@
             <p class="project-description">Invisible Aligners</p>
             <div class="project-tags">
                 <span class="tag">Product Design</span>
-                <span class="tag">2022</span>
+                <span class="tag">2024</span>
             </div>
         </a>
 
-        <a href="dashboard.html" class="project">
+        <a href="dashboard.html" class="project coming-soon">
             <div class="project-image">
                 <img src="images/dashboard.jpg" alt="Patient Dashboard">
             </div>
@@ -274,9 +283,36 @@
             <div class="project-tags">
                 <span class="tag">Product Design</span>
                 <span class="tag">UX Research</span>
-                <span class="tag">2021</span>
+                <span class="tag">2024</span>
             </div>
         </a>
     </section>
+
+    <script>
+        const cursor = document.getElementById('customCursor');
+        const projects = document.querySelectorAll('.project');
+
+        // Track cursor position
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Handle project hover
+        projects.forEach(project => {
+            project.addEventListener('mouseenter', () => {
+                if (project.classList.contains('coming-soon')) {
+                    cursor.textContent = 'Coming Soon';
+                } else {
+                    cursor.textContent = 'View Project';
+                }
+                cursor.classList.add('active');
+            });
+
+            project.addEventListener('mouseleave', () => {
+                cursor.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
