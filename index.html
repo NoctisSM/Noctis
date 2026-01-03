@@ -2,490 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Intentional Interfaces">
-    <title>Noctis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Noctis – Samhith Mitra</title>
     <link rel="icon" href="favicon.png">
     <style>
-        /* Reset and base styles */
-        *, *:before, *:after {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            appearance: none;
-            border: none;
-            border-radius: 0;
+        * {
             box-sizing: border-box;
-            color: inherit;
-            font: inherit;
             margin: 0;
             padding: 0;
-            text-rendering: optimizeLegibility;
+            font: inherit;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 14px;
-            line-height: 1.2;
-            color: #ffffff;
-            background: #000000;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, white, transparent),
-                radial-gradient(2px 2px at 60px 70px, white, transparent),
-                radial-gradient(1px 1px at 50px 50px, white, transparent),
-                radial-gradient(1px 1px at 130px 80px, white, transparent),
-                radial-gradient(2px 2px at 90px 10px, white, transparent),
-                radial-gradient(1px 1px at 200px 150px, white, transparent),
-                radial-gradient(1px 1px at 175px 25px, white, transparent),
-                radial-gradient(2px 2px at 250px 100px, white, transparent),
-                radial-gradient(1px 1px at 300px 50px, white, transparent),
-                radial-gradient(1px 1px at 400px 200px, white, transparent),
-                radial-gradient(2px 2px at 450px 80px, white, transparent),
-                radial-gradient(1px 1px at 500px 150px, white, transparent),
-                radial-gradient(1px 1px at 350px 120px, white, transparent),
-                radial-gradient(circle at 50% 50%, rgba(25, 25, 112, 0.3) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 20%, rgba(75, 0, 130, 0.2) 0%, transparent 50%),
-                radial-gradient(ellipse at 20% 80%, rgba(0, 0, 50, 0.3) 0%, transparent 50%);
-            background-size: 550px 550px, 550px 550px, 550px 550px, 550px 550px, 550px 550px, 
-                            550px 550px, 550px 550px, 550px 550px, 550px 550px, 550px 550px,
-                            550px 550px, 550px 550px, 550px 550px,
-                            200% 200%, 200% 200%, 200% 200%;
-            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px, 0 0,
-                                40px 60px, 130px 270px, 70px 100px, 0 0, 40px 60px,
-                                130px 270px, 70px 100px, 0 0,
-                                50% 50%, 80% 20%, 20% 80%;
-            letter-spacing: 0.01em;
-            cursor: none;
-            overflow-x: hidden;
-            animation: twinkle 200s linear infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.8;
-            }
-        }
-
-        /* Shooting stars */
-        .shooting-star {
-            position: fixed;
-            width: 3px;
-            height: 3px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 0 15px 3px rgba(255, 255, 255, 1);
-            z-index: 1;
-            pointer-events: none;
-            opacity: 0;
-        }
-
-        .shooting-star::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 3px;
-            width: 150px;
-            height: 2px;
-            background: linear-gradient(to right, 
-                rgba(255, 255, 255, 1) 0%, 
-                rgba(255, 255, 255, 0.8) 20%,
-                rgba(255, 255, 255, 0.6) 40%,
-                rgba(255, 255, 255, 0.3) 70%,
-                transparent 100%);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-            animation: shimmer 0.3s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% {
-                opacity: 1;
-                box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-            }
-            50% {
-                opacity: 0.7;
-                box-shadow: 0 0 20px rgba(255, 255, 255, 1);
-            }
-        }
-
-        /* Custom Cursor */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ffffff;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: all 0.15s ease;
-            transition-property: width, height, border, background;
-            mix-blend-mode: difference;
-        }
-
-        .cursor.hover {
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            body {
-                cursor: auto;
-            }
-            .cursor, .cursor-follower {
-                display: none;
-            }
-        }
-
-        ::selection {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background: #ffffff;
-            color: #000000;
+            color: #111111;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
-        /* Links */
         a {
             color: inherit;
             text-decoration: none;
-            cursor: none;
-            transition: opacity 0.2s ease;
         }
 
         a:hover {
             opacity: 0.7;
         }
 
-        .ul {
-            text-decoration: underline;
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 32px 20px 80px;
         }
 
-        /* Header */
-        .masthead {
-            background-color: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 12;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 8px;
-        }
-
-        .masthead .flex {
+        header {
             display: flex;
             align-items: center;
+            margin-bottom: 40px;
         }
 
-        .masthead .mla {
+        header .name {
+            font-weight: 600;
+        }
+
+        header .tagline {
+            margin-left: 8px;
+            opacity: 0.6;
+        }
+
+        header nav {
             margin-left: auto;
         }
 
-        .nav-item {
-            position: relative;
-        }
-
-        .nav-item::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: #ffffff;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .nav-item:hover::after {
-            transform: translateX(0);
-        }
-
-        /* Carousel Container */
-        .banner {
-            width: 100%;
-            height: 100vh;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .banner .slider {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            justify-content: center;
-            padding: 0 40px;
-            transition: transform 0.1s ease-out;
-        }
-
-        .banner .slider .item {
-            width: 220px;
-            height: 280px;
-            flex-shrink: 0;
-            overflow: hidden;
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.6),
-                0 0 40px rgba(138, 43, 226, 0.3);
-            border: 2px solid rgba(138, 43, 226, 0.4);
-            background: #000000;
-            transition: all 0.3s ease;
-            border-radius: 12px;
-        }
-
-        .banner .slider .item::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(
-                ellipse at center,
-                rgba(138, 43, 226, 0.6) 0%,
-                rgba(75, 0, 130, 0.5) 25%,
-                rgba(0, 100, 255, 0.4) 50%,
-                rgba(0, 150, 255, 0.3) 75%,
-                transparent 100%
-            );
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: -1;
-            filter: blur(60px);
-            pointer-events: none;
-        }
-
-        .banner .slider .item:hover::before {
-            opacity: 1;
-            animation: mistPulse 3s ease-in-out infinite;
-        }
-
-        @keyframes mistPulse {
-            0%, 100% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.2);
-            }
-        }
-
-        .banner .slider .item:hover {
-            box-shadow: 
-                0 12px 48px rgba(138, 43, 226, 0.6), 
-                0 0 80px rgba(0, 100, 255, 0.5);
-            border-color: rgba(0, 150, 255, 0.7);
-            transform: translateY(-10px) scale(1.05);
-        }
-
-        .banner .slider .item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .banner .slider .item .project-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 20px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 500;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .banner .slider .item:hover .project-info {
-            opacity: 1;
-        }
-
-        /* Content overlay */
-        .banner .content {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-            text-align: center;
-            pointer-events: none;
-        }
-
-        .banner .content h1 {
-            font-size: 4em;
-            font-weight: 700;
-            color: transparent;
-            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 20px;
-        }
-
-        .banner .content .tagline {
-            font-size: 1.2em;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 300;
-        }
-
-        /* Magnetic effect */
-        .magnetic {
-            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Responsive adjustments */
-        @media screen and (max-width: 1023px) {
-            .banner .slider {
-                gap: 30px;
-                padding: 0 30px;
-            }
-            .banner .slider .item {
-                width: 180px;
-                height: 230px;
-            }
-        }
-
-        @media screen and (max-width: 767px) {
-            .banner .slider {
-                gap: 20px;
-                padding: 0 20px;
-                flex-wrap: wrap;
-            }
-            .banner .slider .item {
-                width: 140px;
-                height: 180px;
-            }
-        }
-
-        /* Page transition */
-        .page-transition {
-            opacity: 0;
-            animation: fadeIn 0.6s ease 0.2s forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-
-    <!-- Shooting star -->
-    <div class="shooting-star"></div>
-
-    <header class="masthead">
-        <div class="flex">
-            <p class="nav-item">
-                <a href="index.html" class="magnetic">
-                    <strong style="font-weight: 700;">Noctis</strong>
-                </a>
-                ·&nbsp;Intentional Interfaces
-            </p>
-            <div class="mla">
-                <a class="ul nav-item magnetic" href="about.html">Information</a>
-            </div>
-        </div>
-    </header>
-
-    <div class="page-transition">
-        <!-- Hero section -->
-        <main style="max-width: 900px; margin: 0 auto; padding: 120px 24px 80px;">
-            <section style="margin-bottom: 48px;">
-                <p style="font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.7; margin-bottom: 12px;">
-                    User Experience Designer · MS HCI @ Georgia Tech
-                </p>
-                <h1 style="font-size: 32px; line-height: 1.3; margin-bottom: 16px;">
-                    Designing intentional interfaces for complex, decision‑heavy systems.
-                </h1>
-                <p style="font-size: 14px; line-height: 1.6; opacity: 0.8; max-width: 520px;">
-                    Previously at Porsche, Align Technology, and Dahlstrom Technologies. 
-                    Focused on workflows, configurators, and data‑dense experiences that balance guidance with user control.
-                </p>
-            </section>
-
-            <!-- Projects list (Brandon-style vertical cards) -->
-            <section style="display: flex; flex-direction: column; gap: 28px;">
-                <!-- Porsche -->
-                <a href="porsche.html" class="project-card magnetic" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.12);">
-                    <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.7;">
-                        PRODUCT DESIGN · FULL PROCESS · 2025
-                    </div>
-                    <div style="font-size: 18px; font-weight: 500;">
-                        Porsche Design Recommendations
-                    </div>
-                    <div style="font-size: 13px; opacity: 0.8;">
-                        Led the configurator entry experience to reduce decision fatigue, improving completion from 36% to 78% and cutting configuration time by over 50%.
-                    </div>
-                </a>
-
-                <!-- Invisalign E‑commerce -->
-                <a href="accessories.html" class="project-card magnetic" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.12);">
-                    <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.7;">
-                        UX / UI DESIGN · E‑COMMERCE
-                    </div>
-                    <div style="font-size: 18px; font-weight: 500;">
-                        Invisalign Accessories Storefront
-                    </div>
-                    <div style="font-size: 13px; opacity: 0.8;">
-                        Designed and shipped a refreshed shopping flow that removed key friction points and contributed to a 6× lift in conversion.
-                    </div>
-                </a>
-
-                <!-- Invisalign Aligners -->
-                <a href="aligner.html" class="project-card magnetic" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.12);">
-                    <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.7;">
-                        PRODUCT DESIGN · MARKETING SITE
-                    </div>
-                    <div style="font-size: 18px; font-weight: 500;">
-                        Invisalign Aligner Experience
-                    </div>
-                    <div style="font-size: 13px; opacity: 0.8;">
-                        Crafted a storytelling‑driven landing experience that clarified value props and increased engagement across key product pages.
-                    </div>
-                </a>
-
-                <!-- Invisalign Dashboard -->
-                <a href="dashboard.html" class="project-card magnetic" style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12);">
-                    <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.7;">
-                        PRODUCT DESIGN · DASHBOARDS
-                    </div>
-                    <div style="font-size: 18px; font-weight: 500;">
-                        Invisalign Patient Dashboard
-                    </div>
-                    <div style="font-size: 13px; opacity: 0.8;">
-                        Redesigned a patient dashboard to surface the right information at the right time, supporting treatment adherence and clearer progress tracking.
-                    </div>
-                </a>
-
-                <!-- (Optional) Thesis / Dispatch project – add when page is ready -->
-                <!--
-                <a href="dispatch.html" class="project-card magnetic" style="display:flex;flex-direction:column;gap:4px;padding:16px 0;border-top:1px solid rgba(255,255,255,0.12);">
-                    <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.16em;opacity:0.7;">
-                        UX RESEARCH · DECISION SUPPORT
-                    </div>
-                    <div style="font-size:18px;font-weight:500;">
-                        Police Dispatch HUD (MS HCI Thesis)
-                    </div>
-                    <div style="font-size:13px;opacity:0.8;">
-                        Designed and evaluated a situational‑awareness HUD for officers, focusing on filtering, information hierarchy, and cognitive load in high‑stakes contexts.
-                    </div>
-                </a>
-                -->
-            </section>
-        </main>
-    </div>
-    <script>
-    </script>
-</body>
-</html>
+        header nav a {
+            
