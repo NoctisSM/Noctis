@@ -99,7 +99,8 @@
             position: relative;
         }
 
-        .project.coming-soon {
+        .project.coming-soon,
+        .project.work-in-progress {
             pointer-events: none;
             opacity: 0.6;
         }
@@ -139,7 +140,8 @@
             transform: scale(0.98);
         }
 
-        .project.coming-soon:hover .project-image {
+        .project.coming-soon:hover .project-image,
+        .project.work-in-progress:hover .project-image {
             transform: none;
         }
 
@@ -236,6 +238,36 @@
     </section>
 
     <section class="projects">
+        <a href="thesis.html" class="project work-in-progress">
+            <div class="project-image">
+                <img src="images/thesis.jpg" alt="Thesis Masters Project">
+            </div>
+            <h2 class="project-title">Thesis Masters Project</h2>
+            <p class="project-description">Research & Development</p>
+            <div class="project-tags">
+                <span class="tag">Product Design</span>
+                <span class="tag">UX Research</span>
+                <span class="tag">UX Design</span>
+                <span class="tag">Full Process</span>
+                <span class="tag">2026</span>
+            </div>
+        </a>
+
+        <a href="gta-hiring.html" class="project coming-soon">
+            <div class="project-image">
+                <img src="images/gta-hiring.jpg" alt="GTA Hiring Process">
+            </div>
+            <h2 class="project-title">GTA Hiring Process</h2>
+            <p class="project-description">System Design</p>
+            <div class="project-tags">
+                <span class="tag">Product Design</span>
+                <span class="tag">UX Research</span>
+                <span class="tag">UX Design</span>
+                <span class="tag">Full Process</span>
+                <span class="tag">2025</span>
+            </div>
+        </a>
+
         <a href="porsche.html" class="project">
             <div class="project-image">
                 <img src="images/pcar.jpg" alt="Porsche Configurator">
@@ -244,7 +276,8 @@
             <p class="project-description">Configurator</p>
             <div class="project-tags">
                 <span class="tag">Product Design</span>
-                <span class="tag">Full Process</span>
+                <span class="tag">UX Research</span>
+                <span class="tag">UX Design</span>
                 <span class="tag">2024</span>
             </div>
         </a>
@@ -301,7 +334,9 @@
         // Handle project hover
         projects.forEach(project => {
             project.addEventListener('mouseenter', () => {
-                if (project.classList.contains('coming-soon')) {
+                if (project.classList.contains('work-in-progress')) {
+                    cursor.textContent = 'Work in Progress';
+                } else if (project.classList.contains('coming-soon')) {
                     cursor.textContent = 'Coming Soon';
                 } else {
                     cursor.textContent = 'View Project';
