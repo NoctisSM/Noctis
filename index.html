@@ -99,7 +99,6 @@
             position: relative;
         }
 
-        .project.coming-soon,
         .project.work-in-progress {
             pointer-events: none;
             opacity: 0.6;
@@ -140,7 +139,6 @@
             transform: scale(0.98);
         }
 
-        .project.coming-soon:hover .project-image,
         .project.work-in-progress:hover .project-image {
             transform: none;
         }
@@ -253,7 +251,7 @@
             </div>
         </a>
 
-        <a href="gta-hiring.html" class="project coming-soon">
+        <a href="gta-hiring.html" class="project">
             <div class="project-image">
                 <img src="images/gta-hiring.jpg" alt="GTA Hiring Process">
             </div>
@@ -295,7 +293,7 @@
             </div>
         </a>
 
-        <a href="aligner.html" class="project coming-soon">
+        <a href="aligner.html" class="project">
             <div class="project-image">
                 <img src="images/aligner.jpg" alt="Invisalign Aligners">
             </div>
@@ -307,7 +305,7 @@
             </div>
         </a>
 
-        <a href="dashboard.html" class="project coming-soon">
+        <a href="dashboard.html" class="project">
             <div class="project-image">
                 <img src="images/dashboard.jpg" alt="Patient Dashboard">
             </div>
@@ -336,8 +334,6 @@
             project.addEventListener('mouseenter', () => {
                 if (project.classList.contains('work-in-progress')) {
                     cursor.textContent = 'Work in Progress';
-                } else if (project.classList.contains('coming-soon')) {
-                    cursor.textContent = 'Coming Soon';
                 } else {
                     cursor.textContent = 'View Project';
                 }
