@@ -535,10 +535,11 @@
             margin-bottom: 24px;
         }
 
-        /* Carousel Section */
+        /* Other Projects Section */
         .other-projects {
             margin-top: 80px;
             padding-top: 64px;
+            padding-bottom: 80px;
             border-top: 1px solid #e5e5e5;
         }
 
@@ -551,34 +552,24 @@
             font-weight: 600;
         }
 
-        .carousel-container {
-            position: relative;
-            margin: 32px 0 80px;
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+            margin: 32px 0;
         }
 
-        .carousel-track-container {
-            overflow: hidden;
-            margin: 0 60px;
-        }
-
-        .carousel-track {
-            display: flex;
-            gap: 32px;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-card {
-            min-width: calc((100% - 64px) / 3);
+        .project-card {
             text-decoration: none;
             display: block;
             transition: transform 0.3s ease;
         }
 
-        .carousel-card:hover {
+        .project-card:hover {
             transform: translateY(-4px);
         }
 
-        .carousel-card-image {
+        .project-card-image {
             width: 100%;
             aspect-ratio: 16 / 10;
             background: #f5f5f5;
@@ -587,59 +578,24 @@
             margin-bottom: 16px;
         }
 
-        .carousel-card-image img {
+        .project-card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        .carousel-card h3 {
-            font-size: 20px;
+        .project-card h3 {
+            font-size: 16px;
             font-weight: 600;
             color: #1a1a1a;
             margin-bottom: 4px;
         }
 
-        .carousel-card p {
-            font-size: 15px;
+        .project-card p {
+            font-size: 14px;
             color: #666;
             margin-bottom: 0;
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #ffffff;
-            border: 1px solid #e5e5e5;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            z-index: 10;
-            color: #1a1a1a;
-        }
-
-        .carousel-btn:hover:not(:disabled) {
-            background: #f5f5f5;
-            border-color: #1a1a1a;
-        }
-
-        .carousel-btn:disabled {
-            cursor: not-allowed;
-        }
-
-        .carousel-btn-prev {
-            left: 0;
-        }
-
-        .carousel-btn-next {
-            right: 0;
         }
 
         /* Responsive */
@@ -652,8 +608,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .carousel-card {
-                min-width: calc((100% - 32px) / 2);
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
@@ -679,17 +635,8 @@
                 gap: 24px;
             }
 
-            .carousel-track-container {
-                margin: 0 40px;
-            }
-
-            .carousel-btn {
-                width: 40px;
-                height: 40px;
-            }
-
-            .carousel-card {
-                min-width: 100%;
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1131,116 +1078,48 @@
         <section class="other-projects">
             <div class="section-label" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #999; margin-bottom: 32px; font-weight: 600;">Other Projects</div>
             
-            <div class="carousel-container">
-                <button class="carousel-btn carousel-btn-prev" aria-label="Previous">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                </button>
-                
-                <div class="carousel-track-container">
-                    <div class="carousel-track">
-                        <a href="thesis.html" class="carousel-card">
-                            <div class="carousel-card-image">
-                                <img src="images/thesis.jpg" alt="Thesis Masters Project">
-                            </div>
-                            <h3>Thesis Masters Project</h3>
-                            <p>Research & Development</p>
-                        </a>
-                        
-                        <a href="gta-hiring.html" class="carousel-card">
-                            <div class="carousel-card-image">
-                                <img src="images/GTA_flow.png" alt="GTA Hiring Process">
-                            </div>
-                            <h3>GTA Hiring Process</h3>
-                            <p>System Design</p>
-                        </a>
-                        
-                        <a href="accessories.html" class="carousel-card">
-                            <div class="carousel-card-image">
-                                <img src="images/accessories.jpg" alt="Invisalign E-Commerce">
-                            </div>
-                            <h3>Invisalign</h3>
-                            <p>E-Commerce Website</p>
-                        </a>
-                        
-                        <a href="aligner.html" class="carousel-card">
-                            <div class="carousel-card-image">
-                                <img src="images/aligner.jpg" alt="Invisalign Aligners">
-                            </div>
-                            <h3>Invisalign</h3>
-                            <p>Invisible Aligners</p>
-                        </a>
-                        
-                        <a href="dashboard.html" class="carousel-card">
-                            <div class="carousel-card-image">
-                                <img src="images/dashboard.jpg" alt="Patient Dashboard">
-                            </div>
-                            <h3>Invisalign</h3>
-                            <p>Patient Dashboard</p>
-                        </a>
+            <div class="projects-grid">
+                <a href="thesis.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/thesis.jpg" alt="Thesis Masters Project">
                     </div>
-                </div>
+                    <h3>Thesis Masters Project</h3>
+                    <p>Research & Development</p>
+                </a>
                 
-                <button class="carousel-btn carousel-btn-next" aria-label="Next">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
+                <a href="gta-hiring.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/GTA_flow.png" alt="GTA Hiring Process">
+                    </div>
+                    <h3>GTA Hiring Process</h3>
+                    <p>System Design</p>
+                </a>
+                
+                <a href="accessories.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/accessories.jpg" alt="Invisalign E-Commerce">
+                    </div>
+                    <h3>Invisalign</h3>
+                    <p>E-Commerce Website</p>
+                </a>
+                
+                <a href="aligner.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/aligner.jpg" alt="Invisalign Aligners">
+                    </div>
+                    <h3>Invisalign</h3>
+                    <p>Invisible Aligners</p>
+                </a>
+                
+                <a href="dashboard.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/dashboard.jpg" alt="Patient Dashboard">
+                    </div>
+                    <h3>Invisalign</h3>
+                    <p>Patient Dashboard</p>
+                </a>
             </div>
         </section>
     </main>
-
-    <script>
-        // Carousel functionality
-        const track = document.querySelector('.carousel-track');
-        const cards = Array.from(track.children);
-        const prevButton = document.querySelector('.carousel-btn-prev');
-        const nextButton = document.querySelector('.carousel-btn-next');
-        
-        let currentIndex = 0;
-        const cardsToShow = 3;
-        const cardWidth = cards[0].offsetWidth;
-        const gap = 32;
-        
-        function updateCarousel() {
-            const moveAmount = -(currentIndex * (cardWidth + gap));
-            track.style.transform = `translateX(${moveAmount}px)`;
-            
-            // Update button states
-            prevButton.disabled = currentIndex === 0;
-            nextButton.disabled = currentIndex >= cards.length - cardsToShow;
-            
-            prevButton.style.opacity = currentIndex === 0 ? '0.3' : '1';
-            nextButton.style.opacity = currentIndex >= cards.length - cardsToShow ? '0.3' : '1';
-        }
-        
-        nextButton.addEventListener('click', () => {
-            if (currentIndex < cards.length - cardsToShow) {
-                currentIndex++;
-                updateCarousel();
-            }
-        });
-        
-        prevButton.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        });
-        
-        // Responsive handling
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                currentIndex = 0;
-                updateCarousel();
-            }, 250);
-        });
-        
-        // Initial state
-        updateCarousel();
-    </script>
 </body>
 </html>
