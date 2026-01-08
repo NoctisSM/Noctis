@@ -2,290 +2,448 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Intentional-Interfaces">
-    <title>Noctis — Invisalign Patient Dashboard</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <meta name="description" content="Invisalign Patient Dashboard - Noctis">
+    <title>Invisalign Patient Dashboard - Noctis</title>
     <style>
         * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            font-smooth: always;
-            appearance: none;
-            border: none;
-            border-radius: 0;
-            box-sizing: border-box;
-            color: inherit;
-            font: inherit;
-            font-synthesis: none;
             margin: 0;
             padding: 0;
-            text-rendering: optimizeLegibility;
+            box-sizing: border-box;
         }
 
         body {
-            font-smooth: always;
-            -webkit-font-smoothing: antialiased;
-            color: #ffffff;
-            background-color: #000000;
-            font-family: sans-serif;
-            font-size: 14px;
-            letter-spacing: .01em;
-            line-height: 120%;
-            text-rendering: optimizeLegibility;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: linear-gradient(to bottom, #f0f4ff 0%, #ffffff 40%);
+            color: #1a1a1a;
+            line-height: 1.6;
+            min-height: 100vh;
         }
 
-        a {
-            color: inherit;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-        }
-
-        .masthead {
-            background-color: #000000;
-            color: #ffffff;
-            left: 0;
+        header {
             position: fixed;
             top: 0;
-            width: 100%;
-            z-index: 12;
-        }
-
-        .flex {
+            left: 0;
+            right: 0;
+            padding: 24px 48px;
             display: flex;
-        }
-
-        .flex-col {
-            flex-direction: column;
-        }
-
-        .space-between {
             justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e5e5;
+            z-index: 100;
         }
 
-        .p8 {
-            padding: 8px;
-        }
-
-        .pt0 {
-            padding-top: 0;
-        }
-
-        .mla {
-            margin-left: auto;
-        }
-
-        .mb16 {
-            margin-bottom: 16px;
-        }
-
-        .mta {
-            margin-top: auto;
-        }
-
-        .link {
-            text-decoration: none;
-            transition: opacity .2s ease;
-        }
-
-        .link:hover {
-            opacity: .5;
-        }
-
-        .ul {
-            text-decoration: underline;
-        }
-
-        .link-large {
+        .logo {
             font-size: 18px;
-            font-weight: bold;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-decoration: none;
         }
 
+        nav {
+            display: flex;
+            gap: 32px;
+        }
 
-        .grid {
+        nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #1a1a1a;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 140px 48px 80px;
+        }
+
+        .project-header {
+            margin-bottom: 48px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #999;
+            border: 1px solid #e5e5e5;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .meta-info {
             display: grid;
-            gap: 8px;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid #e5e5e5;
         }
 
-        @media(max-width: 768px) {
-            .grid {
-                grid-template-columns: repeat(1, 1fr);
-            }
-        }
-
-        .gap-240 {
-            gap: 240px;
-        }
-
-        @media(max-width: 768px) {
-            .gap-240 {
-                gap: 80px;
-            }
-        }
-
-        .pos-rel {
-            position: relative;
-        }
-
-        .project-image {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image.full-height {
-            height: auto;
-        }
-
-        .ratio-2-1 {
-            aspect-ratio: 2/1;
-            width: 100%;
-        }
-
-        .ratio-4-5 {
-            aspect-ratio: 4/5;
-            width: 100%;
-        }
-
-        .ratio-16-9 {
-            aspect-ratio: 16/9;
-            width: 100%;
-        }
-
-        .spacer {
-            height: 224px;
-        }
-
-        @media(max-width: 768px) {
-            .spacer {
-                height: 80px;
-            }
-        }
-
-        .max-480 {
-            max-width: 480px;
-        }
-
-        .max-100 {
-            width: 100px;
-        }
-
-        .bg-grey {
-            background-color: rgba(0,0,0,.1);
-        }
-
-        .information {
-            opacity: 1;
-        }
-
-        .information p {
-            line-height: 1.4;
-        }
-
-        .information b {
+        .meta-item h3 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #999;
+            margin-bottom: 8px;
             font-weight: 600;
         }
 
-        main {
-            margin-top: 30px;
+        .meta-item p {
+            font-size: 15px;
+            color: #1a1a1a;
         }
 
-        @media(max-width: 768px) {
-            .m-hide {
-                display: none;
+        .confidential-notice {
+            background: #f5f5f5;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin-bottom: 48px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .confidential-notice span {
+            font-size: 20px;
+        }
+
+        .confidential-notice p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .confidential-notice a {
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+
+        .experience-link {
+            background: #f5f5f5;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+
+        .experience-link p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .experience-link a {
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+
+        .content-section {
+            margin-bottom: 64px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #999;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            margin: 32px 0;
+        }
+
+        .feature-item {
+            margin-bottom: 20px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .feature-item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 64px;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #1a1a1a;
+        }
+
+        .other-projects {
+            margin-top: 80px;
+            margin-bottom: 64px;
+            padding-top: 64px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .projects-carousel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 32px;
+        }
+
+        .project-card {
+            text-decoration: none;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .project-card-image {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: #f5f5f5;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .project-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .project-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 24px;
             }
-            .m-gap-80 {
-                row-gap: 80px;
+
+            nav {
+                gap: 20px;
             }
-            .m-pt40 {
-                padding-top: 40px;
+
+            .container {
+                padding: 120px 24px 60px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .meta-info {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+
+            .projects-carousel {
+                grid-template-columns: 1fr;
+                gap: 32px;
             }
         }
     </style>
 </head>
 <body>
-    <header class="masthead">
-        <div class="flex p8">
-            <p><a class="link" href="index.html"><b>Noctis</b></a> · Intentional Interfaces</p>
-            <a class="mla ul" href="about.html">Information</a>
-        </div>
+    <header>
+        <a href="index.html" class="logo">Noctis</a>
+        <nav>
+            <a href="about.html">Information</a>
+        </nav>
     </header>
 
-    <main>
-        <br></br>
-            <a href="https://my.invisalign.com/login" class="link ul link-large" target="_blank" rel="noopener noreferrer" style="font-weight: bold;">
-                    View Invisalign Patient Dashboard
-            </a>
-        <br></br>
-        <div class="p8 pt0 flex flex-col gap-240 m-pt40">
-            <div class="project-image full-height">
-                <img src="images/dashboard.png" alt="Invisalign Patient Dashboard Login Page">
+    <div class="container">
+        <div class="project-header">
+            <div class="project-tags">
+                <span class="tag">Product Design</span>
+                <span class="tag">UX Research</span>
+                <span class="tag">2024</span>
+            </div>
+            
+            <h1>Invisalign</h1>
+            <p class="subtitle">Patient Dashboard</p>
+
+            <div class="meta-info">
+                <div class="meta-item">
+                    <h3>Timeline</h3>
+                    <p>2024</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Team</h3>
+                    <p>Align Technology</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Role</h3>
+                    <p>Product Designer</p>
+                </div>
+            </div>
+
+            <div class="confidential-notice">
+                <span>🔒</span>
+                <p>The nature of my work is confidential and cannot publicly be shared. Please <a href="mailto:your-email@example.com">email me</a> if you'd like to chat and learn more!</p>
+            </div>
+
+            <div class="experience-link">
+                <p>Visit the <a href="https://my.invisalign.com/login" target="_blank" rel="noopener noreferrer">Invisalign Patient Dashboard</a> to see the live product.</p>
             </div>
         </div>
 
-        <div class="information flex space-between p8">
-            <div class="max-480 mb16">
-                <p>
-                    <b>Invisalign</b> (2022)<br><br>
-                    <b>Challenge</b><br>
-                    Once treatment began, many Invisalign patients found it difficult to stay connected to their progress. They received aligners, followed instructions, and attended appointments, but often lacked a clear sense of how far they had come or what was next. Without an easy way to visualize progress, track wear time, or communicate with their doctor, motivation tended to fade over time. The existing experience felt fragmented. Patients had to rely on multiple emails, manual reminders, or third-party apps to stay on track. The challenge was to design a central space that could keep patients engaged and informed throughout their smile journey.<br><br>
-                    
-                    <b>Solution</b><br>
-                    The idea behind the new Invisalign Patient Dashboard was to create a single, personalized hub that brought clarity and encouragement to every stage of treatment. The dashboard became a digital companion, helping patients see their journey unfold in real time. The new experience allowed patients to:<br><br>
+        <div class="content-section">
+            <div class="section-label">Challenge</div>
+            <h2>Staying connected throughout the journey</h2>
+            <p>Once treatment began, many Invisalign patients found it difficult to stay connected to their progress. They received aligners, followed instructions, and attended appointments, but often lacked a clear sense of how far they had come or what was next.</p>
+            <p>Without an easy way to visualize progress, track wear time, or communicate with their doctor, motivation tended to fade over time. The existing experience felt fragmented. Patients had to rely on multiple emails, manual reminders, or third-party apps to stay on track.</p>
+            <p>The challenge was to design a central space that could keep patients engaged and informed throughout their smile journey.</p>
+        </div>
 
-                    View their treatment progress at a glance, including completed and upcoming aligner stages.<br><br>
-
-                    Receive personalized reminders for aligner changes, check-ins, and retainer care.<br><br>
-
-                    Access educational tips and support resources tailored to their phase of treatment.<br><br>
-
-                    Stay connected with their doctor through messages and virtual updates when needed.<br><br>
-
-                    The layout balanced structure and freedom. It guided patients through their treatment without ever feeling restrictive, making the process feel transparent, motivating, and personal.<br><br>
-                    
-                    <b>Impact</b><br>
-                    The dashboard transformed how patients experienced Invisalign treatment. What once felt like a hidden process became an interactive and encouraging journey. Early results and feedback showed several improvements:<br><br>
-
-                    Patients felt more informed and confident about their progress.<br><br>
-
-                    Adherence to aligner schedules increased, reducing treatment delays.<br><br>
-
-                    Doctors reported that patients arrived at check-ins better prepared and more engaged.<br><br>
-
-                    By rethinking how patients interact with their treatment, the Invisalign Dashboard turned a complex medical process into a simple and empowering experience. It helped patients not only see their progress but also feel proud of it every step of the way.<br><br>
-                    
-                    <b>Services:</b><br>
-                    └ UX Research<br>
-                    └ Interface Design (Web, Mobile)<br>
-                    └ Experience Design (Web, Mobile)<br>
-                                        
-                    <b>Credit:</b><br>
-                    └ Creative Direction: Ryan Coyne, Kristin Sun, Kamal Bhandal<br>
-                    └ Lead Designer: SM (me)<br>
-                    └ 3D Visualization: 3D Team<br>
-                    └ Development: Frontend Engineering Team
-                </p>
+        <div class="content-section">
+            <div class="section-label">Solution</div>
+            <h2>A personalized hub for every stage</h2>
+            <p>The idea behind the new Invisalign Patient Dashboard was to create a single, personalized hub that brought clarity and encouragement to every stage of treatment. The dashboard became a digital companion, helping patients see their journey unfold in real time.</p>
+            <p>The new experience allowed patients to:</p>
+            <div class="feature-list">
+                <div class="feature-item">View their treatment progress at a glance, including completed and upcoming aligner stages.</div>
+                <div class="feature-item">Receive personalized reminders for aligner changes, check-ins, and retainer care.</div>
+                <div class="feature-item">Access educational tips and support resources tailored to their phase of treatment.</div>
+                <div class="feature-item">Stay connected with their doctor through messages and virtual updates when needed.</div>
             </div>
+            <p>The layout balanced structure and freedom. It guided patients through their treatment without ever feeling restrictive, making the process feel transparent, motivating, and personal.</p>
+        </div>
 
-            <div class="max-100 mta m-hide">
-                <a href="porsche.html">
-                    <div class="project-image ratio-4-5 bg-grey">
+        <div class="content-section">
+            <div class="section-label">Impact</div>
+            <h2>An interactive and encouraging journey</h2>
+            <p>The dashboard transformed how patients experienced Invisalign treatment. What once felt like a hidden process became an interactive and encouraging journey. Early results and feedback showed several improvements:</p>
+            <div class="feature-list">
+                <div class="feature-item">Patients felt more informed and confident about their progress.</div>
+                <div class="feature-item">Adherence to aligner schedules increased, reducing treatment delays.</div>
+                <div class="feature-item">Doctors reported that patients arrived at check-ins better prepared and more engaged.</div>
+            </div>
+            <p>By rethinking how patients interact with their treatment, the Invisalign Dashboard turned a complex medical process into a simple and empowering experience. It helped patients not only see their progress but also feel proud of it every step of the way.</p>
+        </div>
+
+        <div class="other-projects">
+            <div class="section-label">Other Projects</div>
+            <div class="projects-carousel">
+                <a href="thesis.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/thesis.jpg" alt="Thesis Masters Project">
+                    </div>
+                    <h3>Thesis Masters Project</h3>
+                    <p>Research & Development</p>
+                </a>
+
+                <a href="gta-hiring.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/gta-hiring.jpg" alt="GTA Hiring Process">
+                    </div>
+                    <h3>GTA Hiring Process</h3>
+                    <p>System Design</p>
+                </a>
+
+                <a href="porsche.html" class="project-card">
+                    <div class="project-card-image">
                         <img src="images/pcar.jpg" alt="Porsche Configurator">
                     </div>
+                    <h3>Porsche</h3>
+                    <p>Configurator</p>
+                </a>
+
+                <a href="accessories.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/accessories.jpg" alt="Invisalign E-Commerce">
+                    </div>
+                    <h3>Invisalign</h3>
+                    <p>E-Commerce Website</p>
+                </a>
+
+                <a href="aligner.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/aligner.jpg" alt="Invisalign Aligners">
+                    </div>
+                    <h3>Invisalign</h3>
+                    <p>Invisible Aligners</p>
                 </a>
             </div>
         </div>
-    </main>
+
+        <a href="index.html" class="back-link">← Back to Projects</a>
+    </div>
 </body>
 </html>
