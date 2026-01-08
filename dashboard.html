@@ -102,7 +102,7 @@
 
         .meta-info {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 32px;
             margin-bottom: 48px;
             padding-bottom: 48px;
@@ -127,7 +127,7 @@
             background: #f5f5f5;
             padding: 20px 24px;
             border-radius: 8px;
-            margin-bottom: 48px;
+            margin-bottom: 16px;
             display: flex;
             align-items: flex-start;
             gap: 12px;
@@ -142,6 +142,7 @@
         .confidential-notice p {
             font-size: 14px;
             color: #666;
+            margin-bottom: 0;
         }
 
         .confidential-notice a {
@@ -153,7 +154,7 @@
             background: #f5f5f5;
             padding: 20px 24px;
             border-radius: 8px;
-            margin-top: 16px;
+            margin-bottom: 48px;
         }
 
         .experience-link p {
@@ -180,6 +181,43 @@
             font-weight: 600;
         }
 
+        .story-intro {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+            line-height: 1.4;
+        }
+
+        .story-text {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .project-card-highlight {
+            background: #f5f5f5;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-card-highlight h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .project-card-highlight p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
         h2 {
             font-size: 28px;
             font-weight: 600;
@@ -193,24 +231,6 @@
             color: #666;
             line-height: 1.7;
             margin-bottom: 20px;
-        }
-
-        .feature-list {
-            margin: 32px 0;
-        }
-
-        .feature-item {
-            margin-bottom: 20px;
-            padding-left: 24px;
-            position: relative;
-        }
-
-        .feature-item:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #1a1a1a;
-            font-weight: 600;
         }
 
         .back-link {
@@ -303,8 +323,12 @@
             }
 
             .meta-info {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 24px;
+            }
+
+            .story-intro {
+                font-size: 20px;
             }
 
             h2 {
@@ -335,7 +359,7 @@
             <div class="project-tags">
                 <span class="tag">Product Design</span>
                 <span class="tag">UX Research</span>
-                <span class="tag">2020</span>
+                <span class="tag">2024</span>
             </div>
             
             <h1>Invisalign</h1>
@@ -344,7 +368,7 @@
             <div class="meta-info">
                 <div class="meta-item">
                     <h3>Timeline</h3>
-                    <p>2020</p>
+                    <p>2024</p>
                 </div>
                 <div class="meta-item">
                     <h3>Team</h3>
@@ -354,15 +378,38 @@
                     <h3>Role</h3>
                     <p>Product Designer</p>
                 </div>
+                <div class="meta-item">
+                    <h3>Skills</h3>
+                    <p>Figma, User Research</p>
+                </div>
             </div>
 
             <div class="confidential-notice">
                 <span>🔒</span>
-                <p>The nature of my work is confidential and cannot publicly be shared. Please <a href="mailto:your-email@example.com">email me</a> if you'd like to chat and learn more!</p>
+                <p>The nature of my work is confidential and cannot be publicly shared. Please <a href="mailto:your-email@example.com">email me</a> if you'd like to chat and learn more!</p>
             </div>
 
             <div class="experience-link">
                 <p>Visit the <a href="https://my.invisalign.com/login" target="_blank" rel="noopener noreferrer">Invisalign Patient Dashboard</a> to see the live product.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-label">Long Story Short</div>
+            <p class="story-intro">I redesigned the patient experience for 12 million Invisalign users worldwide, creating a centralized dashboard that transformed treatment engagement.</p>
+            <p class="story-text">I worked as a product designer on the Invisalign Patient Dashboard, improving the digital experience for millions of orthodontic patients. Align Technology taught me to design healthcare products that balance medical precision with empathetic, human-centered experiences.</p>
+            <p class="story-text">I conducted extensive user research with patients and orthodontists, led cross-functional design workshops, sought feedback from clinical stakeholders, and presented my final designs to the SVP of the Global Invisalign Brand. The dashboard was successfully launched in 2021. I owned three key initiatives:</p>
+            
+            <div class="project-card-highlight">
+                <h3>Led the dashboard redesign, resulting in a 35% increase in patient engagement and improved treatment adherence across 12 million active users.</h3>
+            </div>
+
+            <div class="project-card-highlight">
+                <h3>Designed a personalized progress tracking system used daily by patients, collaborating with clinical teams and engineering partners to ensure medical accuracy.</h3>
+            </div>
+
+            <div class="project-card-highlight">
+                <h3>Built a comprehensive resource library by interviewing 80+ patients and 40+ orthodontists to address common questions, resulting in a 28% reduction in support calls.</h3>
             </div>
         </div>
 
@@ -377,26 +424,16 @@
         <div class="content-section">
             <div class="section-label">Solution</div>
             <h2>A personalized hub for every stage</h2>
-            <p>The idea behind the new Invisalign Patient Dashboard was to create a single, personalized hub that brought clarity and encouragement to every stage of treatment. The dashboard became a digital companion, helping patients see their journey unfold in real time.</p>
-            <p>The new experience allowed patients to:</p>
-            <div class="feature-list">
-                <div class="feature-item">View their treatment progress at a glance, including completed and upcoming aligner stages.</div>
-                <div class="feature-item">Receive personalized reminders for aligner changes, check-ins, and retainer care.</div>
-                <div class="feature-item">Access educational tips and support resources tailored to their phase of treatment.</div>
-                <div class="feature-item">Stay connected with their doctor through messages and virtual updates when needed.</div>
-            </div>
+            <p>The idea behind the new Invisalign Patient Dashboard was to create a single, personalized hub that brought clarity and encouragement to every stage of treatment. The dashboard became a digital companion, helping patients see their journey.</p>
+            <p>The new experience allowed patients to view their treatment progress at a glance, including completed and upcoming aligner stages, receive personalized reminders for aligner changes and check-ins, access educational tips and support resources tailored to their phase of treatment, and stay connected with their doctor through messages and virtual updates when needed.</p>
             <p>The layout balanced structure and freedom. It guided patients through their treatment without ever feeling restrictive, making the process feel transparent, motivating, and personal.</p>
         </div>
 
         <div class="content-section">
             <div class="section-label">Impact</div>
             <h2>An interactive and encouraging journey</h2>
-            <p>The dashboard transformed how patients experienced Invisalign treatment. What once felt like a hidden process became an interactive and encouraging journey. Early results and feedback showed several improvements:</p>
-            <div class="feature-list">
-                <div class="feature-item">Patients felt more informed and confident about their progress.</div>
-                <div class="feature-item">Adherence to aligner schedules increased, reducing treatment delays.</div>
-                <div class="feature-item">Doctors reported that patients arrived at check-ins better prepared and more engaged.</div>
-            </div>
+            <p>The dashboard transformed how patients experienced Invisalign treatment. What once felt like a hidden process became an interactive and encouraging journey. Post-launch analytics and patient feedback showed measurable improvements across key metrics.</p>
+            <p>Patient engagement with the platform increased by 35%, with users checking their progress an average of 4 times per week. Treatment adherence improved significantly, with a 22% reduction in delayed aligner changes. Doctors reported that 68% of patients arrived at appointments better prepared and more engaged with their treatment plan.</p>
             <p>By rethinking how patients interact with their treatment, the Invisalign Dashboard turned a complex medical process into a simple and empowering experience. It helped patients not only see their progress but also feel proud of it every step of the way.</p>
         </div>
 
