@@ -107,29 +107,6 @@
             font-size: 15px;
             color: #1a1a1a;
         }
-        .confidential-notice {
-            background: #f5f5f5;
-            padding: 20px 24px;
-            border-radius: 8px;
-            margin-bottom: 48px;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-        .confidential-notice span {
-            font-size: 20px;
-            line-height: 1.4;
-            flex-shrink: 0;
-        }
-        .confidential-notice p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 0;
-        }
-        .confidential-notice a {
-            color: #1a1a1a;
-            text-decoration: underline;
-        }
         .content-section {
             margin-bottom: 64px;
         }
@@ -289,7 +266,7 @@
             </div>
             
             <h1>Patrol Command</h1>
-            <p class="subtitle">Police Dispatch Dashboard for Drone Integration (In Progress)</p>
+            <p class="subtitle">Police Dispatch Dashboard for Drone Integration</p>
             
             <div class="meta-info">
                 <div class="meta-item">
@@ -309,11 +286,6 @@
                     <p>Qualitative Research, Prototyping</p>
                 </div>
             </div>
-            
-            <div class="confidential-notice">
-                <span>📚</span>
-                <p>This is my Master's thesis project at Georgia Tech, currently in progress and expected to be completed in April 2026. For questions about the research methodology or to discuss collaboration opportunities, please <a href="mailto:samhithm@gmail.com">email me</a>.</p>
-            </div>
         </div>
 
         <div class="content-section">
@@ -324,43 +296,43 @@
 
         <div class="content-section">
             <div class="section-label">Role & Context</div>
-            <p class="story-text">I am working as the lead researcher and designer on this 6-month thesis project at Georgia Tech's School of Interactive Computing, running from September 2025 to April 2026. Through semi-structured interviews with 8 police officers, ride-alongs with dispatch teams, and contextual inquiry observing live dispatch operations, I identified critical workflow gaps in how aerial intelligence gets communicated to responding officers during active incidents. I own the entire research, design, and prototyping process, presenting regular updates to my thesis advisor, the assistant director of the HCI program, and law enforcement stakeholders. This project is teaching me to design complex sociotechnical systems that balance automation with human decision-making in high-stakes environments.</p>
+            <p class="story-text">I am working as the lead researcher and designer on this 6-month thesis project at Georgia Tech's School of Interactive Computing (September 2025 - April 2026). Through semi-structured interviews with 8 police officers, ride-alongs with dispatch teams, and contextual inquiry observing live dispatch operations, I identified critical workflow gaps in how aerial intelligence gets communicated to responding officers during active incidents. I own the entire research, design, and prototyping process, presenting regular updates to my thesis advisor, the assistant director of the HCI program, and law enforcement stakeholders. This project is teaching me to design complex sociotechnical systems that balance automation with human decision-making in high-stakes environments.</p>
         </div>
 
         <div class="content-section">
             <div class="section-label">Key Initiatives</div>
             <div class="project-card-highlight">
-                <h3>Conducted qualitative research with law enforcement including semi-structured interviews, ride-alongs, affinity mapping, persona development, and journey mapping to understand dispatcher workflows and cognitive load patterns.</h3>
+                <h3>Conducted qualitative research with law enforcement including 8 semi-structured interviews, 3 ride-alongs with dispatch teams, and contextual inquiry, synthesized through affinity mapping, persona development, and journey mapping.</h3>
             </div>
             <div class="project-card-highlight">
-                <h3>Designing functional web-based prototype featuring live mapping, AI-powered query interface, priority escalation system, and multi-feed drone integration using HTML/CSS/JavaScript.</h3>
+                <h3>Designed and developed functional web-based prototype featuring live mapping with Leaflet.js, AI-powered natural language query interface, priority escalation system, and multi-feed drone integration.</h3>
             </div>
             <div class="project-card-highlight">
-                <h3>Currently defining functional requirements and preparing usability studies to validate interface design decisions with law enforcement stakeholders.</h3>
+                <h3>Currently defining functional requirements and preparing usability studies to validate interface design decisions and measure cognitive load impact on dispatchers.</h3>
             </div>
         </div>
 
         <div class="content-section">
             <div class="section-label">The Problem</div>
             <h2>Information silos create dangerous gaps in officer safety</h2>
-            <p>Police dispatchers coordinate officer response to emergencies while managing overwhelming streams of incoming information including 911 calls, CAD system updates, radio communications, and incident notes. When drones capture aerial footage during active incidents, that critical intelligence often doesn't reach dispatchers or responding officers in real-time because it exists in separate systems operated by specialized drone pilots.</p>
-            <p>Dispatch centers lack integrated interfaces to view, filter, prioritize, and communicate drone data alongside traditional Computer-Aided Dispatch (CAD) systems. This creates dangerous information silos where valuable aerial perspectives such as suspect locations, movement patterns, and scene conditions remain unused or significantly delayed. Officers arrive on scene without aerial context that could inform their approach strategy, positioning, or safety decisions.</p>
+            <p>Police dispatchers coordinate officer response to emergencies while managing overwhelming streams of incoming information—911 calls, CAD system updates, radio communications, and incident notes. When drones capture aerial footage during active incidents, that critical intelligence often doesn't reach dispatchers or responding officers in real-time because it exists in separate systems operated by specialized drone pilots.</p>
+            <p>Dispatch centers lack integrated interfaces to view, filter, prioritize, and communicate drone data alongside traditional Computer-Aided Dispatch (CAD) systems. This creates dangerous information silos where valuable aerial perspectives—suspect locations, movement patterns, scene conditions—remain unused or significantly delayed. Officers arrive on scene without aerial context that could inform their approach strategy, positioning, or safety decisions.</p>
             <p>The challenge is to design a unified command dashboard that integrates aerial and ground data streams without adding cognitive load to already-stressed dispatchers managing multiple simultaneous critical incidents. The interface must support rapid decision-making, maintain situational awareness across incidents, and preserve dispatcher control over when and how aerial intelligence influences response coordination.</p>
         </div>
 
         <div class="content-section">
             <div class="section-label">The Solution</div>
             <h2>Unified command interface with AI-assisted intelligence</h2>
-            <p>The Patrol Command dashboard creates a unified view where dispatchers see live drone feeds, interactive mapping with officer positions and suspect movement trails, and AI-assisted query capabilities all within a single interface. The system automatically prioritizes incidents by severity, provides visual indicators showing which incidents have aerial coverage, and allows dispatchers to switch between map, drone feed, and dispatch notes with one-click navigation.</p>
-            <p>Key features being designed include real-time incident filtering by priority level with color-coded urgency indicators, contextual AI query interface that answers natural language questions about suspect descriptions, locations, and weapon status, smart alert system that notifies dispatchers of critical changes including weapon status, priority escalation, and location updates, officer position tracking with breadcrumb trails showing suspect movement history, evidence capture and timestamping directly from drone feeds, and shift handoff report generation that summarizes incident activity for incoming dispatchers.</p>
-            <p>The design balances automation with human control. The system suggests aerial coverage priorities and flags critical updates, but keeps dispatcher decision-making at the center of all tactical response coordination. The interface supports voice-based note-taking so dispatchers can log observations without interrupting their visual focus on active incidents.</p>
+            <p>The Patrol Command dashboard creates a unified view where dispatchers see live drone feeds, interactive mapping with officer positions and suspect movement trails, and AI-assisted query capabilities—all within a single interface. The system automatically prioritizes incidents by severity, provides visual indicators showing which incidents have aerial coverage, and allows dispatchers to switch between map, drone feed, and dispatch notes with one-click navigation.</p>
+            <p>Key features being designed include real-time incident filtering by priority level with color-coded urgency indicators, contextual AI query interface that answers natural language questions about suspect descriptions, locations, and weapon status, smart alert system that notifies dispatchers of critical changes (weapon status, priority escalation, location updates), officer position tracking with breadcrumb trails showing suspect movement history, evidence capture and timestamping directly from drone feeds, and shift handoff report generation that summarizes incident activity for incoming dispatchers.</p>
+            <p>The design balances automation with human control—the system suggests aerial coverage priorities and flags critical updates, but keeps dispatcher decision-making at the center of all tactical response coordination. The interface supports voice-based note-taking so dispatchers can log observations without interrupting their visual focus on active incidents.</p>
         </div>
 
         <div class="content-section">
             <div class="section-label">Current Status & Next Steps</div>
-            <h2>Completing design phase and preparing usability studies</h2>
-            <p>I have completed the research phase including qualitative interviews, contextual inquiry, and synthesis through affinity mapping, personas, and journey maps. I am currently in the design and functional requirements phase, developing lo-fidelity and hi-fidelity prototypes to test with law enforcement stakeholders. The working prototype demonstrates core interactions including priority management, drone feed integration, AI-assisted queries, and evidence logging workflows.</p>
-            <p>Next steps include conducting usability studies with dispatchers and officers to validate design decisions, measuring task completion rates and cognitive load metrics, refining the interface based on user feedback, and presenting final findings and recommendations in April 2026. The goal is to produce both a functional prototype and documented design requirements that can inform future development of production-ready dispatch systems.</p>
+            <h2>Validating design through usability studies</h2>
+            <p>I have completed the research phase, producing 8 officer interviews, 3 dispatch ride-along observations, affinity maps identifying 6 critical workflow themes, 2 personas representing dispatcher and officer needs, and journey maps documenting information handoff pain points. I am currently in the design and functional requirements phase, having built a working web-based prototype that demonstrates core interactions including priority management, live mapping with suspect tracking, multi-source drone feed integration, AI-assisted natural language queries, and evidence capture workflows.</p>
+            <p>Next steps include conducting usability studies with dispatchers and officers to validate design decisions, measuring task completion rates and cognitive load metrics using NASA-TLX, refining the interface based on user feedback, and presenting final findings and recommendations in April 2026. The goal is to produce both a functional prototype and documented design requirements that can inform future development of production-ready dispatch systems that improve officer safety through better situational awareness.</p>
         </div>
 
         <div class="other-projects">
