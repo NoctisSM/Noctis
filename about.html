@@ -111,164 +111,6 @@
             object-fit: cover;
         }
 
-        /* Leadership Section */
-        .leadership-section {
-            margin-bottom: 120px;
-        }
-
-        .section-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #999;
-            margin-bottom: 16px;
-        }
-
-        .section-title {
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 48px;
-            color: #1a1a1a;
-        }
-
-        .leadership-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .leadership-card {
-            background: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #e5e5e5;
-        }
-
-        .leadership-image {
-            width: 100%;
-            aspect-ratio: 16/10;
-            background: #f5f5f5;
-            overflow: hidden;
-        }
-
-        .leadership-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .leadership-info {
-            padding: 24px;
-        }
-
-        .leadership-role {
-            font-size: 14px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 4px;
-        }
-
-        .leadership-org {
-            font-size: 13px;
-            color: #666;
-        }
-
-        /* Values Section */
-        .values-section {
-            margin-bottom: 120px;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .value-card {
-            background: #ffffff;
-            padding: 32px;
-            border-radius: 8px;
-            border: 1px solid #e5e5e5;
-        }
-
-        .value-icon {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .value-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 12px;
-        }
-
-        .value-description {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Footer Section */
-        .footer-section {
-            padding: 60px 0;
-            border-top: 1px solid #e5e5e5;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-        }
-
-        .footer-message h2 {
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: #1a1a1a;
-        }
-
-        .footer-message p {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-        }
-
-        .footer-column h3 {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #999;
-            margin-bottom: 12px;
-        }
-
-        .footer-column a {
-            display: block;
-            color: #666;
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 8px;
-            transition: color 0.2s;
-        }
-
-        .footer-column a:hover {
-            color: #1a1a1a;
-        }
-
-        .copyright {
-            text-align: center;
-            padding: 40px 0 0;
-            color: #999;
-            font-size: 12px;
-        }
-
         /* Responsive */
         @media (max-width: 1024px) {
             .about-hero {
@@ -279,19 +121,6 @@
             .about-image {
                 max-width: 400px;
                 margin: 0 auto;
-            }
-
-            .leadership-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .values-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 48px;
             }
         }
 
@@ -311,22 +140,6 @@
             .about-text h1 {
                 font-size: 32px;
             }
-
-            .section-title {
-                font-size: 24px;
-            }
-
-            .leadership-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-message h2 {
-                font-size: 24px;
-            }
         }
     </style>
 </head>
@@ -334,7 +147,10 @@
     <header>
         <a href="index.html" class="logo">Noctis</a>
         <nav>
+            <a href="index.html">Work</a>
             <a href="about.html" class="active">About</a>
+            <a href="resume.pdf" target="_blank">Resume</a>
+            <a href="mailto:samhithm@gmail.com">Contact</a>
         </nav>
     </header>
 
@@ -342,16 +158,17 @@
         <!-- Hero Section -->
         <section class="about-hero">
             <div class="about-text">
-                <h1>I’m Samhith — a product designer focused on building thoughtful, human-centered systems.</h1>
-                <p>My work is driven by curiosity about how people move through everyday experiences and where design can make those experiences clearer, fairer, and more effective. Growing up around diverse communities shaped how I approach problem-solving: by listening closely, identifying shared patterns, and designing with real-world context in mind.</p>
-                <p>Before design, I explored psychology research, filmmaking, and digital media, which sharpened how I understand users, tell stories, and translate insight into action. Today, I focus on simplifying complex problems through scalable design systems, creative tools, and emerging technologies.</p>
-                <p>I’ve worked with teams at Porsche and Align Technology, designing scalable systems and simplifying complex workflows. I specialize in emerging technology, creative tools, and design systems.</p>
+                <h1>I'm Samhith, a product designer and HCI researcher completing my Master's degree at Georgia Tech's School of Interactive Computing.</h1>
+                <p>I design complex sociotechnical systems for high-stakes environments, from police dispatch operations to healthcare products serving millions of patients. My work combines rigorous qualitative research with functional prototyping to solve problems where design directly impacts safety, efficiency, and human decision-making.</p>
+                <p>I started in graphic design, which taught me visual systems thinking and how to communicate clearly through design. Transitioning to UX/UI, I realized the most interesting problems weren't just about making things look good, they were about understanding complex workflows and designing systems that people actually need. My HCI training at Georgia Tech formalized this with research methods like semi-structured interviews, contextual inquiry, affinity mapping, and journey mapping. My thesis project on police dispatch systems demonstrates this approach by integrating aerial drone intelligence into emergency response workflows through a web-based dashboard I designed and built.</p>
+                <p>I've worked with Porsche and Align Technology (Invisalign), designing products and systems that balance precision with user empathy. At Align, I redesigned the patient dashboard for 12 million users worldwide and contributed to e-commerce experiences that simplified complex healthcare decisions. These experiences taught me to design at scale while maintaining attention to individual user needs.</p>
+                <p>I specialize in systems design, qualitative research, and rapid prototyping. My technical toolkit includes Power Automate workflow design, JavaScript-based web prototyping, design systems development, and API integration. I'm particularly interested in how design can improve workflows in emergency services, healthcare, and administrative operations, domains where thoughtful UX has measurable impact on human outcomes.</p>
+                <p>I'm seeking product design or UX research roles where I can apply systems thinking to complex problems in healthcare, public safety, or enterprise tools. I graduate in April 2026 and am actively exploring opportunities.</p>
             </div>
             <div class="about-image">
                 <img src="images/about.png" alt="Samhith Mitra">
             </div>
         </section>
-
     </main>
 </body>
 </html>
