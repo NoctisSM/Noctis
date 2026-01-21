@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samhith Mitra - Interactive Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0d1117;
+            color: #e6edf3;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        #terminal {
+            padding: 20px;
+            height: 100vh;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+        
+        #output {
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .output-line {
+            margin-bottom: 4px;
+        }
+        
+        .prompt {
+            color: #3fb950;
+            margin-right: 8px;
+        }
+        
+        .user-input {
+            color: #3fb950;
+        }
+        
+        .system-output {
+            color: #e6edf3;
+        }
+        
+        .hint-text {
+            color: #8b949e;
+        }
+        
+        .error-text {
+            color: #f85149;
+        }
+        
+        .success-text {
+            color: #3fb950;
+        }
+        
+        #input-line {
+            display: flex;
+            align-items: center;
+        }
+        
+        #command-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #3fb950;
+            font-family: inherit;
+            font-size: inherit;
+            flex: 1;
+            caret-color: transparent;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background: #3fb950;
+            animation: blink 530ms infinite;
+            margin-left: 2px;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        ::selection {
+            background: rgba(47, 129, 247, 0.3);
+        }
+        
+        a {
+            color: #2f81f7;
+            text-decoration: underline;
+        }
+        
+        .download-button {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 12px 24px;
+            background: #3fb950;
+            color: #0d1117;
+            border: none;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .download-button:hover {
+            background: #4ac15c;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                font-size: 12px;
+            }
+            
+            #terminal {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal">
+        <div id="output"></div>
+        <div id="input-line">
+            <span class="prompt">guest@samhith:~$</span>
+            <input type="text" id="command-input" autofocus autocomplete="off" spellcheck="false">
+            <span class="cursor">█</span>
+        </div>
+    </div>
+    
+    <script>
+        const terminal = document.getElementById('terminal');
+        const output = document.getElementById('output');
+        const commandInput = document.getElementById('command-input');
+        
+        let commandHistory = [];
+        let historyIndex = -1;
+        
+        // Command implementations
+        const commands = {
+            help: () => `Available commands:
+
+  help                    Show this help message
+  quick                   One-screen resume summary
+  whoami                  Contact information
+  experience [OPTIONS]    Professional experience
+  education               Academic background
+  skills [OPTIONS]        Technical and design skills
+  projects [OPTIONS]      Research and side projects
+  contact                 Get in touch
+  download                Download PDF resume
+  clear                   Clear terminal screen
+  history                 Show command history
+  linkedin                Open LinkedIn profile
+  portfolio               Open portfolio website
+
+EXPERIENCE OPTIONS:
+  --company=NAME          Filter by company (invisalign, porsche, dahlstrom, reviver)
+  --impact                Show only roles with metrics
+  --all                   Show full details
+
+SKILLS OPTIONS:
+  --category=TYPE         Filter by category (design, research, technical, tools, collaboration)
+
+PROJECTS OPTIONS:
+  --type=TYPE             Filter by type (research, automation, product)
+
+Examples:
+  experience --company=invisalign
+  skills --category=technical
+  projects --type=research`,
+            
+            quick: () => `╔═══════════════════════════════════════════════════════════════════════════╗
+║                           SAMHITH MITRA                                   ║
+║                       QUICK RESUME SUMMARY                                ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+CURRENT STATUS:
+  * MS Human-Computer Interaction @ Georgia Tech (2024-2026)
+  * Thesis: Police dispatch dashboard with drone integration
+  * Research: 85% error reduction in GTA hiring automation
+
+RECENT EXPERIENCE:
+  * Porsche Cars North America (2025) - Interaction Design Intern
+    → 30% task efficiency improvement, 20% usability score increase
+  
+  * Dahlstrom Technologies (2022-2024) - UX Designer
+    → Launched 4+ products, created Salesforce design system
+  
+  * Align Technology/Invisalign (2020-2022) - UX/UI Engineer
+    → 6× conversion increase, 2× traffic growth, led team of 10
+  
+  * Reviver (2018-2020) - UX Intern
+    → 25% dealer efficiency gain, 40% processing time reduction
+
+CORE SKILLS:
+  Design: Design Systems, UX/UI, Interaction Design, Prototyping
+  Research: User Research, Usability Testing, Journey Mapping, Personas
+  Technical: HTML/CSS/JS, React, Python, Power Automate, Leaflet.js
+  Tools: Figma, Adobe CS, Sketch, InVision, Miro, Axure
+
+CONTACT:
+  samhithm@gmail.com | (408) 455-6174 | linkedin.com/in/samhithmitra
+
+Type 'experience --impact' for detailed metrics
+Type 'download' for full PDF resume`,
+            
+            whoami: () => `Samhith Mitra
+Product Designer & HCI Researcher
+
+Current: MS Human-Computer Interaction Student @ Georgia Tech
+Location: Atlanta, GA
+Graduating: May 2026
+
+Contact Information:
+  Email:     samhithm@gmail.com
+  Phone:     (408) 455-6174
+  LinkedIn:  linkedin.com/in/samhithmitra
+  Portfolio: https://noctissm.github.io/Noctis
+
+Background: Graphic Design → UX/UI → HCI Research → Systems Design`,
+            
+            education: () => `EDUCATION
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║  Master of Science, Human-Computer Interaction                           ║
+║  Georgia Institute of Technology                                         ║
+║  August 2024 - May 2026 (Expected)                                       ║
+║  Atlanta, Georgia                                                        ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Thesis: Patrol Command - Police Dispatch Dashboard for Drone Integration
+
+Relevant Coursework:
+  * UX Research Methods
+  * Interaction Design
+  * Prototyping
+  * Design Systems
+  * Human-Centered Computing
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║  Bachelor of Arts, Graphic Design                                        ║
+║  San Jose State University                                               ║
+║  August 2015 - May 2019                                                  ║
+║  San Jose, California                                                    ║
+╚═══════════════════════════════════════════════════════════════════════════╝`,
+            
+            contact: () => `╔═══════════════════════════════════════════════════════════════════════════╗
+║                             GET IN TOUCH                                  ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+📧 Email:     samhithm@gmail.com
+📱 Phone:     (408) 455-6174
+💼 LinkedIn:  linkedin.com/in/samhithmitra
+🌐 Portfolio: https://noctissm.github.io/Noctis
+📍 Location:  Atlanta, GA
+
+QUICK ACTIONS:
+  * Type 'linkedin' to open LinkedIn profile
+  * Type 'portfolio' to view portfolio website
+  * Type 'download' to get PDF resume
+
+I'm actively seeking product design or UX research roles for post-graduation
+(May 2026). Open to opportunities in healthcare UX, public safety systems,
+enterprise tools, and complex sociotechnical design challenges.`,
+            
+            clear: () => {
+                output.innerHTML = '';
+                return null;
+            },
+            
+            history: () => {
+                if (commandHistory.length === 0) {
+                    return 'No command history yet.';
+                }
+                let hist = 'COMMAND HISTORY\n\n';
+                commandHistory.forEach((cmd, i) => {
+                    hist += `${i + 1}  ${cmd}\n`;
+                });
+                hist += '\nTip: Use ↑ and ↓ arrow keys to cycle through command history';
+                return hist;
+            },
+            
+            linkedin: () => {
+                window.open('https://linkedin.com/in/samhithmitra', '_blank');
+                return 'Opening LinkedIn profile in new tab...\n✓ linkedin.com/in/samhithmitra';
+            },
+            
+            portfolio: () => {
+                window.open('https://noctissm.github.io/Noctis', '_blank');
+                return 'Opening portfolio website in new tab...\n✓ https://noctissm.github.io/Noctis';
+            },
+            
+            download: () => {
+                const downloadHTML = `╔═══════════════════════════════════════════════════════════════════════════╗
+║                           RESUME EXPORT                                   ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Generating PDF resume...
+
+┌───────────────────────────────────────────────┐
+│  📄 Resume Details                            │
+├───────────────────────────────────────────────┤
+│  Format:     PDF                              │
+│  Pages:      2                                │
+│  Size:       142 KB                           │
+│  Generated:  2026-01-21 12:15 PM EST          │
+│  Version:    Interactive Terminal Edition     │
+└───────────────────────────────────────────────┘
+
+✓ Resume ready for download`;
+                
+                printOutput(downloadHTML, 'success-text');
+                
+                const button = document.createElement('a');
+                button.href = 'resume.pdf';
+                button.download = 'Samhith_Mitra_Resume.pdf';
+                button.className = 'download-button';
+                button.textContent = '📥 DOWNLOAD PDF RESUME';
+                
+                const line = document.createElement('div');
+                line.className = 'output-line';
+                line.appendChild(button);
+                output.appendChild(line);
+                
+                scrollToBottom();
+                return null;
+            },
+            
+            // Easter eggs
+            sudo: (args) => `Nice try. You're not root.
+
+[sudo] password for guest: **
+Sorry, try again.
+[sudo] password for guest: **
+sudo: 3 incorrect password attempts
+
+Just type 'help' like a normal person.`,
+            
+            'rm -rf /': () => `⚠️  WARNING: CRITICAL SYSTEM OPERATION DETECTED
+
+Deleting entire file system...
+rm: cannot remove '/': Permission denied
+
+Just kidding. Your resume is safe.
+Type 'help' for actual commands.`,
+            
+            vim: () => `Entering vim...
+
+~
+~
+~
+Type :q to exit...
+
+Just kidding, you're not actually stuck in vim.
+(Though if you were, you'd never escape. Nobody escapes vim.)
+
+Type 'help' for real commands.`,
+            
+            emacs: () => `Starting emacs...
+
+Error: emacs: command requires 47 keyboard shortcuts to exit.
+Life is too short. Use 'help' instead.`,
+            
+            exit: () => `Are you sure you want to exit? This is your resume!
+
+Type 'yes' to close the tab, or just... don't.
+Type 'help' to see what you can actually do here.`,
+            
+            coffee: () => `☕ Brewing fresh coffee...
+
+▓▓▓▓▓▓▓▓░░ 80%
+
+✓ Coffee ready!
+
+Now caffeinated, you can explore my resume with renewed energy.
+Type 'quick' for summary or 'help' for all commands.`,
+            
+            'hire me': () => `⭐ EXCELLENT CHOICE! ⭐
+
+Initiating hiring process...
+  ✓ Resume downloaded
+  ✓ Cover letter generated
+  ✓ Interview scheduled
+  ✓ Offer letter sent
+  ✓ Start date: Tomorrow
+
+Just kidding. But seriously, type 'contact' to get in touch!`,
+            
+            github: () => `GitHub profile not configured.
+
+If you have a GitHub profile, type 'contact' to reach out and I can share it.`
+        };
+        
+        // Experience command with flags
+        commands.experience = (args) => {
+            const flags = parseFlags(args);
+            
+            if (flags.company) {
+                const validCompanies = ['invisalign', 'porsche', 'dahlstrom', 'reviver'];
+                if (!validCompanies.includes(flags.company.toLowerCase())) {
+                    return `Error: Unknown company '${flags.company}'
+
+Valid companies: invisalign, porsche, dahlstrom, reviver
+
+Example: experience --company=invisalign`;
+                }
+                return getExperienceByCompany(flags.company.toLowerCase());
+            }
+            
+            if (flags.impact) {
+                return getExperienceImpact();
+            }
+            
+            if (flags.all) {
+                return getExperienceAll();
+            }
+            
+            return `PROFESSIONAL EXPERIENCE
+
+  Interaction Design Intern
+  Porsche Cars North America | March 2025 - October 2025
+
+  User Experience Designer
+  Dahlstrom Technologies | October 2022 - August 2024
+
+  UX/UI Engineer
+  Align Technology (Invisalign) | March 2020 - October 2022
+
+  User Experience Intern
+  Reviver | January 2018 - March 2020
+
+Type 'experience --all' for full details
+Type 'experience --impact' for metrics only
+Type 'experience --company=NAME' to filter (invisalign, porsche, dahlstrom, reviver)`;
+        };
+        
+        // Skills command with flags
+        commands.skills = (args) => {
+            const flags = parseFlags(args);
+            
+            if (flags.category) {
+                const validCategories = ['design', 'research', 'technical', 'tools', 'collaboration'];
+                if (!validCategories.includes(flags.category.toLowerCase())) {
+                    return `Error: Unknown category '${flags.category}'
+
+Valid categories for 'skills': design, research, technical, tools, collaboration
+
+Example: skills --category=technical`;
+                }
+                return getSkillsByCategory(flags.category.toLowerCase());
+            }
+            
+            return `SKILLS
+
+DESIGN:
+  Design Systems, User Experience Design, User Interface Design, Interaction
+  Design, Wireframing, Prototyping, User-Centered Design, Information
+  Architecture, Responsive Design, Visual Design, WCAG, Accessibility Design
+
+RESEARCH:
+  UX Research, Usability Testing, Journey Mapping, Personas, A/B Testing,
+  User Flows, Heuristic Evaluation, Semi-Structured Interviews, Contextual
+  Inquiry, Affinity Mapping
+
+TECHNICAL:
+  HTML, CSS, JavaScript, React.js, Python, Responsive Front-End Design,
+  Power Automate, Leaflet.js, API Integration, Three.js
+
+TOOLS:
+  Figma, Adobe Creative Suite (Xd, Pr, Ps, Ai, Id, Lr), Sketch, InVision,
+  Cursor, Axure, Atlassian, Miro, Zeplin
+
+COLLABORATION:
+  Agile, Scrum, Cross-Functional Collaboration, Design Thinking, Product Design
+
+Type 'skills --category=TYPE' to filter (design, research, technical, tools, collaboration)`;
+        };
+        
+        // Projects command with flags
+        commands.projects = (args) => {
+            const flags = parseFlags(args);
+            
+            if (flags.type) {
+                const validTypes = ['research', 'automation', 'product'];
+                if (!validTypes.includes(flags.type.toLowerCase())) {
+                    return `Error: Unknown project type '${flags.type}'
+
+Valid types: research, automation, product
+
+Example: projects --type=research`;
+                }
+                return getProjectsByType(flags.type.toLowerCase());
+            }
+            
+            if (flags.all) {
+                return getProjectsAll();
+            }
+            
+            return `PROJECTS
+
+Graduate Research Projects:
+  * Patrol Command Dashboard (Thesis) - September 2025 - April 2026
+  * GTA Hiring Process Automation - August 2025 - December 2025
+
+Sponsored Project:
+  * LendingClub User Research - August 2024 - January 2025
+
+Type 'projects --type=TYPE' to filter (research, automation, product)
+Type 'projects --all' for full details`;
+        };
+        
+        // Helper functions
+        function parseFlags(args) {
+            const flags = {};
+            if (!args) return flags;
+            
+            args.forEach(arg => {
+                if (arg.startsWith('--')) {
+                    const [key, value] = arg.slice(2).split('=');
+                    if (value) {
+                        flags[key] = value;
+                    } else {
+                        flags[key] = true;
+                    }
+                }
+            });
+            return flags;
+        }
+        
+        function getExperienceByCompany(company) {
+            const experiences = {
+                invisalign: `┌─────────────────────────────────────────────────────────────────────────┐
+│                    ALIGN TECHNOLOGY (INVISALIGN)                        │
+│                          UX/UI Engineer                                 │
+│                    March 2020 - October 2022                            │
+│                     San Diego, California                               │
+└─────────────────────────────────────────────────────────────────────────┘
+
+SUMMARY:
+Developed and delivered web and e-commerce experiences for Invisalign.com and
+corporate partners, leading cross-functional teams and implementing user-centered
+design solutions that increased engagement, conversions, and site traffic.
+
+KEY ACHIEVEMENTS:
+  * Developed web chatbot on Invisalign.com homepage
+    → 40% reduction in support tickets
+    → Enhanced 24/7 interactive support engagement
+
+  * Achieved 6× increase in conversion rate
+    → Removed e-commerce pain points
+    → Delivered seamless user experience
+
+  * Directed team of 10 engineers to launch Invisalign 2.0
+    → Used Figma and JavaScript
+    → Cross-functional collaboration
+
+  * Improved e-commerce metrics
+    → 2× site traffic increase
+    → 1.5× product page views increase
+
+  * Designed websites for corporate partners
+    → NFL, Warriors, Hurricanes
+    → UPS, Lifetime Fitness
+    → Charli D'Amelio
+    → Enhanced brand presence and digital engagement
+
+RELATED PORTFOLIO PROJECTS:
+Type 'portfolio' to see:
+  * Patient Dashboard case study
+  * Invisalign.com Redesign case study
+  * Accessories E-commerce case study`,
+                
+                porsche: `┌─────────────────────────────────────────────────────────────────────────┐
+│                   PORSCHE CARS NORTH AMERICA                            │
+│                   Interaction Design Intern                             │
+│                   March 2025 - October 2025                             │
+│                   Raleigh, North Carolina                               │
+└─────────────────────────────────────────────────────────────────────────┘
+
+SUMMARY:
+Supported the design and delivery of Porsche's digital customer experiences by
+collaborating with cross-functional teams to create wireframes, prototypes, and
+dealer-facing platforms that balanced brand identity, usability, and accessibility.
+
+KEY ACHIEVEMENTS:
+  * Collaborated with UX strategists, product managers, and engineers
+    → Designed wireframes, user flows, interactive prototypes in Agile sprints
+    → Improved task efficiency by 30%
+
+  * Contributed to cross-functional sprint cycles
+    → Aligned UX/UI design with Porsche's premium brand identity
+    → Boosted engagement by 15%
+
+  * Conducted UX audits of dealer-facing websites
+    → Uncovered usability issues and brand inconsistencies
+    → Led to 20% usability score improvement
+
+  * Delivered stakeholder presentations
+    → Used visual storytelling and journey mapping
+    → Improved alignment by 40%
+
+RELATED PORTFOLIO PROJECT:
+Type 'portfolio' to see Porsche Configurator case study`,
+                
+                dahlstrom: `┌─────────────────────────────────────────────────────────────────────────┐
+│                      DAHLSTROM TECHNOLOGIES                             │
+│                    User Experience Designer                             │
+│                   October 2022 - August 2024                            │
+│                    Raleigh, North Carolina                              │
+└─────────────────────────────────────────────────────────────────────────┘
+
+SUMMARY:
+Led the design and delivery of digital products on a SaaS platform, creating
+user-centered experiences and a scalable design system for Salesforce applications,
+while collaborating on API integrations to improve data workflows and overall user
+satisfaction.
+
+KEY ACHIEVEMENTS:
+  * Launched 4+ digital assets
+    → Led end-to-end visual design process for multiple products
+    → Ensured user-centered design principles and best practices
+
+  * Created design system for Salesforce and SaaS applications
+    → Improved design scalability by 30%
+    → Increased design efficiency by 20% through design language development
+
+  * Collaborated on third-party API integrations and data workflows
+    → Enhanced data accuracy within Salesforce
+    → Improved user satisfaction via streamlined processes`,
+                
+                reviver: `┌─────────────────────────────────────────────────────────────────────────┐
+│                            REVIVER                                      │
+│                    User Experience Intern                               │
+│                   January 2018 - March 2020                             │
+│                     San Jose, California                                │
+└─────────────────────────────────────────────────────────────────────────┘
+
+KEY ACHIEVEMENTS:
+  * Contributed to design of Reviver consumer-facing mobile app
+  * Developed mobile and web solutions for vehicle dealers
+  * Created fleet management tools for remote vehicle registration
+
+IMPACT:
+  * Improved dealer efficiency by 25%
+  * Reduced fleet processing time by 40%`
+            };
+            return experiences[company];
+        }
+        
+        function getExperienceImpact() {
+            return `ROLES WITH QUANTIFIABLE IMPACT
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  Align Technology (Invisalign) - UX/UI Engineer (2020-2022)            │
+├─────────────────────────────────────────────────────────────────────────┤
+│  - 6× conversion rate increase (e-commerce UX improvements)            │
+│  - 2× e-commerce site traffic growth                                   │
+│  - 1.5× product page views increase                                    │
+│  - 40% support ticket reduction (chatbot implementation)               │
+│  - Led team of 10 engineers for Invisalign 2.0 launch                  │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  Porsche Cars North America - Interaction Design Intern (2025)         │
+├─────────────────────────────────────────────────────────────────────────┤
+│  - 30% task efficiency improvement (wireframes & prototypes)           │
+│  - 20% usability score increase (UX audits)                            │
+│  - 15% engagement boost (brand alignment)                              │
+│  - 40% stakeholder alignment improvement (presentations)               │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  Dahlstrom Technologies - UX Designer (2022-2024)                      │
+├─────────────────────────────────────────────────────────────────────────┤
+│  - 30% design scalability improvement (design system)                  │
+│  - 20% design efficiency increase                                      │
+│  - Launched 4+ digital products                                        │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  Reviver - UX Intern (2018-2020)                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│  - 25% dealer efficiency improvement                                   │
+│  - 40% fleet processing time reduction                                 │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  GTA Hiring Automation - Research Project (2025)                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│  - 85% error reduction                                                 │
+│  - 8-12 hours saved per hiring cycle                                   │
+└─────────────────────────────────────────────────────────────────────────┘`;
+        }
+        
+        function getExperienceAll() {
+            return getExperienceByCompany('invisalign') + '\n\n' +
+                   getExperienceByCompany('porsche') + '\n\n' +
+                   getExperienceByCompany('dahlstrom') + '\n\n' +
+                   getExperienceByCompany('reviver');
+        }
+        
+        function getSkillsByCategory(category) {
+            const skills = {
+                design: `DESIGN SKILLS
+
+  * Design Systems
+  * User Experience Design (UX)
+  * User Interface Design (UI)
+  * Interaction Design
+  * Wireframing
+  * Prototyping
+  * User-Centered Design
+  * Information Architecture
+  * Responsive Design
+  * Visual Design
+  * WCAG Compliance
+  * Accessibility Design`,
+                
+                research: `RESEARCH SKILLS
+
+  * UX Research
+  * Usability Testing
+  * Journey Mapping
+  * Persona Development
+  * A/B Testing
+  * User Flow Mapping
+  * Heuristic Evaluation
+  * Semi-Structured Interviews
+  * Contextual Inquiry
+  * Affinity Mapping
+  * Qualitative Analysis`,
+                
+                technical: `TECHNICAL SKILLS
+
+Languages & Frameworks:
+  * HTML5
+  * CSS3
+  * JavaScript (ES6+)
+  * React.js
+  * Python
+
+Development & Integration:
+  * Responsive Front-End Design
+  * API Integration
+  * Power Automate Workflows
+  * Microsoft Forms
+  * Excel Automation
+
+Prototyping & Visualization:
+  * Leaflet.js (Interactive Mapping)
+  * Three.js (3D Visualization)
+  * Web-based Prototyping
+  * Functional Prototypes`,
+                
+                tools: `TOOLS & SOFTWARE
+
+Design Tools:
+  * Figma (Primary)
+  * Adobe Creative Suite
+    - Adobe XD
+    - Premiere Pro
+    - Photoshop
+    - Illustrator
+    - InDesign
+    - Lightroom
+  * Sketch
+  * InVision
+
+Development & Collaboration:
+  * Cursor IDE
+  * Axure RP
+  * Atlassian Suite (Jira, Confluence)
+  * Miro
+  * Zeplin
+  * GitHub`,
+                
+                collaboration: `COLLABORATION & METHODOLOGY
+
+  * Agile Development
+  * Scrum Framework
+  * Cross-Functional Team Collaboration
+  * Design Thinking Workshops
+  * Product Design Strategy
+  * Stakeholder Presentations
+  * Visual Storytelling
+  * Sprint Planning & Retrospectives`
+            };
+            return skills[category];
+        }
+        
+        function getProjectsByType(type) {
+            if (type === 'research') {
+                return `╔═══════════════════════════════════════════════════════════════════════════╗
+║                     PATROL COMMAND DASHBOARD                              ║
+║                   Master's Thesis Project (In Progress)                   ║
+║              Georgia Institute of Technology | Sept 2025 - Apr 2026      ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+PROJECT SUMMARY:
+Police dispatch dashboard integrating real-time drone footage with ground
+operations to reduce information overload in emergency response.
+
+RESEARCH METHODS:
+  ✓ 8 semi-structured interviews with police officers
+  ✓ 3 dispatch ride-along observations
+  ✓ Contextual inquiry
+  ✓ Affinity mapping (6 critical workflow themes identified)
+  ✓ Persona development (2 personas: dispatcher & officer)
+  ✓ Journey mapping (information handoff pain points)
+
+TECHNICAL IMPLEMENTATION:
+  ✓ HTML/CSS/JavaScript
+  ✓ Leaflet.js for live mapping with officer position tracking
+  ✓ AI-powered natural language query interface
+  ✓ Priority escalation system with color-coded alerts
+  ✓ Multi-feed drone integration
+  ✓ Evidence capture and timestamping workflows
+
+STATUS: Currently in design & usability testing phase
+COMPLETION: Expected April 2026
+
+View full case study: Type 'portfolio' to visit thesis project page
+
+───────────────────────────────────────────────────────────────────────────
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                     LENDINGCLUB USER RESEARCH                             ║
+║                         Sponsored Project                                 ║
+║              Georgia Institute of Technology | Aug 2024 - Jan 2025       ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+PROJECT SUMMARY:
+Contributed to new product development for LendingClub through user-centered
+design, wireframes, and high-fidelity prototypes to improve usability and
+accelerate design iteration.
+
+DELIVERABLES:
+  * Wireframes for new product features
+  * High-fidelity interactive prototypes
+  * Usability testing insights
+  * Design iteration recommendations`;
+            } else if (type === 'automation') {
+                return `╔═══════════════════════════════════════════════════════════════════════════╗
+║                  GTA HIRING PROCESS AUTOMATION                            ║
+║                  Graduate Research Assistant Project                      ║
+║              Georgia Institute of Technology | Aug 2025 - Dec 2025       ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+PROJECT SUMMARY:
+Redesigned administrative workflow for Georgia Tech's School of Interactive
+Computing, transforming error-prone manual spreadsheet process into automated
+system using Microsoft ecosystem tools.
+
+PROBLEM:
+Administrative staff spent 8-12 hours per hiring cycle managing GTA applications
+through shared spreadsheets. Faculty submitted inconsistent data via email,
+leading to formatting errors, accidental deletions, and preventable delays
+impacting student payment and academic appointments.
+
+SOLUTION:
+Automated workflow using:
+  * Microsoft Forms (validated data entry with format checks)
+  * Power Automate (workflow automation, DocuSign triggers)
+  * Protected Excel (single source of truth, role-based access)
+
+RESEARCH METHODS:
+  * Semi-structured interviews with admin staff and faculty
+  * Contextual inquiry observing live hiring cycles
+  * Artifact analysis (spreadsheets, Teams chats, email threads)
+  * Affinity mapping to identify systemic issues
+
+IMPACT:
+  ✓ 85% error reduction through form validation
+  ✓ 8-12 hours saved per hiring cycle (20-30 hires per semester)
+  ✓ Eliminated accidental data loss/deletions
+  ✓ Automated DocuSign offer letter generation
+  ✓ Real-time status tracking for all stakeholders
+
+STATUS: Completed and delivered December 2025
+
+View full case study: Type 'portfolio' to visit GTA automation page`;
+            }
+            return 'No projects found for type: ' + type;
+        }
+        
+        function getProjectsAll() {
+            return getProjectsByType('research') + '\n\n' + getProjectsByType('automation');
+        }
+        
+        // Print output to terminal
+        function printOutput(text, className = 'system-output') {
+            if (!text) return;
+            const line = document.createElement('div');
+            line.className = `output-line ${className}`;
+            line.textContent = text;
+            output.appendChild(line);
+            scrollToBottom();
+        }
+        
+        // Execute command
+        function executeCommand(input) {
+            printOutput(`guest@samhith:~$ ${input}`, 'user-input');
+            
+            const parts = input.trim().split(/\s+/);
+            const cmd = parts[0].toLowerCase();
+            const args = parts.slice(1);
+            
+            // Check for compound commands (like "rm -rf /")
+            const fullCmd = input.trim().toLowerCase();
+            
+            if (commands[fullCmd]) {
+                const result = commands[fullCmd]();
+                if (result) printOutput(result, 'system-output');
+            } else if (commands[cmd]) {
+                const result = commands[cmd](args);
+                if (result) printOutput(result, 'system-output');
+            } else {
+                printOutput(`bash: ${cmd}: command not found\n\nDid you mean one of these?\n  help\n  quick\n  experience\n\nType 'help' to see all commands.`, 'error-text');
+            }
+            
+            if (input.trim()) {
+                commandHistory.push(input);
+                historyIndex = commandHistory.length;
+            }
+        }
+        
+        // Handle keyboard input
+        commandInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const input = commandInput.value;
+                executeCommand(input);
+                commandInput.value = '';
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    commandInput.value = commandHistory[historyIndex];
+                }
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    commandInput.value = commandHistory[historyIndex];
+                } else {
+                    historyIndex = commandHistory.length;
+                    commandInput.value = '';
+                }
+            } else if (e.key === 'Tab') {
+                e.preventDefault();
+                // Autocomplete
+                const input = commandInput.value.toLowerCase();
+                const matches = Object.keys(commands).filter(cmd => cmd.startsWith(input));
+                if (matches.length === 1) {
+                    commandInput.value = matches[0];
+                } else if (matches.length > 1) {
+                    printOutput(`\nPossible commands: ${matches.join(', ')}\n`, 'hint-text');
+                }
+            } else if (e.ctrlKey && e.key === 'l') {
+                e.preventDefault();
+                output.innerHTML = '';
+            } else if (e.ctrlKey && e.key === 'c') {
+                e.preventDefault();
+                printOutput(`guest@samhith:~$ ${commandInput.value}^C`, 'user-input');
+                commandInput.value = '';
+            }
+        });
+        
+        // Scroll to bottom
+        function scrollToBottom() {
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+        
+        // Keep input focused
+        document.addEventListener('click', () => {
+            commandInput.focus();
+        });
+        
+        // Initialize
+        function init() {
+            printOutput(`╔═══════════════════════════════════════════════════════════════════════════╗
+║                           SAMHITH MITRA                                   ║
+║              MS-HCI @ Georgia Tech | Product Designer                     ║
+║                      Graduating April 2026                                ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Welcome to my interactive resume terminal.
+Type 'help' to see available commands.
+Type 'quick' for a one-screen summary.
+Type 'download' to get PDF resume.
+`, 'system-output');
+        }
+        
+        init();
+        commandInput.focus();
+    </script>
+</body>
+</html>
