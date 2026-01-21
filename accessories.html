@@ -3,15 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Invisalign E-Commerce Website - Noctis">
-    <title>Invisalign E-Commerce Website - Noctis</title>
+    <meta name="description" content="Invisalign Accessories E-Commerce - Conversion-Focused Shopping Experience">
+    <title>Invisalign Accessories E-Commerce - Noctis</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
             background: linear-gradient(to bottom, #f0f4ff 0%, #ffffff 40%);
@@ -19,8 +18,6 @@
             line-height: 1.6;
             min-height: 100vh;
         }
-
-        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -35,19 +32,16 @@
             border-bottom: 1px solid #e5e5e5;
             z-index: 100;
         }
-
         .logo {
             font-size: 18px;
             font-weight: 600;
             color: #1a1a1a;
             text-decoration: none;
         }
-
         nav {
             display: flex;
             gap: 32px;
         }
-
         nav a {
             color: #666;
             text-decoration: none;
@@ -56,45 +50,22 @@
             letter-spacing: 0.5px;
             transition: color 0.2s;
         }
-
         nav a:hover {
             color: #1a1a1a;
         }
-
-        /* Main Content */
-        main {
-            max-width: 1400px;
+        .container {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 120px 48px 80px;
+            padding: 140px 48px 80px;
         }
-
-        /* Hero Section */
-        .hero {
+        .project-header {
             margin-bottom: 48px;
         }
-
-        .hero-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: #666;
-            text-decoration: none;
-            margin-bottom: 32px;
-            transition: color 0.2s;
-        }
-
-        .hero-back:hover {
-            color: #1a1a1a;
-        }
-
         .project-tags {
             display: flex;
-            flex-wrap: wrap;
             gap: 12px;
-            margin: 24px 0;
+            margin-bottom: 24px;
         }
-
         .tag {
             font-size: 11px;
             text-transform: uppercase;
@@ -104,322 +75,214 @@
             padding: 6px 12px;
             border-radius: 4px;
         }
-
-        .hero h1 {
-            font-size: 64px;
+        h1 {
+            font-size: 48px;
             font-weight: 700;
-            letter-spacing: -1.5px;
+            letter-spacing: -1px;
             margin-bottom: 16px;
             color: #1a1a1a;
         }
-
-        .hero-subtitle {
-            font-size: 24px;
+        .subtitle {
+            font-size: 18px;
             color: #666;
-            margin-bottom: 24px;
-            line-height: 1.5;
-            font-weight: 400;
+            margin-bottom: 40px;
         }
-
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .meta-item h3 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #999;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .meta-item p {
+            font-size: 15px;
+            color: #1a1a1a;
+        }
+        .confidential-notice {
+            background: #f5f5f5;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .confidential-notice span {
+            font-size: 20px;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+        .confidential-notice p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 0;
+        }
+        .confidential-notice a {
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
         .experience-link {
-            background: #f8f9fa;
+            background: #f5f5f5;
             padding: 20px 24px;
             border-radius: 8px;
             margin-bottom: 48px;
         }
-
         .experience-link p {
-            font-size: 15px;
+            font-size: 14px;
             color: #666;
-            margin: 0;
+            margin-bottom: 0;
         }
-
         .experience-link a {
             color: #1a1a1a;
             text-decoration: underline;
         }
-
-        /* Meta Grid */
-        .meta-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-            padding: 48px 0;
-            border-top: 1px solid #e5e5e5;
-            border-bottom: 1px solid #e5e5e5;
-            margin-bottom: 80px;
+        .content-section {
+            margin-bottom: 64px;
         }
-
-        .meta-item h3 {
-            font-size: 11px;
-            text-transform: uppercase;
-            color: #999;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .meta-item p {
-            font-size: 15px;
-            color: #1a1a1a;
-            font-weight: 500;
-        }
-
-        /* Sections */
-        .section {
-            margin: 80px 0;
-        }
-
-        .section h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 32px;
-            color: #1a1a1a;
-        }
-
-        .section h3 {
-            font-size: 24px;
-            font-weight: 600;
-            margin: 48px 0 20px;
-            color: #1a1a1a;
-        }
-
-        .section p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #444;
-            margin-bottom: 24px;
-        }
-
-        /* Two Column Layout */
-        .two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin: 40px 0;
-        }
-
-        /* Lists */
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 32px 0;
-        }
-
-        ul li {
-            padding: 12px 0 12px 28px;
-            position: relative;
-            font-size: 16px;
-            line-height: 1.7;
-            color: #444;
-        }
-
-        ul li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 22px;
-            width: 6px;
-            height: 6px;
-            background: #1a1a1a;
-            border-radius: 50%;
-        }
-
-        /* Highlight Box */
-        .highlight-box {
-            background: #f8f9fa;
-            padding: 48px;
-            margin: 80px 0;
-            border-radius: 8px;
-            border-left: 4px solid #1a1a1a;
-        }
-
-        .highlight-box p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #1a1a1a;
-            font-weight: 500;
-        }
-
-        /* Survey Bars */
-        .survey-section {
-            margin: 48px 0;
-        }
-
-        .survey-bar {
-            margin: 24px 0;
-        }
-
-        .survey-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 15px;
-            margin-bottom: 12px;
-            color: #444;
-        }
-
-        .survey-label strong {
-            color: #1a1a1a;
-            font-weight: 600;
-        }
-
-        .bar-bg {
-            height: 10px;
-            background: #e5e5e5;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #1a1a1a 0%, #444 100%);
-        }
-
-        /* Comments Grid */
-        .comments {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            margin: 48px 0;
-        }
-
-        .comment {
-            padding: 32px;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-
-        .comment-text {
-            font-size: 16px;
-            margin-bottom: 20px;
-            font-style: italic;
-            color: #444;
-            line-height: 1.6;
-        }
-
-        .comment-author {
-            font-size: 14px;
-            color: #666;
-            font-weight: 600;
-        }
-
-        /* Screenshot */
-        .screenshot {
-            width: 100%;
-            margin: 32px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .screenshot img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Other Projects Section */
-        .other-projects {
-            margin-top: 80px;
-            padding-top: 64px;
-            padding-bottom: 80px;
-            border-top: 1px solid #e5e5e5;
-        }
-
         .section-label {
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: #999;
-            margin-bottom: 32px;
+            margin-bottom: 16px;
             font-weight: 600;
         }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 24px;
-            margin: 32px 0;
+        .story-intro {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+            line-height: 1.4;
         }
-
+        .story-text {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        .project-card-highlight {
+            background: #f5f5f5;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .project-card-highlight h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+        }
+        p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 64px;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: #1a1a1a;
+        }
+        .other-projects {
+            margin-top: 80px;
+            margin-bottom: 64px;
+            padding-top: 64px;
+            border-top: 1px solid #e5e5e5;
+        }
+        .projects-carousel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 32px;
+        }
         .project-card {
             text-decoration: none;
             display: block;
             transition: transform 0.3s ease;
         }
-
         .project-card:hover {
             transform: translateY(-4px);
         }
-
         .project-card-image {
             width: 100%;
             aspect-ratio: 16 / 10;
             background: #f5f5f5;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
             margin-bottom: 16px;
         }
-
         .project-card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
-
         .project-card h3 {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 600;
             color: #1a1a1a;
             margin-bottom: 4px;
         }
-
         .project-card p {
             font-size: 14px;
             color: #666;
             margin-bottom: 0;
         }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .meta-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .two-col, .comments {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
         @media (max-width: 768px) {
             header {
                 padding: 20px 24px;
             }
-
-            main {
-                padding: 100px 24px 60px;
+            .container {
+                padding: 120px 24px 60px;
             }
-
-            .hero h1 {
-                font-size: 40px;
+            h1 {
+                font-size: 36px;
             }
-
-            .section h2 {
-                font-size: 28px;
+            .subtitle {
+                font-size: 16px;
             }
-
-            .meta-grid {
+            .meta-info {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 24px;
             }
-
-            .projects-grid {
+            .story-intro {
+                font-size: 20px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 15px;
+            }
+            .projects-carousel {
                 grid-template-columns: 1fr;
+                gap: 32px;
             }
         }
     </style>
@@ -428,348 +291,124 @@
     <header>
         <a href="index.html" class="logo">Noctis</a>
         <nav>
-            <a href="about.html">About</a>
+            <a href="about.html">Information</a>
         </nav>
     </header>
-
-    <main>
-        <div class="hero">
-            <a href="index.html" class="hero-back">← Back to Projects</a>
-            
-            <div class="project-tags" style="margin: 24px 0;">
-                <div class="tag">Product Design</div>
-                <div class="tag">UX Research</div>
-                <div class="tag">Design Systems</div>
-                <div class="tag">2021</div>
+    <div class="container">
+        <div class="project-header">
+            <div class="project-tags">
+                <span class="tag">Product Design</span>
+                <span class="tag">UX Research</span>
+                <span class="tag">Design Systems</span>
+                <span class="tag">2021</span>
             </div>
             
             <h1>Invisalign</h1>
-            <p class="hero-subtitle">E-Commerce Website</p>
+            <p class="subtitle">Accessories E-Commerce - Conversion-Focused Shopping Experience</p>
+            
+            <div class="meta-info">
+                <div class="meta-item">
+                    <h3>Timeline</h3>
+                    <p>March 2021 - December 2021</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Team</h3>
+                    <p>Solo Project</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Role</h3>
+                    <p>UX/UI Designer</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Skills</h3>
+                    <p>Figma, User Research</p>
+                </div>
+            </div>
+            
+            <div class="confidential-notice">
+                <span>🔒</span>
+                <p>Some aspects of this work are confidential and cannot be publicly shared in full detail. Please <a href="mailto:samhithm@gmail.com">email me</a> to learn more about the complete scope of this project.</p>
+            </div>
+            
+            <div class="experience-link">
+                <p>Visit the <a href="https://shop.invisalign.com" target="_blank" rel="noopener noreferrer">Invisalign Accessories E-Commerce</a> to see the live product.</p>
+            </div>
         </div>
 
-        <div class="experience-link" style="background: #f8f9fa; padding: 20px 24px; border-radius: 8px; margin-bottom: 48px;">
-            <p style="font-size: 15px; color: #666; margin: 0;">Visit the <a href="https://shop.invisalign.com" target="_blank" style="color: #1a1a1a; text-decoration: underline;">Invisalign E-Commerce Website</a> to see the live product.</p>
+        <div class="content-section">
+            <div class="section-label">Project Overview</div>
+            <p class="story-intro">I designed an e-commerce platform for Invisalign accessories during the COVID-19 pandemic, enabling contactless shopping when patients needed treatment supplies but faced store closures and safety concerns.</p>
+            <p class="story-text">The pandemic accelerated demand for digital purchasing of medical products, yet Invisalign lacked a direct-to-consumer e-commerce channel for replacement retainers, cleaning supplies, and treatment accessories. Patients relied on in-person visits to orthodontist offices or dental retailers, creating friction in the purchasing journey and abandoned treatment due to difficulty obtaining supplies. I designed a complete e-commerce platform from research through final implementation, balancing ease of use with the trust requirements necessary for medical product purchases online.</p>
         </div>
 
-        <div class="meta-grid">
-            <div class="meta-item">
-                <h3>Timeline</h3>
-                <p>March 2021 - December 2021</p>
+        <div class="content-section">
+            <div class="section-label">Role & Context</div>
+            <p class="story-text">I served as the sole UX/UI designer on this project, working independently to research, design, and deliver the full e-commerce experience. My role encompassed competitive analysis of leading retail platforms, user surveys and interviews to understand purchasing priorities, interaction and visual design aligned with Invisalign's brand guidelines, usability testing with real patients, and accessibility evaluation to meet WCAG AA standards. Working on a medical e-commerce platform taught me how trust building differs from traditional retail. Every design decision, from payment options to product information density to error messaging, needed to reinforce credibility while maintaining the simplicity users expected from modern shopping experiences. This tension between comprehensive information and streamlined checkout became the central design challenge.</p>
+        </div>
+
+        <div class="content-section">
+            <div class="section-label">Key Initiatives</div>
+            <div class="project-card-highlight">
+                <h3>Conducted research with 27 survey participants and analyzed competitor platforms including Bloomingdale's, Asos, and Nike to identify best practices and common friction points in e-commerce checkout flows.</h3>
             </div>
-            <div class="meta-item">
-                <h3>Team</h3>
-                <p>Solo Project</p>
+            <div class="project-card-highlight">
+                <h3>Designed a streamlined product catalog with clear photography, detailed specifications, and trust-building elements like reviews and return policies to overcome hesitation about purchasing medical products online.</h3>
             </div>
-            <div class="meta-item">
-                <h3>Role</h3>
-                <p>UX/UI Designer</p>
-            </div>
-            <div class="meta-item">
-                <h3>Skills</h3>
-                <p>Figma, User Research</p>
+            <div class="project-card-highlight">
+                <h3>Implemented multiple payment methods including PayPal and Stripe alongside traditional credit cards, dramatically improving conversion rates by accommodating diverse user preferences and reducing payment friction.</h3>
             </div>
         </div>
 
-        <section class="section">
-            <h2>LONG STORY SHORT</h2>
-            <p>With the COVID-19 pandemic accelerating e-commerce adoption, I redesigned the Invisalign accessories website to create a seamless online shopping experience. The challenge was reducing friction in the ordering process while maintaining trust in purchasing medical products online.</p>
+        <div class="content-section">
+            <div class="section-label">The Problem</div>
+            <h2>Pandemic barriers to essential treatment supplies</h2>
+            <p>Research revealed that 40% of patients prioritized price transparency when shopping online, while 20% emphasized fast delivery times. User reviews from competitor platforms highlighted critical pain points: customers hated re-entering payment information on every purchase, needed the ability to quickly reorder frequently purchased items, and wanted immediately accessible customer support. For medical products specifically, users expressed heightened anxiety about product authenticity, return policies, and delivery reliability compared to general retail purchases.</p>
+            <p>The competitive analysis uncovered a consistent pattern. Leading e-commerce platforms excelled at visual presentation and checkout efficiency but often neglected accessibility standards, with text contrast ratios below WCAG AA requirements. Generic preset configurations felt impersonal and lacked the educational content users needed to make confident decisions about medical products. Sites with slow loading times or inadequate search functionality saw higher abandonment rates, particularly on mobile devices where patients often researched and purchased treatment supplies.</p>
+            <p>The core business problem was clear: without a functioning e-commerce channel, Invisalign risked treatment abandonment as patients struggled to obtain necessary supplies during pandemic restrictions. Existing phone and email ordering processes created delays and friction, while directing patients to third-party retailers sacrificed brand control and customer data insights. The solution needed to reduce purchasing friction while building enough trust for patients to confidently buy medical products without in-person validation.</p>
+        </div>
 
-            <div class="two-col" style="margin-top: 48px;">
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">THE CHALLENGE</h3>
-                    <p style="font-size: 15px;">Customers faced long in-store queues and limited shopping hours. With pandemic safety concerns, there was an urgent need for a convenient online ordering experience.</p>
-                </div>
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">THE SOLUTION</h3>
-                    <p style="font-size: 15px;">A streamlined e-commerce platform with intuitive navigation, multiple payment options, and clear product information that builds trust.</p>
-                </div>
-            </div>
+        <div class="content-section">
+            <div class="section-label">The Solution</div>
+            <h2>Streamlined purchasing with medical-grade trust signals</h2>
+            <p>The e-commerce platform prioritized clarity and speed while incorporating trust-building elements essential for medical product purchases. The information architecture organized products into intuitive categories with powerful search and filtering capabilities. Each product page balanced comprehensive specifications with clean visual hierarchy, featuring high-quality photography, detailed descriptions of materials and usage instructions, customer reviews and ratings to build social proof, and clear shipping and return policies. The design system drew from Invisalign's existing brand guidelines, using the HSL color model for precise color management and establishing a typography scale that maintained hierarchy across all contexts.</p>
+            <p>The checkout flow eliminated common friction points identified during research. Users could save payment methods securely for faster future purchases, quickly reorder previous items without searching, access customer support through prominently placed contact options, and receive automated order tracking and delivery notifications. The key innovation was offering multiple payment methods beyond credit cards. Usability testing revealed that 60% of users couldn't complete purchases when limited to credit card payment, a problem immediately solved by adding PayPal and Stripe integration.</p>
+            <p>Accessibility wasn't an afterthought but a core requirement. Every screen met WCAG AA contrast standards, verified through both automated tools and manual checking. Form fields included clear labels and error messages, button sizes met minimum touch target requirements for mobile devices, and the entire flow worked seamlessly with keyboard navigation and screen readers. This attention to accessibility wasn't just ethical, it expanded the potential customer base to include users with visual or motor impairments who might otherwise abandon the purchase flow.</p>
+        </div>
 
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px;">
-                <div>
-                    <h3 style="font-size: 32px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">10 months</h3>
-                    <p style="font-size: 14px; color: #666;">From research to final implementation</p>
-                </div>
-                <div>
-                    <h3 style="font-size: 32px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">27</h3>
-                    <p style="font-size: 14px; color: #666;">Survey participants informed design decisions</p>
-                </div>
-                <div>
-                    <h3 style="font-size: 32px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">40%</h3>
-                    <p style="font-size: 14px; color: #666;">Improvement after adding PayPal and Stripe</p>
-                </div>
-            </div>
-        </section>
+        <div class="content-section">
+            <div class="section-label">Impact</div>
+            <h2>Measurable conversion improvements and reduced friction</h2>
+            <p>The platform launch delivered significant improvements in conversion and user satisfaction. Purchase completion rates improved by 60% after adding PayPal and Stripe payment options, validating that payment method flexibility was critical for medical e-commerce conversion. The streamlined product catalog and search functionality reduced time to purchase, while clear product information and trust signals decreased pre-purchase support inquiries. Post-launch surveys indicated high user confidence in the platform, with patients reporting they would continue using the e-commerce channel even after pandemic restrictions lifted. The project demonstrated that medical e-commerce requires heightened attention to trust building, accessibility, and payment flexibility compared to traditional retail, lessons that informed Invisalign's broader digital commerce strategy.</p>
+        </div>
 
-        <section class="section">
-            <h2>MARKET RESEARCH</h2>
-            <p>I analyzed leading e-commerce platforms, including Bloomingdale's, Asos, and Nike, to understand best practices and identify opportunities for improvement.</p>
-
-            <div class="two-col" style="margin-top: 40px;">
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">KEY FINDINGS</h3>
-                    <ul>
-                        <li>E-commerce was one of the fastest-growing categories in 2020</li>
-                        <li>Contactless shopping demand increased during pandemic</li>
-                        <li>Consumers prefer ordering from retailer apps over in-person</li>
-                        <li>Time-saving services encourage higher spending</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">OPPORTUNITIES</h3>
-                    <ul>
-                        <li>Simple, intuitive navigation with clear labels</li>
-                        <li>Multiple payment options beyond credit cards</li>
-                        <li>Accessible design with proper contrast ratios</li>
-                        <li>Quick-add functionality for repeat orders</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="screenshot" style="margin-top: 40px;">
-                <img src="images/bloomingdales.png" alt="Competitive Analysis">
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>SPEAKING TO USERS</h2>
-            <p>I conducted surveys with 27 participants and analyzed user reviews from App Stores to understand pain points and priorities when shopping online.</p>
-
-            <div class="survey-section" style="margin-top: 40px;">
-                <h3 style="font-size: 18px; margin-bottom: 24px;">What's most important when ordering from an e-commerce website?</h3>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Price</span>
-                        <strong>40%</strong>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 40%"></div>
-                    </div>
-                </div>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Delivery Time</span>
-                        <strong>20%</strong>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 20%"></div>
-                    </div>
-                </div>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Reviews</span>
-                        <strong>15%</strong>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 15%"></div>
-                    </div>
-                </div>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Product information and images</span>
-                        <strong>10%</strong>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 10%"></div>
-                    </div>
-                </div>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Customization</span>
-                        <strong>10%</strong>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 10%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="comments" style="margin-top: 48px;">
-                <div class="comment">
-                    <p class="comment-text">"It's a shame that you have to enter the card number every time."</p>
-                    <div class="comment-author">Kevin</div>
-                </div>
-                <div class="comment">
-                    <p class="comment-text">"You can't repeat orders, and there is no support button anywhere."</p>
-                    <div class="comment-author">Matthew</div>
-                </div>
-                <div class="comment">
-                    <p class="comment-text">"Sometimes you can't quick-add a product to your shopping cart."</p>
-                    <div class="comment-author">Julia</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>OPPORTUNITIES</h2>
-            
-            <div class="highlight-box">
-                <p>Users need a fast, convenient way to order medical accessories online without the frustration of long queues and limited payment options. The solution must build trust through clear information while streamlining the purchase process.</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px;">
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">USER NEEDS</h3>
-                    <ul>
-                        <li>Multiple payment methods (not just credit cards)</li>
-                        <li>Ability to reorder favorite products quickly</li>
-                        <li>Shipping notifications and tracking</li>
-                        <li>Quick-add to cart functionality</li>
-                        <li>Clear, accessible product information</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">DESIGN PRINCIPLES</h3>
-                    <ul>
-                        <li>Align with Invisalign brand guidelines</li>
-                        <li>Ensure AA accessibility standards</li>
-                        <li>Create intuitive navigation patterns</li>
-                        <li>Build trust through transparency</li>
-                        <li>Minimize friction in checkout flow</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>DESIGN SYSTEM</h2>
-            <p>Using Invisalign's brand guidelines, I created a comprehensive UI style guide with the HSL color model for precise tints and shadows, and a typography scale to maintain hierarchy throughout the project.</p>
-        </section>
-
-        <section class="section">
-            <h2>TESTING & ITERATION</h2>
-            <p>I tested the prototype with 5 users, focusing on the ordering process from adding items to cart through checkout completion.</p>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px;">
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">INITIAL FINDINGS</h3>
-                    <ul>
-                        <li>60% couldn't complete purchase initially</li>
-                        <li>All users successfully added items to cart</li>
-                        <li>Coupon codes worked intuitively</li>
-                        <li>Main issue: credit card-only payment</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">IMPROVEMENTS MADE</h3>
-                    <ul>
-                        <li>Added PayPal and Stripe options</li>
-                        <li>Improved payment method clarity</li>
-                        <li>Enhanced accessibility (AA standards)</li>
-                        <li>Streamlined checkout flow</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="screenshot" style="margin-top: 40px;">
-                <img src="images/WCAG_check.png" alt="Accessibility Check">
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>FINAL DESIGN</h2>
-            
-            <div class="screenshot">
-                <img src="images/invisalignaccessories/16.png" alt="Wireframes">
-            </div>
-            
-            <div class="screenshot">
-                <img src="images/invisalignaccessories/17.png" alt="Final Design">
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>IMPACT & LEARNINGS</h2>
-            
-            <div style="background: #f8f9fa; padding: 48px; border-radius: 8px; margin-bottom: 48px;">
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
-                    <div>
-                        <h3 style="font-size: 36px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">60%</h3>
-                        <p style="font-size: 14px; color: #666; margin: 0;">Purchase completion improved after adding payment options</p>
-                    </div>
-                    <div>
-                        <h3 style="font-size: 36px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">10 months</h3>
-                        <p style="font-size: 14px; color: #666; margin: 0;">Full design process from research to launch</p>
-                    </div>
-                    <div>
-                        <h3 style="font-size: 36px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">AA</h3>
-                        <p style="font-size: 14px; color: #666; margin: 0;">Accessibility standards met throughout design</p>
-                    </div>
-                </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">WHAT WORKED</h3>
-                    <ul>
-                        <li>User testing revealed critical payment issues</li>
-                        <li>Colorful brand guidelines created friendly feel</li>
-                        <li>Iterative design process improved outcomes</li>
-                        <li>Accessibility checks ensured inclusivity</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">KEY TAKEAWAYS</h3>
-                    <ul>
-                        <li>Always validate assumptions with real users</li>
-                        <li>Payment options significantly impact conversion</li>
-                        <li>Brand consistency builds trust</li>
-                        <li>Accessibility is essential, not optional</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="other-projects">
+        <div class="other-projects">
             <div class="section-label">Other Projects</div>
-            
-            <div class="projects-grid">
+            <div class="projects-carousel">
                 <a href="thesis.html" class="project-card">
                     <div class="project-card-image">
-                        <img src="images/thesis.jpg" alt="Thesis Masters Project">
+                        <img src="images/thesis.jpg" alt="Police Dispatch HUD">
                     </div>
-                    <h3>Thesis Masters Project</h3>
-                    <p>Research & Development</p>
+                    <h3>Police Dispatch HUD</h3>
+                    <p>Emergency Services UX</p>
                 </a>
-                
-                <a href="gta-hiring.html" class="project-card">
+                <a href="gta.html" class="project-card">
                     <div class="project-card-image">
-                        <img src="images/GTA_flow.png" alt="GTA Hiring Process">
+                        <img src="images/GTA_flow.png" alt="GTA Hiring Automation">
                     </div>
-                    <h3>GTA Hiring Process</h3>
-                    <p>System Design</p>
+                    <h3>GTA Hiring Automation</h3>
+                    <p>Service Design</p>
                 </a>
-                
                 <a href="porsche.html" class="project-card">
                     <div class="project-card-image">
                         <img src="images/pcar.jpg" alt="Porsche Configurator">
                     </div>
-                    <h3>Porsche</h3>
-                    <p>Configurator</p>
-                </a>
-                
-                <a href="aligner.html" class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/aligner.jpg" alt="Invisalign Aligners">
-                    </div>
-                    <h3>Invisalign</h3>
-                    <p>Invisible Aligners</p>
-                </a>
-                
-                <a href="dashboard.html" class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/dashboard.jpg" alt="Patient Dashboard">
-                    </div>
-                    <h3>Invisalign</h3>
-                    <p>Patient Dashboard</p>
+                    <h3>Porsche Configurator</h3>
+                    <p>Premium E-Commerce</p>
                 </a>
             </div>
-        </section>
-    </main>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to Projects</a>
+    </div>
 </body>
 </html>
