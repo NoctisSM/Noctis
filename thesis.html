@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Patrol Command - Police Dispatch Dashboard for Drone Integration">
+    <title>Patrol Command - Noctis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: linear-gradient(to bottom, #f0f4ff 0%, #ffffff 40%);
+            color: #1a1a1a;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e5e5;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+        nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #1a1a1a;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 140px 48px 80px;
+        }
+        .project-header {
+            margin-bottom: 48px;
+        }
+        .project-tags {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #999;
+            border: 1px solid #e5e5e5;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .meta-item h3 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #999;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .meta-item p {
+            font-size: 15px;
+            color: #1a1a1a;
+        }
+        .confidential-notice {
+            background: #f5f5f5;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin-bottom: 48px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .confidential-notice span {
+            font-size: 20px;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+        .confidential-notice p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 0;
+        }
+        .confidential-notice a {
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+        .content-section {
+            margin-bottom: 64px;
+        }
+        .section-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #999;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .story-intro {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+            line-height: 1.4;
+        }
+        .story-text {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        .project-card-highlight {
+            background: #f5f5f5;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .project-card-highlight h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+        }
+        p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 64px;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: #1a1a1a;
+        }
+        .other-projects {
+            margin-top: 80px;
+            margin-bottom: 64px;
+            padding-top: 64px;
+            border-top: 1px solid #e5e5e5;
+        }
+        .projects-carousel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 32px;
+        }
+        .project-card {
+            text-decoration: none;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+        }
+        .project-card-image {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: #f5f5f5;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+        .project-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .project-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+        .project-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 0;
+        }
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 24px;
+            }
+            .container {
+                padding: 120px 24px 60px;
+            }
+            h1 {
+                font-size: 36px;
+            }
+            .subtitle {
+                font-size: 16px;
+            }
+            .meta-info {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+            .story-intro {
+                font-size: 20px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 15px;
+            }
+            .projects-carousel {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Noctis</a>
+        <nav>
+            <a href="about.html">Information</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="project-header">
+            <div class="project-tags">
+                <span class="tag">Emergency Services UX</span>
+                <span class="tag">HCI Research</span>
+                <span class="tag">Systems Design</span>
+                <span class="tag">2025-2026</span>
+            </div>
+            
+            <h1>Patrol Command</h1>
+            <p class="subtitle">Police Dispatch Dashboard for Drone Integration (In Progress)</p>
+            
+            <div class="meta-info">
+                <div class="meta-item">
+                    <h3>Timeline</h3>
+                    <p>September 2025 - April 2026</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Institution</h3>
+                    <p>Georgia Tech MS-HCI</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Role</h3>
+                    <p>Lead Researcher & Designer</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Methods</h3>
+                    <p>Qualitative Research, Prototyping</p>
+                </div>
+            </div>
+            
+            <div class="confidential-notice">
+                <span>📚</span>
+                <p>This is my Master's thesis project at Georgia Tech, currently in progress and expected to be completed in April 2026. For questions about the research methodology or to discuss collaboration opportunities, please <a href="mailto:samhithm@gmail.com">email me</a>.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-label">Project Overview</div>
+            <p class="story-intro">I am designing and prototyping an interactive police dispatch dashboard that integrates real-time drone footage with ground-level incident data as my Master's thesis at Georgia Tech.</p>
+            <p class="story-text">This project addresses information overload in emergency response by creating a unified command interface where dispatchers can manage multiple incidents, coordinate aerial intelligence, and support officer safety through contextual AI assistance. The project is currently in the design and functional requirements phase, with usability testing planned for completion in April 2026.</p>
+        </div>
+
+        <div class="content-section">
+            <div class="section-label">Role & Context</div>
+            <p class="story-text">I am working as the lead researcher and designer on this 6-month thesis project at Georgia Tech's School of Interactive Computing, running from September 2025 to April 2026. Through semi-structured interviews with 8 police officers, ride-alongs with dispatch teams, and contextual inquiry observing live dispatch operations, I identified critical workflow gaps in how aerial intelligence gets communicated to responding officers during active incidents. I own the entire research, design, and prototyping process, presenting regular updates to my thesis advisor, the assistant director of the HCI program, and law enforcement stakeholders. This project is teaching me to design complex sociotechnical systems that balance automation with human decision-making in high-stakes environments.</p>
+        </div>
+
+        <div class="content-section">
+            <div class="section-label">Key Initiatives</div>
+            <div class="project-card-highlight">
+                <h3>Conducted qualitative research with law enforcement including semi-structured interviews, ride-alongs, affinity mapping, persona development, and journey mapping to understand dispatcher workflows and cognitive load patterns.</h3>
+            </div>
+            <div class="project-card-highlight">
+                <h3>Designing functional web-based prototype featuring live mapping, AI-powered query interface, priority escalation system, and multi-feed drone integration using HTML/CSS/JavaScript.</h3>
+            </div>
+            <div class="project-card-highlight">
+                <h3>Currently defining functional requirements and preparing usability studies to validate interface design decisions with law enforcement stakeholders.</h3>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-label">The Problem</div>
+            <h2>Information silos create dangerous gaps in officer safety</h2>
+            <p>Police dispatchers coordinate officer response to emergencies while managing overwhelming streams of incoming information including 911 calls, CAD system updates, radio communications, and incident notes. When drones capture aerial footage during active incidents, that critical intelligence often doesn't reach dispatchers or responding officers in real-time because it exists in separate systems operated by specialized drone pilots.</p>
+            <p>Dispatch centers lack integrated interfaces to view, filter, prioritize, and communicate drone data alongside traditional Computer-Aided Dispatch (CAD) systems. This creates dangerous information silos where valuable aerial perspectives such as suspect locations, movement patterns, and scene conditions remain unused or significantly delayed. Officers arrive on scene without aerial context that could inform their approach strategy, positioning, or safety decisions.</p>
+            <p>The challenge is to design a unified command dashboard that integrates aerial and ground data streams without adding cognitive load to already-stressed dispatchers managing multiple simultaneous critical incidents. The interface must support rapid decision-making, maintain situational awareness across incidents, and preserve dispatcher control over when and how aerial intelligence influences response coordination.</p>
+        </div>
+
+        <div class="content-section">
+            <div class="section-label">The Solution</div>
+            <h2>Unified command interface with AI-assisted intelligence</h2>
+            <p>The Patrol Command dashboard creates a unified view where dispatchers see live drone feeds, interactive mapping with officer positions and suspect movement trails, and AI-assisted query capabilities all within a single interface. The system automatically prioritizes incidents by severity, provides visual indicators showing which incidents have aerial coverage, and allows dispatchers to switch between map, drone feed, and dispatch notes with one-click navigation.</p>
+            <p>Key features being designed include real-time incident filtering by priority level with color-coded urgency indicators, contextual AI query interface that answers natural language questions about suspect descriptions, locations, and weapon status, smart alert system that notifies dispatchers of critical changes including weapon status, priority escalation, and location updates, officer position tracking with breadcrumb trails showing suspect movement history, evidence capture and timestamping directly from drone feeds, and shift handoff report generation that summarizes incident activity for incoming dispatchers.</p>
+            <p>The design balances automation with human control. The system suggests aerial coverage priorities and flags critical updates, but keeps dispatcher decision-making at the center of all tactical response coordination. The interface supports voice-based note-taking so dispatchers can log observations without interrupting their visual focus on active incidents.</p>
+        </div>
+
+        <div class="content-section">
+            <div class="section-label">Current Status & Next Steps</div>
+            <h2>Completing design phase and preparing usability studies</h2>
+            <p>I have completed the research phase including qualitative interviews, contextual inquiry, and synthesis through affinity mapping, personas, and journey maps. I am currently in the design and functional requirements phase, developing lo-fidelity and hi-fidelity prototypes to test with law enforcement stakeholders. The working prototype demonstrates core interactions including priority management, drone feed integration, AI-assisted queries, and evidence logging workflows.</p>
+            <p>Next steps include conducting usability studies with dispatchers and officers to validate design decisions, measuring task completion rates and cognitive load metrics, refining the interface based on user feedback, and presenting final findings and recommendations in April 2026. The goal is to produce both a functional prototype and documented design requirements that can inform future development of production-ready dispatch systems.</p>
+        </div>
+
+        <div class="other-projects">
+            <div class="section-label">Other Projects</div>
+            <div class="projects-carousel">
+                <a href="gta.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/GTA_flow.png" alt="GTA Hiring Automation">
+                    </div>
+                    <h3>GTA Hiring Automation</h3>
+                    <p>Service Design</p>
+                </a>
+                <a href="porsche.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/pcar.jpg" alt="Porsche Configurator">
+                    </div>
+                    <h3>Porsche Configurator</h3>
+                    <p>Premium E-Commerce</p>
+                </a>
+                <a href="accessories.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/accessories.jpg" alt="Invisalign Accessories">
+                    </div>
+                    <h3>Invisalign Accessories</h3>
+                    <p>Healthcare E-Commerce</p>
+                </a>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to Projects</a>
+    </div>
+</body>
+</html>
