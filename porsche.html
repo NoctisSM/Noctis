@@ -3,16 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Porsche Design Recommendations - Reimagining the car configuration journey">
-    <title>Porsche Design Recommendations - Noctis</title>
-    <link rel="icon" href="favicon.png">
+    <meta name="description" content="Porsche Configurator - Premium E-Commerce Experience">
+    <title>Porsche Configurator - Noctis</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
             background: linear-gradient(to bottom, #f0f4ff 0%, #ffffff 40%);
@@ -20,8 +18,6 @@
             line-height: 1.6;
             min-height: 100vh;
         }
-
-        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -36,19 +32,16 @@
             border-bottom: 1px solid #e5e5e5;
             z-index: 100;
         }
-
         .logo {
             font-size: 18px;
             font-weight: 600;
             color: #1a1a1a;
             text-decoration: none;
         }
-
         nav {
             display: flex;
             gap: 32px;
         }
-
         nav a {
             color: #666;
             text-decoration: none;
@@ -57,45 +50,22 @@
             letter-spacing: 0.5px;
             transition: color 0.2s;
         }
-
         nav a:hover {
             color: #1a1a1a;
         }
-
-        /* Main Content */
-        main {
-            max-width: 1400px;
+        .container {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 120px 48px 80px;
+            padding: 140px 48px 80px;
         }
-
-        /* Hero Section */
-        .hero {
+        .project-header {
             margin-bottom: 48px;
         }
-
-        .hero-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: #666;
-            text-decoration: none;
-            margin-bottom: 32px;
-            transition: color 0.2s;
-        }
-
-        .hero-back:hover {
-            color: #1a1a1a;
-        }
-
         .project-tags {
             display: flex;
-            flex-wrap: wrap;
             gap: 12px;
-            margin: 24px 0;
+            margin-bottom: 24px;
         }
-
         .tag {
             font-size: 11px;
             text-transform: uppercase;
@@ -105,534 +75,214 @@
             padding: 6px 12px;
             border-radius: 4px;
         }
-
-        .hero h1 {
-            font-size: 64px;
+        h1 {
+            font-size: 48px;
             font-weight: 700;
-            letter-spacing: -1.5px;
+            letter-spacing: -1px;
             margin-bottom: 16px;
             color: #1a1a1a;
         }
-
-        .hero-subtitle {
-            font-size: 24px;
+        .subtitle {
+            font-size: 18px;
             color: #666;
-            margin-bottom: 24px;
-            line-height: 1.5;
-            font-weight: 400;
+            margin-bottom: 40px;
         }
-
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .meta-item h3 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #999;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .meta-item p {
+            font-size: 15px;
+            color: #1a1a1a;
+        }
+        .confidential-notice {
+            background: #f5f5f5;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .confidential-notice span {
+            font-size: 20px;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+        .confidential-notice p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 0;
+        }
+        .confidential-notice a {
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
         .experience-link {
-            background: #f8f9fa;
+            background: #f5f5f5;
             padding: 20px 24px;
             border-radius: 8px;
             margin-bottom: 48px;
         }
-
         .experience-link p {
-            font-size: 15px;
+            font-size: 14px;
             color: #666;
-            margin: 0;
+            margin-bottom: 0;
         }
-
         .experience-link a {
             color: #1a1a1a;
             text-decoration: underline;
         }
-
-        /* Meta Grid */
-        .meta-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-            padding: 48px 0;
-            border-top: 1px solid #e5e5e5;
-            border-bottom: 1px solid #e5e5e5;
-            margin-bottom: 80px;
+        .content-section {
+            margin-bottom: 64px;
         }
-
-        .meta-item h3 {
-            font-size: 11px;
-            text-transform: uppercase;
-            color: #999;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .meta-item p {
-            font-size: 15px;
-            color: #1a1a1a;
-            font-weight: 500;
-        }
-
-        /* Sections */
-        .section {
-            margin: 80px 0;
-        }
-
-        .section h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 32px;
-            color: #1a1a1a;
-        }
-
-        .section h3 {
-            font-size: 24px;
-            font-weight: 600;
-            margin: 48px 0 20px;
-            color: #1a1a1a;
-        }
-
-        .section p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #444;
-            margin-bottom: 24px;
-        }
-
-        /* Two Column Layout */
-        .two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin: 40px 0;
-        }
-
-        /* Lists */
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 32px 0;
-        }
-
-        ul li {
-            padding: 12px 0 12px 28px;
-            position: relative;
-            font-size: 16px;
-            line-height: 1.7;
-            color: #444;
-        }
-
-        ul li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 22px;
-            width: 6px;
-            height: 6px;
-            background: #1a1a1a;
-            border-radius: 50%;
-        }
-
-        /* Highlight Box */
-        .highlight-box {
-            background: #f8f9fa;
-            padding: 48px;
-            margin: 80px 0;
-            border-radius: 8px;
-            border-left: 4px solid #1a1a1a;
-        }
-
-        .highlight-box p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #1a1a1a;
-            font-weight: 500;
-        }
-
-        /* Competitor Section */
-        .competitor {
-            padding: 48px 0;
-            margin: 48px 0;
-            border-top: 1px solid #e5e5e5;
-        }
-
-        .competitor h3 {
-            font-size: 28px;
-            margin-bottom: 32px;
-        }
-
-        .competitor h4 {
-            font-size: 14px;
-            font-weight: 700;
-            margin: 32px 0 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #666;
-        }
-
-        /* Screenshot Placeholder */
-        .screenshot {
-            width: 100%;
-            margin: 32px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .screenshot img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Survey Bars */
-        .survey-section {
-            margin: 48px 0;
-        }
-
-        .survey-bar {
-            margin: 24px 0;
-        }
-
-        .survey-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 15px;
-            margin-bottom: 12px;
-            color: #444;
-        }
-
-        .survey-label strong {
-            color: #1a1a1a;
-            font-weight: 600;
-        }
-
-        .bar-bg {
-            height: 10px;
-            background: #e5e5e5;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #1a1a1a 0%, #444 100%);
-        }
-
-        /* Comments Grid */
-        .comments {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            margin: 48px 0;
-        }
-
-        .comment {
-            padding: 32px;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-
-        .comment-text {
-            font-size: 16px;
-            margin-bottom: 20px;
-            font-style: italic;
-            color: #444;
-            line-height: 1.6;
-        }
-
-        .comment-author {
-            font-size: 14px;
-            color: #666;
-            font-weight: 600;
-        }
-
-        /* Persona Grid */
-        .persona-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin: 60px 0;
-        }
-
-        .persona {
-            background: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #e5e5e5;
-        }
-
-        .persona-img {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            background: #f5f5f5;
-            position: relative;
-        }
-
-        .persona-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .persona-quote {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.85);
-            padding: 24px;
-            color: #ffffff;
-            font-size: 15px;
-            font-style: italic;
-            line-height: 1.5;
-        }
-
-        .persona-content {
-            padding: 32px;
-        }
-
-        .persona-name {
-            font-size: 28px;
-            color: #1a1a1a;
-            margin-bottom: 24px;
-            font-weight: 700;
-        }
-
-        .persona-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            padding: 24px 0;
-            margin: 24px 0;
-            border-top: 1px solid #e5e5e5;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .persona-info-item label {
-            font-size: 12px;
-            text-transform: uppercase;
-            color: #999;
-            display: block;
-            margin-bottom: 6px;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-        }
-
-        .persona-info-item span {
-            font-size: 15px;
-            font-weight: 500;
-            color: #1a1a1a;
-        }
-
-        .persona-bio {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #444;
-            margin: 24px 0;
-        }
-
-        .persona-section {
-            margin: 24px 0;
-        }
-
-        .persona-section h4 {
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            color: #1a1a1a;
-            letter-spacing: 0.5px;
-        }
-
-        .persona-section ul li {
-            font-size: 15px;
-            padding: 8px 0 8px 24px;
-        }
-
-        /* Journey Map */
-        .journey {
-            padding: 60px 0;
-            margin: 80px 0;
-            overflow-x: auto;
-            border-top: 1px solid #e5e5e5;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .journey h3 {
-            margin-bottom: 32px;
-        }
-
-        .journey-subtitle {
-            font-size: 18px;
-            font-weight: 600;
-            margin-top: 16px;
-            margin-bottom: 48px;
-            color: #444;
-        }
-
-        .journey-grid {
-            display: grid;
-            grid-template-columns: 140px repeat(5, 1fr);
-            gap: 16px;
-            min-width: 1200px;
-        }
-
-        .journey-label {
-            font-size: 13px;
-            font-weight: 700;
-            padding: 16px 0;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #666;
-        }
-
-        .journey-cell {
-            background: #f8f9fa;
-            padding: 20px;
-            font-size: 14px;
-            line-height: 1.6;
-            min-height: 100px;
-            border-radius: 6px;
-            color: #444;
-        }
-
-        .stage {
-            padding: 20px;
-            text-align: center;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .stage-1 { background: #FFE5B4; color: #8B4513; }
-        .stage-2 { background: #FFD7BA; color: #8B4513; }
-        .stage-3 { background: #FFC9C9; color: #8B0000; }
-        .stage-4 { background: #FFB3BA; color: #8B0000; }
-        .stage-5 { background: #FF9999; color: #8B0000; }
-
-        .mood {
-            text-align: center;
-            font-size: 32px;
-            padding: 16px;
-        }
-
-        /* Summary Section */
-        .summary {
-            padding: 80px 0;
-            margin: 80px 0 0;
-            border-top: 1px solid #e5e5e5;
-        }
-
-        .summary h2 {
-            font-size: 36px;
-            margin-bottom: 32px;
-        }
-
-        .summary p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #444;
-            margin-bottom: 24px;
-        }
-
-        /* Other Projects Section */
-        .other-projects {
-            margin-top: 80px;
-            padding-top: 64px;
-            padding-bottom: 80px;
-            border-top: 1px solid #e5e5e5;
-        }
-
         .section-label {
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: #999;
-            margin-bottom: 32px;
+            margin-bottom: 16px;
             font-weight: 600;
         }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 24px;
-            margin: 32px 0;
+        .story-intro {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+            line-height: 1.4;
         }
-
+        .story-text {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        .project-card-highlight {
+            background: #f5f5f5;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .project-card-highlight h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+        }
+        p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 64px;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: #1a1a1a;
+        }
+        .other-projects {
+            margin-top: 80px;
+            margin-bottom: 64px;
+            padding-top: 64px;
+            border-top: 1px solid #e5e5e5;
+        }
+        .projects-carousel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 32px;
+        }
         .project-card {
             text-decoration: none;
             display: block;
             transition: transform 0.3s ease;
         }
-
         .project-card:hover {
             transform: translateY(-4px);
         }
-
         .project-card-image {
             width: 100%;
             aspect-ratio: 16 / 10;
             background: #f5f5f5;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
             margin-bottom: 16px;
         }
-
         .project-card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
-
         .project-card h3 {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 600;
             color: #1a1a1a;
             margin-bottom: 4px;
         }
-
         .project-card p {
             font-size: 14px;
             color: #666;
             margin-bottom: 0;
         }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .meta-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .two-col, .persona-grid, .comments {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
         @media (max-width: 768px) {
             header {
                 padding: 20px 24px;
             }
-
-            main {
-                padding: 100px 24px 60px;
+            .container {
+                padding: 120px 24px 60px;
             }
-
-            .hero h1 {
-                font-size: 40px;
+            h1 {
+                font-size: 36px;
             }
-
-            .section h2 {
-                font-size: 28px;
+            .subtitle {
+                font-size: 16px;
             }
-
-            .meta-grid {
+            .meta-info {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 24px;
             }
-
-            .projects-grid {
+            .story-intro {
+                font-size: 20px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 15px;
+            }
+            .projects-carousel {
                 grid-template-columns: 1fr;
+                gap: 32px;
             }
         }
     </style>
@@ -641,473 +291,124 @@
     <header>
         <a href="index.html" class="logo">Noctis</a>
         <nav>
-            <a href="about.html">About</a>
+            <a href="about.html">Information</a>
         </nav>
     </header>
-
-    <main>
-        <div class="hero">
-            <a href="index.html" class="hero-back">← Back to Projects</a>
-            
-            <div class="project-tags" style="margin: 24px 0;">
-                <div class="tag">Product Design</div>
-                <div class="tag">UX Research</div>
-                <div class="tag">UI Design</div>
-                <div class="tag">2025</div>
+    <div class="container">
+        <div class="project-header">
+            <div class="project-tags">
+                <span class="tag">Product Design</span>
+                <span class="tag">UX Research</span>
+                <span class="tag">UI Design</span>
+                <span class="tag">2025</span>
             </div>
             
             <h1>Porsche</h1>
-            <p class="hero-subtitle">Design Recommendations</p>
+            <p class="subtitle">Configurator - Premium E-Commerce Experience</p>
+            
+            <div class="meta-info">
+                <div class="meta-item">
+                    <h3>Timeline</h3>
+                    <p>March 2025 - October 2025</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Team</h3>
+                    <p>1 Lead, 1 Designer</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Role</h3>
+                    <p>Designer</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Skills</h3>
+                    <p>Figma, Client Relations</p>
+                </div>
+            </div>
+            
+            <div class="confidential-notice">
+                <span>🔒</span>
+                <p>Some aspects of this work are confidential and cannot be publicly shared in full detail. Please <a href="mailto:samhithm@gmail.com">email me</a> to learn more about the complete scope of this project.</p>
+            </div>
+            
+            <div class="experience-link">
+                <p>Visit the <a href="https://configurator.porsche.com/en-US/model-start/911/9921B2/pre-config?index=0" target="_blank" rel="noopener noreferrer">Porsche Configurator</a> to see the live product.</p>
+            </div>
         </div>
 
-        <div class="experience-link" style="background: #f8f9fa; padding: 20px 24px; border-radius: 8px; margin-bottom: 48px;">
-            <p style="font-size: 15px; color: #666; margin: 0;">Visit the <a href="https://configurator.porsche.com/en-US/model-start/911/9921B2/pre-config?index=0" target="_blank" style="color: #1a1a1a; text-decoration: underline;">Porsche Configurator</a> to see the live product.</p>
+        <div class="content-section">
+            <div class="section-label">Project Overview</div>
+            <p class="story-intro">I redesigned the entry experience for Porsche's online car configurator to reduce decision paralysis and improve completion rates for customers configuring luxury vehicles.</p>
+            <p class="story-text">Porsche's configurator offered hundreds of customization options across exterior colors, interior materials, wheels, and performance packages. While this flexibility was a key selling point, 64% of users abandoned their configuration without completing it, spending an average of 47 minutes in analysis paralysis. I worked with Porsche's digital team to create a Design Recommendations feature that provided expert guidance while preserving the freedom customers expected from a luxury brand.</p>
         </div>
 
-        <div class="meta-grid">
-            <div class="meta-item">
-                <h3>Timeline</h3>
-                <p>March 2025 - October 2025</p>
+        <div class="content-section">
+            <div class="section-label">Role & Context</div>
+            <p class="story-text">I served as product designer on a small team working directly with Porsche's configurator product lead and engineering stakeholders. My role focused on user research, interaction design, and visual design for the recommendations experience. Working at Porsche taught me to balance prescriptive guidance with creative freedom, a tension unique to luxury e-commerce where customers expect both expertise and autonomy. I learned that premium customers don't want to be told what to choose, but desperately need validation that their choices work together aesthetically. This insight, gained through observational research at Porsche Experience Centers, became the foundation for how we framed recommendations as inspiration rather than limitation.</p>
+        </div>
+
+        <div class="content-section">
+            <div class="section-label">Key Initiatives</div>
+            <div class="project-card-highlight">
+                <h3>Conducted research with 156 survey respondents, 18 in-depth interviews, and 12 observational sessions at Porsche Experience Centers to understand configuration behavior and pain points.</h3>
             </div>
-            <div class="meta-item">
-                <h3>Team</h3>
-                <p>1 Lead, 1 Designer</p>
+            <div class="project-card-highlight">
+                <h3>Designed a curated recommendations gallery featuring expert-selected configurations with immersive color-matched backgrounds and educational rationale for each design choice.</h3>
             </div>
-            <div class="meta-item">
-                <h3>Role</h3>
-                <p>Designer</p>
-            </div>
-            <div class="meta-item">
-                <h3>Skills</h3>
-                <p>Figma, Client Relations</p>
+            <div class="project-card-highlight">
+                <h3>Created seamless transitions from recommendation selection to full customization, ensuring users could start with inspiration but maintain complete control over their final build.</h3>
             </div>
         </div>
 
-        <section class="section">
-            <h2>LONG STORY SHORT</h2>
-            <p>Users spent an average of 47 minutes configuring their Porsche but 64% abandoned without completing. The overwhelming number of customization options created analysis paralysis. I designed a Design Recommendations feature that provides curated expert configurations as inspiring starting points while preserving full customization freedom.</p>
+        <div class="content-section">
+            <div class="section-label">The Problem</div>
+            <h2>Too much choice creates paralysis at the point of purchase</h2>
+            <p>Research revealed that Porsche customers struggled with the overwhelming number of configuration options presented simultaneously. Survey data showed 71% found there were too many options to choose from, while 68% were unsure which colors and materials complemented each other aesthetically. Users spent an average of 47 minutes configuring their vehicle, yet 64% abandoned without saving their configuration or contacting a dealer.</p>
+            <p>The root issue wasn't the number of options but the lack of a clear starting point. Customers wanted expert guidance on what looked good together but feared losing the creative control that justified the premium price. Competitors offered generic presets, but these felt impersonal and didn't build confidence. Observing configuration sessions at Porsche Experience Centers revealed a critical insight: product specialists never prescribed specific choices. Instead, they showed inspiring examples, explained design principles, and empowered customers to make confident decisions themselves.</p>
+            <p>This created a significant business problem. High abandonment rates meant lost conversions, while lengthy configuration times indicated user frustration rather than engaged exploration. The digital configurator needed to replicate the Experience Center approach: provide expert inspiration without removing customer autonomy.</p>
+        </div>
 
-            <div class="two-col" style="margin-top: 48px;">
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">THE CHALLENGE</h3>
-                    <p style="font-size: 15px;">How might we reduce decision fatigue in the configurator while maintaining the premium brand experience and complete customization freedom?</p>
-                </div>
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">THE SOLUTION</h3>
-                    <p style="font-size: 15px;">Expert-curated configurations with design rationale that serve as inspiration, not prescription, allowing users to start confident and customize from there.</p>
-                </div>
-            </div>
+        <div class="content-section">
+            <div class="section-label">The Solution</div>
+            <h2>Expert curation as design education, not prescription</h2>
+            <p>The Design Recommendations feature introduced a curated gallery of expert-selected configurations at the start of the configuration journey. Each recommendation showcased a complete vehicle build with high-quality 3D visualization, immersive color-matched backgrounds that previewed the aesthetic, and clear naming that evoked the character of each design. Most importantly, each recommendation included expert commentary explaining why specific colors, materials, and packages complemented each other, transforming presets into educational tools.</p>
+            <p>Every recommendation offered two pathways forward. Users could immediately start building with a recommendation to jump directly into the full configurator with all options pre-selected, or they could explore details first to review the complete specification and understand the design thinking. This dual approach accommodated both decisive customers and those needing more information before committing. The seamless transition from recommendation to full customization ensured users never felt locked in, they simply had a better starting point than a blank canvas.</p>
+            <p>The visual design reinforced the educational intent. Custom color-matched backgrounds immersed users in each configuration's aesthetic before they committed. A subtle Curated Build badge communicated expert selection without being prescriptive. The layout prioritized the vehicle visualization while keeping specifications accessible, balancing inspiration with information. Users could save configurations started from recommendations alongside fully custom builds, ensuring the feature enhanced rather than replaced existing functionality.</p>
+        </div>
 
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px;">
-                <div>
-                    <h3 style="font-size: 32px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">78%</h3>
-                    <p style="font-size: 14px; color: #666;">Completion rate with recommendations (up from 36%)</p>
-                </div>
-                <div>
-                    <h3 style="font-size: 32px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">22 min</h3>
-                    <p style="font-size: 14px; color: #666;">Average configuration time (down from 47 minutes)</p>
-                </div>
-                <div>
-                    <h3 style="font-size: 32px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">54%</h3>
-                    <p style="font-size: 14px; color: #666;">Increase in user confidence scores</p>
-                </div>
-            </div>
-        </section>
+        <div class="content-section">
+            <div class="section-label">Impact</div>
+            <h2>Measurable improvements in completion and confidence</h2>
+            <p>The Design Recommendations feature dramatically improved key metrics. Configuration completion rates increased from 36% to 78% when users started with a recommendation, representing a 116% improvement in conversion. Average time to complete configuration decreased from 47 minutes to 22 minutes, a 53% reduction that indicated reduced paralysis rather than rushed decisions. Post-configuration surveys showed a 54% increase in user confidence scores when asked about satisfaction with final choices. Perhaps most validating, 89% of test participants indicated they would use recommendations in a real purchase scenario, demonstrating the solution resonated with actual Porsche customers rather than just performing well in testing.</p>
+        </div>
 
-        <section class="section">
-            <h2>MARKET RESEARCH</h2>
-            <p>I analyzed luxury automotive configurators from BMW, Mercedes-Benz, Audi, and Tesla to understand how competitors approached configuration guidance.</p>
-
-            <div class="two-col" style="margin-top: 40px;">
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">WHAT COMPETITORS DO</h3>
-                    <ul>
-                        <li>High quality 3D visualization</li>
-                        <li>Some preset configurations</li>
-                        <li>Clear pricing transparency</li>
-                        <li>Save and share capabilities</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">THE GAP</h3>
-                    <ul>
-                        <li>Presets feel generic without storytelling</li>
-                        <li>No rationale for why combinations work</li>
-                        <li>Lack of personalization or guidance</li>
-                        <li>Premium upsells vs helpful starting points</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="screenshot" style="margin-top: 40px;">
-                <img src="images/bmw_configurator.png" alt="Competitive Analysis">
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>SPEAKING TO USERS</h2>
-            <p>I conducted surveys with 156 respondents, interviews with 18 participants, and observed 12 configuration sessions at Porsche Experience Centers.</p>
-
-            <div class="survey-section" style="margin-top: 40px;">
-                <h3 style="font-size: 18px; margin-bottom: 24px;">What aspects of car configuration do you find most challenging?</h3>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Too many options to choose from</span>
-                        <strong>71%</strong>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 71%"></div>
-                    </div>
-                </div>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Unsure which colors and materials look good together</span>
-                        <strong>68%</strong>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 68%"></div>
-                    </div>
-                </div>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Fear of making the wrong choices</span>
-                        <strong>62%</strong>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 62%"></div>
-                    </div>
-                </div>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Not knowing where to start</span>
-                        <strong>58%</strong>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 58%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="comments" style="margin-top: 48px;">
-                <div class="comment">
-                    <p class="comment-text">"I spent over an hour changing colors and wheels, but never felt confident I was making the right choices."</p>
-                    <div class="comment-author">Marcus, 38</div>
-                </div>
-                <div class="comment">
-                    <p class="comment-text">"The product specialist showed me combinations I never would have thought of. I wish that expertise was available online."</p>
-                    <div class="comment-author">Alexandra, 45</div>
-                </div>
-                <div class="comment">
-                    <p class="comment-text">"I love the freedom to customize everything, but sometimes I just want to see what looks good."</p>
-                    <div class="comment-author">Thomas, 52</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>UNDERSTANDING OUR USERS</h2>
-            
-            <div class="persona-grid">
-                <div class="persona">
-                    <div class="persona-img">
-                        <img src="images/sophia_chen.jpg" alt="Sophia Chen">
-                        <div class="persona-quote">"I want my Porsche to reflect my personal style, but I need guidance on what works together."</div>
-                    </div>
-                    <div class="persona-content">
-                        <h3 class="persona-name">Sophia Chen</h3>
-                        
-                        <div class="persona-info">
-                            <div class="persona-info-item">
-                                <label>Age</label>
-                                <span>38</span>
-                            </div>
-                            <div class="persona-info-item">
-                                <label>Location</label>
-                                <span>San Francisco</span>
-                            </div>
-                            <div class="persona-info-item">
-                                <label>Occupation</label>
-                                <span>Creative Director</span>
-                            </div>
-                            <div class="persona-info-item">
-                                <label>Status</label>
-                                <span>Single</span>
-                            </div>
-                        </div>
-
-                        <div class="persona-bio">
-                            Design professional with a keen eye for aesthetics. Wants her Porsche to be an extension of her personal brand but recognizes that automotive design requires specialized knowledge.
-                        </div>
-
-                        <div class="two-col" style="grid-template-columns: 1fr 1fr; gap: 24px;">
-                            <div class="persona-section">
-                                <h4>Goals</h4>
-                                <ul style="margin: 0;">
-                                    <li>Well-designed configuration quickly</li>
-                                    <li>Expert recommendations</li>
-                                    <li>Timeless, impressive design</li>
-                                </ul>
-                            </div>
-                            <div class="persona-section">
-                                <h4>Frustrations</h4>
-                                <ul style="margin: 0;">
-                                    <li>Limited time for decisions</li>
-                                    <li>Unsure about combinations</li>
-                                    <li>Previous abandonment</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="persona">
-                    <div class="persona-img">
-                        <img src="images/david_martinez.jpg" alt="David Martinez">
-                        <div class="persona-quote">"I trust Porsche's expertise. Show me what you recommend and I'll go from there."</div>
-                    </div>
-                    <div class="persona-content">
-                        <h3 class="persona-name">David Martinez</h3>
-                        
-                        <div class="persona-info">
-                            <div class="persona-info-item">
-                                <label>Age</label>
-                                <span>52</span>
-                            </div>
-                            <div class="persona-info-item">
-                                <label>Location</label>
-                                <span>Dallas</span>
-                            </div>
-                            <div class="persona-info-item">
-                                <label>Occupation</label>
-                                <span>Executive</span>
-                            </div>
-                            <div class="persona-info-item">
-                                <label>Status</label>
-                                <span>Married</span>
-                            </div>
-                        </div>
-
-                        <div class="persona-bio">
-                            Successful business executive purchasing his third Porsche. Values efficiency and expertise. Trusts the brand and prefers starting with expert recommendations rather than building from scratch.
-                        </div>
-
-                        <div class="two-col" style="grid-template-columns: 1fr 1fr; gap: 24px;">
-                            <div class="persona-section">
-                                <h4>Goals</h4>
-                                <ul style="margin: 0;">
-                                    <li>Quick, efficient process</li>
-                                    <li>Trust in Porsche expertise</li>
-                                    <li>Sophisticated final result</li>
-                                </ul>
-                            </div>
-                            <div class="persona-section">
-                                <h4>Frustrations</h4>
-                                <ul style="margin: 0;">
-                                    <li>Time constraints</li>
-                                    <li>Decision paralysis</li>
-                                    <li>Overwhelming options</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>OPPORTUNITIES</h2>
-            
-            <div class="highlight-box">
-                <p>Users don't want to be told what to choose, but they desperately want guidance and validation. Expert recommendations should serve as an inspiring starting point while preserving complete customization freedom.</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 48px;">
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">KEY INSIGHTS</h3>
-                    <ul>
-                        <li>Most successful configs started with clear vision or example</li>
-                        <li>Users valued design rationale behind combinations</li>
-                        <li>Dealership specialists provided confidence through guidance</li>
-                        <li>Abandonment correlated with uncertainty</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">DESIGN PRINCIPLES</h3>
-                    <ul>
-                        <li>Inspiration, not prescription</li>
-                        <li>Education builds confidence</li>
-                        <li>Seamless transition to customization</li>
-                        <li>Premium brand experience throughout</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>EARLY CONCEPT</h2>
-            <p>The Design Recommendations feature introduces expert-curated configurations at the entry point of the configuration journey. Each recommendation includes design rationale explaining why elements work together harmoniously.</p>
-
-            <div class="screenshot" style="margin-top: 40px;">
-                <img src="images/design_recommendations.png" alt="Design Recommendations Concept">
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px;">
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 12px;">Curated Cards</h3>
-                    <p style="font-size: 15px; color: #666;">Premium cards with color-matched backgrounds and clear naming conventions</p>
-                </div>
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 12px;">Design Rationale</h3>
-                    <p style="font-size: 15px; color: #666;">Expert commentary explaining why certain combinations work together</p>
-                </div>
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 12px;">Dual Pathways</h3>
-                    <p style="font-size: 15px; color: #666;">Start with design or explore details first</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>TESTING & ITERATION</h2>
-            <p>Tested with 24 participants across two phases, including Porsche owners and prospective customers.</p>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 40px;">
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">PHASE 1 FINDINGS</h3>
-                    <ul>
-                        <li>92% engaged with recommendations first</li>
-                        <li>Color-matched backgrounds called "premium"</li>
-                        <li>Curated badge increased trust</li>
-                        <li>Users wanted more options</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">PHASE 2 RESULTS</h3>
-                    <ul>
-                        <li>Completion rate: 36% → 78%</li>
-                        <li>Configuration time: 47 min → 22 min</li>
-                        <li>Confidence scores up 54%</li>
-                        <li>89% would use in real scenario</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="screenshot" style="margin-top: 40px;">
-                <img src="images/detail_page.png" alt="Detail Page">
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>FINAL DESIGN</h2>
-            
-            <div class="screenshot">
-                <img src="images/design_recommendations.png" alt="Final Design Recommendations">
-            </div>
-            
-            <div class="screenshot">
-                <img src="images/sport_design_package.png" alt="Sport Design Package">
-            </div>
-            
-            <div class="screenshot">
-                <img src="images/options.png" alt="Options">
-            </div>
-            
-            <div class="screenshot">
-                <img src="images/options_details.png" alt="Options Details">
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>IMPACT & LEARNINGS</h2>
-            
-            <div style="background: #f8f9fa; padding: 48px; border-radius: 8px; margin-bottom: 48px;">
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
-                    <div>
-                        <h3 style="font-size: 36px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">116%</h3>
-                        <p style="font-size: 14px; color: #666; margin: 0;">Increase in completion rate</p>
-                    </div>
-                    <div>
-                        <h3 style="font-size: 36px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">53%</h3>
-                        <p style="font-size: 14px; color: #666; margin: 0;">Reduction in config time</p>
-                    </div>
-                    <div>
-                        <h3 style="font-size: 36px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px;">54%</h3>
-                        <p style="font-size: 14px; color: #666; margin: 0;">Increase in user confidence</p>
-                    </div>
-                </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">WHAT WORKED</h3>
-                    <ul>
-                        <li>Framing as inspiration vs prescription</li>
-                        <li>Color-matched immersive backgrounds</li>
-                        <li>Design rationale builds confidence</li>
-                        <li>Seamless transition to customization</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 16px;">KEY TAKEAWAYS</h3>
-                    <ul>
-                        <li>Guidance through complexity beats simplification</li>
-                        <li>Education and transparency build trust</li>
-                        <li>Premium comes from attention to detail</li>
-                        <li>Preserve user freedom while reducing paralysis</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="other-projects">
-            <div class="section-label" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #999; margin-bottom: 32px; font-weight: 600;">Other Projects</div>
-            
-            <div class="projects-grid">
+        <div class="other-projects">
+            <div class="section-label">Other Projects</div>
+            <div class="projects-carousel">
                 <a href="thesis.html" class="project-card">
                     <div class="project-card-image">
-                        <img src="images/thesis.jpg" alt="Thesis Masters Project">
+                        <img src="images/thesis.jpg" alt="Police Dispatch HUD">
                     </div>
-                    <h3>Thesis Masters Project</h3>
-                    <p>Research & Development</p>
+                    <h3>Police Dispatch HUD</h3>
+                    <p>Emergency Services UX</p>
                 </a>
-                
-                <a href="gta-hiring.html" class="project-card">
+                <a href="gta.html" class="project-card">
                     <div class="project-card-image">
-                        <img src="images/GTA_flow.png" alt="GTA Hiring Process">
+                        <img src="images/GTA_flow.png" alt="GTA Hiring Automation">
                     </div>
-                    <h3>GTA Hiring Process</h3>
-                    <p>System Design</p>
+                    <h3>GTA Hiring Automation</h3>
+                    <p>Service Design</p>
                 </a>
-                
                 <a href="accessories.html" class="project-card">
                     <div class="project-card-image">
-                        <img src="images/accessories.jpg" alt="Invisalign E-Commerce">
+                        <img src="images/accessories.jpg" alt="Invisalign Accessories">
                     </div>
-                    <h3>Invisalign</h3>
-                    <p>E-Commerce Website</p>
-                </a>
-                
-                <a href="aligner.html" class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/aligner.jpg" alt="Invisalign Aligners">
-                    </div>
-                    <h3>Invisalign</h3>
-                    <p>Invisible Aligners</p>
-                </a>
-                
-                <a href="dashboard.html" class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/dashboard.jpg" alt="Patient Dashboard">
-                    </div>
-                    <h3>Invisalign</h3>
-                    <p>Patient Dashboard</p>
+                    <h3>Invisalign Accessories</h3>
+                    <p>Healthcare E-Commerce</p>
                 </a>
             </div>
-        </section>
-    </main>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to Projects</a>
+    </div>
 </body>
 </html>
