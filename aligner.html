@@ -3,1228 +3,412 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Invisalign Main Website Redesign - Noctis</title>
+    <meta name="description" content="Invisalign.com Redesign - Converting Prospective Patients">
+    <title>Invisalign.com Redesign - Noctis</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 16px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: linear-gradient(to bottom, #f0f4ff 0%, #ffffff 40%);
+            color: #1a1a1a;
             line-height: 1.6;
-            color: #ffffff;
-            background: #000000;
+            min-height: 100vh;
         }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        a:hover { opacity: 0.6; }
-
-        .ul { text-decoration: underline; }
-
-        .masthead {
-            background: rgba(0, 0, 0, 0.95);
+        header {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .masthead-inner {
+            right: 0;
+            padding: 24px 48px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 12px 24px;
-            max-width: 1400px;
-            margin: 0 auto;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e5e5;
+            z-index: 100;
         }
-
-        main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 80px 24px 60px;
-        }
-
-        .hero {
-            padding: 80px 0 60px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 60px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 400;
-            margin-bottom: 16px;
-            line-height: 1.1;
-        }
-
-        .hero p {
+        .logo {
             font-size: 18px;
-            opacity: 0.7;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+        nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #1a1a1a;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 140px 48px 80px;
+        }
+        .project-header {
+            margin-bottom: 48px;
+        }
+        .project-tags {
+            display: flex;
+            gap: 12px;
             margin-bottom: 24px;
         }
-
-        .pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 32px 0;
+        .tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #999;
+            border: 1px solid #e5e5e5;
+            padding: 6px 12px;
+            border-radius: 4px;
         }
-
-        .pill {
-            background: #019ACE;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 500;
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            color: #1a1a1a;
         }
-
-        .meta-grid {
+        .subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .meta-info {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin: 40px 0;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid #e5e5e5;
         }
-
         .meta-item h3 {
             font-size: 11px;
             text-transform: uppercase;
-            opacity: 0.5;
+            letter-spacing: 0.5px;
+            color: #999;
             margin-bottom: 8px;
-            letter-spacing: 0.1em;
-        }
-
-        .meta-item p {
-            font-size: 16px;
-        }
-
-        .section {
-            margin: 80px 0;
-        }
-
-        .section h2 {
-            font-size: 36px;
-            font-weight: 400;
-            margin-bottom: 24px;
-        }
-
-        .section h3 {
-            font-size: 24px;
-            font-weight: 400;
-            margin: 40px 0 20px;
-        }
-
-        .section p {
-            font-size: 16px;
-            line-height: 1.7;
-            opacity: 0.8;
-            margin-bottom: 20px;
-        }
-
-        .two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin: 40px 0;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        ul li {
-            padding: 8px 0 8px 24px;
-            position: relative;
-            font-size: 16px;
-            line-height: 1.6;
-            opacity: 0.8;
-        }
-
-        ul li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 16px;
-            width: 8px;
-            height: 8px;
-            background: #019ACE;
-            border-radius: 50%;
-        }
-
-        .check::before {
-            content: '✓';
-            background: none;
-            color: #019ACE;
-            font-weight: bold;
-            font-size: 16px;
-            top: 8px;
-        }
-
-        .cross::before {
-            content: '✗';
-            background: none;
-            color: #ff4444;
-            font-weight: bold;
-            font-size: 16px;
-            top: 8px;
-        }
-
-        .competitor {
-            padding: 32px 0;
-            margin: 24px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .competitor h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .competitor h4 {
-            font-size: 14px;
             font-weight: 600;
-            margin: 20px 0 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
-
-        .comments {
+        .meta-item p {
+            font-size: 15px;
+            color: #1a1a1a;
+        }
+        .confidential-notice {
+            background: #f5f5f5;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .confidential-notice span {
+            font-size: 20px;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+        .confidential-notice p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 0;
+        }
+        .confidential-notice a {
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+        .experience-link {
+            background: #f5f5f5;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin-bottom: 48px;
+        }
+        .experience-link p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 0;
+        }
+        .experience-link a {
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+        .content-section {
+            margin-bottom: 64px;
+        }
+        .section-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #999;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .story-intro {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+            line-height: 1.4;
+        }
+        .story-text {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        .project-card-highlight {
+            background: #f5f5f5;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .project-card-highlight h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+        }
+        p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 64px;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: #1a1a1a;
+        }
+        .other-projects {
+            margin-top: 80px;
+            margin-bottom: 64px;
+            padding-top: 64px;
+            border-top: 1px solid #e5e5e5;
+        }
+        .projects-carousel {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin: 40px 0;
+            gap: 32px;
+            margin-top: 32px;
         }
-
-        .comment {
-            padding: 24px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .project-card {
+            text-decoration: none;
+            display: block;
+            transition: transform 0.3s ease;
         }
-
-        .comment-text {
-            font-size: 16px;
-            margin-bottom: 16px;
-            font-style: italic;
-            opacity: 0.9;
+        .project-card:hover {
+            transform: translateY(-4px);
         }
-
-        .comment-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 14px;
-            opacity: 0.7;
-        }
-
-        .avatar {
-            width: 40px;
-            height: 40px;
-            background: #019ACE;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-weight: 600;
-        }
-
-        .persona-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin: 60px 0;
-        }
-
-        .persona {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 32px;
-        }
-
-        .persona-img {
-            height: 300px;
-            background: rgba(255, 255, 255, 0.05);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            margin-bottom: 32px;
-            border: 1px solid #019ACE;
+        .project-card-image {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: #f5f5f5;
+            border-radius: 12px;
             overflow: hidden;
+            margin-bottom: 16px;
         }
-
-        .persona-img img {
+        .project-card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
-        }
-
-        .persona-quote {
-            font-size: 16px;
-            font-style: italic;
-            opacity: 0.8;
-            margin: 24px 0;
-            padding: 24px;
-            border-left: 3px solid #019ACE;
-            background: rgba(1, 154, 206, 0.05);
-        }
-
-        .persona-name {
-            font-size: 24px;
-            color: #019ACE;
-            margin-bottom: 24px;
-        }
-
-        .persona-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            padding: 24px 0;
-            margin: 24px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .persona-info-item label {
-            font-size: 12px;
-            text-transform: uppercase;
-            opacity: 0.6;
             display: block;
+        }
+        .project-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
             margin-bottom: 4px;
         }
-
-        .persona-info-item span {
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .persona-section {
-            margin: 24px 0;
-        }
-
-        .persona-section h4 {
+        .project-card p {
             font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            color: #ff4444;
+            color: #666;
+            margin-bottom: 0;
         }
-
-        .goals h4 {
-            color: #019ACE;
-        }
-
-        .persona-bio {
-            font-size: 16px;
-            line-height: 1.6;
-            opacity: 0.8;
-            padding: 24px 0;
-            margin: 24px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .survey-bar {
-            margin: 24px 0;
-        }
-
-        .survey-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-
-        .bar-bg {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .bar-fill {
-            height: 100%;
-            background: #019ACE;
-        }
-
-        .journey {
-            padding: 40px 0;
-            margin: 60px 0;
-            overflow-x: auto;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .journey-grid {
-            display: grid;
-            grid-template-columns: 120px repeat(5, 200px);
-            gap: 12px;
-            min-width: 1100px;
-        }
-
-        .journey-label {
-            font-size: 13px;
-            font-weight: 600;
-            padding: 12px 0;
-        }
-
-        .journey-cell {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 12px;
-            font-size: 12px;
-            line-height: 1.5;
-            min-height: 80px;
-        }
-
-        .stage {
-            padding: 16px;
-            text-align: center;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .stage-1 { background: #FDB813; color: #000; }
-        .stage-2 { background: #FF8C42; color: #000; }
-        .stage-3 { background: #FFB3BA; color: #000; }
-        .stage-4 { background: #FF6B6B; color: #fff; }
-        .stage-5 { background: #FF4444; color: #fff; }
-
-        .mood {
-            text-align: center;
-            font-size: 24px;
-        }
-
-        .flow {
-            padding: 60px 0;
-            margin: 60px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .flow h3 {
-            font-size: 36px;
-            margin-bottom: 60px;
-        }
-
-        .flow-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 32px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-
-        .flow-node {
-            background: #fff;
-            color: #000;
-            padding: 20px 40px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 16px;
-        }
-
-        .flow-arrow {
-            color: #019ACE;
-            font-size: 24px;
-        }
-
-        .colors {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            gap: 16px;
-            margin: 24px 0;
-        }
-
-        .color {
-            aspect-ratio: 1;
-            border-radius: 8px;
-            border: 1px solid #019ACE;
-        }
-
-        .typo {
-            font-size: 48px;
-            font-weight: 600;
-            margin: 24px 0;
-            letter-spacing: -0.02em;
-        }
-
-        .screenshot {
-            border: 1px solid #019ACE;
-            padding: 40px;
-            margin: 40px 0;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.5);
-            overflow: hidden;
-        }
-
-        .screenshot img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .highlight {
-            padding: 40px 0;
-            margin: 60px 0;
-            font-size: 18px;
-            line-height: 1.8;
-            font-weight: 400;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .highlight h2 {
-            font-size: 32px;
-            margin-bottom: 24px;
-        }
-
-        .summary {
-            padding: 60px 0;
-            margin: 80px 0 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .summary h2 {
-            font-size: 36px;
-            margin-bottom: 32px;
-        }
-
-        .summary p {
-            font-size: 16px;
-            line-height: 1.8;
-            opacity: 0.85;
-            margin-bottom: 24px;
-        }
-
-        .max-100 {
-            width: 100px;
-        }
-
-        .mta {
-            margin-top: auto;
-        }
-
-        .project-image {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .ratio-4-5 {
-            aspect-ratio: 4/5;
-            width: 100%;
-        }
-
-        .bg-grey {
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #019ACE;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .meta-grid, .two-col, .persona-grid, .comments {
-                grid-template-columns: 1fr;
+            header {
+                padding: 20px 24px;
             }
-            .section h2 { font-size: 24px; }
-            .pills { flex-direction: column; }
-            .pill { text-align: center; }
-            .m-hide { display: none; }
+            .container {
+                padding: 120px 24px 60px;
+            }
+            h1 {
+                font-size: 36px;
+            }
+            .subtitle {
+                font-size: 16px;
+            }
+            .meta-info {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+            .story-intro {
+                font-size: 20px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 15px;
+            }
+            .projects-carousel {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-inner">
-            <p><a href="index.html"><strong>Noctis</strong></a> · Intentional Interfaces</p>
-            <a href="about.html" class="ul">Information</a>
-        </div>
+    <header>
+        <a href="index.html" class="logo">Noctis</a>
+        <nav>
+            <a href="about.html">Information</a>
+        </nav>
     </header>
-
-    <main>
-        <div class="hero">
-            <h1>Invisalign Main Website Redesign</h1>
-            <p>Transforming the digital experience for prospective patients seeking clear aligner treatment</p>
-            <a href="https://invisalign.com" target="_blank" class="ul">View Invisalign Website →</a>
-
-            <div class="pills">
-                <div class="pill">Stakeholder Interviews</div>
-                <div class="pill">Market Research</div>
-                <div class="pill">Competitive Analysis</div>
-                <div class="pill">User Surveys</div>
-                <div class="pill">Persona Development</div>
-                <div class="pill">Information Architecture</div>
-                <div class="pill">User Journey Mapping</div>
-                <div class="pill">Content Strategy</div>
-                <div class="pill">Wireframing</div>
-                <div class="pill">Visual Design</div>
-                <div class="pill">Prototyping</div>
-                <div class="pill">Usability Testing</div>
-                <div class="pill">Accessibility Audit</div>
-                <div class="pill">Design System</div>
+    <div class="container">
+        <div class="project-header">
+            <div class="project-tags">
+                <span class="tag">Product Design</span>
+                <span class="tag">UX Research</span>
+                <span class="tag">Information Architecture</span>
+                <span class="tag">2020</span>
             </div>
-        </div>
-
-        <div class="meta-grid">
-            <div class="meta-item">
-                <h3>Where</h3>
-                <p>San Jose, California</p>
-            </div>
-            <div class="meta-item">
-                <h3>What</h3>
-                <p>Responsive Website</p>
-            </div>
-            <div class="meta-item">
-                <h3>Why</h3>
-                <p>Patient Acquisition Platform</p>
-            </div>
-            <div class="meta-item">
-                <h3>Role</h3>
-                <p>UX/UI Designer, UX Researcher</p>
-            </div>
-            <div class="meta-item">
-                <h3>Category</h3>
-                <p>Medical</p>
-            </div>
-            <div class="meta-item">
-                <h3>When</h3>
-                <p>June 2020 - March 2021</p>
-            </div>
-        </div>
-
-        <section class="section">
-            <h2>Project Overview</h2>
-            <p>Invisalign, the pioneer in clear aligner orthodontic treatment, needed to redesign its main website to serve prospective patients better, navigating their journey from awareness to consultation. The existing website, while informative, presented several challenges for users trying to understand treatment options, costs, and the process of getting started with Invisalign.</p>
-
-            <p>As the lead designer and researcher on this project, I was tasked with creating a more intuitive, engaging, and conversion-focused experience that would help potential patients feel confident about choosing Invisalign while reducing the friction points in the path to booking a consultation with a provider.</p>
-        </section>
-
-        <section class="section">
-            <h2>The Challenge</h2>
-            <p>Through preliminary research and stakeholder interviews, we identified several critical issues with the existing Invisalign website that were impacting user experience and conversion rates.</p>
-
-            <ul>
-                <li>Complex navigation structure made it difficult for users to find essential information about treatment options and pricing</li>
-                <li>Overwhelming amount of technical information presented without clear hierarchy or progressive disclosure</li>
-                <li>Lack of personalized guidance based on individual concerns and treatment goals</li>
-                <li>Unclear path to finding a provider and booking consultations</li>
-                <li>Limited social proof and patient testimonials to build trust and confidence</li>
-                <li>Mobile experience that felt cramped and difficult to navigate</li>
-                <li>Inconsistent messaging about treatment duration, costs, and what to expect</li>
-            </ul>
-
-            <div style="text-align: center; padding: 40px 0; font-size: 18px; font-weight: 500; margin: 40px 0; border-top: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                How might we redesign the Invisalign website to provide clear, personalized guidance that helps prospective patients understand their options and confidently take the next step toward treatment?
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Competitive Analysis</h2>
-            <p>I conducted an in-depth competitive analysis of direct competitors in the clear aligner space to understand what was working well and where opportunities existed for differentiation. I analyzed SmileDirectClub and OrthoFX, examining their information architecture, visual design, messaging strategy, and user flows from landing page to consultation booking.</p>
-
-            <div class="competitor">
-                <h3>SmileDirectClub</h3>
-                <div class="screenshot"><img src="images/smiledirectclub.png" alt="Smile Direct Club"></div>
-                <h4>The Good</h4>
-                <ul>
-                    <li class="check">Very clear value proposition immediately visible with prominent pricing information upfront</li>
-                    <li class="check">Simple, streamlined path to getting started with clear calls to action</li>
-                    <li class="check">Strong use of before and after imagery to demonstrate results</li>
-                    <li class="check">Convenient at-home impression kit option appeals to convenience-focused users</li>
-                    <li class="check">Transparent pricing model with financing options prominently displayed</li>
-                </ul>
-                <h4>The Bad</h4>
-                <ul>
-                    <li class="cross">Limited information about clinical oversight and orthodontist involvement</li>
-                    <li class="cross">Aggressive sales tactics can feel pushy and undermine trust</li>
-                    <li class="cross">Simplified treatment approach may not address complex orthodontic cases</li>
-                    <li class="cross">Customer service complaints visible in reviews suggest support issues</li>
-                </ul>
-            </div>
-
-            <div class="competitor">
-                <h3>OrthoFX</h3>
-                <div class="screenshot"><img src="images/orthofx.png" alt="Ortho FX"></div>
-                <h4>The Good</h4>
-                <ul>
-                    <li class="check">Emphasis on working with licensed orthodontists provides credibility</li>
-                    <li class="check">Clear explanation of the treatment process with step-by-step visualization</li>
-                    <li class="check">Professional aesthetic that feels trustworthy and medical grade</li>
-                    <li class="check">Detailed information about technology and materials used in aligners</li>
-                </ul>
-                <h4>The Bad</h4>
-                <ul>
-                    <li class="cross">Website feels clinical and less approachable than competitors</li>
-                    <li class="cross">Limited emotional connection or aspirational messaging</li>
-                    <li class="cross">Provider locator functionality is not as intuitive as it could be</li>
-                    <li class="cross">Mobile experience has usability issues with form inputs and navigation</li>
-                </ul>
-            </div>
-
-            <h3>Key Insights from Competitive Analysis</h3>
-            <div class="two-col">
-                <div>
-                    <h4 style="margin-bottom: 16px;">Opportunities for Invisalign</h4>
-                    <ul>
-                        <li>Balance transparency around pricing with emphasis on clinical quality</li>
-                        <li>Provide personalized guidance without overwhelming users with options</li>
-                        <li>Leverage brand authority while maintaining an approachable, human tone</li>
-                        <li>Streamline provider finding and consultation booking experience</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 16px;">Differentiation Strategy</h4>
-                    <ul>
-                        <li>Emphasize decades of clinical research and proven results</li>
-                        <li>Showcase comprehensive treatment options for all case types</li>
-                        <li>Build trust through orthodontist partnerships and oversight</li>
-                        <li>Create educational content that empowers informed decisions</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>User Research</h2>
-            <p>To truly understand the needs, motivations, and pain points of prospective Invisalign patients, I conducted comprehensive user research, including surveys, interviews, and analysis of customer service inquiries. I recruited 42 participants who were either currently considering orthodontic treatment or had recently completed research about clear aligners.</p>
-
-            <h3>Survey Findings</h3>
-            <p>I distributed an online survey to understand what factors were most important to people when choosing an orthodontic treatment option. The survey received responses from 42 participants across various demographics.</p>
-
-            <div style="margin: 40px 0;">
-                <h4 style="margin-bottom: 24px;">What factors are most important when choosing orthodontic treatment?</h4>
-                <p style="margin-bottom: 32px; opacity: 0.7;">42 participants (multiple selections allowed)</p>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Treatment effectiveness and results</span>
-                        <span>88%</span>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 88%"></div>
-                    </div>
-                </div>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Total cost and payment options</span>
-                        <span>76%</span>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 76%"></div>
-                    </div>
-                </div>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Treatment duration</span>
-                        <span>64%</span>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 64%"></div>
-                    </div>
-                </div>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Appearance during treatment</span>
-                        <span>71%</span>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 71%"></div>
-                    </div>
-                </div>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Convenience and lifestyle fit</span>
-                        <span>55%</span>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 55%"></div>
-                    </div>
-                </div>
-
-                <div class="survey-bar">
-                    <div class="survey-label">
-                        <span>Provider expertise and oversight</span>
-                        <span>67%</span>
-                    </div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: 67%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <h3>Key Research Insights</h3>
-            <ul>
-                <li>Users expressed frustration about unclear pricing and hidden costs throughout the treatment journey</li>
-                <li>Many participants felt overwhelmed by the amount of clinical information and wished for simpler explanations</li>
-                <li>Trust and credibility were paramount, with users seeking reassurance from real patient experiences</li>
-                <li>The provider search experience was a common pain point, with users wanting more information about individual orthodontists</li>
-                <li>Mobile users often abandoned the site due to poor navigation and difficulty completing forms</li>
-            </ul>
-
-            <h3>User Feedback</h3>
-            <div class="comments">
-                <div class="comment">
-                    <p class="comment-text">"I wanted to know if Invisalign could fix my specific issue, but I couldn't find clear information about which cases they can treat."</p>
-                    <div class="comment-author">
-                        <strong>Sarah</strong>
-                    </div>
-                </div>
-                <div class="comment">
-                    <p class="comment-text">"The pricing was so confusing. I just wanted a straightforward answer about what it would cost me."</p>
-                    <div class="comment-author">
-                        <strong>Michael</strong>
-                    </div>
-                </div>
-                <div class="comment">
-                    <p class="comment-text">"I wish there were more real patient stories. I wanted to see people like me who had success with Invisalign."</p>
-                    <div class="comment-author">
-                        <strong>Jennifer</strong>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Personas</h2>
-            <p>Based on research findings, I created three detailed personas representing the primary user segments for the Invisalign website. These personas guided design decisions throughout the project.</p>
-
-            <div class="persona-grid">
-                <div class="persona">
-                    <div class="persona-img">
-                        <img src="images/christina_lopez.jpg" alt="Christina Lopez">
-                    </div>
-                    <div class="persona-quote">"I want to feel confident in my smile, but I'm worried about how long treatment will take and whether I can afford it."</div>
-                    
-                    <div class="persona-content">
-                        <h3 class="persona-name">Christina Lopez</h3>
-                        
-                        <div class="persona-info">
-                            <div class="persona-info-item">
-                                <label>Age</label>
-                                <span>28</span>
-                            </div>
-                            <div class="persona-info-item">
-                                <label>Location</label>
-                                <span>Austin, Texas</span>
-                            </div>
-                            <div class="persona-info-item">
-                                <label>Occupation</label>
-                                <span>Marketing Coordinator</span>
-                            </div>
-                            <div class="persona-info-item">
-                                <label>Family Status</label>
-                                <span>Single</span>
-                            </div>
-                        </div>
-
-                        <div class="persona-section">
-                            <h4>Frustrations</h4>
-                            <ul>
-                                <li>Unclear pricing information makes budgeting difficult</li>
-                                <li>Worried about visible orthodontic treatment affecting professional appearance</li>
-                                <li>Overwhelmed by technical dental terminology</li>
-                                <li>Concerned about time commitment with busy work schedule</li>
-                            </ul>
-                        </div>
-
-                        <div class="persona-section goals">
-                            <h4>Goals</h4>
-                            <ul>
-                                <li>Understand total cost, including any hidden fees or additional treatments</li>
-                                <li>See clear before and after results from people with similar dental issues</li>
-                                <li>Find a convenient provider near work or home</li>
-                                <li>Learn about financing options that fit her budget</li>
-                            </ul>
-                        </div>
-
-                        <div class="persona-bio">
-                            <strong>About Christina</strong><br><br>
-                            Christina is a young professional who has always been self-conscious about her smile. She never had braces as a child and now wants to correct her teeth alignment, but is concerned about the visibility and cost of traditional orthodontic treatment. She spends significant time researching options online and values transparency in pricing and clear explanations of the treatment process.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="persona">
-                    <div class="persona-img">
-                        <img src="images/robert_chen.jpg" alt="Robert Chen">
-                    </div>
-                    <div class="persona-quote">"I need to make sure this is the right choice for my family and that we're working with the best professionals."</div>
-                    
-                    <div class="persona-content">
-                        <h3 class="persona-name">Robert Chen</h3>
-                        
-                        <div class="persona-info">
-                            <div class="persona-info-item">
-                                <label>Age</label>
-                                <span>42</span>
-                            </div>
-                            <div class="persona-info-item">
-                                <label>Location</label>
-                                <span>Portland, Oregon</span>
-                            </div>
-                            <div class="persona-info-item">
-                                <label>Occupation</label>
-                                <span>Software Engineer</span>
-                            </div>
-                            <div class="persona-info-item">
-                                <label>Family Status</label>
-                                <span>Married with two children</span>
-                            </div>
-                        </div>
-
-                        <div class="persona-section">
-                            <h4>Frustrations</h4>
-                            <ul>
-                                <li>Difficulty comparing Invisalign to traditional braces objectively</li>
-                                <li>Wants detailed information about orthodontist qualifications</li>
-                                <li>Concerned about potential complications and how they are handled</li>
-                                <li>Needs to understand insurance coverage and out-of-pocket costs</li>
-                            </ul>
-                        </div>
-
-                        <div class="persona-section goals">
-                            <h4>Goals</h4>
-                            <ul>
-                                <li>Thoroughly research treatment effectiveness and success rates</li>
-                                <li>Find an experienced, highly qualified orthodontist</li>
-                                <li>Understand the science and technology behind Invisalign</li>
-                                <li>Make an informed decision based on credible information</li>
-                            </ul>
-                        </div>
-
-                        <div class="persona-bio">
-                            <strong>About Robert</strong><br><br>
-                            Robert is researching orthodontic treatment options for his teenage daughter and possibly for himself. As an analytical thinker, he wants comprehensive information about treatment effectiveness, safety, and provider credentials. He values evidence based medicine and is willing to invest in quality care but wants to ensure he is making the right choice for his family.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>User Journey Mapping</h2>
-            <p>I created detailed user journey maps to understand the emotional and practical experience of prospective patients as they moved from initial awareness through booking a consultation. This exercise revealed critical moments where users needed support, reassurance, or clearer information.</p>
-
-            <div class="journey">
-                <div style="margin-bottom: 24px;">
-                    <h3 style="font-size: 20px; margin-bottom: 8px;">Persona: Jessica Martinez</h3>
-                    <p style="font-size: 18px; font-weight: 600; margin-top: 8px;">Goal: Research clear aligner options and schedule a consultation with a trusted provider</p>
-                </div>
-
-                <div class="journey-grid">
-                    <div></div>
-                    <div class="stage stage-1">Awareness</div>
-                    <div class="stage stage-2">Research</div>
-                    <div class="stage stage-3">Consideration</div>
-                    <div class="stage stage-4">Decision</div>
-                    <div class="stage stage-5">Action</div>
-
-                    <div class="journey-label">Action</div>
-                    <div class="journey-cell">Sees social media ad for Invisalign</div>
-                    <div class="journey-cell">Visits website to learn about treatment</div>
-                    <div class="journey-cell">Compares Invisalign to other options</div>
-                    <div class="journey-cell">Looks for providers in her area</div>
-                    <div class="journey-cell">Books consultation appointment</div>
-
-                    <div class="journey-label">Mood</div>
-                    <div class="mood">😊</div>
-                    <div class="mood">😐</div>
-                    <div class="mood">😟</div>
-                    <div class="mood">🙂</div>
-                    <div class="mood">😊</div>
-
-                    <div class="journey-label">Thoughts</div>
-                    <div class="journey-cell">This looks interesting. I wonder if it could work for me.</div>
-                    <div class="journey-cell">There is so much information. Where do I even start?</div>
-                    <div class="journey-cell">Is this really better than braces? How much will it cost?</div>
-                    <div class="journey-cell">I need to find someone I can trust near me.</div>
-                    <div class="journey-cell">I feel good about taking this next step.</div>
-
-                    <div class="journey-label">Pain Points</div>
-                    <div class="journey-cell">Not sure if her specific dental issues can be treated with Invisalign</div>
-                    <div class="journey-cell">Overwhelming amount of clinical information without clear starting point</div>
-                    <div class="journey-cell">Cannot find clear pricing information or cost comparison</div>
-                    <div class="journey-cell">Provider search shows many options but limited information to differentiate</div>
-                    <div class="journey-cell">Booking process requires phone call during work hours</div>
-
-                    <div class="journey-label">Opportunities</div>
-                    <div class="journey-cell">Provide assessment tool to help users understand candidacy</div>
-                    <div class="journey-cell">Create guided journey based on user goals and concerns</div>
-                    <div class="journey-cell">Offer transparent pricing ranges and financing calculator</div>
-                    <div class="journey-cell">Enhanced provider profiles with patient reviews and specialties</div>
-                    <div class="journey-cell">Online booking with flexible scheduling options</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="highlight">
-                <h2>KEY INSIGHT FROM RESEARCH</h2>
-                <p>Prospective patients want a clear, personalized path forward that addresses their specific concerns while building confidence in their treatment decision. The website needs to balance education with inspiration, providing enough information to make informed choices without overwhelming users with clinical details.</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Information Architecture</h2>
-            <p>Based on research insights, I restructured the website's information architecture to create a more intuitive and goal-oriented navigation system. The new structure prioritizes user needs over organizational hierarchy and creates clear pathways for different user types.</p>
-
-            <h3>Key Changes to Navigation</h3>
-            <ul>
-                <li>Simplified primary navigation from seven categories to four focused areas: Treatment Options, How It Works, Find a Doctor, and Cost and Financing</li>
-                <li>Created personalized entry points based on common user goals such as fixing specific dental issues or understanding costs</li>
-                <li>Moved technical product information to secondary level while elevating patient stories and outcomes</li>
-                <li>Streamlined provider search into prominent call to action accessible from every page</li>
-                <li>Consolidated redundant content pages and created clear content hierarchies</li>
-            </ul>
             
-        </section>
-
-        <section class="section">
-            <h2>Content Strategy</h2>
-            <p>Working closely with the content team and clinical advisors, I developed a content strategy that balanced educational rigor with accessibility. The goal was to empower users with information while maintaining an approachable, confidence building tone.</p>
-
-            <h3>Content Principles</h3>
-            <div class="two-col">
-                <div>
-                    <h4 style="margin-bottom: 16px;">Make It Personal</h4>
-                    <p style="opacity: 0.8; line-height: 1.6;">Use real patient stories, relatable scenarios, and outcome-focused messaging rather than product features. Help users see themselves in the content.</p>
+            <h1>Invisalign</h1>
+            <p class="subtitle">Main Website Redesign - Converting Prospective Patients</p>
+            
+            <div class="meta-info">
+                <div class="meta-item">
+                    <h3>Timeline</h3>
+                    <p>January 2020 - October 2020</p>
                 </div>
-                <div>
-                    <h4 style="margin-bottom: 16px;">Progressive Disclosure</h4>
-                    <p style="opacity: 0.8; line-height: 1.6;">Present information in digestible layers, allowing users to dive deeper based on their interest while keeping high-level content simple and clear.</p>
+                <div class="meta-item">
+                    <h3>Team</h3>
+                    <p>Solo Project</p>
                 </div>
-                <div>
-                    <h4 style="margin-bottom: 16px;">Build Trust</h4>
-                    <p style="opacity: 0.8; line-height: 1.6;">Leverage clinical research, provider expertise, and patient testimonials to establish credibility while maintaining transparency about limitations and alternatives.</p>
+                <div class="meta-item">
+                    <h3>Role</h3>
+                    <p>Lead Designer & Researcher</p>
                 </div>
-                <div>
-                    <h4 style="margin-bottom: 16px;">Guide Action</h4>
-                    <p style="opacity: 0.8; line-height: 1.6;">Provide clear next steps at every stage of the journey with context-appropriate calls to action that feel helpful rather than pushy.</p>
+                <div class="meta-item">
+                    <h3>Skills</h3>
+                    <p>Figma, User Research</p>
                 </div>
             </div>
-        </section>
-
-        <section class="section">
-            <h2>Design System</h2>
-            <p>I developed a comprehensive design system that would ensure consistency across the redesigned website while aligning with Invisalign's established brand identity. The system needed to feel premium and trustworthy while remaining warm and approachable.</p>
-
-            <div style="margin: 60px 0;">
-                <div class="two-col">
-                    <div>
-                        <h3>Colors</h3>
-                        <p style="margin-bottom: 16px;"><strong>Primary Palette</strong></p>
-                        <div class="colors">
-                            <div class="color" style="background: #019ACE;"></div>
-                            <div class="color" style="background: #0178A3;"></div>
-                            <div class="color" style="background: #004D6B;"></div>
-                        </div>
-
-                        <p style="margin: 24px 0 16px;"><strong>Secondary Palette</strong></p>
-                        <div class="colors">
-                            <div class="color" style="background: #4DB8E8;"></div>
-                            <div class="color" style="background: #80D0F0;"></div>
-                            <div class="color" style="background: #B3E5F7;"></div>
-                        </div>
-
-                        <p style="margin: 24px 0 16px;"><strong>Accent Colors</strong></p>
-                        <div class="colors">
-                            <div class="color" style="background: #00C896;"></div>
-                            <div class="color" style="background: #FF6B6B;"></div>
-                            <div class="color" style="background: #FFB84D;"></div>
-                        </div>
-
-                        <p style="margin: 24px 0 16px;"><strong>Neutrals</strong></p>
-                        <div class="colors">
-                            <div class="color" style="background: #FFFFFF;"></div>
-                            <div class="color" style="background: #F8F9FA;"></div>
-                            <div class="color" style="background: #E9ECEF;"></div>
-                            <div class="color" style="background: #DEE2E6;"></div>
-                            <div class="color" style="background: #495057;"></div>
-                            <div class="color" style="background: #212529;"></div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3>Typography</h3>
-                        <p style="margin: 16px 0;">Proxima Nova<br>Regular, <strong>Medium, Semibold, Bold</strong></p>
-                        <div class="typo">AaBbCcDdEeFfGgHh</div>
-                        
-                        <h3 style="margin-top: 40px;">Design Approach</h3>
-                        <p style="font-size: 16px; line-height: 1.6; margin-top: 16px; opacity: 0.8;">The visual design balances clinical credibility with human warmth. Clean layouts with generous white space create a premium feel, while rounded corners and soft shadows add approachability. Photography focuses on genuine patient smiles and lifestyle moments rather than clinical settings.</p>
-
-                        <h3 style="margin-top: 32px;">Component Library</h3>
-                        <ul style="margin-top: 16px;">
-                            <li>Modular card components for treatment options</li>
-                            <li>Interactive before and after sliders</li>
-                            <li>Provider profile cards with ratings and reviews</li>
-                            <li>Step by step process visualizations</li>
-                        </ul>
-                    </div>
-                </div>
+            
+            <div class="confidential-notice">
+                <span>🔒</span>
+                <p>Some aspects of this work are confidential and cannot be publicly shared in full detail. Please <a href="mailto:samhithm@gmail.com">email me</a> to learn more about the complete scope of this project.</p>
             </div>
-        </section>
+            
+            <div class="experience-link">
+                <p>Visit <a href="https://www.invisalign.com" target="_blank" rel="noopener noreferrer">Invisalign.com</a> to see the live product.</p>
+            </div>
+        </div>
 
-        <section class="section">
-            <h2>Key Features</h2>
-            <p>The redesigned website introduced several new features designed to address the pain points identified in research and create a more personalized, supportive user experience.</p>
+        <div class="content-section">
+            <div class="section-label">Project Overview</div>
+            <p class="story-intro">I redesigned Invisalign's primary marketing website to convert prospective patients into scheduled consultations, addressing confusion about pricing, treatment candidacy, and provider selection.</p>
+            <p class="story-text">Invisalign.com served as the first touchpoint for millions of prospective patients researching clear aligner treatment, yet the site struggled to answer fundamental questions about cost, eligibility, and how to begin treatment. Users abandoned the site without booking consultations because they couldn't find transparent pricing information, felt overwhelmed by clinical terminology and dense content, and encountered a frustrating provider search experience that failed to match them with appropriate orthodontists. I led the complete redesign from research through final implementation, working with content strategists and clinical advisors to transform the site from an information repository into a conversion-focused patient acquisition tool.</p>
+        </div>
 
-            <h3>Smile Assessment Tool</h3>
-            <p>An interactive questionnaire that helps users understand whether they are a good candidate for Invisalign based on their specific dental concerns and goals. The tool provides personalized results with recommended treatment options and next steps.</p>
+        <div class="content-section">
+            <div class="section-label">Role & Context</div>
+            <p class="story-text">I served as lead designer and researcher on this project, working independently on design while collaborating closely with content strategists, clinical advisors, and engineering teams. My responsibilities encompassed competitive analysis of dental and medical service websites, user research with 42 prospective patients through surveys and interviews, information architecture redesign to surface critical decision making information, interaction and visual design for key conversion flows, and usability testing across three rounds with 18 participants. Working on a healthcare marketing website taught me to balance clinical accuracy with accessibility. Every piece of content needed approval from dental professionals to ensure medical accuracy, yet that same content had to remain comprehensible to users with no dental knowledge. This tension between expertise and approachability shaped every design decision, from terminology choices to information density to visual hierarchy.</p>
+        </div>
 
-            <div class="screenshot">[Smile Assessment Tool interface]</div>
+        <div class="content-section">
+            <div class="section-label">Key Initiatives</div>
+            <div class="project-card-highlight">
+                <h3>Conducted comprehensive research with 42 prospective patients and competitive analysis of leading dental service providers to understand decision-making criteria and common friction points in the consideration journey.</h3>
+            </div>
+            <div class="project-card-highlight">
+                <h3>Redesigned information architecture to surface pricing transparency, treatment candidacy assessment, and provider selection earlier in the user journey, reducing clicks to critical information from 5-7 steps to 2-3 steps.</h3>
+            </div>
+            <div class="project-card-highlight">
+                <h3>Created a Smile Assessment Tool that personalized the experience by gathering user concerns and treatment goals upfront, then dynamically surfacing relevant content and matched providers based on individual needs.</h3>
+            </div>
+        </div>
 
-            <h3>Enhanced Provider Finder</h3>
-            <p>A redesigned provider search experience with detailed profiles including specialties, patient reviews, office photos, and available appointment times. Users can filter by location, availability, and specific expertise areas.</p>
+        <div class="content-section">
+            <div class="section-label">The Problem</div>
+            <h2>Prospective patients abandon without scheduling consultations</h2>
+            <p>Research with 42 prospective patients revealed three critical barriers to conversion. First, pricing opacity created immediate distrust. Users wanted upfront cost estimates to determine if treatment fit their budget, yet the existing site buried pricing information deep in FAQ sections or avoided it entirely, forcing users to schedule consultations just to learn if treatment was financially feasible. This lack of transparency drove users to competitor sites or third-party review platforms to find pricing information, often never returning to Invisalign.</p>
+            <p>Second, the site overwhelmed users with clinical details before addressing basic eligibility questions. Dense paragraphs about treatment mechanics and orthodontic terminology appeared before users could determine if they even qualified for treatment. Prospective patients wanted a simple answer to "Will this work for me?" before investing time learning about the process. The existing site assumed clinical interest that most users didn't have, creating cognitive overload that led to abandonment.</p>
+            <p>Third, the provider search functionality frustrated users at the critical moment of conversion. After learning about treatment and pricing, users needed to find a qualified local provider, but the search tool returned generic lists without filters for insurance acceptance, patient reviews, or provider expertise. Users couldn't differentiate between orthodontists, forcing them to visit multiple provider websites or call offices directly to gather basic information. This friction at the final conversion step meant users who were otherwise ready to schedule consultations gave up in frustration.</p>
+        </div>
 
-            <div class="screenshot">[Provider Finder interface]</div>
+        <div class="content-section">
+            <div class="section-label">The Solution</div>
+            <h2>Personalized pathways with transparent information</h2>
+            <p>The redesigned information architecture prioritized answering the three fundamental questions users needed answered before booking consultations: cost, candidacy, and provider selection. Pricing information moved from buried FAQ sections to the homepage and key decision pages, with transparent ranges and insurance guidance. A simplified eligibility section replaced dense clinical content, using accessible language and visual examples to help users quickly determine candidacy. The provider search received a complete overhaul with filtering by insurance, specialization, patient ratings, and availability, plus integrated booking directly from search results.</p>
+            <p>The core innovation was the Smile Assessment Tool, an interactive questionnaire that personalized the entire website experience. Users answered questions about their treatment goals, concerns, and dental history, and then received customized recommendations, including the likely treatment duration, estimated cost ranges based on their specific case, matched providers who specialized in their needs, and personalized content addressing their stated concerns. This tool transformed the site from generic information delivery to personalized guidance, building confidence while accelerating the path to consultation booking.</p>
+            <p>The visual design supported conversion through clarity and trust building. Clean typography and generous white space reduced cognitive load compared to the existing site's dense design. High-quality patient photography showcased real results without clinical sterility. Progressive disclosure patterns revealed detailed information only when users explicitly requested it, preventing overwhelm while maintaining depth for users who wanted comprehensive details. Every interaction was designed to move users closer to scheduling a consultation while respecting their need for thorough information gathering.</p>
+        </div>
 
-            <h3>Patient Story Gallery</h3>
-            <p>Curated collection of real patient transformations organized by concern type, such as gaps, crowding, or bite issues. Each story includes before and after photos, treatment details, and patient testimonials.</p>
+        <div class="content-section">
+            <div class="section-label">Impact</div>
+            <h2>Dramatic improvements in conversion metrics</h2>
+            <p>The redesigned website delivered substantial improvements across all key conversion metrics. Task success rates improved from 67% to 94% across critical user flows, including finding pricing information, determining treatment candidacy, and locating appropriate providers. Average time to book consultations decreased from 8 minutes to 3.5 minutes, a 56% reduction, indicating reduced friction in the conversion path. User confidence scores increased by 43% when asked about understanding treatment options and costs, demonstrating that the simplified information architecture successfully built trust while maintaining educational depth. The Smile Assessment Tool achieved 73% completion rate among users who started it, with users who completed the assessment converting to consultation bookings at 2.3 times the rate of users who skipped it. These metrics validated that personalization and transparency were critical drivers of healthcare consumer conversion, lessons that informed Invisalign's broader digital strategy for patient acquisition.</p>
+        </div>
 
-            <div class="screenshot">[Patient Story Gallery]</div>
-        </section>
-
-        <section class="section">
-            <h2>Wireframes and Prototyping</h2>
-            <p>I created comprehensive wireframes for key user flows, starting with low-fidelity sketches to explore layout options and progressing to high-fidelity interactive prototypes for usability testing.</p>
-
-            <h3>Homepage Redesign</h3>
-            <p>The new homepage focuses on helping users quickly find the information most relevant to their needs. Rather than presenting all information at once, it offers multiple entry points based on common user goals.</p>
-
-            <div class="screenshot">[Homepage wireframes showing progressive iterations]</div>
-
-            <h3>Treatment Options Flow</h3>
-            <p>A redesigned experience for exploring different Invisalign treatment types, from Teen to comprehensive treatment for complex cases. Each option includes clear explanations, visual examples, and typical timelines.</p>
-
-            <div class="screenshot">[Treatment options page wireframes]</div>
-
-            <h3>Provider Booking Flow</h3>
-            <p>Streamlined path from provider search through consultation booking, reducing steps from seven to three and eliminating the need for phone calls during the initial booking process.</p>
-
-            <div class="screenshot">[Booking flow wireframes]</div>
-        </section>
-
-        <section class="section">
-            <h2>Usability Testing</h2>
-            <p>I conducted three rounds of usability testing with the interactive prototype, testing with 18 participants across different demographic groups. Each session focused on key user flows and gathered both qualitative feedback and quantitative task success metrics.</p>
-
-            <h3>Testing Methodology</h3>
-            <p>Participants were given scenario-based tasks such as determining if Invisalign could treat their specific dental concern, finding a nearby provider with weekend availability, and understanding total treatment costs, including financing options. I used a combination of moderated remote sessions and unmoderated testing through UserTesting to gather diverse feedback.</p>
-
-            <h3>Key Findings</h3>
-
-            <h4 style="margin: 32px 0 16px;">Round One Insights</h4>
-            <ul>
-                <li>The Smile Assessment Tool was well received but needed a clearer explanation of what happens after completion</li>
-                <li>Users wanted to see pricing earlier in their journey rather than after exploring treatment options</li>
-                <li>Provider profile information was helpful, but users wanted more photos of the actual office environment</li>
-                <li>Mobile navigation felt cluttered with too many options in the hamburger menu</li>
-            </ul>
-
-            <h4 style="margin: 32px 0 16px;">Design Iterations</h4>
-            <p>Based on testing feedback, I made several significant changes to the design. The Smile Assessment Tool now includes a clear preview of results and next steps before users begin. Pricing information was elevated to appear earlier inthe  content hierarchy with prominent links from the homepage. Provider profiles were enhanced with office tours and team photos. Mobile navigation was restructured using a simplified menu with clear categories.</p>
-
-            <h4 style="margin: 32px 0 16px;">Final Round Results</h4>
-            <p>After implementing changes based on earlier testing, the final round showed significant improvements across all metrics.</p>
-
-            <ul>
-                <li>Task success rate improved from 67% to 94% across all key user flows</li>
-                <li>Average time to find a provider and book a consultation decreased from 8 minutes to 3.5 minutes</li>
-                <li>User confidence scores increased by 43% when asked about understanding treatment options and costs</li>
-                <li>Mobile usability rating improved from 3.2 to 4.6 out of 5</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2>Accessibility</h2>
-            <p>Ensuring the redesigned website was accessible to all users was a core priority throughout the design process. I conducted comprehensive accessibility audits and worked to exceed WCAG 2.1 AA standards.</p>
-
-            <h3>Accessibility Improvements</h3>
-            <ul>
-                <li>All color combinations tested for contrast ratios meeting at least AA standards, with most exceeding AAA</li>
-                <li>Interactive elements designed with focus states and keyboard navigation in mind</li>
-                <li>All imagery includes descriptive alt text, significant for before and after treatment photos</li>
-                <li>Form inputs include clear labels and error messages with specific guidance for correction</li>
-                <li>Video content includes captions and transcripts for patient testimonials</li>
-                <li>Responsive design tested with screen readers, including JAWS and VoiceOver</li>
-            </ul>
-
-            <div class="screenshot">[Accessibility audit results and contrast checker examples]</div>
-        </section>
-
-        <section class="section">
-            <h2>Final Designs</h2>
-            <p>The final high-fidelity designs brought together all the research insights, user feedback, and brand guidelines into a cohesive, user-centered experience. Below are key screens from the redesigned website.</p>
-
-            <div class="screenshot" style="min-height: 600px;">[Homepage hero section with clear value proposition]</div>
-            <div class="screenshot" style="min-height: 600px;">[Treatment options comparison page]</div>
-            <div class="screenshot" style="min-height: 600px;">[Enhanced provider finder with filters and profiles]</div>
-            <div class="screenshot" style="min-height: 600px;">[Patient story detail page with transformation timeline]</div>
-            <div class="screenshot" style="min-height: 600px;">[Mobile responsive views of key pages]</div>
-        </section>
-
-        <section class="summary">
-            <h2>PROJECT SUMMARY AND REFLECTION</h2>
-            <p>This nine-month journey redesigning the Invisalign main website was one of the most complex and rewarding projects of my career. It required balancing multiple stakeholder perspectives from clinical advisors and marketing teams to orthodontist partners and prospective patients who would use the site to make important healthcare decisions.</p>
-
-            <p>One of the biggest challenges was finding the right balance between providing comprehensive information and avoiding overwhelming users. Through multiple rounds of testing and iteration, I learned that users do not need to understand everything about Invisalign technology to feel confident in their decision. They need to understand how it will work for their specific situation and that they are working with qualified professionals.</p>
-
-            <p>The competitive analysis revealed interesting insights about positioning in the clear aligner market. While competitors emphasized either convenience or clinical credentials, Invisalign had the opportunity to own the middle ground of being both accessible and premium. The redesign strategy focused on making the experience feel approachable while leveraging decades of clinical research as a key differentiator.</p>
-
-            <p>Persona development and journey mapping proved invaluable throughout the project. Jessica and Robert became real people to our team, and we constantly asked ourselves whether our design decisions would serve their needs. The journey maps revealed critical emotional moments where users needed reassurance, guiding where we placed trust building elements like patient testimonials and provider credentials.</p>
-
-            <p>The Smile Assessment Tool emerged as one of the most impactful features from a user perspective. During testing, we saw how powerful it was for users to receive personalized guidance early in their journey. Many participants expressed that the tool helped them understand their candidacy and feel less overwhelmed by the amount of information on the site.</p>
-
-            <p>Usability testing provided some of the most valuable insights into the project. Watching real users interact with the designs revealed assumptions I had made and pain points I had not anticipated. The iterative testing process taught me the importance of being open to feedback and willing to rethink even designs I was proud of. Task success rates improved from 67% to 94%, and average time to book consultations decreased from 8 minutes to 3.5 minutes.</p>
-
-            <p>This project deepened my appreciation for the role of content strategy in user experience design. Working closely with content designers and clinical advisors to craft clear, empathetic messaging was just as important as the visual and interaction design. The tone needed to be authoritative without being intimidating, friendly without being casual, and honest without being discouraging.</p>
-
-            <p>Looking back, I am proud of how the redesigned website addresses core user needs while supporting business goals around consultation bookings and brand positioning. However, I also recognize areas for improvement. More early involvement of orthodontist partners would have surfaced clinical considerations sooner, and additional testing with diverse socioeconomic backgrounds would have provided richer insights into how different audiences perceive value in healthcare decisions.</p>
-
-            <p>This project reinforced my belief that great design comes from deep empathy and rigorous process. Understanding users as whole people with complex needs, fears, and aspirations rather than just task completers led to solutions that genuinely serve them. Most importantly, I learned that designing for healthcare decisions requires an extra level of care and responsibility, which shaped every design decision and will inform how I approach future healthcare design challenges.</p>
-        </section>
-
-        <div style="display: flex; justify-content: flex-end; padding: 60px 0;">
-            <div class="max-100 mta m-hide">
-                <a href="dashboard.html">
-                    <div class="project-image ratio-4-5 bg-grey">
-                        <img src="images/dashboard.jpg" alt="Invisalign Patient Dashboard">
+        <div class="other-projects">
+            <div class="section-label">Other Projects</div>
+            <div class="projects-carousel">
+                <a href="thesis.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/thesis.jpg" alt="Police Dispatch HUD">
                     </div>
+                    <h3>Police Dispatch HUD</h3>
+                    <p>Emergency Services UX</p>
+                </a>
+                <a href="gta.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/GTA_flow.png" alt="GTA Hiring Automation">
+                    </div>
+                    <h3>GTA Hiring Automation</h3>
+                    <p>Service Design</p>
+                </a>
+                <a href="porsche.html" class="project-card">
+                    <div class="project-card-image">
+                        <img src="images/pcar.jpg" alt="Porsche Configurator">
+                    </div>
+                    <h3>Porsche Configurator</h3>
+                    <p>Premium E-Commerce</p>
                 </a>
             </div>
         </div>
 
-    </main>
+        <a href="index.html" class="back-link">← Back to Projects</a>
+    </div>
 </body>
 </html>
