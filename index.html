@@ -49,16 +49,19 @@
             gap: 32px;
         }
 
-        nav a {
+        nav a,
+        nav span.nav-link {
             color: #666;
             text-decoration: none;
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: color 0.2s;
+            cursor: pointer;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav span.nav-link:hover {
             color: #1a1a1a;
         }
 
@@ -238,7 +241,8 @@
         <nav>
             <a href="about.html">About</a>
             <a href="resume.html" target="_blank">Resume</a>
-            <a href="/cdn-cgi/l/email-protection#6714060a0f0e130f0a27000a060e0b4904080a">Contact</a>
+            <!-- Contact link rendered by JavaScript so your email is not in the HTML -->
+            <a href="#" id="contact-link">Contact</a>
         </nav>
     </header>
 
@@ -346,7 +350,19 @@
         </a>
     </section>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <!-- Cloudflare email protection script (keep if already present) -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+    <script>
+        // Create the mailto link with JavaScript so your email is not in the HTML
+        document.addEventListener('DOMContentLoaded', function() {
+            var link = document.getElementById('contact-link');
+            var user = 'samhithm';
+            var domain = 'gmail.com';
+            var email = user + '@' + domain;
+            link.setAttribute('href', 'mailto:' + email);
+        });
+
         const cursor = document.getElementById('customCursor');
         const projects = document.querySelectorAll('.project');
 
@@ -367,4 +383,10 @@
                 cursor.classList.add('active');
             });
 
-            project
+            project.addEventListener('mouseleave', () => {
+                cursor.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
