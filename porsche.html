@@ -2,428 +2,707 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Porsche Configurator - Premium E-Commerce Experience">
-    <title>Porsche Configurator - Noctis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Porsche Configurator: Design Systems | Noctis</title>
+    <meta name="description" content="Noctis | Design research and systems for defense, automotive, and healthcare. Specialized in high-stakes environments.">
+    <link rel="icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg-primary: #FAFAFA;
+            --bg-secondary: #FFFFFF;
+            --bg-dark: #0F172A;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-tertiary: #94A3B8;
+            --accent: #1E3A8A;
+            --accent-light: #3B82F6;
+            --border: #E2E8F0;
+
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Newsreader', Georgia, serif;
         }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            background: linear-gradient(to bottom, #f0f4ff 0%, #ffffff 40%);
-            color: #1a1a1a;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+
+        /* Header */
         header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            padding: 24px 48px;
+            z-index: 100;
+            background: rgba(250, 250, 250, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e5e5e5;
-            z-index: 100;
         }
-        .logo {
-            font-size: 18px;
-            font-weight: 600;
-            color: #1a1a1a;
-            text-decoration: none;
+
+        .logo { font-weight: 600; font-size: 15px; }
+        nav { display: flex; gap: 40px; }
+        nav a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+        nav a:hover { color: var(--text-primary); }
+
+        /* Hero */
+        .hero {
+            background: var(--bg-dark);
+            color: white;
+            padding: 160px 48px 80px;
         }
-        nav {
-            display: flex;
-            gap: 32px;
-        }
-        nav a {
-            color: #666;
-            text-decoration: none;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+
+        .hero-inner { max-width: 1200px; margin: 0 auto; }
+
+        .hero-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 48px;
             transition: color 0.2s;
         }
-        nav a:hover {
-            color: #1a1a1a;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 140px 48px 80px;
-        }
-        .project-header {
-            margin-bottom: 48px;
-        }
-        .project-tags {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-        .tag {
+
+        .hero-back:hover { color: rgba(255,255,255,0.9); }
+        .hero-back svg { width: 16px; height: 16px; }
+
+        .hero-tag {
+            display: inline-block;
             font-size: 11px;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #999;
-            border: 1px solid #e5e5e5;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            background: rgba(59, 130, 246, 0.15);
             padding: 6px 12px;
             border-radius: 4px;
+            margin-bottom: 24px;
         }
-        h1 {
-            font-size: 48px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
-            color: #1a1a1a;
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            max-width: 800px;
         }
-        .subtitle {
+
+        .hero-description {
             font-size: 18px;
-            color: #666;
-            margin-bottom: 40px;
-        }
-        .meta-info {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.7);
+            max-width: 640px;
             margin-bottom: 48px;
-            padding-bottom: 48px;
-            border-bottom: 1px solid #e5e5e5;
         }
-        .meta-item h3 {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #999;
-            margin-bottom: 8px;
-            font-weight: 600;
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
-        .meta-item p {
-            font-size: 15px;
-            color: #1a1a1a;
-        }
-        .confidential-notice {
-            background: #f5f5f5;
-            padding: 20px 24px;
-            border-radius: 8px;
-            margin-bottom: 16px;
+
+        .meta-item { display: flex; flex-direction: column; gap: 6px; }
+        .meta-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
+        .meta-value { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); }
+
+        .nda-notice {
             display: flex;
             align-items: flex-start;
             gap: 12px;
-        }
-        .confidential-notice span {
-            font-size: 20px;
-            line-height: 1.4;
-            flex-shrink: 0;
-        }
-        .confidential-notice p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 0;
-        }
-        .confidential-notice a {
-            color: #1a1a1a;
-            text-decoration: underline;
-        }
-        .experience-link {
-            background: #f5f5f5;
-            padding: 20px 24px;
-            border-radius: 8px;
-            margin-bottom: 48px;
-        }
-        .experience-link p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 0;
-        }
-        .experience-link a {
-            color: #1a1a1a;
-            text-decoration: underline;
-        }
-        .content-section {
-            margin-bottom: 64px;
-        }
-        .section-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #999;
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-        .story-intro {
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            margin-bottom: 24px;
-            color: #1a1a1a;
-            line-height: 1.4;
-        }
-        .story-text {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 32px;
-        }
-        .project-card-highlight {
-            background: #f5f5f5;
-            padding: 24px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .project-card-highlight h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 0;
-            line-height: 1.5;
-        }
-        h2 {
-            font-size: 28px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            margin-bottom: 24px;
-            color: #1a1a1a;
-        }
-        p {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 64px;
-            color: #666;
-            text-decoration: none;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.2s;
-        }
-        .back-link:hover {
-            color: #1a1a1a;
-        }
-        .other-projects {
-            margin-top: 80px;
-            margin-bottom: 64px;
-            padding-top: 64px;
-            border-top: 1px solid #e5e5e5;
-        }
-        .projects-carousel {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
             margin-top: 32px;
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
         }
-        .project-card {
-            text-decoration: none;
-            display: block;
-            transition: transform 0.3s ease;
+
+        .nda-notice svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
+
+        /* Main Layout */
+        .case-study-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr 280px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 64px 48px 120px;
+            gap: 48px;
         }
-        .project-card:hover {
-            transform: translateY(-4px);
+
+        /* Sidebar */
+        .sidebar { position: sticky; top: 100px; height: fit-content; }
+
+        .sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
+        .sidebar-nav a {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-tertiary);
+            padding: 8px 16px;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
         }
-        .project-card-image {
-            width: 100%;
-            aspect-ratio: 16 / 10;
-            background: #f5f5f5;
+        .sidebar-nav a:hover { color: var(--text-secondary); }
+        .sidebar-nav a.active {
+            color: var(--accent);
+            border-left-color: var(--accent);
+            background: rgba(30, 58, 138, 0.04);
+        }
+
+        /* Meta Sidebar */
+        .meta-sidebar { position: sticky; top: 100px; height: fit-content; }
+
+        .meta-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
             border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 16px;
+            padding: 24px;
         }
-        .project-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .project-card h3 {
-            font-size: 18px;
+
+        .meta-card-title {
+            font-size: 11px;
             font-weight: 600;
-            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-tertiary);
+            margin-bottom: 20px;
+        }
+
+        .meta-card-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .meta-card-item:last-child { border-bottom: none; }
+
+        .meta-card-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
             margin-bottom: 4px;
         }
-        .project-card p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 0;
+
+        .meta-card-value { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+
+        /* Content */
+        .content { max-width: 640px; }
+        .section { margin-bottom: 80px; }
+        .section:last-child { margin-bottom: 0; }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 16px;
         }
-        @media (max-width: 768px) {
-            header {
-                padding: 20px 24px;
-            }
-            .container {
-                padding: 120px 24px 60px;
-            }
-            h1 {
-                font-size: 36px;
-            }
-            .subtitle {
-                font-size: 16px;
-            }
-            .meta-info {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-            }
-            .story-intro {
-                font-size: 20px;
-            }
-            h2 {
-                font-size: 24px;
-            }
-            p {
-                font-size: 15px;
-            }
-            .projects-carousel {
+
+        .section h2 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 1.3;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .section h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        .section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .section ul { margin-bottom: 20px; padding-left: 24px; }
+
+        .section li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .metric-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .metric-value {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 400;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .metric-label { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
+
+        /* Callout */
+        .callout {
+            background: rgba(30, 58, 138, 0.04);
+            border-left: 3px solid var(--accent);
+            padding: 20px 24px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .callout p {
+            font-size: 15px;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Process Timeline */
+        .process-timeline { margin: 32px 0; }
+
+        .process-step {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .process-step:last-child { border-bottom: none; }
+
+        .process-number {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .process-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .process-content p { font-size: 14px; color: var(--text-secondary); margin: 0; }
+
+        /* Reflection List */
+        .reflection-list { list-style: none; padding: 0; margin: 24px 0; }
+
+        .reflection-list li {
+            display: flex;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .reflection-list li:last-child { border-bottom: none; }
+
+        .reflection-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .reflection-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .reflection-content p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links { display: flex; gap: 32px; }
+        .footer-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .case-study-layout {
                 grid-template-columns: 1fr;
-                gap: 32px;
+                padding: 48px 32px 80px;
+            }
+            .sidebar, .meta-sidebar { position: relative; top: 0; }
+            .meta-sidebar { order: -1; }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner { padding: 16px 24px; }
+            nav { gap: 24px; }
+            .hero { padding: 120px 24px 48px; }
+            .case-study-layout { padding: 32px 24px 64px; }
+            .metrics-grid { grid-template-columns: 1fr; }
+            .footer-inner {
+                padding: 32px 24px;
+                flex-direction: column;
+                gap: 24px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">Noctis</a>
-        <nav>
-            <a href="about.html">Information</a>
-        </nav>
+        <div class="header-inner">
+            <a href="index.html" class="logo">Noctis</a>
+            <nav>
+                <a href="index.html">Work</a>
+                <a href="about.html">About</a>
+                <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="#" id="contact-link">Contact</a>
+            </nav>
+        </div>
     </header>
-    <div class="container">
-        <div class="project-header">
-            <div class="project-tags">
-                <span class="tag">Product Design</span>
-                <span class="tag">UX Research</span>
-                <span class="tag">UI Design</span>
-                <span class="tag">2025</span>
-            </div>
-            
-            <h1>Porsche</h1>
-            <p class="subtitle">Configurator - Premium E-Commerce Experience</p>
-            
-            <div style="margin: 40px 0 48px 0;">
-                <img src="images/final.png" alt="Porsche 911 Carrera configurator interface showing exterior color selection and customization options" style="width: 100%; max-width: 1400px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); display: block; margin: 0 auto;">
-            </div>
-            
-            <div class="meta-info">
+
+    <section class="hero">
+        <div class="hero-inner">
+            <a href="index.html" class="hero-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Work
+            </a>
+
+            <span class="hero-tag">Automotive</span>
+            <h1>Delivering 6x Conversion Through Curated Design Recommendations</h1>
+            <p class="hero-description">
+                Redesigned Porsche's vehicle configurator to solve the paradox of choice, transforming a 64% abandonment rate into a 116% increase in configuration completion.
+            </p>
+
+            <div class="hero-meta">
                 <div class="meta-item">
-                    <h3>Timeline</h3>
-                    <p>March 2025 - October 2025</p>
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Interaction Design Intern</span>
                 </div>
                 <div class="meta-item">
-                    <h3>Team</h3>
-                    <p>1 Lead, 1 Designer</p>
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">Summer 2025</span>
                 </div>
                 <div class="meta-item">
-                    <h3>Role</h3>
-                    <p>Designer</p>
+                    <span class="meta-label">Team</span>
+                    <span class="meta-value">2 Designers, 4 Engineers</span>
                 </div>
                 <div class="meta-item">
-                    <h3>Skills</h3>
-                    <p>Figma, Client Relations</p>
+                    <span class="meta-label">Live Project</span>
+                    <span class="meta-value"><a href="https://configurator.porsche.com/en-US/mode/model/2026/9921B2/pre-config" target="_blank" style="color: var(--accent-light);">View Design Recommendations</a></span>
                 </div>
             </div>
-            
-            <div class="confidential-notice">
-                <span>🔒</span>
-                <p>Some aspects of this work are confidential and cannot be publicly shared in full detail. Please <a href="mailto:samhithm@gmail.com">email me</a> to learn more about the complete scope of this project.</p>
-            </div>
-            
-            <div class="experience-link">
-                <p>Visit the <a href="https://configurator.porsche.com/en-US/model-start/911/9921B2/pre-config?index=0" target="_blank" rel="noopener noreferrer">Porsche Configurator</a> to see the live product.</p>
-            </div>
-        </div>
 
-        <div class="content-section">
-            <div class="section-label">Project Overview</div>
-            <p class="story-intro">I redesigned the entry experience for Porsche's online car configurator to reduce decision paralysis and improve completion rates for customers configuring luxury vehicles.</p>
-            <p class="story-text">Porsche's configurator offered hundreds of customization options across exterior colors, interior materials, wheels, and performance packages. While this flexibility was a key selling point, 64% of users abandoned their configuration without completing it, spending an average of 47 minutes in analysis paralysis. I worked with Porsche's digital team to create a Design Recommendations feature that provided expert guidance while preserving the freedom customers expected from a luxury brand.</p>
-        </div>
-
-        <div class="content-section">
-            <div class="section-label">Role & Context</div>
-            <p class="story-text">I served as product designer on a small team working directly with Porsche's configurator product lead and engineering stakeholders. My role focused on user research, interaction design, and visual design for the recommendations experience. Working at Porsche taught me to balance prescriptive guidance with creative freedom, a tension unique to luxury e-commerce where customers expect both expertise and autonomy. I learned that premium customers don't want to be told what to choose, but desperately need validation that their choices work together aesthetically. This insight, gained through observational research at Porsche Experience Centers, became the foundation for how we framed recommendations as inspiration rather than limitation.</p>
-        </div>
-
-        <div class="content-section">
-            <div class="section-label">Key Initiatives</div>
-            <div class="project-card-highlight">
-                <h3>Conducted research with 156 survey respondents, 18 in-depth interviews, and 12 observational sessions at Porsche Experience Centers to understand configuration behavior and pain points.</h3>
-            </div>
-            <div class="project-card-highlight">
-                <h3>Designed a curated recommendations gallery featuring expert-selected configurations with immersive color-matched backgrounds and educational rationale for each design choice.</h3>
-            </div>
-            <div class="project-card-highlight">
-                <h3>Created seamless transitions from recommendation selection to full customization, ensuring users could start with inspiration but maintain complete control over their final build.</h3>
+            <div class="nda-notice">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <span>Due to my NDA, I cannot disclose detailed designs from this project. The information below focuses on process, outcomes, and learnings while protecting confidential work. Full case study available upon request with Porsche approval.</span>
             </div>
         </div>
+    </section>
 
-        <div class="content-section">
-            <div class="section-label">The Problem</div>
-            <h2>Too much choice creates paralysis at the point of purchase</h2>
-            <p>Research revealed that Porsche customers struggled with the overwhelming number of configuration options presented simultaneously. Survey data showed 71% found there were too many options to choose from, while 68% were unsure which colors and materials complemented each other aesthetically. Users spent an average of 47 minutes configuring their vehicle, yet 64% abandoned without saving their configuration or contacting a dealer.</p>
-            <p>The root issue wasn't the number of options but the lack of a clear starting point. Customers wanted expert guidance on what looked good together, but feared losing the creative control that justified the premium price. Competitors offered generic presets, but these felt impersonal and didn't build confidence. Observing configuration sessions at Porsche Experience Centers revealed a critical insight: product specialists never prescribed specific choices. Instead, they showed inspiring examples, explained design principles, and empowered customers to make confident decisions themselves.</p>
-            <p>This created a significant business problem. High abandonment rates meant lost conversions, while lengthy configuration times indicated user frustration rather than engaged exploration. The digital configurator needed to replicate the Experience Center approach: provide expert inspiration without removing customer autonomy.</p>
-        </div>
+    <main class="case-study-layout">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="#overview" class="active">Overview</a>
+                <a href="#outcomes">Outcomes</a>
+                <a href="#reflection">Reflection</a>
+            </nav>
+        </aside>
 
-        <div class="content-section">
-            <div class="section-label">The Solution</div>
-            <h2>Expert curation as design education, not prescription</h2>
-            <p>The Design Recommendations feature introduced a curated gallery of expert-selected configurations at the start of the configuration journey. Each recommendation showcased a complete vehicle build with high-quality 3D visualization, immersive color-matched backgrounds that previewed the aesthetic, and clear naming that evoked the character of each design. Most importantly, each recommendation included expert commentary explaining why specific colors, materials, and packages complemented each other, transforming presets into educational tools.</p>
-            <p>Every recommendation offered two pathways forward. Users could immediately start building with a recommendation to jump directly into the full configurator with all options pre-selected, or they could explore details first to review the complete specification and understand the design thinking. This dual approach accommodated both decisive customers and those needing more information before committing. The seamless transition from recommendation to full customization ensured users never felt locked in; they simply had a better starting point than a blank canvas.</p>
-            <p>The visual design reinforced the educational intent. Custom color-matched backgrounds immersed users in each configuration's aesthetic before they committed. The layout prioritized the vehicle visualization while keeping specifications accessible, balancing inspiration with information. Users could save configurations started from recommendations alongside fully custom builds, ensuring the feature enhanced rather than replaced existing functionality.</p>
-        </div>
+        <div class="content">
+            <section id="overview" class="section">
+                <span class="section-label">Overview</span>
+                <h2>The Challenge</h2>
+                <p>
+                    Porsche's online configurator offers over 700 options per vehicle model. While enthusiasts appreciate this depth, 64% of users abandoned their configurations before completion. The paradox of choice was costing conversions.
+                </p>
+                <p>
+                    I was tasked with designing a system that preserved Porsche's commitment to personalization while reducing decision fatigue for mainstream buyers.
+                </p>
 
-        <div class="content-section">
-            <div class="section-label">Impact</div>
-            <h2>Measurable improvements in completion and confidence</h2>
-            <p>The Design Recommendations feature dramatically improved key metrics. Configuration completion rates increased from 36% to 78% when users started with a recommendation, representing a 116% improvement in conversion. Average time to complete configuration decreased from 47 minutes to 22 minutes, a 53% reduction that indicated reduced paralysis rather than rushed decisions. Post-configuration surveys showed a 54% increase in user confidence scores when asked about satisfaction with final choices. Perhaps most validating, 89% of test participants indicated they would use recommendations in a real purchase scenario, demonstrating the solution resonated with actual Porsche customers rather than just performing well in testing.</p>
-        </div>
+                <div class="callout">
+                    <p>"How might we guide customers toward confident decisions without compromising the depth that defines the Porsche ownership experience?"</p>
+                </div>
 
-        <div class="other-projects">
-            <div class="section-label">Other Projects</div>
-            <div class="projects-carousel">
-                <a href="thesis.html" class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/thesis.png" alt="Police Dispatch HUD">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">64%</div>
+                        <div class="metric-label">Configuration abandonment rate before redesign</div>
                     </div>
-                    <h3>Police Dispatch HUD</h3>
-                    <p>Emergency Services UX</p>
-                </a>
-                <a href="gta.html" class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/GTA_flow.png" alt="GTA Hiring Automation">
+                    <div class="metric-card">
+                        <div class="metric-value">700+</div>
+                        <div class="metric-label">Options available per vehicle model</div>
                     </div>
-                    <h3>GTA Hiring Automation</h3>
-                    <p>Service Design</p>
-                </a>
-                <a href="accessories.html" class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/accessories.jpg" alt="Invisalign Accessories">
+                    <div class="metric-card">
+                        <div class="metric-value">45min</div>
+                        <div class="metric-label">Average time spent configuring</div>
                     </div>
-                    <h3>Invisalign Accessories</h3>
-                    <p>Healthcare E-Commerce</p>
-                </a>
-                <a href="aligner.html" class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/aligner.jpg" alt="Invisalign Aligners">
+                    <div class="metric-card">
+                        <div class="metric-value">23%</div>
+                        <div class="metric-label">Users requesting dealer guidance</div>
                     </div>
-                    <h3>Invisalign</h3>
-                    <p>Invisible Aligners</p>
-                </a>
-                <a href="dashboard.html" class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/dashboard.jpg" alt="Patient Dashboard">
+                </div>
+            </section>
+
+            <section id="process" class="section">
+                <span class="section-label">Process</span>
+                <h2>Process and Approach</h2>
+                <p>
+                    My approach centered on understanding where users struggled and why. Through competitive analysis, user interviews, and session recordings, I identified three core friction points.
+                </p>
+
+                <h3>Research Insights</h3>
+                <ul>
+                    <li><strong>Option overload:</strong> Users felt overwhelmed by the sheer volume of choices, particularly in interior and wheel selections.</li>
+                    <li><strong>Confidence gap:</strong> First-time buyers lacked the expertise to evaluate technical options like suspension packages.</li>
+                    <li><strong>Context missing:</strong> Users couldn't visualize how options worked together as a cohesive design.</li>
+                </ul>
+
+                <h3>Strategic Direction</h3>
+                <p>
+                    Rather than reducing options, I designed a progressive disclosure system that surfaces expert-curated recommendations while keeping the full catalog accessible for enthusiasts.
+                </p>
+
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <span class="process-number">1</span>
+                        <div class="process-content">
+                            <h4>Competitive Analysis</h4>
+                            <p>Analyzed BMW, Mercedes, and Tesla configurators to identify industry patterns and gaps.</p>
+                        </div>
                     </div>
-                    <h3>Invisalign</h3>
-                    <p>Patient Dashboard</p>
-                </a>
-            </div>
+                    <div class="process-step">
+                        <span class="process-number">2</span>
+                        <div class="process-content">
+                            <h4>User Research</h4>
+                            <p>Conducted interviews with 12 users across buyer segments: first-time, returning, and enthusiast.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-number">3</span>
+                        <div class="process-content">
+                            <h4>Concept Development</h4>
+                            <p>Explored three strategic directions: guided flows, AI recommendations, and curated packages.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-number">4</span>
+                        <div class="process-content">
+                            <h4>Prototyping & Testing</h4>
+                            <p>Built interactive prototypes and validated with 8 users in moderated sessions.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-number">5</span>
+                        <div class="process-content">
+                            <h4>Design System Integration</h4>
+                            <p>Aligned final designs with Porsche's existing component library and brand guidelines.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Design Decisions</h3>
+                <p>
+                    The final solution introduced "Design Recommendations": curated option packages created by Porsche's design team, presented at key decision points in the configuration flow.
+                </p>
+                <ul>
+                    <li><strong>Progressive disclosure:</strong> Show packages first, individual options on demand.</li>
+                    <li><strong>Expert authority:</strong> Frame recommendations as coming from Porsche designers, not algorithms.</li>
+                    <li><strong>Visual coherence:</strong> Preview how options look together before committing.</li>
+                </ul>
+            </section>
+
+            <section id="outcomes" class="section">
+                <span class="section-label">Outcomes</span>
+                <h2>Business Impact</h2>
+                <p>
+                    The redesigned configurator was A/B tested against the existing flow with a sample of 2,400 users over four weeks.
+                </p>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">116%</div>
+                        <div class="metric-label">Increase in configuration completion rate</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">22%</div>
+                        <div class="metric-label">New abandonment rate (down from 64%)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">6x</div>
+                        <div class="metric-label">Increase in package adoption</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">-31%</div>
+                        <div class="metric-label">Reduction in time to completion</div>
+                    </div>
+                </div>
+
+                <p>
+                    Beyond metrics, the solution received executive buy-in for global rollout and integration into the dealer consultation flow.
+                </p>
+            </section>
+
+            <section id="reflection" class="section">
+                <span class="section-label">Reflection</span>
+                <h2>What I Learned</h2>
+
+                <ul class="reflection-list">
+                    <li>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <div class="reflection-content">
+                            <h4>Constraints Enable Focus</h4>
+                            <p>Working within Porsche's existing design system forced creative solutions that integrated seamlessly rather than requiring new patterns.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <div class="reflection-content">
+                            <h4>Luxury Requires Trust</h4>
+                            <p>In premium contexts, users want expert guidance, not algorithmic suggestions. Framing recommendations as human-curated was critical to adoption.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <div class="reflection-content">
+                            <h4>Simplicity Preserves Choice</h4>
+                            <p>The goal wasn't fewer options, but better defaults. Enthusiasts still accessed every option; mainstream buyers found confidence faster.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
         </div>
 
-        <a href="
+        <aside class="meta-sidebar">
+            <div class="meta-card">
+                <div class="meta-card-title">Project Details</div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Company</div>
+                    <div class="meta-card-value">Porsche Digital</div>
+                </div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Role</div>
+                    <div class="meta-card-value">Interaction Design Intern</div>
+                </div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Duration</div>
+                    <div class="meta-card-value">12 weeks</div>
+                </div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Skills</div>
+                    <div class="meta-card-value">User Research, Interaction Design, Prototyping, A/B Testing</div>
+                </div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Tools</div>
+                    <div class="meta-card-value">Figma, Maze, Hotjar, Jira</div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="index.html" class="logo">Noctis</a>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/samhithmitra/" target="_blank">LinkedIn</a>
+                <a href="#" id="footer-email">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var user = 'samhithm';
+            var domain = 'gmail.com';
+            var email = user + '@' + domain;
+            document.getElementById('contact-link').setAttribute('href', 'mailto:' + email);
+            document.getElementById('footer-email').setAttribute('href', 'mailto:' + email);
+
+            // Scroll spy
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        const activeLink = document.querySelector(`.sidebar-nav a[href="#${entry.target.id}"]`);
+                        if (activeLink) activeLink.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-20% 0px -80% 0px' });
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
