@@ -2,487 +2,670 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Invisalign Patient Dashboard - Noctis">
-    <title>Invisalign Patient Dashboard - Noctis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Invisalign Patient Dashboard | Noctis</title>
+    <meta name="description" content="Noctis | Design research and systems for defense, automotive, and healthcare. Specialized in high-stakes environments.">
+    <link rel="icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg-primary: #FAFAFA;
+            --bg-secondary: #FFFFFF;
+            --bg-dark: #0F172A;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-tertiary: #94A3B8;
+            --accent: #1E3A8A;
+            --accent-light: #3B82F6;
+            --border: #E2E8F0;
+
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Newsreader', Georgia, serif;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            background: linear-gradient(to bottom, #f0f4ff 0%, #ffffff 40%);
-            color: #1a1a1a;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
 
         header {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 24px 48px;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(250, 250, 250, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px 48px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e5e5e5;
-            z-index: 100;
         }
 
-        .logo {
-            font-size: 18px;
-            font-weight: 600;
-            color: #1a1a1a;
-            text-decoration: none;
+        .logo { font-weight: 600; font-size: 15px; }
+        nav { display: flex; gap: 40px; }
+        nav a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+        nav a:hover { color: var(--text-primary); }
+
+        .hero {
+            background: var(--bg-dark);
+            color: white;
+            padding: 160px 48px 80px;
         }
 
-        nav {
-            display: flex;
-            gap: 32px;
-        }
+        .hero-inner { max-width: 1200px; margin: 0 auto; }
 
-        nav a {
-            color: #666;
-            text-decoration: none;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .hero-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 48px;
             transition: color 0.2s;
         }
 
-        nav a:hover {
-            color: #1a1a1a;
-        }
+        .hero-back:hover { color: rgba(255,255,255,0.9); }
+        .hero-back svg { width: 16px; height: 16px; }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 140px 48px 80px;
-        }
-
-        .project-header {
-            margin-bottom: 48px;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 12px;
+        .hero-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            background: rgba(59, 130, 246, 0.15);
+            padding: 6px 12px;
+            border-radius: 4px;
             margin-bottom: 24px;
         }
 
-        .tag {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #999;
-            border: 1px solid #e5e5e5;
-            padding: 6px 12px;
-            border-radius: 4px;
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            max-width: 800px;
         }
 
-        h1 {
-            font-size: 48px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
-            color: #1a1a1a;
-        }
-
-        .subtitle {
+        .hero-description {
             font-size: 18px;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        .meta-info {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.7);
+            max-width: 640px;
             margin-bottom: 48px;
-            padding-bottom: 48px;
-            border-bottom: 1px solid #e5e5e5;
         }
 
-        .meta-item h3 {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #999;
-            margin-bottom: 8px;
-            font-weight: 600;
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .meta-item p {
-            font-size: 15px;
-            color: #1a1a1a;
-        }
+        .meta-item { display: flex; flex-direction: column; gap: 6px; }
+        .meta-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
+        .meta-value { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); }
 
-        .confidential-notice {
-            background: #f5f5f5;
-            padding: 20px 24px;
-            border-radius: 8px;
-            margin-bottom: 16px;
+        .nda-notice {
             display: flex;
             align-items: flex-start;
             gap: 12px;
-        }
-
-        .confidential-notice span {
-            font-size: 20px;
-            line-height: 1.4;
-            flex-shrink: 0;
-        }
-
-        .confidential-notice p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 0;
-        }
-
-        .confidential-notice a {
-            color: #1a1a1a;
-            text-decoration: underline;
-        }
-
-        .experience-link {
-            background: #f5f5f5;
-            padding: 20px 24px;
-            border-radius: 8px;
-            margin-bottom: 48px;
-        }
-
-        .experience-link p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 0;
-        }
-
-        .experience-link a {
-            color: #1a1a1a;
-            text-decoration: underline;
-        }
-
-        .content-section {
-            margin-bottom: 64px;
-        }
-
-        .section-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #999;
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-
-        .story-intro {
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            margin-bottom: 24px;
-            color: #1a1a1a;
-            line-height: 1.4;
-        }
-
-        .story-text {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 32px;
-        }
-
-        .project-card-highlight {
-            background: #f5f5f5;
-            padding: 24px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .project-card-highlight h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 8px;
-        }
-
-        .project-card-highlight p {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-
-        h2 {
-            font-size: 28px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            margin-bottom: 24px;
-            color: #1a1a1a;
-        }
-
-        p {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-top: 64px;
-            color: #666;
-            text-decoration: none;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.2s;
-        }
-
-        .back-link:hover {
-            color: #1a1a1a;
-        }
-
-        .other-projects {
-            margin-top: 80px;
-            margin-bottom: 64px;
-            padding-top: 64px;
-            border-top: 1px solid #e5e5e5;
-        }
-
-        .projects-carousel {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
             margin-top: 32px;
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
         }
 
-        .project-card {
-            text-decoration: none;
-            display: block;
-            transition: transform 0.3s ease;
+        .nda-notice svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
+
+        .case-study-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr 280px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 64px 48px 120px;
+            gap: 48px;
         }
 
-        .project-card:hover {
-            transform: translateY(-4px);
+        .sidebar { position: sticky; top: 100px; height: fit-content; }
+
+        .sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
+        .sidebar-nav a {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-tertiary);
+            padding: 8px 16px;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .sidebar-nav a:hover { color: var(--text-secondary); }
+        .sidebar-nav a.active {
+            color: var(--accent);
+            border-left-color: var(--accent);
+            background: rgba(30, 58, 138, 0.04);
         }
 
-        .project-card-image {
-            width: 100%;
-            aspect-ratio: 16 / 10;
-            background: #f5f5f5;
+        .meta-sidebar { position: sticky; top: 100px; height: fit-content; }
+
+        .meta-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
             border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 16px;
+            padding: 24px;
         }
 
-        .project-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .project-card h3 {
-            font-size: 18px;
+        .meta-card-title {
+            font-size: 11px;
             font-weight: 600;
-            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-tertiary);
+            margin-bottom: 20px;
+        }
+
+        .meta-card-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .meta-card-item:last-child { border-bottom: none; }
+
+        .meta-card-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
             margin-bottom: 4px;
         }
 
-        .project-card p {
+        .meta-card-value { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+
+        .content { max-width: 640px; }
+        .section { margin-bottom: 80px; }
+        .section:last-child { margin-bottom: 0; }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .section h2 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 1.3;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .section h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        .section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .section ul { margin-bottom: 20px; padding-left: 24px; }
+
+        .section li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .metric-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .metric-value {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 400;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .metric-label { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
+
+        .callout {
+            background: rgba(30, 58, 138, 0.04);
+            border-left: 3px solid var(--accent);
+            padding: 20px 24px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .callout p {
+            font-size: 15px;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .process-timeline { margin: 32px 0; }
+
+        .process-step {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .process-step:last-child { border-bottom: none; }
+
+        .process-number {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .process-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .process-content p { font-size: 14px; color: var(--text-secondary); margin: 0; }
+
+        .reflection-list { list-style: none; padding: 0; margin: 24px 0; }
+
+        .reflection-list li {
+            display: flex;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .reflection-list li:last-child { border-bottom: none; }
+
+        .reflection-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .reflection-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .reflection-content p {
             font-size: 14px;
-            color: #666;
-            margin-bottom: 0;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links { display: flex; gap: 32px; }
+        .footer-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 1024px) {
+            .case-study-layout {
+                grid-template-columns: 1fr;
+                padding: 48px 32px 80px;
+            }
+            .sidebar, .meta-sidebar { position: relative; top: 0; }
+            .meta-sidebar { order: -1; }
         }
 
         @media (max-width: 768px) {
-            header {
-                padding: 20px 24px;
-            }
-
-            nav {
-                gap: 20px;
-            }
-
-            .container {
-                padding: 120px 24px 60px;
-            }
-
-            h1 {
-                font-size: 36px;
-            }
-
-            .subtitle {
-                font-size: 16px;
-            }
-
-            .meta-info {
-                grid-template-columns: repeat(2, 1fr);
+            .header-inner { padding: 16px 24px; }
+            nav { gap: 24px; }
+            .hero { padding: 120px 24px 48px; }
+            .case-study-layout { padding: 32px 24px 64px; }
+            .metrics-grid { grid-template-columns: 1fr; }
+            .footer-inner {
+                padding: 32px 24px;
+                flex-direction: column;
                 gap: 24px;
-            }
-
-            .story-intro {
-                font-size: 20px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            p {
-                font-size: 15px;
-            }
-
-            .projects-carousel {
-                grid-template-columns: 1fr;
-                gap: 32px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">Noctis</a>
-        <nav>
-            <a href="about.html">Information</a>
-        </nav>
+        <div class="header-inner">
+            <a href="index.html" class="logo">Noctis</a>
+            <nav>
+                <a href="index.html">Work</a>
+                <a href="about.html">About</a>
+                <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="#" id="contact-link">Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <div class="container">
-        <div class="project-header">
-            <div class="project-tags">
-                <span class="tag">Product Design</span>
-                <span class="tag">UX Research</span>
-                <span class="tag">2020</span>
-            </div>
-            
-            <h1>Invisalign</h1>
-            <p class="subtitle">Patient Dashboard</p>
+    <section class="hero">
+        <div class="hero-inner">
+            <a href="index.html" class="hero-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Work
+            </a>
 
-            <div class="meta-info">
+            <span class="hero-tag">Digital Health</span>
+            <h1>Driving 35% Treatment Engagement for 12M Users Worldwide</h1>
+            <p class="hero-description">
+                Redesigned the global patient dashboard to surface actionable treatment insights and reduce appointment friction for Invisalign patients.
+            </p>
+
+            <div class="hero-meta">
                 <div class="meta-item">
-                    <h3>Timeline</h3>
-                    <p>2020</p>
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">UX/UI Engineer</span>
                 </div>
                 <div class="meta-item">
-                    <h3>Team</h3>
-                    <p>Align Technology</p>
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">2020 - 2022</span>
                 </div>
                 <div class="meta-item">
-                    <h3>Role</h3>
-                    <p>Product Designer</p>
+                    <span class="meta-label">Team</span>
+                    <span class="meta-value">3 Designers, 6 Engineers</span>
                 </div>
                 <div class="meta-item">
-                    <h3>Skills</h3>
-                    <p>Figma, User Research, UX Design</p>
+                    <span class="meta-label">Live Project</span>
+                    <span class="meta-value"><a href="https://my.invisalign.com" target="_blank" style="color: var(--accent-light);">View Dashboard</a></span>
                 </div>
             </div>
 
-            <div class="confidential-notice">
-                <span>🔒</span>
-                <p>The nature of my work is confidential and cannot be publicly shared. Please <a href="mailto:samhithm@gmail.com">email me</a> if you'd like to learn more!</p>
-            </div>
-
-            <div class="experience-link">
-                <p>Visit the <a href="https://my.invisalign.com/login" target="_blank" rel="noopener noreferrer">Invisalign Patient Dashboard</a> to see the live product.</p>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <div class="section-label">Long Story Short</div>
-            <p class="story-intro">I redesigned the patient experience for 12 million Invisalign users worldwide, creating a centralized dashboard that transformed treatment engagement.</p>
-            <p class="story-text">I worked as a product designer on the Invisalign Patient Dashboard, improving the digital experience for millions of orthodontic patients. Align Technology taught me to design healthcare products that balance medical precision with empathetic, human-centered experiences.</p>
-            <p class="story-text">I conducted extensive user research with patients and orthodontists, led cross-functional design workshops, sought feedback from clinical stakeholders, and presented my final designs to the SVP of the Global Invisalign Brand. The dashboard was successfully launched in 2021. I owned three key initiatives:</p>
-            
-            <div class="project-card-highlight">
-                <h3>Led the dashboard redesign, resulting in a 35% increase in patient engagement and improved treatment adherence across 12 million active users.</h3>
-            </div>
-
-            <div class="project-card-highlight">
-                <h3>Designed a personalized progress tracking system used daily by patients, collaborating with clinical teams and engineering partners to ensure medical accuracy.</h3>
-            </div>
-
-            <div class="project-card-highlight">
-                <h3>Built a comprehensive resource library by interviewing 80+ patients and 40+ orthodontists to address common questions, resulting in a 28% reduction in support calls.</h3>
+            <div class="nda-notice">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <span>Due to my NDA with Align Technology, I cannot disclose detailed designs from this project. The information below focuses on process, outcomes, and learnings while protecting confidential work.</span>
             </div>
         </div>
+    </section>
 
-        <div class="content-section">
-            <div class="section-label">Challenge</div>
-            <h2>Staying connected throughout the journey</h2>
-            <p>Once treatment began, many Invisalign patients found it difficult to stay connected to their progress. They received aligners, followed instructions, and attended appointments, but often lacked a clear sense of how far they had come or what was next.</p>
-            <p>Without an easy way to visualize progress, track wear time, or communicate with their doctor, motivation tended to fade over time. The existing experience felt fragmented. Patients had to rely on multiple emails, manual reminders, or third-party apps to stay on track.</p>
-            <p>The challenge was to design a central space that could keep patients engaged and informed throughout their smile journey.</p>
-        </div>
+    <main class="case-study-layout">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="#overview" class="active">Overview</a>
+                <a href="#outcomes">Outcomes</a>
+                <a href="#reflection">Reflection</a>
+            </nav>
+        </aside>
 
-        <div class="content-section">
-            <div class="section-label">Solution</div>
-            <h2>A personalized hub for every stage</h2>
-            <p>The idea behind the new Invisalign Patient Dashboard was to create a single, personalized hub that brought clarity and encouragement to every stage of treatment. The dashboard became a digital companion, helping patients see their journey.</p>
-            <p>The new experience allowed patients to view their treatment progress at a glance, including completed and upcoming aligner stages, receive personalized reminders for aligner changes and check-ins, access educational tips and support resources tailored to their phase of treatment, and stay connected with their doctor through messages and virtual updates when needed.</p>
-            <p>The layout balanced structure and freedom. It guided patients through their treatment without ever feeling restrictive, making the process feel transparent, motivating, and personal.</p>
-        </div>
+        <div class="content">
+            <section id="overview" class="section">
+                <span class="section-label">Overview</span>
+                <h2>The Challenge</h2>
+                <p>
+                    Invisalign patients tracked their treatment through fragmented email updates and manual calendar reminders. This led to missed aligner changes, confusion about treatment progress, and high support call volume.
+                </p>
+                <p>
+                    Research with 80+ patients and 40+ orthodontists revealed the need for a centralized treatment tracking experience that could serve 12 million users globally.
+                </p>
 
-        <div class="content-section">
-            <div class="section-label">Impact</div>
-            <h2>An interactive and encouraging journey</h2>
-            <p>The dashboard transformed how patients experienced Invisalign treatment. What once felt like a hidden process became an interactive and encouraging journey. Post-launch analytics and patient feedback showed measurable improvements across key metrics.</p>
-            <p>Patient engagement with the platform increased by 35%, with users checking their progress an average of 4 times per week. Treatment adherence improved significantly, with a 22% reduction in delayed aligner changes. Doctors reported that 68% of patients arrived at appointments better prepared and more engaged with their treatment plan.</p>
-            <p>By rethinking how patients interact with their treatment, the Invisalign Dashboard turned a complex medical process into a simple and empowering experience. It helped patients not only see their progress but also feel proud of it every step of the way.</p>
-        </div>
+                <div class="callout">
+                    <p>"How might we help patients stay engaged with their treatment while reducing the support burden on orthodontic practices?"</p>
+                </div>
 
-        <div class="other-projects">
-            <div class="section-label">Other Projects</div>
-            <div class="projects-carousel">
-                <a href="thesis.html" class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/thesis.png" alt="Thesis Masters Project">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">12M</div>
+                        <div class="metric-label">Active users worldwide</div>
                     </div>
-                    <h3>Thesis Masters Project</h3>
-                    <p>Research & Development</p>
-                </a>
-
-                <a href="gta-hiring.html" class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/GTA_flow.png" alt="GTA Hiring Process">
+                    <div class="metric-card">
+                        <div class="metric-value">80+</div>
+                        <div class="metric-label">Patients interviewed</div>
                     </div>
-                    <h3>GTA Hiring Process</h3>
-                    <p>System Design</p>
-                </a>
-
-                <a href="porsche.html" class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/pcar.jpg" alt="Porsche Configurator">
+                    <div class="metric-card">
+                        <div class="metric-value">40+</div>
+                        <div class="metric-label">Orthodontists consulted</div>
                     </div>
-                    <h3>Porsche</h3>
-                    <p>Configurator</p>
-                </a>
-
-                <a href="accessories.html" class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/accessories.jpg" alt="Invisalign E-Commerce">
+                    <div class="metric-card">
+                        <div class="metric-value">18mo</div>
+                        <div class="metric-label">Average treatment duration</div>
                     </div>
-                    <h3>Invisalign</h3>
-                    <p>E-Commerce Website</p>
-                </a>
+                </div>
+            </section>
 
-                <a href="aligner.html" class="project-card">
-                    <div class="project-card-image">
-                        <img src="images/aligner.jpg" alt="Invisalign Aligners">
+            <section id="journey" class="section">
+                <span class="section-label">The Journey</span>
+                <h2>Process and Approach</h2>
+                <p>
+                    I led the design and front-end development of the patient dashboard, working closely with product management, backend engineering, and clinical stakeholders.
+                </p>
+
+                <h3>Research Insights</h3>
+                <ul>
+                    <li><strong>Treatment visibility:</strong> Patients wanted to see their progress visually, not just through appointment dates.</li>
+                    <li><strong>Reminder fatigue:</strong> Generic email reminders were ignored; contextual, timely notifications drove action.</li>
+                    <li><strong>Provider connection:</strong> Patients wanted easier ways to communicate with their orthodontist.</li>
+                </ul>
+
+                <h3>Design Approach</h3>
+                <p>
+                    We designed a dashboard that surfaces the most relevant information based on where patients are in their treatment journey, with progressive disclosure for detailed tracking.
+                </p>
+
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <span class="process-number">1</span>
+                        <div class="process-content">
+                            <h4>User Research</h4>
+                            <p>Interviews and surveys with patients across treatment stages and global markets.</p>
+                        </div>
                     </div>
-                    <h3>Invisalign</h3>
-                    <p>Invisible Aligners</p>
-                </a>
-            </div>
+                    <div class="process-step">
+                        <span class="process-number">2</span>
+                        <div class="process-content">
+                            <h4>Journey Mapping</h4>
+                            <p>Documented the 18-month treatment journey to identify key touchpoints.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-number">3</span>
+                        <div class="process-content">
+                            <h4>Prototype & Test</h4>
+                            <p>Iterative prototyping with A/B testing across user segments.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-number">4</span>
+                        <div class="process-content">
+                            <h4>Global Rollout</h4>
+                            <p>Phased deployment across 90+ markets with localization.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="outcomes" class="section">
+                <span class="section-label">Outcomes</span>
+                <h2>Business Impact</h2>
+                <p>
+                    The redesigned dashboard was deployed globally over six months, with metrics tracked against the previous version.
+                </p>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">35%</div>
+                        <div class="metric-label">Increase in treatment engagement</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">-28%</div>
+                        <div class="metric-label">Reduction in support calls</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">4.6</div>
+                        <div class="metric-label">App store rating (up from 3.8)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">90+</div>
+                        <div class="metric-label">Markets deployed</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="reflection" class="section">
+                <span class="section-label">Reflection</span>
+                <h2>What I Learned</h2>
+
+                <ul class="reflection-list">
+                    <li>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <div class="reflection-content">
+                            <h4>Global Scale Requires Local Nuance</h4>
+                            <p>What works in the US doesn't automatically work in Japan or Brazil. Localization goes beyond translation to cultural expectations around healthcare communication.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <div class="reflection-content">
+                            <h4>Healthcare Design Has Unique Constraints</h4>
+                            <p>HIPAA compliance, clinical accuracy requirements, and provider workflows add layers of complexity that consumer apps don't face.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <div class="reflection-content">
+                            <h4>Engagement is Earned, Not Designed</h4>
+                            <p>Features don't create engagement; value does. Every notification and feature had to prove its worth to patients or it created friction.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
         </div>
 
-        <a href="index.html" class="back-link">← Back to Projects</a>
-    </div>
+        <aside class="meta-sidebar">
+            <div class="meta-card">
+                <div class="meta-card-title">Project Details</div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Company</div>
+                    <div class="meta-card-value">Align Technology</div>
+                </div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Role</div>
+                    <div class="meta-card-value">UX/UI Engineer</div>
+                </div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Duration</div>
+                    <div class="meta-card-value">2 years</div>
+                </div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Skills</div>
+                    <div class="meta-card-value">User Research, UI Design, Front-end Development, A/B Testing</div>
+                </div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Tools</div>
+                    <div class="meta-card-value">Figma, React, Optimizely</div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="index.html" class="logo">Noctis</a>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/samhithmitra/" target="_blank">LinkedIn</a>
+                <a href="#" id="footer-email">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var user = 'samhithm';
+            var domain = 'gmail.com';
+            var email = user + '@' + domain;
+            document.getElementById('contact-link').setAttribute('href', 'mailto:' + email);
+            document.getElementById('footer-email').setAttribute('href', 'mailto:' + email);
+
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        const activeLink = document.querySelector(`.sidebar-nav a[href="#${entry.target.id}"]`);
+                        if (activeLink) activeLink.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-20% 0px -80% 0px' });
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
