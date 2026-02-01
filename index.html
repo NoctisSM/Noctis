@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="js/chat-widget.css">
     <style>
         :root {
             --bg-primary: #FAFAFA;
@@ -720,6 +721,9 @@
         </div>
     </footer>
 
+    <!-- Waffle Chat Widget -->
+    <div id="waffle-chat" style="position: fixed; top: 100px; right: 48px; z-index: 99;"></div>
+    <script src="js/chat-widget.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var user = 'samhithm';
@@ -727,6 +731,14 @@
             var email = user + '@' + domain;
             document.getElementById('contact-link').setAttribute('href', 'mailto:' + email);
             document.getElementById('footer-email').setAttribute('href', 'mailto:' + email);
+
+            // Initialize Waffle Chat
+            var chat = new WaffleChat({
+                apiEndpoint: '/api/chat',
+                buttonText: 'Waffle',
+                initialMessage: "Hi! Ask me about my work, projects, or experience."
+            });
+            chat.mount('#waffle-chat');
         });
     </script>
 </body>
