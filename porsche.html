@@ -464,6 +464,9 @@
         <aside class="sidebar">
             <nav class="sidebar-nav">
                 <a href="#overview" class="active">Overview</a>
+                <a href="#problem">Problem</a>
+                <a href="#research">Research</a>
+                <a href="#solution">Solution</a>
                 <a href="#outcomes">Outcomes</a>
                 <a href="#reflection">Reflection</a>
             </nav>
@@ -483,45 +486,50 @@
                 <div class="callout">
                     <p>"How might we guide customers toward confident decisions without compromising the depth that defines the Porsche ownership experience?"</p>
                 </div>
+            </section>
+
+            <!-- Problem -->
+            <section id="problem" class="section">
+                <span class="section-label">Problem</span>
+                <h2>The Paradox of Choice</h2>
+                <p>
+                    700+ vehicle options presented at once create decision paralysis for mainstream buyers. The configurator was built for enthusiasts who know exactly what they want, not first-time buyers exploring possibilities.
+                </p>
 
                 <div class="metrics-grid">
                     <div class="metric-card">
                         <div class="metric-value">64%</div>
-                        <div class="metric-label">Configuration abandonment rate before redesign</div>
+                        <div class="metric-label">Configuration abandonment rate</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-value">700+</div>
-                        <div class="metric-label">Options available per vehicle model</div>
+                        <div class="metric-label">Options per vehicle model</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-value">45min</div>
-                        <div class="metric-label">Average time spent configuring</div>
+                        <div class="metric-label">Average time to complete</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-value">23%</div>
-                        <div class="metric-label">Users requesting dealer guidance</div>
+                        <div class="metric-label">Users requesting dealer help</div>
                     </div>
                 </div>
             </section>
 
-            <section id="process" class="section">
-                <span class="section-label">Process</span>
-                <h2>Process and Approach</h2>
+            <!-- Research -->
+            <section id="research" class="section">
+                <span class="section-label">Research</span>
+                <h2>Understanding User Friction</h2>
                 <p>
                     My approach centered on understanding where users struggled and why. Through competitive analysis, user interviews, and session recordings, I identified three core friction points.
                 </p>
 
-                <h3>Research Insights</h3>
+                <h3>Key Insights</h3>
                 <ul>
                     <li><strong>Option overload:</strong> Users felt overwhelmed by the sheer volume of choices, particularly in interior and wheel selections.</li>
                     <li><strong>Confidence gap:</strong> First-time buyers lacked the expertise to evaluate technical options like suspension packages.</li>
                     <li><strong>Context missing:</strong> Users couldn't visualize how options worked together as a cohesive design.</li>
                 </ul>
-
-                <h3>Strategic Direction</h3>
-                <p>
-                    Rather than reducing options, I designed a progressive disclosure system that surfaces expert-curated recommendations while keeping the full catalog accessible for enthusiasts.
-                </p>
 
                 <div class="process-timeline">
                     <div class="process-step">
@@ -541,22 +549,72 @@
                     <div class="process-step">
                         <span class="process-number">3</span>
                         <div class="process-content">
-                            <h4>Concept Development</h4>
-                            <p>Explored three strategic directions: guided flows, AI recommendations, and curated packages.</p>
+                            <h4>Session Analysis</h4>
+                            <p>Reviewed Hotjar recordings to identify drop-off points and confusion patterns.</p>
                         </div>
                     </div>
-                    <div class="process-step">
-                        <span class="process-number">4</span>
-                        <div class="process-content">
-                            <h4>Prototyping & Testing</h4>
-                            <p>Built interactive prototypes and validated with 8 users in moderated sessions.</p>
+                </div>
+            </section>
+
+            <!-- Solution -->
+            <section id="solution" class="section">
+                <span class="section-label">Solution</span>
+                <h2>Design Recommendations: Curated Confidence</h2>
+                <p>
+                    Rather than reducing options, I designed a progressive disclosure system that surfaces expert-curated recommendations while keeping the full catalog accessible for enthusiasts.
+                </p>
+
+                <div style="margin: 48px 0;">
+                    <h3 style="font-family: var(--font-serif); font-size: 22px; font-weight: 500;
+                               margin-bottom: 24px; color: var(--text-primary);">
+                        Progressive Disclosure Flow
+                    </h3>
+                    <div style="display: flex; gap: 20px; align-items: flex-start;">
+                        <!-- Step 1 -->
+                        <div style="flex: 1;">
+                            <div style="background: var(--accent); color: white; width: 40px; height: 40px;
+                                       border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                                       font-weight: 600; font-size: 16px; margin-bottom: 12px;">
+                                1
+                            </div>
+                            <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">
+                                Expert Packages First
+                            </h4>
+                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                                Show 6-8 curated packages by Porsche designers, not all 700 options
+                            </p>
                         </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="process-number">5</span>
-                        <div class="process-content">
-                            <h4>Design System Integration</h4>
-                            <p>Aligned final designs with Porsche's existing component library and brand guidelines.</p>
+                        <!-- Arrow -->
+                        <div style="margin-top: 24px; color: var(--accent); font-size: 20px;">→</div>
+                        <!-- Step 2 -->
+                        <div style="flex: 1;">
+                            <div style="background: var(--accent); color: white; width: 40px; height: 40px;
+                                       border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                                       font-weight: 600; font-size: 16px; margin-bottom: 12px;">
+                                2
+                            </div>
+                            <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">
+                                Individual Options On Demand
+                            </h4>
+                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                                Advanced users can drill into specific categories if desired
+                            </p>
+                        </div>
+                        <!-- Arrow -->
+                        <div style="margin-top: 24px; color: var(--accent); font-size: 20px;">→</div>
+                        <!-- Step 3 -->
+                        <div style="flex: 1;">
+                            <div style="background: var(--accent); color: white; width: 40px; height: 40px;
+                                       border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                                       font-weight: 600; font-size: 16px; margin-bottom: 12px;">
+                                3
+                            </div>
+                            <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">
+                                Visual Preview Together
+                            </h4>
+                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                                See how options look as a cohesive design before committing
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -579,22 +637,82 @@
                     The redesigned configurator was A/B tested against the existing flow with a sample of 2,400 users over four weeks.
                 </p>
 
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-value">116%</div>
-                        <div class="metric-label">Increase in configuration completion rate</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">22%</div>
-                        <div class="metric-label">New abandonment rate (down from 64%)</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">6x</div>
-                        <div class="metric-label">Increase in package adoption</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">-31%</div>
-                        <div class="metric-label">Reduction in time to completion</div>
+                <div style="margin: 40px 0;">
+                    <h3 style="font-family: var(--font-serif); font-size: 22px; font-weight: 500;
+                               margin-bottom: 24px; color: var(--text-primary);">
+                        Impact: Before & After
+                    </h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                        <!-- Before Card -->
+                        <div style="background: var(--bg-secondary); border: 2px solid #FCA5A5;
+                                    border-radius: 12px; padding: 24px;">
+                            <p style="font-size: 12px; font-weight: 600; color: #DC2626;
+                                      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">
+                                Before Redesign
+                            </p>
+                            <div style="margin-bottom: 12px;">
+                                <div style="font-size: 28px; font-weight: 400; color: var(--text-primary);
+                                           font-family: var(--font-serif); margin-bottom: 2px;">
+                                    64%
+                                </div>
+                                <p style="font-size: 13px; color: var(--text-secondary); margin: 0;">
+                                    Configuration abandonment
+                                </p>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <div style="font-size: 28px; font-weight: 400; color: var(--text-primary);
+                                           font-family: var(--font-serif); margin-bottom: 2px;">
+                                    45 min
+                                </div>
+                                <p style="font-size: 13px; color: var(--text-secondary); margin: 0;">
+                                    Time to complete
+                                </p>
+                            </div>
+                            <div>
+                                <div style="font-size: 28px; font-weight: 400; color: var(--text-primary);
+                                           font-family: var(--font-serif); margin-bottom: 2px;">
+                                    23%
+                                </div>
+                                <p style="font-size: 13px; color: var(--text-secondary); margin: 0;">
+                                    Needed dealer help
+                                </p>
+                            </div>
+                        </div>
+                        <!-- After Card -->
+                        <div style="background: var(--bg-secondary); border: 2px solid #86EFAC;
+                                    border-radius: 12px; padding: 24px;">
+                            <p style="font-size: 12px; font-weight: 600; color: #16A34A;
+                                      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">
+                                After Redesign
+                            </p>
+                            <div style="margin-bottom: 12px;">
+                                <div style="font-size: 28px; font-weight: 400; color: var(--text-primary);
+                                           font-family: var(--font-serif); margin-bottom: 2px;">
+                                    22%
+                                </div>
+                                <p style="font-size: 13px; color: var(--text-secondary); margin: 0;">
+                                    Configuration abandonment
+                                </p>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <div style="font-size: 28px; font-weight: 400; color: var(--text-primary);
+                                           font-family: var(--font-serif); margin-bottom: 2px;">
+                                    31 min
+                                </div>
+                                <p style="font-size: 13px; color: var(--text-secondary); margin: 0;">
+                                    Time to complete
+                                </p>
+                            </div>
+                            <div>
+                                <div style="font-size: 28px; font-weight: 400; color: var(--text-primary);
+                                           font-family: var(--font-serif); margin-bottom: 2px;">
+                                    6x
+                                </div>
+                                <p style="font-size: 13px; color: var(--text-secondary); margin: 0;">
+                                    Package adoption increase
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
