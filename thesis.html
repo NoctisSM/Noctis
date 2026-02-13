@@ -541,7 +541,7 @@
     </section>
 
     <div class="hero-image">
-        <img src="Thesis/Police_MDT.png" alt="Patrol Command Dashboard Interface">
+        <img src="Thesis/thesis.png" alt="Patrol Command Dashboard Interface">
     </div>
 
     <main class="case-study-layout">
@@ -562,7 +562,7 @@
                 <span class="section-label">Overview</span>
                 <h2>What should a drone-integrated dispatch system look like?</h2>
                 <p>
-                    Police departments are increasingly deploying drones for situational awareness during active incidents. But the aerial intelligence these drones capture often fails to reach dispatchers in real time because it resides in separate systems operated by specialized drone pilots.
+                    Police departments are increasingly deploying drones for situational awareness during active incidents. But the aerial intelligence these drones capture often fails to reach dispatchers in real-time because it exists in separate systems operated by specialized drone pilots.
                 </p>
                 <p>
                     My thesis explores how to synthesize multiple telemetry streams, including live drone feeds, officer positions, and incident data, into a unified interface that enhances rather than overwhelms dispatcher decision-making.
@@ -606,7 +606,7 @@
                 <span class="section-label">Research</span>
                 <h2>Understanding Dispatch Operations Through Contextual Inquiry</h2>
                 <p>
-                    I conducted semi-structured interviews with 30+ personnel across seven agencies, including Atlanta PD, Georgia Tech PD, and Georgia State Patrol. I completed 17 officer ride-along observations to understand current workflows, pain points, and information needs during active incidents.
+                    I conducted semi-structured interviews with 30+ personnel across seven agencies, including Atlanta PD, Georgia Tech PD, and Georgia State Patrol, and completed 17 officer ride-along observations to understand current workflows, pain points, and information needs during active incidents.
                 </p>
 
                 <h3>Research Methods</h3>
@@ -630,7 +630,7 @@
                         <span class="insight-number">Insight 02</span>
                         <h4 class="insight-title">Trust in Aerial Perspective</h4>
                         <p class="insight-text">
-                            Officers expressed high trust in drone footage for situational awareness, but frustration that it rarely reached dispatchers who could coordinate a response.
+                            Officers expressed high trust in drone footage for situational awareness but frustration that it rarely reached dispatchers who could coordinate response.
                         </p>
                     </div>
                     <div class="insight-card">
@@ -737,6 +737,268 @@
                         <h4>Priority Escalation</h4>
                         <p>Color-coded alerts with automated severity assessment and escalation workflows.</p>
                     </div>
+                </div>
+
+                <!-- Interface Architecture -->
+                <h3>Interface Architecture</h3>
+                <p>
+                    OVERWATCH is a three-column dashboard built for officers operating in high-stress, time-critical scenarios. Each panel serves a distinct operational purpose, and their placement reflects how officers naturally scan for information during active incidents. The following walkthrough documents the role, workflow, and design rationale for each component.
+                </p>
+
+                <!-- Login Screen -->
+                <div style="margin: 40px 0; padding: 24px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
+                    <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Login Screen</h4>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+                        The session begins with operator identification. This screen gates access and ties all subsequent actions to a named officer for audit trails and research logging.
+                    </p>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Operational Workflow</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Officer enters their name before session start</li>
+                        <li>All interactions are logged and associated with this identifier</li>
+                        <li>Session data can be exported for after-action review</li>
+                    </ul>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Design Decisions</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Single required field reduces friction at shift start</li>
+                        <li>Blue accent border signals system readiness</li>
+                        <li>Research disclosure is upfront and transparent</li>
+                    </ul>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Example: Officer Martinez begins her shift by entering her name. The system logs her session start time (08:00) and will attribute all notes, queries, and status changes to her badge for the supervisor's shift report.
+                    </p>
+                </div>
+
+                <!-- Calls for Service -->
+                <div style="margin: 40px 0; padding: 24px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
+                    <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Calls for Service (Left Column)</h4>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+                        The CAD queue displays all active incidents, sorted by priority. Officers can scan pending calls and select which to focus on. This panel is marked as a "stationary card," meaning it remains visible even when the interface shifts to driving mode.
+                    </p>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Operational Workflow</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Scan queue to identify highest-priority incidents</li>
+                        <li>Click a call to load its details into center column</li>
+                        <li>View call ID, time received, 10-code, location, and assigned units at a glance</li>
+                        <li>Access "Today's Calls" for historical context on repeat locations</li>
+                        <li>Monitor pending vs. active status for resource allocation</li>
+                    </ul>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Design Decisions</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Priority color stripe (red, amber, green) provides instant severity assessment</li>
+                        <li>Monospace font for IDs ensures character alignment and reduces misreads</li>
+                        <li>Active call is highlighted with a distinct border state</li>
+                        <li>Compact mode collapses to headline summary for driving scenarios</li>
+                        <li>Fixed position prevents accidental scroll during vehicle motion</li>
+                    </ul>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Example: A 10-71 (Armed Person) appears at the top of the queue with a red stripe. The officer clicks it, and the Incident Summary panel populates with suspect description, location, and weapon status. The drone feed automatically switches to the associated aerial view.
+                    </p>
+                </div>
+
+                <!-- Intelligence Explorer -->
+                <div style="margin: 40px 0; padding: 24px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
+                    <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Intelligence Explorer (Left Column)</h4>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+                        A synthesized intelligence summary that aggregates threat level, weapon status, and a visual timeline of key events. This panel translates raw incident data into actionable risk assessment.
+                    </p>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Operational Workflow</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Check threat score (1-10) before approaching scene</li>
+                        <li>Verify weapon type and status (holstered, drawn, discharged)</li>
+                        <li>Review intel timeline to understand suspect movement pattern</li>
+                        <li>Hover on timeline dots for detailed event descriptions</li>
+                        <li>Use intel to brief backup units en route</li>
+                    </ul>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Design Decisions</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Threat bar uses color gradient (green to red) for peripheral vision scanning</li>
+                        <li>Weapon status uses explicit labels (DRAWN, HOLSTERED) rather than icons</li>
+                        <li>Timeline dots are color-coded: blue for location, amber for suspect updates, red for weapon events</li>
+                        <li>Collapsible panel reduces screen real estate when intel is not primary focus</li>
+                    </ul>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Example: The threat score shows 10 (CRITICAL) in red. Weapon assessment indicates HANDGUN, status DRAWN. The intel timeline shows the suspect moved from Student Center to Clough Commons to a parking garage over 7 minutes. The officer radios this movement pattern to the perimeter units.
+                    </p>
+                </div>
+
+                <!-- Incident Summary -->
+                <div style="margin: 40px 0; padding: 24px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
+                    <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Incident Summary (Center Column)</h4>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+                        The primary incident card displaying location, suspect description, weapon status, and caller information. This is the first place officers look when assigned to a call.
+                    </p>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Operational Workflow</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Confirm location before responding</li>
+                        <li>Note suspect description for identification on arrival</li>
+                        <li>Check weapon field to determine tactical approach</li>
+                        <li>Review caller name and phone for callback if needed</li>
+                        <li>Verify current disposition (IN SERVICE, CLEAR, etc.)</li>
+                    </ul>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Design Decisions</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Three-row grid (Location, Suspect, Weapon) matches radio briefing order</li>
+                        <li>Call details strip expands to show caller info and signal code</li>
+                        <li>CFS ID displayed in header for cross-reference with dispatch</li>
+                        <li>Fixed card height prevents layout shift when switching calls</li>
+                        <li>Weapon field uses warning color when firearm is logged</li>
+                    </ul>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Example: Officer receives assignment to CFS 2401-001234. The incident summary shows: Location: Student Center lobby. Suspect: Black male, red hoodie, blue jeans. Weapon: FIREARM LOGGED, handgun drawn. Caller: DOMINIC at 404-555-0142. The officer now has everything needed to approach safely.
+                    </p>
+                </div>
+
+                <!-- Suspect Details -->
+                <div style="margin: 40px 0; padding: 24px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
+                    <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Suspect Details (Center Column)</h4>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+                        A dedicated panel for suspect identification, including photo placeholder, physical attributes, and database query results. Supports NCIC/GCIC lookups for warrant status and prior contacts.
+                    </p>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Operational Workflow</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Run NCIC/GCIC query when suspect name is obtained</li>
+                        <li>Check warrant status before contact</li>
+                        <li>Review prior contacts and flags for officer safety</li>
+                        <li>Update physical description as new intel arrives</li>
+                        <li>Upload suspect photo from body camera or witness</li>
+                    </ul>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Design Decisions</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Two-column layout: photo and name on left, attributes on right</li>
+                        <li>Warrant status uses color-coded badges (unknown, clear, active)</li>
+                        <li>"Awaiting query" state makes clear when data is pending vs. unavailable</li>
+                        <li>Photo placeholder shows silhouette until image is uploaded</li>
+                        <li>Priors/flags field highlights repeat offenders</li>
+                    </ul>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Example: Dispatch provides a partial name from a witness. The officer types "run DL GA-1234567" into the activity input. NCIC returns: James Wilson, DOB 04/15/1989, active warrant for aggravated assault. The suspect details panel updates with this information and flags the active warrant in red.
+                    </p>
+                </div>
+
+                <!-- Activity Panel -->
+                <div style="margin: 40px 0; padding: 24px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
+                    <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Activity (Center Column)</h4>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+                        A unified stream combining dispatch updates and officer notes. Supports tag-based filtering, voice dictation, and natural language commands for plate runs and license queries.
+                    </p>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Operational Workflow</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Monitor incoming dispatch updates in real-time</li>
+                        <li>Add officer notes via keyboard or voice dictation</li>
+                        <li>Run plate queries with "run plate ABC1234" syntax</li>
+                        <li>Filter by tag (LOCATION, SUSPECT, WEAPON, OFFICER, NCIC, ACTION)</li>
+                        <li>Search activity history for specific keywords</li>
+                    </ul>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Design Decisions</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Color-coded badges for each note type enable rapid scanning</li>
+                        <li>Timestamp on every entry creates audit trail</li>
+                        <li>Voice dictation button allows hands-free input while driving</li>
+                        <li>Tag filter strip uses toggle pattern for multi-select</li>
+                        <li>Enter key submits note without requiring mouse click</li>
+                        <li>Expandable text area for longer narratives</li>
+                    </ul>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Example: The officer arrives on scene and taps the microphone button. She dictates: "Suspect fled on foot eastbound toward parking deck." The note is auto-tagged as LOCATION and appears in the activity stream with timestamp 10:28 AM. Other units see this update immediately.
+                    </p>
+                </div>
+
+                <!-- Map Panel -->
+                <div style="margin: 40px 0; padding: 24px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
+                    <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Map (Right Column)</h4>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+                        A Leaflet.js-powered interactive map showing incident location, officer positions, and patrol zones. Supports zoom controls and flag markers for key locations.
+                    </p>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Operational Workflow</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Identify incident location relative to patrol position</li>
+                        <li>View nearby unit locations for backup coordination</li>
+                        <li>Zoom to street level for approach planning</li>
+                        <li>Track suspect movement when correlated with drone feed</li>
+                        <li>Review patrol zone boundaries</li>
+                    </ul>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Design Decisions</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Dark map tiles reduce glare during night shifts</li>
+                        <li>Floating zoom buttons avoid obscuring map center</li>
+                        <li>Right column placement keeps map adjacent to drone for spatial correlation</li>
+                        <li>Collapsible sidebar allows map to expand when detail is needed</li>
+                        <li>Compact mode shows unit count and flag summary</li>
+                    </ul>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Example: The map shows a red marker at the Student Center with 8 nearby units. The officer zooms in and sees Unit 12 is 200 meters east, Unit 14 is approaching from the north. She coordinates on radio: "Unit 12, hold at the east exit. I'll approach from south."
+                    </p>
+                </div>
+
+                <!-- Drone View -->
+                <div style="margin: 40px 0; padding: 24px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
+                    <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Drone View (Right Column)</h4>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+                        Live aerial video feed with HUD overlay showing battery, altitude, and distance. Supports thermal imaging palettes for low-light and concealment scenarios.
+                    </p>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Operational Workflow</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Monitor suspect position from aerial perspective</li>
+                        <li>Switch thermal palettes for night or concealment scenarios</li>
+                        <li>Check drone battery and signal status before relying on feed</li>
+                        <li>Request drone deployment if not already on scene</li>
+                        <li>Correlate aerial view with ground position via map</li>
+                    </ul>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Design Decisions</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>HUD overlay shows critical metrics without obscuring video</li>
+                        <li>Seven thermal palettes (optical, white-hot, black-hot, red-hot, green-hot, rainbow, ironbow)</li>
+                        <li>"NO SIGNAL" state clearly indicates when feed is unavailable</li>
+                        <li>Request Drone button appears when drone is not deployed</li>
+                        <li>Palette selector uses abbreviated labels (OPT, WHT, BLK) for compact UI</li>
+                        <li>Video controls are minimal since feed is typically passive monitoring</li>
+                    </ul>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Example: The drone feed shows a parking garage at 260 ft altitude. The officer switches to white-hot thermal and spots a heat signature behind a vehicle on level 3. She radios: "Suspect is on parking level 3, northwest corner, behind the silver sedan." Ground units adjust approach accordingly.
+                    </p>
+                </div>
+
+                <!-- Header and Status Controls -->
+                <div style="margin: 40px 0; padding: 24px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
+                    <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Header Bar and Status Controls</h4>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+                        The header provides system-wide controls and status indicators. Includes call duration timer, unit status dropdown, mode toggles, and quick-action buttons.
+                    </p>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Key Components</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li><strong>Priority Pill:</strong> Color-coded badge showing current call's 10-code and severity</li>
+                        <li><strong>Call Duration:</strong> Timer tracking time since call assignment</li>
+                        <li><strong>Status Dropdown:</strong> IN SERVICE, CLEAR, REPORT, TRAFFIC options</li>
+                        <li><strong>Mode Toggle:</strong> Switches between STATIONARY and DRIVING layouts</li>
+                        <li><strong>Voice Button:</strong> Activates voice command recognition</li>
+                        <li><strong>Action Buttons:</strong> Play Summary, Generate Handoff, Compare Incidents, Request Backup, En Route, New CFS</li>
+                    </ul>
+                    <p style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Design Decisions</p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li>Priority pill is always visible as primary incident identifier</li>
+                        <li>Driving mode collapses non-essential panels for reduced distraction</li>
+                        <li>Green accent for New CFS button signals constructive action</li>
+                        <li>Amber accent for En Route signals transitional status</li>
+                        <li>Export button allows session data download for after-action review</li>
+                    </ul>
+                </div>
+
+                <!-- Modals Overview -->
+                <div style="margin: 40px 0; padding: 24px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
+                    <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Modal Dialogs</h4>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+                        OVERWATCH uses modal dialogs for complex workflows that require focused attention. Each modal dims the background and prevents interaction with the main dashboard until dismissed.
+                    </p>
+                    <ul style="font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; padding-left: 20px;">
+                        <li><strong>New CFS Modal:</strong> Officer-initiated call creation with location fields, call type, priority, and optional suspect photo upload</li>
+                        <li><strong>Today's Calls Modal:</strong> Historical view of all calls handled during the current shift</li>
+                        <li><strong>Tactical Handoff Modal:</strong> Generates a formatted report for shift change or backup briefing, supports copy-to-clipboard and email</li>
+                        <li><strong>Compare Incidents Modal:</strong> Side-by-side comparison of multiple incidents for pattern recognition</li>
+                        <li><strong>Keyboard Shortcuts Modal:</strong> Reference guide for power users navigating via keyboard</li>
+                    </ul>
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Example: At shift change, the outgoing officer clicks "Generate Handoff." The modal produces a tactical briefing summarizing current call status, suspect description, weapon intel, and unit positions. She copies this to clipboard and sends it to the incoming officer via MDT.
+                    </p>
                 </div>
 
                 <!-- Design System -->
