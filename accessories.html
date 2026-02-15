@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #FAFAFA;
+            --bg-primary: #FFFFFF;
             --bg-secondary: #FFFFFF;
             --bg-dark: #0F172A;
             --text-primary: #0F172A;
@@ -21,6 +21,7 @@
             --accent: #1E3A8A;
             --accent-light: #3B82F6;
             --border: #E2E8F0;
+
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-serif: 'Newsreader', Georgia, serif;
         }
@@ -30,94 +31,374 @@
         body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
         a { color: inherit; text-decoration: none; }
 
-        header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250, 250, 250, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-        .header-inner { max-width: 1400px; margin: 0 auto; padding: 16px 48px; display: flex; justify-content: space-between; align-items: center; }
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .logo { font-weight: 600; font-size: 15px; }
         nav { display: flex; gap: 40px; }
         nav a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
         nav a:hover { color: var(--text-primary); }
 
-        .hero { background: var(--bg-dark); color: white; padding: 160px 48px 80px; }
+        /* Hero */
+        .hero {
+            background: var(--bg-dark);
+            color: white;
+            padding: 160px 48px 80px;
+        }
+
         .hero-inner { max-width: 1200px; margin: 0 auto; }
-        .hero-back { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.6); margin-bottom: 48px; transition: color 0.2s; }
+
+        .hero-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 48px;
+            transition: color 0.2s;
+        }
+
         .hero-back:hover { color: rgba(255,255,255,0.9); }
         .hero-back svg { width: 16px; height: 16px; }
-        .hero-tag { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-light); background: rgba(59, 130, 246, 0.15); padding: 6px 12px; border-radius: 4px; margin-bottom: 24px; }
-        .hero h1 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 24px; max-width: 800px; }
-        .hero-description { font-size: 18px; line-height: 1.7; color: rgba(255,255,255,0.7); max-width: 640px; margin-bottom: 48px; }
-        .hero-meta { display: flex; flex-wrap: wrap; gap: 48px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            background: rgba(59, 130, 246, 0.15);
+            padding: 6px 12px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            max-width: 800px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.7);
+            max-width: 640px;
+            margin-bottom: 48px;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
         .meta-item { display: flex; flex-direction: column; gap: 6px; }
         .meta-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
         .meta-value { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); }
-        .nda-notice { display: flex; align-items: flex-start; gap: 12px; margin-top: 32px; padding: 16px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+        .nda-notice {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-top: 32px;
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+
         .nda-notice svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
 
-        .case-study-layout { display: grid; grid-template-columns: 200px 1fr 280px; max-width: 1200px; margin: 0 auto; padding: 64px 48px 120px; gap: 48px; }
-        .sidebar { position: sticky; top: 100px; height: fit-content; }
-        .sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
-        .sidebar-nav a { font-size: 13px; font-weight: 500; color: var(--text-tertiary); padding: 8px 16px; border-left: 2px solid transparent; transition: all 0.2s; }
-        .sidebar-nav a:hover { color: var(--text-secondary); }
-        .sidebar-nav a.active { color: var(--accent); border-left-color: var(--accent); background: rgba(30, 58, 138, 0.04); }
+        /* Main Layout */
+        .case-study-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr 280px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 64px 48px 120px;
+            gap: 48px;
+        }
 
+        /* Sidebar */
+        .sidebar { position: sticky; top: 100px; height: fit-content; }
+
+        .sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
+        .sidebar-nav a {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-tertiary);
+            padding: 8px 16px;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .sidebar-nav a:hover { color: var(--text-secondary); }
+        .sidebar-nav a.active {
+            color: #1E3A8A;
+            border-left-color: #1E3A8A;
+            background: rgba(30, 58, 138, 0.04);
+        }
+
+        /* Meta Sidebar */
         .meta-sidebar { position: sticky; top: 100px; height: fit-content; }
-        .meta-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
-        .meta-card-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-bottom: 20px; }
+
+        .meta-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .meta-card-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-tertiary);
+            margin-bottom: 20px;
+        }
+
         .meta-card-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
         .meta-card-item:last-child { border-bottom: none; }
-        .meta-card-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-tertiary); margin-bottom: 4px; }
+
+        .meta-card-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
+            margin-bottom: 4px;
+        }
+
         .meta-card-value { font-size: 14px; font-weight: 500; color: var(--text-primary); }
 
+        /* Content */
         .content { max-width: 640px; }
         .section { margin-bottom: 80px; }
         .section:last-child { margin-bottom: 0; }
-        .section-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 16px; }
-        .section h2 { font-family: var(--font-serif); font-size: 28px; font-weight: 400; line-height: 1.3; color: var(--text-primary); margin-bottom: 24px; }
-        .section h3 { font-family: var(--font-serif); font-size: 20px; font-weight: 500; color: var(--text-primary); margin-top: 40px; margin-bottom: 16px; }
-        .section p { font-size: 16px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 20px; }
-        .section ul { margin-bottom: 20px; padding-left: 24px; }
-        .section li { font-size: 16px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 8px; }
 
-        .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 32px 0; }
-        .metric-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
-        .metric-value { font-family: var(--font-serif); font-size: 36px; font-weight: 400; color: var(--accent); margin-bottom: 4px; }
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #1E3A8A;
+            margin-bottom: 16px;
+        }
+
+        .section h2 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 1.3;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .section h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        .section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .section ul { margin-bottom: 20px; padding-left: 24px; }
+
+        .section li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .metric-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .metric-value {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 400;
+            color: #1E3A8A;
+            margin-bottom: 4px;
+        }
+
         .metric-label { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
 
-        .callout { background: rgba(30, 58, 138, 0.04); border-left: 3px solid var(--accent); padding: 20px 24px; margin: 32px 0; border-radius: 0 8px 8px 0; }
-        .callout p { font-size: 15px; font-style: italic; color: var(--text-secondary); margin: 0; }
+        /* Callout */
+        .callout {
+            background: rgba(30, 58, 138, 0.04);
+            border-left: 3px solid #1E3A8A;
+            padding: 20px 24px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
 
+        .callout p {
+            font-size: 15px;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Process Timeline */
         .process-timeline { margin: 32px 0; }
-        .process-step { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+
+        .process-step {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
         .process-step:last-child { border-bottom: none; }
-        .process-number { width: 32px; height: 32px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0; }
-        .process-content h4 { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+
+        .process-number {
+            width: 32px;
+            height: 32px;
+            background: #1E3A8A;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .process-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
         .process-content p { font-size: 14px; color: var(--text-secondary); margin: 0; }
 
+        /* Reflection List */
         .reflection-list { list-style: none; padding: 0; margin: 24px 0; }
-        .reflection-list li { display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
-        .reflection-list li:last-child { border-bottom: none; }
-        .reflection-icon { width: 24px; height: 24px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
-        .reflection-content h4 { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
-        .reflection-content p { font-size: 14px; line-height: 1.7; color: var(--text-secondary); margin: 0; }
 
-        footer { border-top: 1px solid var(--border); background: var(--bg-secondary); }
-        .footer-inner { max-width: 1400px; margin: 0 auto; padding: 48px; display: flex; justify-content: space-between; align-items: center; }
+        .reflection-list li {
+            display: flex;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .reflection-list li:last-child { border-bottom: none; }
+
+        .reflection-icon {
+            width: 24px;
+            height: 24px;
+            color: #1E3A8A;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .reflection-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .reflection-content p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .footer-links { display: flex; gap: 32px; }
         .footer-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
-        .footer-links a:hover { color: var(--accent); }
+        .footer-links a:hover { color: #1E3A8A; }
 
+        /* Responsive */
         @media (max-width: 1024px) {
-            .case-study-layout { grid-template-columns: 1fr; padding: 48px 32px 80px; }
+            .case-study-layout {
+                grid-template-columns: 1fr;
+                padding: 48px 32px 80px;
+            }
             .sidebar, .meta-sidebar { position: relative; top: 0; }
             .meta-sidebar { order: -1; }
             .metrics-grid { grid-template-columns: repeat(2, 1fr); }
         }
+
         @media (max-width: 768px) {
             .header-inner { padding: 16px 24px; }
             nav { gap: 24px; }
             .hero { padding: 120px 24px 48px; }
             .case-study-layout { padding: 32px 24px 64px; }
             .metrics-grid { grid-template-columns: 1fr; }
-            .footer-inner { padding: 32px 24px; flex-direction: column; gap: 24px; }
+            .footer-inner {
+                padding: 32px 24px;
+                flex-direction: column;
+                gap: 24px;
+            }
         }
     </style>
 </head>
@@ -137,14 +418,18 @@
     <section class="hero">
         <div class="hero-inner">
             <a href="index.html" class="hero-back">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
                 Back to Work
             </a>
+
             <span class="hero-tag">E-Commerce</span>
             <h1>Engineering a 60% Conversion Lift Through Friction Reduction</h1>
             <p class="hero-description">
                 Streamlined the Invisalign accessories purchase flow by eliminating redundant steps and surfacing contextual product recommendations.
             </p>
+
             <div class="hero-meta">
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
@@ -163,9 +448,13 @@
                     <span class="meta-value"><a href="https://shop.invisalign.com" target="_blank" style="color: var(--accent-light);">View Shop</a></span>
                 </div>
             </div>
+
             <div class="nda-notice">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <span>Due to my NDA with Align Technology, I cannot disclose detailed designs from this project. The information below focuses on process, outcomes, and learnings.</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <span>Due to my NDA with Align Technology, I cannot disclose detailed designs from this project. The information below focuses on process, outcomes, and learnings while protecting confidential work.</span>
             </div>
         </div>
     </section>
@@ -174,6 +463,9 @@
         <aside class="sidebar">
             <nav class="sidebar-nav">
                 <a href="#overview" class="active">Overview</a>
+                <a href="#problem">Problem</a>
+                <a href="#research">Research</a>
+                <a href="#solution">Solution</a>
                 <a href="#outcomes">Outcomes</a>
                 <a href="#reflection">Reflection</a>
             </nav>
@@ -187,74 +479,265 @@
                     The Invisalign accessories shop had a 72% cart abandonment rate. Patients struggled to find compatible products, shipping costs surprised them at checkout, and the purchase flow required too many steps for simple reorders.
                 </p>
                 <p>
-                    Competitive analysis of Nike, ASOS, and Bloomingdale's e-commerce experiences revealed opportunities to streamline the funnel and surface relevant products earlier.
+                    I was tasked with redesigning the e-commerce experience to reduce friction and increase both conversion rate and average order value.
                 </p>
+
                 <div class="callout">
                     <p>"How might we reduce friction in the accessories purchase flow while increasing average order value?"</p>
                 </div>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-value">72%</div>
-                        <div class="metric-label">Cart abandonment rate before redesign</div>
+            </section>
+
+            <!-- Problem -->
+            <section id="problem" class="section">
+                <span class="section-label">Problem</span>
+                <h2>A Leaky Funnel</h2>
+                <p>
+                    The existing shop was built as an afterthought to the main Invisalign experience. It lacked the polish of modern e-commerce and created unnecessary friction at every step of the purchase journey.
+                </p>
+
+                <!-- Visual Metrics Bar Chart -->
+                <div style="margin: 40px 0; padding: 32px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
+                    <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">The Scale of the Problem</h4>
+
+                    <!-- 72% Cart Abandonment -->
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-size: 13px; color: var(--text-secondary);">Cart Abandonment Rate</span>
+                            <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">72%</span>
+                        </div>
+                        <div style="height: 12px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
+                            <div style="width: 72%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
+                        </div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">5</div>
-                        <div class="metric-label">Steps to complete purchase</div>
+
+                    <!-- 5 Steps to Purchase -->
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-size: 13px; color: var(--text-secondary);">Steps to Complete Purchase</span>
+                            <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">5 steps</span>
+                        </div>
+                        <div style="height: 12px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
+                            <div style="width: 100%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
+                        </div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">$18</div>
-                        <div class="metric-label">Average order value</div>
+
+                    <!-- 23% Reorder Rate -->
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-size: 13px; color: var(--text-secondary);">Repeat Customer Reorder Rate</span>
+                            <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">23%</span>
+                        </div>
+                        <div style="height: 12px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
+                            <div style="width: 23%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
+                        </div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">23%</div>
-                        <div class="metric-label">Reorder rate</div>
+
+                    <!-- $18 AOV -->
+                    <div style="display: flex; align-items: center; gap: 16px; padding-top: 16px; border-top: 1px solid var(--border);">
+                        <div style="font-family: var(--font-serif); font-size: 48px; font-weight: 400; color: #1E3A8A;">$18</div>
+                        <div style="font-size: 14px; color: var(--text-secondary); line-height: 1.5;">average order value, well below industry benchmarks for healthcare accessories</div>
+                    </div>
+                </div>
+
+                <!-- Drop-off Visualization -->
+                <h3>Where Users Dropped Off</h3>
+                <p>Funnel analysis revealed three critical friction points in the purchase journey:</p>
+                <div style="margin: 24px 0; display: flex; gap: 16px;">
+                    <div style="flex: 1; padding: 20px; background: #FFFFFF; border: 2px solid #1E3A8A; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 32px; font-weight: 600; color: #1E3A8A; margin-bottom: 8px;">38%</div>
+                        <div style="font-size: 12px; font-weight: 600; color: #1E3A8A; text-transform: uppercase; letter-spacing: 0.05em;">Product Selection</div>
+                        <div style="font-size: 11px; color: #1E3A8A; margin-top: 4px;">Compatibility confusion</div>
+                    </div>
+                    <div style="flex: 1; padding: 20px; background: #FFFFFF; border: 2px solid #1E3A8A; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 32px; font-weight: 600; color: #1E3A8A; margin-bottom: 8px;">29%</div>
+                        <div style="font-size: 12px; font-weight: 600; color: #1E3A8A; text-transform: uppercase; letter-spacing: 0.05em;">Shipping Page</div>
+                        <div style="font-size: 11px; color: #1E3A8A; margin-top: 4px;">Cost surprise</div>
+                    </div>
+                    <div style="flex: 1; padding: 20px; background: #FFFFFF; border: 2px solid #1E3A8A; border-radius: 12px; text-align: center;">
+                        <div style="font-size: 32px; font-weight: 600; color: #1E3A8A; margin-bottom: 8px;">21%</div>
+                        <div style="font-size: 12px; font-weight: 600; color: #1E3A8A; text-transform: uppercase; letter-spacing: 0.05em;">Account Creation</div>
+                        <div style="font-size: 11px; color: #1E3A8A; margin-top: 4px;">Required signup</div>
                     </div>
                 </div>
             </section>
 
-            <section id="journey" class="section">
-                <span class="section-label">The Journey</span>
-                <h2>Process and Approach</h2>
+            <!-- Research -->
+            <section id="research" class="section">
+                <span class="section-label">Research</span>
+                <h2>Understanding Purchase Friction</h2>
                 <p>
-                    I led the UX redesign of the accessories shop, from initial research through implementation handoff.
+                    My approach centered on understanding where users struggled and why. I combined competitive benchmarking, funnel analytics, and qualitative interviews to build a comprehensive picture of purchase friction.
                 </p>
-                <h3>Research Insights</h3>
-                <ul>
-                    <li><strong>Shipping surprise:</strong> Users abandoned carts when shipping costs appeared late in checkout.</li>
-                    <li><strong>Product confusion:</strong> Patients couldn't tell which products were compatible with their treatment.</li>
-                    <li><strong>Reorder friction:</strong> Repeat customers had to re-enter all information for every purchase.</li>
-                </ul>
-                <h3>Design Approach</h3>
+
+                <!-- Research Methodology Cards -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0;">
+                    <!-- Competitive Analysis Card -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                        <div style="width: 48px; height: 48px; background: #EFF6FF; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Competitive Analysis</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Benchmarked Nike, ASOS, and Bloomingdale's to identify e-commerce best practices and gaps.</p>
+                        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+                            <span style="font-size: 11px; font-weight: 600; color: #1E3A8A; text-transform: uppercase;">5 Competitors Analyzed</span>
+                        </div>
+                    </div>
+
+                    <!-- Funnel Analysis Card -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                        <div style="width: 48px; height: 48px; background: #EFF6FF; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Funnel Analysis</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Analyzed analytics and session recordings to identify exact drop-off points and rage clicks.</p>
+                        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+                            <span style="font-size: 11px; font-weight: 600; color: #1E3A8A; text-transform: uppercase;">500+ Sessions Reviewed</span>
+                        </div>
+                    </div>
+
+                    <!-- User Interviews Card -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                        <div style="width: 48px; height: 48px; background: #EFF6FF; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">User Interviews</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Interviewed patients who abandoned carts and those who completed purchases to understand motivations.</p>
+                        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+                            <span style="font-size: 11px; font-weight: 600; color: #1E3A8A; text-transform: uppercase;">12 Participants</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Key Insights</h3>
+                <p>Research synthesis revealed three core friction points that mapped directly to the drop-off data:</p>
+
+                <!-- Insight Cards -->
+                <div style="margin: 24px 0;">
+                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid #1E3A8A; border-radius: 0 12px 12px 0; margin-bottom: 12px;">
+                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: #EFF6FF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A8A; font-size: 14px;">1</div>
+                        <div>
+                            <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Shipping Surprise</h4>
+                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"I was ready to buy until I saw $8 shipping on a $12 product. That's ridiculous. I'll just get it at my dentist." — Abandoned cart participant</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid #1E3A8A; border-radius: 0 12px 12px 0; margin-bottom: 12px;">
+                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: #EFF6FF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A8A; font-size: 14px;">2</div>
+                        <div>
+                            <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Product Confusion</h4>
+                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"I don't know if these cleaning crystals work with my type of aligners. There's nothing telling me what I actually need." — Abandoned cart participant</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid #1E3A8A; border-radius: 0 12px 12px 0;">
+                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: #EFF6FF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A8A; font-size: 14px;">3</div>
+                        <div>
+                            <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Reorder Friction</h4>
+                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"I buy the same thing every month. Why do I have to re-enter everything? Amazon remembers my orders." — Repeat customer participant</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Solution -->
+            <section id="solution" class="section">
+                <span class="section-label">Solution</span>
+                <h2>Friction-Free Commerce</h2>
                 <p>
-                    We redesigned the flow to show shipping costs upfront, surface personalized product recommendations based on treatment data, and enable one-click reordering for returning customers.
+                    Rather than incremental fixes, we redesigned the entire purchase flow around three core principles that directly addressed the research findings.
                 </p>
-                <div class="process-timeline">
-                    <div class="process-step">
-                        <span class="process-number">1</span>
-                        <div class="process-content">
-                            <h4>Competitive Analysis</h4>
-                            <p>Benchmarked against leading e-commerce experiences to identify best practices.</p>
+
+                <!-- Design Principles Cards -->
+                <h3>Three Design Principles</h3>
+                <p>The solution was grounded in three core principles that directly addressed the research findings:</p>
+
+                <div style="margin: 24px 0;">
+                    <!-- Transparent Pricing -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+                        <div style="display: flex; gap: 20px; align-items: flex-start;">
+                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: #1E3A8A; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Transparent Pricing</h4>
+                                <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Show shipping costs upfront on product pages, not at checkout. Display free shipping thresholds clearly to encourage larger orders and eliminate surprise friction.</p>
+                                <div style="margin-top: 12px; padding: 12px 16px; background: #EFF6FF; border-radius: 8px;">
+                                    <span style="font-size: 12px; color: #1E3A8A; font-weight: 500;">Addresses: Shipping Surprise</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="process-step">
-                        <span class="process-number">2</span>
-                        <div class="process-content">
-                            <h4>Funnel Analysis</h4>
-                            <p>Identified drop-off points through analytics and session recordings.</p>
+
+                    <!-- Smart Recommendations -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+                        <div style="display: flex; gap: 20px; align-items: flex-start;">
+                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: #1E3A8A; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Smart Recommendations</h4>
+                                <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Surface personalized product recommendations based on treatment data. Show "Works with your aligners" badges to eliminate compatibility confusion and build confidence.</p>
+                                <div style="margin-top: 12px; padding: 12px 16px; background: #EFF6FF; border-radius: 8px;">
+                                    <span style="font-size: 12px; color: #1E3A8A; font-weight: 500;">Addresses: Product Confusion</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="process-step">
-                        <span class="process-number">3</span>
-                        <div class="process-content">
-                            <h4>Prototype & Test</h4>
-                            <p>Created interactive prototypes and validated with usability testing.</p>
+
+                    <!-- One-Click Reorder -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                        <div style="display: flex; gap: 20px; align-items: flex-start;">
+                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: #1E3A8A; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                                </svg>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">One-Click Reorder</h4>
+                                <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Enable returning customers to reorder previous purchases with a single click. Save payment and shipping information to eliminate repetitive data entry.</p>
+                                <div style="margin-top: 12px; padding: 12px 16px; background: #EFF6FF; border-radius: 8px;">
+                                    <span style="font-size: 12px; color: #1E3A8A; font-weight: 500;">Addresses: Reorder Friction</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="process-step">
-                        <span class="process-number">4</span>
-                        <div class="process-content">
-                            <h4>A/B Testing</h4>
-                            <p>Ran controlled experiments to validate conversion improvements.</p>
+                </div>
+
+                <!-- Flow Diagram -->
+                <div style="margin: 48px 0;">
+                    <h3 style="font-family: var(--font-serif); font-size: 22px; font-weight: 500; margin-bottom: 24px; color: var(--text-primary);">
+                        Streamlined Purchase Flow
+                    </h3>
+                    <div style="display: flex; gap: 12px; align-items: stretch;">
+                        <!-- Step 1 -->
+                        <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
+                            <div style="background: #1E3A8A; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">1</div>
+                            <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Browse Products</h4>
+                            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">See prices with shipping upfront</p>
+                        </div>
+                        <div style="display: flex; align-items: center; color: #1E3A8A; font-size: 18px;">-></div>
+                        <!-- Step 2 -->
+                        <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
+                            <div style="background: #1E3A8A; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">2</div>
+                            <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Add to Cart</h4>
+                            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">Smart recommendations shown</p>
+                        </div>
+                        <div style="display: flex; align-items: center; color: #1E3A8A; font-size: 18px;">-></div>
+                        <!-- Step 3 -->
+                        <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
+                            <div style="background: #1E3A8A; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">3</div>
+                            <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Quick Checkout</h4>
+                            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">One page, saved info</p>
                         </div>
                     </div>
                 </div>
@@ -264,24 +747,124 @@
                 <span class="section-label">Outcomes</span>
                 <h2>Business Impact</h2>
                 <p>
-                    The redesigned accessories shop was A/B tested over eight weeks before full rollout.
+                    The redesigned accessories shop was A/B tested over eight weeks before full rollout. Results exceeded targets across all key metrics.
                 </p>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-value">60%</div>
-                        <div class="metric-label">Increase in conversion rate</div>
+
+                <!-- Testing Methodology -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0;">
+                    <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;">A/B Testing Methodology</h4>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+                        <div style="text-align: center;">
+                            <div style="font-family: var(--font-serif); font-size: 32px; color: #1E3A8A; margin-bottom: 4px;">8</div>
+                            <div style="font-size: 13px; color: var(--text-secondary);">Weeks duration</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-family: var(--font-serif); font-size: 32px; color: #1E3A8A; margin-bottom: 4px;">15K</div>
+                            <div style="font-size: 13px; color: var(--text-secondary);">Users in test sample</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-family: var(--font-serif); font-size: 32px; color: #1E3A8A; margin-bottom: 4px;">50/50</div>
+                            <div style="font-size: 13px; color: var(--text-secondary);">Control vs. treatment</div>
+                        </div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">6x</div>
-                        <div class="metric-label">Revenue per session</div>
+                </div>
+
+                <!-- Before/After Comparison -->
+                <div style="margin: 40px 0;">
+                    <h3 style="font-family: var(--font-serif); font-size: 22px; font-weight: 500; margin-bottom: 24px; color: var(--text-primary);">
+                        Measured Impact
+                    </h3>
+
+                    <!-- Conversion Rate -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Conversion Rate</span>
+                            <span style="font-size: 13px; font-weight: 600; color: #1E3A8A; background: #EFF6FF; padding: 4px 12px; border-radius: 20px;">+60% increase</span>
+                        </div>
+                        <div style="display: flex; gap: 24px; align-items: center;">
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                    <span style="font-size: 12px; color: #1E3A8A;">Before</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">2.1%</span>
+                                </div>
+                                <div style="height: 24px; background: #DBEAFE; border-radius: 6px; overflow: hidden;">
+                                    <div style="width: 21%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
+                                </div>
+                            </div>
+                            <div style="font-size: 20px; color: var(--text-tertiary);">-></div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                    <span style="font-size: 12px; color: #1E3A8A;">After</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">3.4%</span>
+                                </div>
+                                <div style="height: 24px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
+                                    <div style="width: 34%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">-45%</div>
-                        <div class="metric-label">Reduction in cart abandonment</div>
+
+                    <!-- Cart Abandonment -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Cart Abandonment</span>
+                            <span style="font-size: 13px; font-weight: 600; color: #1E3A8A; background: #EFF6FF; padding: 4px 12px; border-radius: 20px;">-45% reduction</span>
+                        </div>
+                        <div style="display: flex; gap: 24px; align-items: center;">
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                    <span style="font-size: 12px; color: #1E3A8A;">Before</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">72%</span>
+                                </div>
+                                <div style="height: 24px; background: #DBEAFE; border-radius: 6px; overflow: hidden;">
+                                    <div style="width: 72%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
+                                </div>
+                            </div>
+                            <div style="font-size: 20px; color: var(--text-tertiary);">-></div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                    <span style="font-size: 12px; color: #1E3A8A;">After</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">40%</span>
+                                </div>
+                                <div style="height: 24px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
+                                    <div style="width: 40%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">2.3x</div>
-                        <div class="metric-label">Increase in average order value</div>
+
+                    <!-- Average Order Value -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Average Order Value</span>
+                            <span style="font-size: 13px; font-weight: 600; color: #1E3A8A; background: #EFF6FF; padding: 4px 12px; border-radius: 20px;">+130% increase</span>
+                        </div>
+                        <div style="display: flex; gap: 24px; align-items: center;">
+                            <div style="flex: 1; text-align: center; padding: 20px; background: #DBEAFE; border-radius: 8px;">
+                                <div style="font-family: var(--font-serif); font-size: 36px; color: #1E3A8A;">$18</div>
+                                <div style="font-size: 12px; color: #1E3A8A; margin-top: 4px;">Before</div>
+                            </div>
+                            <div style="font-size: 24px; color: #1E3A8A;">-></div>
+                            <div style="flex: 1; text-align: center; padding: 20px; background: #EFF6FF; border-radius: 8px;">
+                                <div style="font-family: var(--font-serif); font-size: 36px; color: #1E3A8A;">$41</div>
+                                <div style="font-size: 12px; color: #1E3A8A; margin-top: 4px;">After</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Revenue Impact -->
+                <div style="background: #1E3A8A; border-radius: 12px; padding: 24px; margin: 32px 0;">
+                    <div style="display: flex; gap: 16px; align-items: center;">
+                        <div style="flex-shrink: 0; width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 16px; font-weight: 600; color: white; margin-bottom: 4px;">6x Revenue Per Session</h4>
+                            <p style="font-size: 14px; color: rgba(255,255,255,0.8); margin: 0;">Combined improvements in conversion rate and average order value drove a 6x increase in revenue per session, exceeding the initial project targets.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -289,23 +872,33 @@
             <section id="reflection" class="section">
                 <span class="section-label">Reflection</span>
                 <h2>What I Learned</h2>
+
                 <ul class="reflection-list">
                     <li>
-                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
                         <div class="reflection-content">
                             <h4>Transparency Builds Trust</h4>
                             <p>Showing shipping costs early reduced abandonment more than any checkout optimization. Users prefer honest friction upfront to surprises at the end.</p>
                         </div>
                     </li>
                     <li>
-                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
                         <div class="reflection-content">
                             <h4>Personalization Drives Value</h4>
                             <p>Contextual recommendations based on treatment data increased AOV more than generic upsells. Relevance beats volume.</p>
                         </div>
                     </li>
                     <li>
-                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
                         <div class="reflection-content">
                             <h4>Small Fixes Compound</h4>
                             <p>No single change drove the 60% lift. It was the combination of dozens of micro-optimizations that created the impact.</p>
@@ -360,8 +953,10 @@
             document.getElementById('contact-link').setAttribute('href', 'mailto:' + email);
             document.getElementById('footer-email').setAttribute('href', 'mailto:' + email);
 
+            // Scroll spy
             const sections = document.querySelectorAll('.section');
             const navLinks = document.querySelectorAll('.sidebar-nav a');
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -371,6 +966,7 @@
                     }
                 });
             }, { rootMargin: '-20% 0px -80% 0px' });
+
             sections.forEach(section => observer.observe(section));
         });
     </script>
