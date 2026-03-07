@@ -363,21 +363,29 @@ document.head.appendChild(o)}initApollo();</script>
             height: 16px;
         }
 
-        /* Featured Project (Full Width) */
-        .project-card.featured {
-            grid-column: 1 / -1;
+        .project-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            transition: gap 0.2s var(--ease-out);
         }
 
-        .project-card.featured .project-image {
-            aspect-ratio: 21 / 9;
+        .project-card:hover .project-cta {
+            gap: 12px;
         }
 
-        .project-card.featured .project-content {
-            padding: 36px 36px 40px;
+        .project-cta svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.2s var(--ease-out);
         }
 
-        .project-card.featured .project-title {
-            font-size: 28px;
+        .project-card:hover .project-cta svg {
+            transform: translateX(2px);
         }
 
         /* Footer */
@@ -562,8 +570,8 @@ document.head.appendChild(o)}initApollo();</script>
             </div>
 
             <div class="projects-grid">
-                <!-- Featured: Thesis -->
-                <a href="thesis.html" class="project-card featured">
+                <!-- Thesis -->
+                <a href="thesis.html" class="project-card">
                     <div class="project-image">
                         <img src="Thesis/thesis.png" alt="Patrol Command Dashboard">
                     </div>
@@ -576,13 +584,12 @@ document.head.appendChild(o)}initApollo();</script>
                         <p class="project-description">
                             Designing a unified command interface that integrates real-time drone intelligence with ground operations, reducing cognitive load for dispatchers managing high-stakes emergency response.
                         </p>
-                        <div class="project-metric">
+                        <span class="project-cta">
+                            View Case Study
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                <polyline points="22 4 12 14.01 9 11.01"/>
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
                             </svg>
-                            Managing Technical & Organizational Ambiguity
-                        </div>
+                        </span>
                     </div>
                 </a>
 
@@ -600,13 +607,12 @@ document.head.appendChild(o)}initApollo();</script>
                         <p class="project-description">
                             Solved the paradox of choice in vehicle configuration through progressive disclosure and expert-curated packages.
                         </p>
-                        <div class="project-metric">
+                        <span class="project-cta">
+                            View Case Study
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-                                <polyline points="17 6 23 6 23 12"/>
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
                             </svg>
-                            116% Completion Rate Increase
-                        </div>
+                        </span>
                     </div>
                 </a>
 
@@ -624,13 +630,12 @@ document.head.appendChild(o)}initApollo();</script>
                         <p class="project-description">
                             Transformed fragmented administrative workflows into an automated system through rigorous contextual inquiry.
                         </p>
-                        <div class="project-metric">
+                        <span class="project-cta">
+                            View Case Study
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polyline points="12 6 12 12 16 14"/>
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
                             </svg>
-                            8-12 Hours Saved Per Cycle
-                        </div>
+                        </span>
                     </div>
                 </a>
 
@@ -648,15 +653,12 @@ document.head.appendChild(o)}initApollo();</script>
                         <p class="project-description">
                             Redesigned the global patient dashboard to surface actionable treatment insights and reduce appointment friction.
                         </p>
-                        <div class="project-metric">
+                        <span class="project-cta">
+                            View Case Study
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
                             </svg>
-                            12 Million Users Worldwide
-                        </div>
+                        </span>
                     </div>
                 </a>
 
@@ -674,14 +676,12 @@ document.head.appendChild(o)}initApollo();</script>
                         <p class="project-description">
                             Streamlined the accessories purchase flow by eliminating redundant steps and surfacing contextual recommendations.
                         </p>
-                        <div class="project-metric">
+                        <span class="project-cta">
+                            View Case Study
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="9" cy="21" r="1"/>
-                                <circle cx="20" cy="21" r="1"/>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
                             </svg>
-                            6x Revenue per Session
-                        </div>
+                        </span>
                     </div>
                 </a>
 
@@ -699,13 +699,12 @@ document.head.appendChild(o)}initApollo();</script>
                         <p class="project-description">
                             Led the information architecture overhaul for Invisalign.com, improving navigation clarity and reducing user confusion.
                         </p>
-                        <div class="project-metric">
+                        <span class="project-cta">
+                            View Case Study
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-                                <polyline points="17 6 23 6 23 12"/>
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
                             </svg>
-                            2x Site Traffic Growth
-                        </div>
+                        </span>
                     </div>
                 </a>
             </div>
@@ -716,11 +715,11 @@ document.head.appendChild(o)}initApollo();</script>
         <div class="footer-inner">
             <div class="footer-left">
                 <span class="footer-name">Noctis</span>
-                <span class="footer-status">Open to Product Design & UX Research roles for May 2026</span>
+                <span class="footer-status">MS HCI @ Georgia Tech, 2026</span>
             </div>
             <div class="footer-links">
                 <a href="https://www.linkedin.com/in/samhithmitra/" target="_blank">LinkedIn</a>
-                <a href="#" id="footer-email">Email</a>
+                <a href="mailto:samhithm@gmail.com">samhithm@gmail.com</a>
             </div>
         </div>
     </footer>
