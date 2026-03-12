@@ -514,23 +514,23 @@
             </a>
 
             <span class="hero-tag">Public Safety</span>
-            <h1>Synthesizing Aerial Telemetry into Mission-Critical Dispatch Operations</h1>
+            <h1>OVERWATCH: Drone-Integrated Dispatch</h1>
             <p class="hero-description">
-                A unified command interface integrating real-time drone intelligence with ground operations to enhance situational awareness for emergency responders.
+                Police drones capture critical aerial intelligence, but that footage rarely reaches dispatchers in real time. OVERWATCH unifies live drone feeds, officer positions, and incident data into a single command interface.
             </p>
 
             <div class="hero-meta">
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
-                    <span class="meta-value">Lead Researcher & Designer</span>
+                    <span class="meta-value">Lead Designer</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Timeline</span>
                     <span class="meta-value">May 2025 - May 2026</span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Methods</span>
-                    <span class="meta-value">Contextual Inquiry, Semi-Structured Interviews, Ride-Alongs, Affinity Mapping, Journey Mapping, Persona Development, Task Analysis, Competitive Analysis, Literature Review, Information Architecture, Storyboarding, Low-Fi Prototyping, High-Fi Prototyping, Usability Testing, Iterative Design</span>
+                    <span class="meta-label">Scope</span>
+                    <span class="meta-value">Field research across 7 Georgia law enforcement agencies, 30+ interviews, 17 ride-alongs, high-fidelity prototype</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Tech Stack</span>
@@ -560,84 +560,73 @@
             <!-- Overview -->
             <section id="overview" class="section">
                 <span class="section-label">Overview</span>
-                <h2>What should a drone-integrated dispatch system look like?</h2>
+                <h2>Drone footage exists. Dispatchers can't see it.</h2>
                 <p>
-                    Police departments are increasingly deploying drones for situational awareness during active incidents. But the aerial intelligence these drones capture often fails to reach dispatchers in real-time because it exists in separate systems operated by specialized drone pilots.
+                    Police drones capture aerial intelligence during active incidents, but that footage lives in a separate system, operated by a separate person, on a separate screen. Dispatchers coordinate response across radio, CAD systems, and incident notes while mentally tracking priority and toggling between windows.
                 </p>
                 <p>
-                    My thesis explores how to synthesize multiple telemetry streams, including live drone feeds, officer positions, and incident data, into a unified interface that enhances rather than overwhelms dispatcher decision-making.
+                    OVERWATCH synthesizes live drone feeds, officer positions, and incident data into one interface that matches how dispatchers actually think during incidents. I led research and design for this thesis project across seven Georgia law enforcement agencies.
                 </p>
 
                 <div class="callout">
-                    <p>"How do I consolidate fragmented information streams into a single pane of glass that enhances situational awareness without increasing cognitive load?"</p>
+                    <p>"This is the first time I've seen drone footage and officer positions on the same screen. I don't have to ask where everyone is." — Dispatch supervisor, Georgia Tech PD</p>
                 </div>
             </section>
 
             <!-- Problem -->
             <section id="problem" class="section">
                 <span class="section-label">Problem</span>
-                <h2>Managing Information Overload in High-Stakes Response</h2>
+                <h2>Fragmented Systems, Fragmented Awareness</h2>
                 <p>
-                    Police dispatchers coordinate officer response while managing overwhelming streams of incoming information: 911 calls, CAD system updates, radio communications, and incident notes. When drones capture aerial footage during active incidents, that critical intelligence often remains siloed.
+                    <strong>Users:</strong> 911 dispatchers, patrol officers, drone pilots, shift supervisors.
                 </p>
-
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-value">30+</div>
-                        <div class="metric-label">Officer interviews conducted</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">17</div>
-                        <div class="metric-label">Officer ride-alongs</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">6</div>
-                        <div class="metric-label">Critical workflow themes</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">4</div>
-                        <div class="metric-label">Primary personas</div>
-                    </div>
-                </div>
+                <p>
+                    <strong>What's at stake:</strong> Seconds matter. A dispatcher juggling four systems during an armed-person call can miss a location update or send units to the wrong entrance. Fragmented information creates cognitive load that compounds under stress.
+                </p>
+                <p>
+                    <strong>The fragmentation problem:</strong> Dispatchers today use CAD for call queue, a separate map for officer positions, radio for real-time updates, and have no direct access to drone feeds. Drone pilots relay what they see verbally. If the dispatcher mishears "northeast corner" as "east entrance," officers approach blind.
+                </p>
+                <p>
+                    This isn't about adding a feature. It's about consolidating existing information into one interface that matches how dispatchers actually think during incidents.
+                </p>
             </section>
 
             <!-- Research -->
             <section id="research" class="section">
                 <span class="section-label">Research</span>
-                <h2>Understanding Dispatch Operations Through Contextual Inquiry</h2>
+                <h2>Field Research Across Seven Agencies</h2>
                 <p>
-                    I conducted semi-structured interviews with 30+ personnel across seven agencies, including Atlanta PD, Georgia Tech PD, and Georgia State Patrol, and completed 17 officer ride-along observations to understand current workflows, pain points, and information needs during active incidents.
+                    30+ interviews with personnel across Atlanta PD, Georgia Tech PD, and Georgia State Patrol. 17 ride-along observations to see dispatch and field operations in real time.
                 </p>
-
-                <h3>Research Methods</h3>
-                <ul>
-                    <li><strong>Semi-structured Interviews:</strong> 30+ officers across patrol, dispatch, and drone operations</li>
-                    <li><strong>Contextual Inquiry:</strong> 17 ride-alongs observing officer operations in real-time</li>
-                    <li><strong>Affinity Mapping:</strong> Synthesized 120+ data points into 6 critical themes</li>
-                    <li><strong>Journey Mapping:</strong> Documented information flow during multi-unit responses</li>
-                </ul>
 
                 <h3>Key Insights</h3>
                 <div class="insight-grid">
                     <div class="insight-card">
                         <span class="insight-number">Insight 01</span>
-                        <h4 class="insight-title">Fragmentation Over Volume</h4>
+                        <h4 class="insight-title">Fragmentation causes overload, not volume</h4>
                         <p class="insight-text">
-                            Dispatchers experienced cognitive overload not from the volume of information, but from its fragmentation across multiple systems. Consolidation was the design opportunity.
+                            Dispatchers weren't overwhelmed by how much information they handled. They were overwhelmed by how many places they had to look for it. <strong>Implication:</strong> Consolidation is the design opportunity, not reduction.
                         </p>
                     </div>
                     <div class="insight-card">
                         <span class="insight-number">Insight 02</span>
-                        <h4 class="insight-title">Trust in Aerial Perspective</h4>
+                        <h4 class="insight-title">Drone footage is trusted but siloed</h4>
                         <p class="insight-text">
-                            Officers expressed high trust in drone footage for situational awareness but frustration that it rarely reached dispatchers who could coordinate response.
+                            Officers expressed high confidence in aerial perspective for situational awareness, but frustration that it rarely reached dispatchers who coordinate response. <strong>Implication:</strong> The interface must surface drone feeds directly to dispatch, not just pilots.
                         </p>
                     </div>
                     <div class="insight-card">
                         <span class="insight-number">Insight 03</span>
-                        <h4 class="insight-title">Priority Triage is Mental</h4>
+                        <h4 class="insight-title">Priority triage is mental, not systemic</h4>
                         <p class="insight-text">
-                            Dispatchers maintain priority rankings mentally rather than in any system. Visual priority indicators could reduce cognitive burden.
+                            Dispatchers keep call priority rankings in their heads because no system shows severity at a glance. <strong>Implication:</strong> Visual priority indicators (color, position, iconography) could reduce cognitive burden.
+                        </p>
+                    </div>
+                    <div class="insight-card">
+                        <span class="insight-number">Insight 04</span>
+                        <h4 class="insight-title">10-codes aren't obstacles</h4>
+                        <p class="insight-text">
+                            Dispatchers are fluent in police shorthand. The interface should speak their language, not translate it. <strong>Implication:</strong> Use 10-71 (Armed Person), not "Armed Person Alert."
                         </p>
                     </div>
                 </div>
@@ -647,7 +636,7 @@
             <!-- Research Artifacts -->
             <section class="section">
                 <span class="section-label">Research</span>
-                <h2>How I Got There: Research Artifacts</h2>
+                <h2>Research Artifacts</h2>
                 <figure style="margin: 0 0 32px 0;">
                     <img src="Thesis/Affinity_Mapping.png" alt="Affinity mapping visualization"
                          style="width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block;">
@@ -676,9 +665,9 @@
             <!-- Solution -->
             <section id="solution" class="section">
                 <span class="section-label">Solution</span>
-                <h2>OVERWATCH: A Unified Interface for Situational Awareness</h2>
+                <h2>OVERWATCH: Three Columns, One View</h2>
                 <p>
-                    OVERWATCH creates a single pane of glass where dispatchers see live drone feeds, interactive mapping with officer positions, and AI-assisted query capabilities. The system automatically prioritizes incidents by severity.
+                    A three-column dashboard designed for high-stress, time-critical scenarios. Each panel serves a distinct operational purpose, and placement reflects how officers naturally scan during incidents.
                 </p>
 
                 <div style="margin: 48px 0;">
@@ -700,12 +689,21 @@
                     <div class="feature-card">
                         <div class="feature-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="23 7 16 12 23 17 23 7"/>
-                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="9" y1="3" x2="9" y2="21"/>
                             </svg>
                         </div>
-                        <h4>Live Drone Feed Integration</h4>
-                        <p>Real-time aerial footage with officer position overlay and automated suspect tracking.</p>
+                        <h4>Left: Calls & Incident Summary</h4>
+                        <p>Priority-sorted call queue with color-coded severity. Incident cards match radio briefing order (location → suspect → weapon).</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h4>Center: Activity & Suspect</h4>
+                        <p>Unified activity stream with voice dictation and natural language queries. Suspect panel shows warrant status and prior contacts.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
@@ -715,17 +713,8 @@
                                 <path d="M2 12h20"/>
                             </svg>
                         </div>
-                        <h4>Interactive Mapping</h4>
-                        <p>Leaflet.js-powered map showing real-time officer positions and incident locations.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                            </svg>
-                        </div>
-                        <h4>AI Query Interface</h4>
-                        <p>Natural language queries to surface incident history and officer availability.</p>
+                        <h4>Right: Map & Drone</h4>
+                        <p>Real-time officer positions adjacent to live drone feed. Thermal palettes for night and concealment scenarios.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
@@ -734,15 +723,15 @@
                                 <polyline points="22 4 12 14.01 9 11.01"/>
                             </svg>
                         </div>
-                        <h4>Priority Escalation</h4>
-                        <p>Color-coded alerts with automated severity assessment and escalation workflows.</p>
+                        <h4>Header: Threat & Controls</h4>
+                        <p>Persistent threat indicator (1-10 scale) with mode toggle. Driving mode collapses non-essential panels.</p>
                     </div>
                 </div>
 
                 <!-- Interface Architecture -->
-                <h3>Interface Architecture</h3>
+                <h3>Interface Components</h3>
                 <p>
-                    OVERWATCH is a three-column dashboard built for officers operating in high-stress, time-critical scenarios. Each panel serves a distinct operational purpose, and their placement reflects how officers naturally scan for information during active incidents. Use the arrows below to explore each component.
+                    Each panel solves a specific problem. Use the arrows to explore the design decisions behind each component.
                 </p>
 
                 <!-- Component Slider -->
@@ -1150,19 +1139,15 @@
             <!-- Design Decisions -->
             <section id="design" class="section">
                 <span class="section-label">Design Decisions</span>
-                <h2>Critical Choices and Trade-offs</h2>
+                <h2>Key Design Decisions</h2>
                 <p>
-                    The design process involved several key decisions that balanced dispatcher needs with technical constraints and organizational realities.
+                    <strong>Information hierarchy:</strong> The primary challenge was determining what information deserves screen real estate. Through testing with dispatch staff, I established: calls and incident (left), activity and suspect (center), map and drone (right). This matches the dispatcher's mental model: "What's happening? Who's involved? Where is everyone?"
                 </p>
-
-                <h3>Information Hierarchy</h3>
                 <p>
-                    The primary challenge was determining what information deserves screen real estate. Through iterative testing with dispatch staff, I established a hierarchy: active incident list (left), map with positions (center), drone feed (right when active).
+                    <strong>Alert escalation:</strong> Three-tier system: Priority 1 (red) for immediate threats, Priority 2 (amber) for developing situations, Priority 3 (blue) for routine calls. The system suggests drone deployment for Priority 1 incidents, but dispatchers can override. The threat score is algorithmic but not authoritative.
                 </p>
-
-                <h3>Alert Escalation Logic</h3>
                 <p>
-                    I designed a three-tier alert system: Priority 1 (red) for immediate threats, Priority 2 (yellow) for developing situations, and Priority 3 (blue) for routine calls. The system automatically suggests drone deployment for Priority 1 incidents.
+                    <strong>Speak their language:</strong> The interface uses 10-codes (10-71, not "Armed Person Alert") because dispatchers are fluent. Translating to plain English would slow them down and feel patronizing.
                 </p>
 
                 <div style="margin: 48px 0;">
@@ -1230,25 +1215,22 @@
             <!-- Outcomes -->
             <section id="outcomes" class="section">
                 <span class="section-label">Outcomes</span>
-                <h2>Research Impact and Next Steps</h2>
-                <p>This thesis work informs future police-drone integration research and contributes to HCI best practices for emergency response systems.</p>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-value">6</div>
-                        <div class="metric-label">Design recommendations produced</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">17</div>
-                        <div class="metric-label">Officer ride-alongs conducted</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">30+</div>
-                        <div class="metric-label">Officer interviews completed</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">2026</div>
-                        <div class="metric-label">Defense/public safety impact planned</div>
-                    </div>
+                <h2>Validation & Impact</h2>
+                <p>
+                    This is thesis research, not a shipped product. Honest assessment of where it stands:
+                </p>
+                <p>
+                    <strong>Prototype testing:</strong> Tested with dispatch supervisors from two participating agencies. Feedback focused on information hierarchy and the value of consolidated views. No fundamental workflow objections.
+                </p>
+                <p>
+                    <strong>Agency interest:</strong> Georgia Tech Police Department expressed interest in continued collaboration for pilot testing. The research contributes to HCI literature on emergency response interface design.
+                </p>
+                <p>
+                    <strong>What I can't claim:</strong> Hard metrics on response time or error reduction. Those require deployment and measurement that thesis timelines don't allow.
+                </p>
+
+                <div class="callout">
+                    <p>"The activity stream is what I'm doing in my head anyway. This just shows it." — Patrol sergeant, Atlanta PD</p>
                 </div>
             </section>
 
@@ -1264,8 +1246,8 @@
                             <polyline points="22 4 12 14.01 9 11.01"/>
                         </svg>
                         <div class="reflection-content">
-                            <h4>Domain Expertise Takes Time</h4>
-                            <p>Understanding dispatch operations required significant immersion. The ride-alongs were invaluable for understanding the rhythm and pressure of the work in ways interviews couldn't capture.</p>
+                            <h4>Users don't want new features. They want fewer systems.</h4>
+                            <p>The instinct is to add capabilities. The insight was that consolidation creates more value than innovation. Dispatchers didn't need a new tool. They needed their existing tools to talk to each other.</p>
                         </div>
                     </li>
                     <li>
@@ -1274,8 +1256,8 @@
                             <polyline points="22 4 12 14.01 9 11.01"/>
                         </svg>
                         <div class="reflection-content">
-                            <h4>Consolidation Over Addition</h4>
-                            <p>The instinct is to add features. The insight from research was that dispatchers needed fewer systems with better integration, not new capabilities.</p>
+                            <h4>Domain fluency is non-negotiable.</h4>
+                            <p>I couldn't design for dispatchers until I understood 10-codes, CAD workflows, and the rhythm of a shift. The ride-alongs taught me things interviews never could. You have to be in the room when it's happening.</p>
                         </div>
                     </li>
                     <li>
@@ -1284,10 +1266,17 @@
                             <polyline points="22 4 12 14.01 9 11.01"/>
                         </svg>
                         <div class="reflection-content">
-                            <h4>High-Stakes Design is Different</h4>
-                            <p>Designing for emergency response has no room for error or confusion. Every interaction must be immediately clear under stress. This discipline improved my work across all domains.</p>
+                            <h4>Every interaction must be immediately clear under stress.</h4>
+                            <p>There's no room for "figure it out" in emergency response. This discipline now shapes how I approach all interface work: if it requires a second look, it's wrong.</p>
                         </div>
                     </li>
+                </ul>
+
+                <h3>What I'd Do Next</h3>
+                <ul>
+                    <li>Run A/B testing on information hierarchy to validate the three-column layout against alternatives</li>
+                    <li>Integrate with actual CAD and AVL systems to move from prototype to pilot</li>
+                    <li>Expand research to 911 call-takers, who sit upstream of dispatchers and have different information needs</li>
                 </ul>
             </section>
         </div>
