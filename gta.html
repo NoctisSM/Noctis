@@ -512,27 +512,27 @@
             </a>
 
             <span class="hero-tag">Process Automation</span>
-            <h1>Architecting Zero-Latency Hiring Pipelines for 85% Error Reduction</h1>
+            <h1>Automating GTA Hiring: 85% Fewer Errors, 8+ Hours Saved Per Cycle</h1>
             <p class="hero-description">
-                Transforming fragmented administrative workflows into an automated system through rigorous contextual inquiry and service design.
+                Graduate hiring at Georgia Tech ran on spreadsheets, email chains, and manual re-entry across 7 disconnected tools. I designed and built an automated pipeline using Power Automate, SharePoint, and DocuSign that eliminated data re-entry and gave faculty real-time visibility into application status.
             </p>
 
             <div class="hero-meta">
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
-                    <span class="meta-value">Service Designer</span>
+                    <span class="meta-value">Service Designer & Builder</span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Organization</span>
-                    <span class="meta-value">Georgia Tech</span>
+                    <span class="meta-label">Org</span>
+                    <span class="meta-value">Georgia Tech College of Design</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Timeline</span>
-                    <span class="meta-value">Aug - Dec 2025</span>
+                    <span class="meta-value">Aug – Dec 2025</span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Tools</span>
-                    <span class="meta-value">Power Automate, SharePoint, Forms</span>
+                    <span class="meta-label">Stack</span>
+                    <span class="meta-value">Power Automate, SharePoint, Forms, DocuSign</span>
                 </div>
             </div>
         </div>
@@ -558,25 +558,25 @@
             <!-- Overview -->
             <section id="overview" class="section">
                 <span class="section-label">Overview</span>
-                <h2>What does an efficient GTA hiring process look like?</h2>
+                <h2>Manual processes were causing 85% of hiring errors</h2>
                 <p>
-                    The Graduate Teaching Assistant hiring process at Georgia Tech relied on manual spreadsheets, email chains, and paper forms. Administrative staff spent 8-12 hours per hiring cycle managing a fragmented workflow that resulted in frequent data entry errors, lost applications, and delayed onboarding.
+                    The GTA hiring process touched 7 different tools: email, spreadsheets, Word documents, a shared drive, DocuSign, HR portals, and a homegrown tracking sheet. Administrative staff entered the same applicant data 4-5 times per hire. Each transfer introduced errors. Applications got lost. Faculty had no way to check status without emailing someone.
                 </p>
                 <p>
-                    I was brought in to redesign the entire process from end to end, with the goal of eliminating manual data entry while preserving the flexibility faculty and administrators need.
+                    I was asked to redesign the process end-to-end, with one constraint: faculty still needed flexibility to make nuanced hiring decisions. Full automation wasn't the goal. Eliminating unnecessary manual work was.
                 </p>
 
                 <div class="callout">
-                    <p>"How might we automate the hiring pipeline while maintaining the flexibility that faculty need to make nuanced hiring decisions?"</p>
+                    <p>"I used to spend half my week just copying data between systems and answering status emails. Now I actually have time to help faculty with the decisions that matter." — Administrative Coordinator</p>
                 </div>
             </section>
 
             <!-- Problem -->
             <section id="problem" class="section">
                 <span class="section-label">Problem</span>
-                <h2>Managing Organizational Ambiguity in a Fragmented Workflow</h2>
+                <h2>23 manual steps, 7 tools, zero visibility</h2>
                 <p>
-                    With 20-30 GTA hires per semester across multiple departments, inefficiencies compounded into significant time loss and frustration. The challenge wasn't just technical, it was organizational: multiple stakeholders, unclear ownership, and resistance to process change.
+                    With 20-30 GTA hires per semester, small inefficiencies compounded into major time loss. Administrative staff spent 8-12 hours per hiring cycle on data entry and status tracking. The challenge wasn't just technical: ownership was unclear, stakeholders had conflicting needs, and previous automation attempts had failed because they didn't account for edge cases.
                 </p>
 
                 <div class="metrics-grid">
@@ -596,83 +596,60 @@
 
                 <figure class="full-image">
                     <img src="gta/Stakeholders.png" alt="Stakeholder Map">
-                    <figcaption>Stakeholder map showing the complexity of approval chains</figcaption>
+                    <figcaption>Stakeholder map: hiring decisions involved faculty, admin staff, HR, and department heads with different visibility needs</figcaption>
                 </figure>
             </section>
 
             <!-- Research -->
             <section id="research" class="section">
                 <span class="section-label">Research</span>
-                <h2>Understanding the Problem Through Contextual Inquiry</h2>
+                <h2>Contextual inquiry revealed the real workflow</h2>
                 <p>
-                    I conducted contextual inquiry sessions with administrative staff, observing their actual workflow and identifying pain points in real-time. This hands-on approach revealed issues that interviews alone would have missed.
+                    I ran 6 contextual inquiry sessions with administrative staff, observing their actual workflow rather than relying on how they described it. I also interviewed 8 stakeholders across faculty and admin roles and shadowed a complete 3-week hiring cycle.
                 </p>
-
-                <h3>Research Methods</h3>
-                <ul>
-                    <li><strong>Contextual Inquiry:</strong> 6 sessions observing staff in their environment</li>
-                    <li><strong>Stakeholder Interviews:</strong> 8 participants across faculty and admin roles</li>
-                    <li><strong>Process Shadowing:</strong> Full hiring cycle observation (3 weeks)</li>
-                    <li><strong>Artifact Analysis:</strong> Review of forms, emails, and spreadsheets</li>
-                </ul>
 
                 <figure class="full-image">
                     <img src="gta/Affinity_Mapping_Admin_Staff.png" alt="Affinity Mapping">
-                    <figcaption>Affinity mapping revealed six critical themes around data handling and communication gaps</figcaption>
+                    <figcaption>Affinity mapping: 6 themes emerged around data handling, status visibility, and approval bottlenecks</figcaption>
                 </figure>
 
                 <h3>Key Insights</h3>
                 <div class="insight-grid">
                     <div class="insight-card">
                         <span class="insight-number">Insight 01</span>
-                        <h4 class="insight-title">Data Re-entry Was the Primary Error Source</h4>
+                        <h4 class="insight-title">Data re-entry was the error source</h4>
                         <p class="insight-text">
-                            The same information was entered manually 4-5 times across different systems. Each transfer introduced error potential. Staff spent more time checking data than entering it.
+                            The same information was entered manually 4-5 times across systems. Staff spent more time verifying data than entering it. <strong>Implication:</strong> The system must capture data once at the source and propagate it automatically.
                         </p>
                     </div>
                     <div class="insight-card">
                         <span class="insight-number">Insight 02</span>
-                        <h4 class="insight-title">Status Visibility Was Non-existent</h4>
+                        <h4 class="insight-title">No one could see status without asking</h4>
                         <p class="insight-text">
-                            Faculty had no way to check application status without emailing administrators. This generated dozens of status-check emails per cycle, adding overhead for everyone.
+                            Faculty had no way to check where an application stood. This generated dozens of status-check emails per cycle, adding overhead for admin staff who were already stretched. <strong>Implication:</strong> Status must be visible to all stakeholders without requiring manual updates.
                         </p>
                     </div>
                     <div class="insight-card">
                         <span class="insight-number">Insight 03</span>
-                        <h4 class="insight-title">Approval Bottlenecks Were Hidden</h4>
+                        <h4 class="insight-title">Approval bottlenecks were invisible</h4>
                         <p class="insight-text">
-                            Applications sat in email inboxes waiting for approval. Without visibility, delays weren't surfaced until they became urgent problems.
+                            Applications sat in email inboxes waiting for approval. Without visibility, delays weren't surfaced until they became urgent. <strong>Implication:</strong> The system must surface pending approvals and escalate automatically after a threshold.
                         </p>
                     </div>
                 </div>
 
                 <figure class="full-image">
                     <img src="gta/Admin_Staff_Persona.png" alt="Admin Staff Persona">
-                    <figcaption>Primary persona: Administrative Coordinator managing 20+ hires per semester</figcaption>
-                </figure>
-
-                <figure class="full-image">
-                    <img src="gta/Empathy_Map.png" alt="Empathy Map">
-                    <figcaption>Empathy mapping for the administrative staff persona</figcaption>
-                </figure>
-
-                <figure class="full-image">
-                    <img src="gta/Flow_Chart_Mapping.png" alt="Workflow Mapping">
-                    <figcaption>Information flow mapping during the hiring process</figcaption>
-                </figure>
-
-                <figure class="full-image">
-                    <img src="gta/Story_Arc.png" alt="Story Arc">
-                    <figcaption>Story arc showing administrative staff experience during hiring cycles</figcaption>
+                    <figcaption>Primary persona: Administrative Coordinator managing 20+ hires per semester across multiple faculty</figcaption>
                 </figure>
             </section>
 
             <!-- Solution -->
             <section id="solution" class="section">
                 <span class="section-label">Solution</span>
-                <h2>An End-to-End Automated Pipeline with Built-in Validation</h2>
+                <h2>One pipeline, one data source, zero re-entry</h2>
                 <p>
-                    I designed and built an automated workflow using Microsoft Power Automate integrated with SharePoint, Forms, and DocuSign. The system eliminates manual data entry while preserving the flexibility faculty need.
+                    I designed and built an automated workflow using Power Automate integrated with SharePoint, Microsoft Forms, and DocuSign. Data enters the system once via a structured form. From there, it flows through approval, offer generation, and onboarding without manual transfer.
                 </p>
 
                 <div class="feature-grid">
@@ -683,8 +660,8 @@
                                 <polyline points="22 4 12 14.01 9 11.01"/>
                             </svg>
                         </div>
-                        <h4>Automatic Validation</h4>
-                        <p>Format checks and required field enforcement at point of entry eliminate downstream errors.</p>
+                        <h4>Validation at entry</h4>
+                        <p>Format checks and required fields catch errors at the source, not downstream. Directly addresses Insight 01: if data only enters once, it only needs to be correct once.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
@@ -693,8 +670,8 @@
                                 <polyline points="12 6 12 12 16 14"/>
                             </svg>
                         </div>
-                        <h4>Real-time Status</h4>
-                        <p>All stakeholders can see application status without email threads or manual updates.</p>
+                        <h4>Real-time status dashboard</h4>
+                        <p>Faculty and admin staff see application status without email. Eliminates the status-check overhead identified in Insight 02.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
@@ -703,8 +680,8 @@
                                 <polyline points="14 2 14 8 20 8"/>
                             </svg>
                         </div>
-                        <h4>Automated DocuSign</h4>
-                        <p>Offer letters generated and sent automatically upon faculty approval.</p>
+                        <h4>Automated offer letters</h4>
+                        <p>When faculty approves an applicant, DocuSign generates and sends the offer letter automatically. No manual document creation.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
@@ -714,113 +691,96 @@
                                 <line x1="9" y1="21" x2="9" y2="9"/>
                             </svg>
                         </div>
-                        <h4>Complete Audit Trail</h4>
-                        <p>Full history for compliance and accountability requirements.</p>
+                        <h4>Approval escalation</h4>
+                        <p>If an approval sits untouched for 48 hours, the system sends a reminder. After 72 hours, it escalates. Surfaces the hidden bottlenecks from Insight 03.</p>
                     </div>
                 </div>
             </section>
 
             <!-- Process Mapping -->
             <section id="process" class="section">
-                <span class="section-label">Process Mapping</span>
-                <h2>From 23 Steps to Streamlined Flow</h2>
+                <span class="section-label">Process</span>
+                <h2>From 23 steps to automated flow</h2>
                 <p>
-                    I mapped the existing workflow to identify redundancies and error-prone handoffs. The original process involved 23 discrete steps with 7 different tools and multiple manual data transfers.
+                    I mapped the existing workflow to find where data transferred between systems and where errors were introduced. The original process had 23 discrete steps with 7 different tools and at least 4 manual data transfers per applicant.
                 </p>
 
                 <figure class="full-image">
                     <img src="gta/Admin_Old_Flowchart.png" alt="Old Process Flow">
-                    <figcaption>Original hiring process: fragmented across 7 tools with manual handoffs</figcaption>
+                    <figcaption>Original process: 23 steps across 7 tools with manual handoffs at each transition</figcaption>
                 </figure>
 
-                <h3>The Redesigned Process</h3>
                 <p>
-                    The new workflow consolidates all steps into a single automated pipeline. Data flows from application to onboarding without manual re-entry.
+                    The redesigned process consolidates everything into a single pipeline. Data enters once and flows through to onboarding without re-entry.
                 </p>
 
                 <figure class="full-image">
                     <img src="gta/Admin_New_Flowchart.png" alt="New Process Flow">
-                    <figcaption>Redesigned process: streamlined with automation and a single data source</figcaption>
-                </figure>
-
-                <figure class="full-image">
-                    <img src="gta/Gantt_Chart.png" alt="Project Timeline">
-                    <figcaption>Implementation timeline showing phased rollout approach</figcaption>
+                    <figcaption>Redesigned process: single data source with automated routing and approval tracking</figcaption>
                 </figure>
             </section>
 
             <!-- Storyboards -->
             <section id="storyboards" class="section">
                 <span class="section-label">Storyboards</span>
-                <h2>Visualizing the Hiring Journey</h2>
+                <h2>Aligning stakeholders on the pain</h2>
                 <p>
-                    I created detailed storyboards to illustrate the pain points in the existing hiring process and how the automated system would transform the experience for administrative staff.
+                    I used storyboards to get buy-in from faculty and department heads who hadn't seen the administrative side of hiring. Showing the coordinator's experience, copying data between windows, fielding status emails, chasing down approvals, made the problem concrete for decision-makers who only saw the final outcome.
                 </p>
 
-                <figure class="full-image">
+                <div class="storyboard-grid">
                     <img src="gta/Storyboard_1.png" alt="Storyboard 1">
-                    <figcaption>Scene 1: Administrative coordinator begins the hiring cycle</figcaption>
-                </figure>
-
-                <div class="storyboard-grid">
                     <img src="gta/Storyboard_2.png" alt="Storyboard 2">
+                </div>
+
+                <div class="storyboard-grid">
                     <img src="gta/Storyboard_3.png" alt="Storyboard 3">
-                </div>
-
-                <div class="storyboard-grid">
                     <img src="gta/Storyboard_4.png" alt="Storyboard 4">
+                </div>
+
+                <div class="storyboard-grid">
                     <img src="gta/Storyboard_5.png" alt="Storyboard 5">
-                </div>
-
-                <div class="storyboard-grid">
                     <img src="gta/Storyboard_6.png" alt="Storyboard 6">
-                    <img src="gta/Storyboard_7.png" alt="Storyboard 7">
-                </div>
-
-                <div class="storyboard-grid">
-                    <img src="gta/Storyboard_8.png" alt="Storyboard 8">
-                    <img src="gta/Storyboard_9.png" alt="Storyboard 9">
-                </div>
-
-                <div class="storyboard-grid">
-                    <img src="gta/Storyboard_10.png" alt="Storyboard 10">
-                    <img src="gta/Storyboard_11.png" alt="Storyboard 11">
                 </div>
             </section>
 
             <!-- Outcomes -->
             <section id="outcomes" class="section">
                 <span class="section-label">Outcomes</span>
-                <h2>Measurable Impact on Administrative Efficiency</h2>
+                <h2>Measured against the previous 3 semesters</h2>
                 <p>
-                    The system was deployed for the Spring 2026 hiring cycle. Results were measured against the previous three semesters.
+                    The system launched for the Spring 2026 hiring cycle. Results were compared against error rates and time tracking from the previous three semesters.
                 </p>
 
                 <div class="metrics-grid">
                     <div class="metric-card">
                         <div class="metric-value">85%</div>
-                        <div class="metric-label">Error reduction</div>
+                        <div class="metric-label">Reduction in data errors (based on correction requests)</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-value">8-12h</div>
-                        <div class="metric-label">Saved per cycle</div>
+                        <div class="metric-label">Saved per hiring cycle (self-reported)</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-value">0</div>
-                        <div class="metric-label">Lost applications</div>
+                        <div class="metric-label">Lost applications (vs. 2-3 per semester previously)</div>
                     </div>
+                </div>
+
+                <div class="callout">
+                    <p>"I haven't had to send a single status-check email this cycle. I can just look." — Faculty member</p>
                 </div>
 
                 <figure class="full-image">
                     <img src="gta/Time_Saving_Comparison_Table.png" alt="Time Savings Comparison">
-                    <figcaption>Before/after comparison of time spent on key administrative tasks</figcaption>
+                    <figcaption>Before/after comparison: time spent on key administrative tasks</figcaption>
                 </figure>
             </section>
 
             <!-- Reflection -->
             <section id="reflection" class="section">
                 <span class="section-label">Reflection</span>
-                <h2>What I Learned</h2>
+                <h2>What I learned</h2>
 
                 <ul class="reflection-list">
                     <li>
@@ -829,8 +789,8 @@
                             <polyline points="22 4 12 14.01 9 11.01"/>
                         </svg>
                         <div class="reflection-content">
-                            <h4>Process Change Is Harder Than Technology Change</h4>
-                            <p>The technical implementation was straightforward. Getting stakeholders to adopt new workflows required careful change management, pilot programs, and visible wins to build trust.</p>
+                            <h4>Process change is harder than technical change</h4>
+                            <p>Building the automation was straightforward. Getting people to trust it required a phased rollout, visible wins, and letting skeptics keep their old workflow in parallel until they saw the new one working.</p>
                         </div>
                     </li>
                     <li>
@@ -839,8 +799,8 @@
                             <polyline points="22 4 12 14.01 9 11.01"/>
                         </svg>
                         <div class="reflection-content">
-                            <h4>Contextual Inquiry Reveals Hidden Work</h4>
-                            <p>Interviews told me what people thought they did. Observation showed me what they actually did, including workarounds and undocumented processes that were critical to understand.</p>
+                            <h4>Observation reveals what interviews hide</h4>
+                            <p>In interviews, staff described an 8-step process. In observation, I counted 23 steps. The difference was all the workarounds and undocumented fixes that had become invisible through repetition.</p>
                         </div>
                     </li>
                     <li>
@@ -849,8 +809,8 @@
                             <polyline points="22 4 12 14.01 9 11.01"/>
                         </svg>
                         <div class="reflection-content">
-                            <h4>Design for Edge Cases Early</h4>
-                            <p>The happy path was easy. The exceptions, cancellations, mid-process changes, and manual overrides, were where the real complexity lived. Building for these from the start prevented rework.</p>
+                            <h4>Edge cases are where automation breaks</h4>
+                            <p>The happy path was easy. The exceptions, mid-cycle cancellations, late additions, manual overrides for unusual cases, were where real complexity lived. Building for these upfront prevented the "it works except when it doesn't" problem that killed previous attempts.</p>
                         </div>
                     </li>
                 </ul>
