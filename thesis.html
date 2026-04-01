@@ -526,7 +526,7 @@
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Timeline</span>
-                    <span class="meta-value">May 2025 - May 2026</span>
+                    <span class="meta-value">Aug 2025 - Apr 2026</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Scope</span>
@@ -550,7 +550,9 @@
                 <a href="#overview" class="active">Overview</a>
                 <a href="#problem">Problem</a>
                 <a href="#research">Research</a>
+                <a href="#personas">Personas</a>
                 <a href="#solution">Solution</a>
+                <a href="#testing">Testing</a>
                 <a href="#outcomes">Outcomes</a>
                 <a href="#reflection">Reflection</a>
             </nav>
@@ -568,8 +570,49 @@
                     OVERWATCH synthesizes live drone feeds, officer positions, and incident data into one interface that matches how dispatchers actually think during incidents. I led research and design for this thesis project across seven Georgia law enforcement agencies.
                 </p>
 
+                <!-- Project Details Grid -->
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 40px 0;">
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+                        <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-bottom: 8px;">Role</p>
+                        <p style="font-size: 15px; font-weight: 500; color: var(--text-primary); margin: 0;">Lead Designer<br>UX Researcher</p>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+                        <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-bottom: 8px;">Timeline</p>
+                        <p style="font-size: 15px; font-weight: 500; color: var(--text-primary); margin: 0;">Aug 2025 – Apr 2026<br>(9 months)</p>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+                        <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-bottom: 8px;">Team</p>
+                        <p style="font-size: 15px; font-weight: 500; color: var(--text-primary); margin: 0;">Solo project<br>(MS-HCI Thesis)</p>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px;">
+                        <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-bottom: 8px;">Tools</p>
+                        <p style="font-size: 15px; font-weight: 500; color: var(--text-primary); margin: 0;">Figma, Leaflet.js<br>D3, HTML/CSS</p>
+                    </div>
+                </div>
+
                 <div class="callout">
                     <p>"This is the first time I've seen drone footage and officer positions on the same screen. I don't have to ask where everyone is." — Dispatch supervisor, Georgia Tech PD</p>
+                </div>
+
+                <!-- Research at a Glance -->
+                <h3>Research at a Glance</h3>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">7</div>
+                        <div class="metric-label">Georgia law enforcement agencies</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">30+</div>
+                        <div class="metric-label">Interviews with officers, dispatchers, pilots</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">17</div>
+                        <div class="metric-label">Ride-along observations</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">10</div>
+                        <div class="metric-label">Officers in usability testing</div>
+                    </div>
                 </div>
             </section>
 
@@ -658,6 +701,46 @@
                         <figcaption style="font-size: 13px; color: var(--text-tertiary); text-align: center; margin-top: 12px;">
                             Officer journey map: field response and communication touchpoints
                         </figcaption>
+                    </figure>
+                </div>
+
+                <!-- Empathy Map -->
+                <h3>Empathy Mapping</h3>
+                <p>
+                    Synthesized officer and dispatcher perspectives into a unified empathy map, capturing what users say, think, do, and feel during high-stress incidents.
+                </p>
+                <figure style="margin: 32px 0;">
+                    <img src="Thesis/Empathy_Map.png" alt="Empathy map for patrol officers"
+                         style="width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block;">
+                    <figcaption style="font-size: 13px; color: var(--text-tertiary); text-align: center; margin-top: 12px;">
+                        Empathy map: capturing officer mental models during incident response
+                    </figcaption>
+                </figure>
+            </section>
+
+            <!-- Personas -->
+            <section id="personas" class="section">
+                <span class="section-label">Research</span>
+                <h2>Personas</h2>
+                <p>
+                    Four personas representing the spectrum of patrol officer experience, technology comfort, and operational context. These informed design decisions around information density, voice interaction, and threat assessment features.
+                </p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 40px 0;">
+                    <figure style="margin: 0;">
+                        <img src="Thesis/Officer_Clinton_Persona.png" alt="Officer Clinton persona"
+                             style="width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block;">
+                    </figure>
+                    <figure style="margin: 0;">
+                        <img src="Thesis/Officer_DeSanta_Persona.png" alt="Officer DeSanta persona"
+                             style="width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block;">
+                    </figure>
+                    <figure style="margin: 0;">
+                        <img src="Thesis/Officer_Philips_Persona.png" alt="Officer Philips persona"
+                             style="width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block;">
+                    </figure>
+                    <figure style="margin: 0;">
+                        <img src="Thesis/Officer_Weston_Persona.png" alt="Officer Weston persona"
+                             style="width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block;">
                     </figure>
                 </div>
             </section>
@@ -1212,6 +1295,179 @@
                 </div>
             </section>
 
+            <!-- Testing & Evaluation -->
+            <section id="testing" class="section">
+                <span class="section-label">Testing & Evaluation</span>
+                <h2>Validating with Real Officers</h2>
+                <p>
+                    I conducted mixed-methods evaluation combining expert-based and user-based approaches: heuristic evaluation, cognitive walkthrough, and task-based usability testing with 10 sworn patrol officers from Georgia Tech Police Department.
+                </p>
+
+                <h3>Methodology</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 11l3 3L22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                            </svg>
+                        </div>
+                        <h4>Task-Based Testing</h4>
+                        <p>Officers completed 5 core tasks: reviewing calls, tracking suspect movement, marking status, interpreting threat panels, and generating handoffs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h4>Semi-Structured Interviews</h4>
+                        <p>30-45 minute sessions capturing perceptions of information needs, current dispatch frustrations, and desired changes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <h4>System Usability Scale</h4>
+                        <p>Standard 10-item SUS questionnaire to quantify perceived usability after task completion.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <h4>NASA TLX Workload</h4>
+                        <p>6-dimension workload assessment: mental demand, physical demand, temporal demand, performance, effort, frustration.</p>
+                    </div>
+                </div>
+
+                <h3>Quantitative Results</h3>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">78</div>
+                        <div class="metric-label">Mean SUS Score (Good Usability)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Task 1 Completion (Call Review)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">83%</div>
+                        <div class="metric-label">Task 2 Completion (Map/Flags)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">55</div>
+                        <div class="metric-label">NASA TLX Overall (Moderate Workload)</div>
+                    </div>
+                </div>
+
+                <h3>Per-Officer SUS Breakdown</h3>
+                <p>
+                    Individual scores ranged from 73 to 82, with officers consistently describing OVERWATCH as "the best CAD interface I've seen."
+                </p>
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 32px 0;">
+                    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; text-align: center;">
+                        <div>
+                            <p style="font-size: 28px; font-weight: 600; color: var(--accent); margin: 0;">82</p>
+                            <p style="font-size: 12px; color: var(--text-tertiary); margin: 4px 0 0;">Officer Bittner</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 28px; font-weight: 600; color: var(--accent); margin: 0;">80</p>
+                            <p style="font-size: 12px; color: var(--text-tertiary); margin: 4px 0 0;">Officer Bidgood</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 28px; font-weight: 600; color: var(--accent); margin: 0;">80</p>
+                            <p style="font-size: 12px; color: var(--text-tertiary); margin: 4px 0 0;">Officer Sarr</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 28px; font-weight: 600; color: var(--accent); margin: 0;">78</p>
+                            <p style="font-size: 12px; color: var(--text-tertiary); margin: 4px 0 0;">Officer Martial</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 28px; font-weight: 600; color: var(--accent); margin: 0;">75</p>
+                            <p style="font-size: 12px; color: var(--text-tertiary); margin: 4px 0 0;">Officer Bohr</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 28px; font-weight: 600; color: var(--accent); margin: 0;">73</p>
+                            <p style="font-size: 12px; color: var(--text-tertiary); margin: 4px 0 0;">Officer Parrish</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>What Officers Said</h3>
+                <div class="insight-grid">
+                    <div class="insight-card">
+                        <p class="insight-text" style="font-style: italic;">
+                            "Best CAD I have seen. The map and breadcrumbs alone would change how I approach pursuits."
+                        </p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--accent); margin-top: 12px;">— Officer Bittner, SUS 82</p>
+                    </div>
+                    <div class="insight-card">
+                        <p class="insight-text" style="font-style: italic;">
+                            "It's like having a personal dispatcher. I can see everything without asking for it over radio."
+                        </p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--accent); margin-top: 12px;">— Officer Sarr, SUS 80</p>
+                    </div>
+                    <div class="insight-card">
+                        <p class="insight-text" style="font-style: italic;">
+                            "The activity stream is what I'm doing in my head anyway. This just shows it."
+                        </p>
+                        <p style="font-size: 13px; font-weight: 600; color: var(--accent); margin-top: 12px;">— Officer Martial, SUS 78</p>
+                    </div>
+                </div>
+
+                <h3>NASA TLX Workload Profile</h3>
+                <p>
+                    Officers reported moderate overall workload, with mental and temporal demands inherent to patrol work. OVERWATCH shifted cognitive load away from reconstructing events toward monitoring and decision-making.
+                </p>
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 32px 0;">
+                    <div style="display: grid; gap: 16px;">
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <span style="font-size: 13px; font-weight: 500; color: var(--text-secondary); width: 140px;">Mental Demand</span>
+                            <div style="flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden;">
+                                <div style="width: 55%; height: 100%; background: var(--accent); border-radius: 4px;"></div>
+                            </div>
+                            <span style="font-size: 13px; font-weight: 600; color: var(--text-primary); width: 50px;">55/100</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <span style="font-size: 13px; font-weight: 500; color: var(--text-secondary); width: 140px;">Physical Demand</span>
+                            <div style="flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden;">
+                                <div style="width: 25%; height: 100%; background: #15803D; border-radius: 4px;"></div>
+                            </div>
+                            <span style="font-size: 13px; font-weight: 600; color: var(--text-primary); width: 50px;">25/100</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <span style="font-size: 13px; font-weight: 500; color: var(--text-secondary); width: 140px;">Temporal Demand</span>
+                            <div style="flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden;">
+                                <div style="width: 65%; height: 100%; background: #b86a06; border-radius: 4px;"></div>
+                            </div>
+                            <span style="font-size: 13px; font-weight: 600; color: var(--text-primary); width: 50px;">65/100</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <span style="font-size: 13px; font-weight: 500; color: var(--text-secondary); width: 140px;">Effort</span>
+                            <div style="flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden;">
+                                <div style="width: 60%; height: 100%; background: var(--accent); border-radius: 4px;"></div>
+                            </div>
+                            <span style="font-size: 13px; font-weight: 600; color: var(--text-primary); width: 50px;">60/100</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <span style="font-size: 13px; font-weight: 500; color: var(--text-secondary); width: 140px;">Frustration</span>
+                            <div style="flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden;">
+                                <div style="width: 45%; height: 100%; background: #15803D; border-radius: 4px;"></div>
+                            </div>
+                            <span style="font-size: 13px; font-weight: 600; color: var(--text-primary); width: 50px;">45/100</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Outcomes -->
             <section id="outcomes" class="section">
                 <span class="section-label">Outcomes</span>
@@ -1220,7 +1476,7 @@
                     This is thesis research, not a shipped product. Honest assessment of where it stands:
                 </p>
                 <p>
-                    <strong>Prototype testing:</strong> Tested with dispatch supervisors from two participating agencies. Feedback focused on information hierarchy and the value of consolidated views. No fundamental workflow objections.
+                    <strong>Prototype testing:</strong> 10 sworn officers completed task-based usability sessions. Mean SUS score of 78 indicates good usability, with officers consistently rating OVERWATCH above their current CAD tools.
                 </p>
                 <p>
                     <strong>Agency interest:</strong> Georgia Tech Police Department expressed interest in continued collaboration for pilot testing. The research contributes to HCI literature on emergency response interface design.
@@ -1230,7 +1486,7 @@
                 </p>
 
                 <div class="callout">
-                    <p>"The activity stream is what I'm doing in my head anyway. This just shows it." — Patrol sergeant, Atlanta PD</p>
+                    <p>"This is significantly better than our current CAD. The map alone would change how we coordinate on pursuits." — Officer Bittner, GTPD</p>
                 </div>
             </section>
 
