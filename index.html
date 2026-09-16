@@ -129,20 +129,11 @@
         }
 
         .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 64px;
-            align-items: center;
+            width: 100%;
         }
 
         .hero-left {
-            max-width: 640px;
-        }
-
-        .hero-right {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
+            max-width: none;
         }
 
         .hero-label {
@@ -172,80 +163,7 @@
             font-size: 18px;
             line-height: 1.7;
             color: var(--text-secondary);
-            max-width: 560px;
-        }
-
-        .hero-meta {
-            display: flex;
-            gap: 48px;
-            margin-top: 48px;
-            padding-top: 32px;
-            border-top: 1px solid var(--border);
-        }
-
-        .meta-item {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .meta-label {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-tertiary);
-        }
-
-        .meta-value {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .meta-value a {
-            color: var(--accent);
-            transition: color 0.2s;
-        }
-
-        .meta-value a:hover {
-            color: var(--accent-light);
-        }
-
-        /* Experience List */
-        .experience-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            justify-content: flex-end;
-        }
-
-        .experience-item {
-            display: flex;
-            align-items: baseline;
-            gap: 16px;
-            font-size: 14px;
-        }
-
-        .exp-year {
-            font-weight: 500;
-            color: var(--text-tertiary);
-            min-width: 76px;
-        }
-
-        .exp-company {
-            font-weight: 500;
-            color: var(--text-primary);
-            min-width: 160px;
-            transition: color 0.2s;
-        }
-
-        .exp-company:hover {
-            color: var(--accent);
-        }
-
-        .exp-role {
-            color: var(--text-secondary);
+            max-width: 760px;
         }
 
         /* Projects Grid */
@@ -454,10 +372,6 @@
                 padding: 160px 32px 80px;
             }
 
-            .hero-content {
-                gap: 48px;
-            }
-
             .projects-section {
                 padding: 0 32px 80px;
             }
@@ -482,24 +396,6 @@
 
             .hero h1 {
                 font-size: 2rem;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .hero-right {
-                gap: 32px;
-            }
-
-            .experience-item {
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-
-            .exp-company {
-                min-width: auto;
             }
 
             .projects-section {
@@ -536,6 +432,7 @@
                 <a href="index.html" class="active">Work</a>
                 <a href="about.html">About</a>
                 <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
                 <a href="#" id="contact-link">Contact</a>
             </nav>
         </div>
@@ -550,35 +447,6 @@
                     <p class="hero-description">
                         Dispatch systems, patient platforms, clinical workflows. I focus on clarity, timing, and error reduction in high-stakes environments where confusion has real consequences.
                     </p>
-                </div>
-                <div class="hero-right">
-                    <div class="experience-list">
-                        <div class="experience-item">
-                            <span class="exp-year">2024–2026</span>
-                            <span class="exp-company">Georgia Tech</span>
-                            <span class="exp-role">MS-HCI</span>
-                        </div>
-                        <div class="experience-item">
-                            <span class="exp-year">2022–2024</span>
-                            <span class="exp-company">Dahlstrom Technologies</span>
-                            <span class="exp-role">Product design</span>
-                        </div>
-                        <div class="experience-item">
-                            <span class="exp-year">2020–2022</span>
-                            <span class="exp-company">Align Technology</span>
-                            <span class="exp-role">Patient dashboard, 12M users</span>
-                        </div>
-                    </div>
-                    <div class="hero-meta">
-                        <div class="meta-item">
-                            <span class="meta-label">Status</span>
-                            <span class="meta-value">Seeking product/UX roles — graduating May 2026</span>
-                        </div>
-                        <div class="meta-item">
-                            <span class="meta-label">Links</span>
-                            <span class="meta-value"><a href="resume.pdf" target="_blank">Resume</a> · <a href="https://www.linkedin.com/in/samhithmitra/" target="_blank">LinkedIn</a></span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
