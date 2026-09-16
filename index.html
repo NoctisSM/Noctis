@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
-o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
-o.onload=function(){window.trackingFunctions.onLoad({appId:"69a43cf20d2d070019b66e75"})},
-document.head.appendChild(o)}initApollo();</script>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +10,12 @@ document.head.appendChild(o)}initApollo();</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <script>
+    function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
+    o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
+    o.onload=function(){window.trackingFunctions.onLoad({appId:"69a43cf20d2d070019b66e75"})},
+    document.head.appendChild(o)}initApollo();
+    </script>
     <style>
         :root {
             --bg-primary: #FAFAFA;
@@ -137,6 +139,12 @@ document.head.appendChild(o)}initApollo();</script>
             max-width: 640px;
         }
 
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
         .hero-label {
             font-size: 13px;
             font-weight: 500;
@@ -222,7 +230,7 @@ document.head.appendChild(o)}initApollo();</script>
         .exp-year {
             font-weight: 500;
             color: var(--text-tertiary);
-            min-width: 40px;
+            min-width: 76px;
         }
 
         .exp-company {
@@ -481,6 +489,10 @@ document.head.appendChild(o)}initApollo();</script>
                 gap: 32px;
             }
 
+            .hero-right {
+                gap: 32px;
+            }
+
             .experience-item {
                 flex-wrap: wrap;
                 gap: 8px;
@@ -539,6 +551,35 @@ document.head.appendChild(o)}initApollo();</script>
                         Dispatch systems, patient platforms, clinical workflows. I focus on clarity, timing, and error reduction in high-stakes environments where confusion has real consequences.
                     </p>
                 </div>
+                <div class="hero-right">
+                    <div class="experience-list">
+                        <div class="experience-item">
+                            <span class="exp-year">2024–2026</span>
+                            <span class="exp-company">Georgia Tech</span>
+                            <span class="exp-role">MS-HCI</span>
+                        </div>
+                        <div class="experience-item">
+                            <span class="exp-year">2022–2024</span>
+                            <span class="exp-company">Dahlstrom Technologies</span>
+                            <span class="exp-role">Product design</span>
+                        </div>
+                        <div class="experience-item">
+                            <span class="exp-year">2020–2022</span>
+                            <span class="exp-company">Align Technology</span>
+                            <span class="exp-role">Patient dashboard, 12M users</span>
+                        </div>
+                    </div>
+                    <div class="hero-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Status</span>
+                            <span class="meta-value">Seeking product/UX roles — graduating May 2026</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Links</span>
+                            <span class="meta-value"><a href="resume.pdf" target="_blank">Resume</a> · <a href="https://www.linkedin.com/in/samhithmitra/" target="_blank">LinkedIn</a></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -560,7 +601,7 @@ document.head.appendChild(o)}initApollo();</script>
                         </div>
                         <h3 class="project-title">Drone Intelligence for Police Dispatch</h3>
                         <p class="project-description">
-                            Dispatchers juggle CAD, radio, maps, and have no access to live drone footage. I designed a unified command interface that puts aerial feeds, officer positions, and incident data into one prioritized view.
+                            Dispatchers weren't overwhelmed by how much they handled — they were overwhelmed by how many places they had to look. I designed for consolidation, not reduction.
                         </p>
                         <span class="project-cta">
                             View Case Study
@@ -583,7 +624,7 @@ document.head.appendChild(o)}initApollo();</script>
                         </div>
                         <h3 class="project-title">Automating Graduate Hiring Workflows</h3>
                         <p class="project-description">
-                            Manual data entry across three disconnected systems caused 85% of hiring errors. I mapped the workflow gaps through contextual inquiry and designed an automated pipeline that eliminated redundant steps.
+                            Every handoff between the three systems meant re-entering the same data by hand — and because no single step owned verification, small errors compounded silently until they surfaced downstream. I designed the pipeline around eliminating re-entry entirely, not adding more checks.
                         </p>
                         <span class="project-cta">
                             View Case Study
@@ -606,7 +647,7 @@ document.head.appendChild(o)}initApollo();</script>
                         </div>
                         <h3 class="project-title">Patient Dashboard for 12M Users</h3>
                         <p class="project-description">
-                            Patients weren't tracking treatment progress because the dashboard buried actionable information. I redesigned the interface to surface next steps and appointment status, increasing engagement by 35%.
+                            Patients didn't need more data — they needed to know what to do next. I redesigned around next-step clarity instead of information density, increasing engagement by 35%.
                         </p>
                         <span class="project-cta">
                             View Case Study
@@ -685,7 +726,6 @@ document.head.appendChild(o)}initApollo();</script>
             var domain = 'gmail.com';
             var email = user + '@' + domain;
             document.getElementById('contact-link').setAttribute('href', 'mailto:' + email);
-            document.getElementById('footer-email').setAttribute('href', 'mailto:' + email);
         });
     </script>
 </body>
