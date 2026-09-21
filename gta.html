@@ -3,9 +3,35 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex, nofollow">
-    <title>GTA Hiring Automation | Noctis</title>
-    <meta name="description" content="Noctis | Design research and systems for public safety, automotive, and healthcare. Specialized in high-stakes environments.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <title>Automating Graduate Hiring Workflows | Samhith Mitra</title>
+    <meta name="description" content="Case study: designing a hiring pipeline that eliminated manual re-entry across seven disconnected tools instead of adding more verification steps.">
+    <meta name="author" content="Samhith Mitra">
+    <link rel="canonical" href="https://samhithmitra.me/gta.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Samhith Mitra — Product Designer">
+    <meta property="og:title" content="Automating Graduate Hiring Workflows | Samhith Mitra">
+    <meta property="og:description" content="Case study: designing a hiring pipeline that eliminated manual re-entry across seven disconnected tools instead of adding more verification steps.">
+    <meta property="og:url" content="https://samhithmitra.me/gta.html">
+    <meta property="og:image" content="https://samhithmitra.me/gta/GTA_flow.png">
+    <meta property="og:image:alt" content="Automating Graduate Hiring Workflows | Samhith Mitra">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Automating Graduate Hiring Workflows | Samhith Mitra">
+    <meta name="twitter:description" content="Case study: designing a hiring pipeline that eliminated manual re-entry across seven disconnected tools instead of adding more verification steps.">
+    <meta name="twitter:image" content="https://samhithmitra.me/gta/GTA_flow.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Automating Graduate Hiring Workflows",
+      "description": "Case study: designing a hiring pipeline that eliminated manual re-entry across seven disconnected tools instead of adding more verification steps.",
+      "image": "https://samhithmitra.me/gta/GTA_flow.png",
+      "url": "https://samhithmitra.me/gta.html",
+      "author": {"@type": "Person", "name": "Samhith Mitra", "url": "https://samhithmitra.me/"},
+      "publisher": {"@type": "Person", "name": "Samhith Mitra"},
+      "isPartOf": {"@type": "CollectionPage", "name": "Selected Work", "url": "https://samhithmitra.me/"}
+    }
+    </script>
     <link rel="icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -487,6 +513,293 @@
                 gap: 24px;
             }
         }
+    
+        /* Mobile header: keep the full menu on small phones */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        header.nav-open .nav-toggle span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        header.nav-open .nav-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+
+        header.nav-open .nav-toggle span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        @media (max-width: 480px) {
+            .header-inner {
+                padding: 14px 16px;
+                flex-wrap: wrap;
+            }
+            .nav-toggle {
+                display: flex;
+                margin-left: auto;
+            }
+            header nav {
+                order: 3;
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                margin-left: 0;
+                margin-top: 10px;
+                border-top: 1px solid var(--border);
+            }
+            header.nav-open nav {
+                display: flex;
+            }
+            header nav a {
+                font-size: 15px;
+                padding: 13px 2px;
+                border-bottom: 1px solid var(--border);
+            }
+            header nav a:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* ============ Editorial layer ============ */
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(34px, 4.8vw, 58px);
+            line-height: 1.08;
+            letter-spacing: -0.025em;
+            font-weight: 400;
+        }
+
+        .hero-tag,
+        .hero-label,
+        .section-label,
+        .project-stage {
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            width: 100%;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .section-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .section + .section {
+            border-top: 1px solid var(--border);
+        }
+
+        .section h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(27px, 3.2vw, 40px);
+            line-height: 1.17;
+            letter-spacing: -0.02em;
+            font-weight: 400;
+            max-width: 780px;
+        }
+
+        .section p {
+            font-size: 17px;
+            line-height: 1.8;
+            max-width: 68ch;
+        }
+
+        .section > p:first-of-type {
+            font-size: 20px;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+
+        #overview > p:first-of-type::first-letter {
+            font-family: var(--font-serif);
+            float: left;
+            font-size: 66px;
+            line-height: 0.82;
+            padding: 6px 12px 0 0;
+            color: var(--accent);
+        }
+
+        .callout {
+            background: transparent;
+            border: none;
+            border-left: 2px solid var(--accent);
+            padding: 6px 0 6px 28px;
+        }
+
+        .callout p {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: clamp(21px, 2.3vw, 29px);
+            line-height: 1.36;
+            color: var(--text-primary);
+            max-width: 40ch;
+        }
+
+        .prototype-caption,
+        .dashboard-caption,
+        figcaption {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-tertiary);
+        }
+
+        .project-title,
+        .how-step h3,
+        .reflection-title {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        @media (max-width: 640px) {
+            .section > p:first-of-type { font-size: 18px; }
+            #overview > p:first-of-type::first-letter { font-size: 52px; padding-right: 9px; }
+        }
+
+
+        /* ---- Mobile width safety ---- */
+        @media (max-width: 900px) {
+            .case-study-layout,
+            .case-study-layout > *,
+            .content,
+            .sidebar { min-width: 0; max-width: 100%; }
+            .content img,
+            .content table { max-width: 100%; height: auto; }
+            .content h1, .content h2, .content h3 { overflow-wrap: break-word; }
+        }
+
+        @media (max-width: 700px) {
+            .content div[style*="grid-template-columns"] {
+                grid-template-columns: minmax(0, 1fr) !important;
+            }
+            .content div[style*="grid"] { min-width: 0; }
+            .content div[style*="flex"] {
+                flex-wrap: wrap !important;
+                min-width: 0;
+            }
+            .content div[style*="flex: 1"],
+            .content div[style*="flex:1"] {
+                flex-basis: 100% !important;
+            }
+        }
+
+</style>
+
+    <style>
+    /* ---------- Polish layer: motion, link craft, footer sign-off ---------- */
+    .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
+        will-change: opacity, transform;
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: .06s; }
+    .reveal-d2 { transition-delay: .12s; }
+    .reveal-d3 { transition-delay: .18s; }
+
+    /* Link craft: editorial underline that grows from the left */
+    .content a:not(.project-card):not(.btn):not(.sidebar-nav a),
+    .lede a, .about-text a, footer .footer-links a, header nav a {
+        text-decoration: none;
+        position: relative;
+    }
+    .content p a, .about-text a, .lede a {
+        color: var(--accent, #1E3A8A);
+        background-image: linear-gradient(currentColor, currentColor);
+        background-position: 0 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 1px;
+        padding-bottom: 1px;
+        transition: background-size .28s cubic-bezier(.22,.61,.36,1), color .2s;
+    }
+    .content p a:hover, .about-text a:hover, .lede a:hover { background-size: 100% 2px; }
+    header nav a::after, footer .footer-links a::after {
+        content: '';
+        position: absolute;
+        left: 0; right: 0; bottom: -4px;
+        height: 1px;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform .28s cubic-bezier(.22,.61,.36,1);
+    }
+    header nav a:hover::after, footer .footer-links a:hover::after { transform: scaleX(1); }
+    a, button, .project-card, .region-btn { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible, .project-card:focus-visible {
+        outline: 2px solid #3B82F6;
+        outline-offset: 3px;
+        border-radius: 2px;
+    }
+
+    /* Footer sign-off */
+    .footer-signoff {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 48px 36px;
+        border-top: 1px solid var(--border, #E2E8F0);
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    .footer-signoff p {
+        font-family: 'Newsreader', Georgia, serif;
+        font-style: italic;
+        font-size: 15px;
+        line-height: 1.5;
+        color: var(--text-secondary, #475569);
+        margin: 0;
+    }
+    .footer-signoff span {
+        font-size: 12px;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--text-tertiary, #94A3B8);
+    }
+    @media (max-width: 767px) {
+        .footer-signoff { padding: 18px 24px 30px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity: 1; transform: none; transition: none; }
+        header nav a::after, footer .footer-links a::after { transition: none; }
+        * { scroll-behavior: auto !important; }
+    }
     </style>
 </head>
 <body>
@@ -500,6 +813,7 @@
                 <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
                 <a href="#" id="contact-link">Contact</a>
             </nav>
+            <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
     </header>
 
@@ -522,6 +836,10 @@
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
                     <span class="meta-value">Service Designer & Builder</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Stage</span>
+                    <span class="meta-value">0&rarr;1 &middot; New service pipeline</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Org</span>
@@ -563,7 +881,7 @@
 
         <div class="content">
             <!-- Overview -->
-            <section id="overview" class="section">
+            <section id="overview" class="section reveal">
                 <span class="section-label">Overview</span>
                 <h2>Manual processes were causing 85% of hiring errors</h2>
                 <p>
@@ -580,19 +898,19 @@
                 <!-- Research at a Glance -->
                 <h3>Research at a Glance</h3>
                 <div class="metrics-grid">
-                    <div class="metric-card">
+                    <div class="metric-card reveal">
                         <div class="metric-value">6</div>
                         <div class="metric-label">Contextual inquiry sessions</div>
                     </div>
-                    <div class="metric-card">
+                    <div class="metric-card reveal">
                         <div class="metric-value">8</div>
                         <div class="metric-label">Stakeholder interviews</div>
                     </div>
-                    <div class="metric-card">
+                    <div class="metric-card reveal">
                         <div class="metric-value">3</div>
                         <div class="metric-label">Weeks shadowing hiring cycle</div>
                     </div>
-                    <div class="metric-card">
+                    <div class="metric-card reveal">
                         <div class="metric-value">23</div>
                         <div class="metric-label">Process steps mapped</div>
                     </div>
@@ -600,7 +918,7 @@
             </section>
 
             <!-- Problem -->
-            <section id="problem" class="section">
+            <section id="problem" class="section reveal">
                 <span class="section-label">Problem</span>
                 <h2>23 manual steps, 7 tools, zero visibility</h2>
                 <p>
@@ -608,15 +926,15 @@
                 </p>
 
                 <div class="metrics-grid">
-                    <div class="metric-card">
+                    <div class="metric-card reveal">
                         <div class="metric-value">23</div>
                         <div class="metric-label">Manual steps in original process</div>
                     </div>
-                    <div class="metric-card">
+                    <div class="metric-card reveal">
                         <div class="metric-value">7</div>
                         <div class="metric-label">Different tools used</div>
                     </div>
-                    <div class="metric-card">
+                    <div class="metric-card reveal">
                         <div class="metric-value">8-12h</div>
                         <div class="metric-label">Time per hiring cycle</div>
                     </div>
@@ -629,7 +947,7 @@
             </section>
 
             <!-- Research -->
-            <section id="research" class="section">
+            <section id="research" class="section reveal">
                 <span class="section-label">Research</span>
                 <h2>Contextual inquiry revealed the real workflow</h2>
                 <p>
@@ -643,21 +961,21 @@
 
                 <h3>Key Insights</h3>
                 <div class="insight-grid">
-                    <div class="insight-card">
+                    <div class="insight-card reveal">
                         <span class="insight-number">Insight 01</span>
                         <h4 class="insight-title">Data re-entry was the error source</h4>
                         <p class="insight-text">
                             The same information was entered manually 4-5 times across systems. Staff spent more time verifying data than entering it. <strong>Implication:</strong> The system must capture data once at the source and propagate it automatically.
                         </p>
                     </div>
-                    <div class="insight-card">
+                    <div class="insight-card reveal">
                         <span class="insight-number">Insight 02</span>
                         <h4 class="insight-title">No one could see status without asking</h4>
                         <p class="insight-text">
                             Faculty had no way to check where an application stood. This generated dozens of status-check emails per cycle, adding overhead for admin staff who were already stretched. <strong>Implication:</strong> Status must be visible to all stakeholders without requiring manual updates.
                         </p>
                     </div>
-                    <div class="insight-card">
+                    <div class="insight-card reveal">
                         <span class="insight-number">Insight 03</span>
                         <h4 class="insight-title">Approval bottlenecks were invisible</h4>
                         <p class="insight-text">
@@ -683,7 +1001,7 @@
             </section>
 
             <!-- Solution -->
-            <section id="solution" class="section">
+            <section id="solution" class="section reveal">
                 <span class="section-label">Solution</span>
                 <h2>One pipeline, one data source, zero re-entry</h2>
                 <p>
@@ -736,7 +1054,7 @@
             </section>
 
             <!-- Process Mapping -->
-            <section id="process" class="section">
+            <section id="process" class="section reveal">
                 <span class="section-label">Process</span>
                 <h2>From 23 steps to automated flow</h2>
                 <p>
@@ -773,7 +1091,7 @@
             </section>
 
             <!-- Storyboards -->
-            <section id="storyboards" class="section">
+            <section id="storyboards" class="section reveal">
                 <span class="section-label">Storyboards</span>
                 <h2>Aligning stakeholders on the pain</h2>
                 <p>
@@ -821,7 +1139,7 @@
             </section>
 
             <!-- Outcomes -->
-            <section id="outcomes" class="section">
+            <section id="outcomes" class="section reveal">
                 <span class="section-label">Outcomes</span>
                 <h2>Measured against the previous 3 semesters</h2>
                 <p>
@@ -829,15 +1147,15 @@
                 </p>
 
                 <div class="metrics-grid">
-                    <div class="metric-card">
+                    <div class="metric-card reveal">
                         <div class="metric-value">85%</div>
                         <div class="metric-label">Reduction in data errors (based on correction requests)</div>
                     </div>
-                    <div class="metric-card">
+                    <div class="metric-card reveal">
                         <div class="metric-value">8-12h</div>
                         <div class="metric-label">Saved per hiring cycle (self-reported)</div>
                     </div>
-                    <div class="metric-card">
+                    <div class="metric-card reveal">
                         <div class="metric-value">0</div>
                         <div class="metric-label">Lost applications (vs. 2-3 per semester previously)</div>
                     </div>
@@ -854,7 +1172,7 @@
             </section>
 
             <!-- Reflection -->
-            <section id="reflection" class="section">
+            <section id="reflection" class="section reveal">
                 <span class="section-label">Reflection</span>
                 <h2>What I learned</h2>
 
@@ -902,6 +1220,10 @@
                 <a href="mailto:samhithm@gmail.com">samhithm@gmail.com</a>
             </div>
         </div>
+        <div class="footer-signoff">
+            <p>Designed and built by hand, no template.</p>
+            <span>© 2026 Samhith Mitra</span>
+        </div>
     </footer>
 
     <script>
@@ -927,6 +1249,51 @@
 
             sections.forEach(section => observer.observe(section));
         });
+    </script>
+
+    <script>
+    (function () {
+        var header = document.querySelector('header');
+        var toggle = document.getElementById('navToggle');
+        if (!header || !toggle) return;
+        toggle.addEventListener('click', function () {
+            var open = header.classList.toggle('nav-open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        header.querySelectorAll('nav a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                header.classList.remove('nav-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    })();
+    </script>
+
+    <script>
+    /* Scroll reveal: one gesture, applied once, honours reduced-motion. */
+    (function () {
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var targets = document.querySelectorAll('.reveal');
+        if (reduce || !('IntersectionObserver' in window)) {
+            for (var i = 0; i < targets.length; i++) targets[i].classList.add('is-visible');
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        targets.forEach(function (el) { io.observe(el); });
+        /* Failsafe: never let content stay invisible. */
+        window.setTimeout(function () {
+            document.querySelectorAll('.reveal:not(.is-visible)').forEach(function (el) {
+                if (el.getBoundingClientRect().top < window.innerHeight * 1.5) el.classList.add('is-visible');
+            });
+        }, 2500);
+    })();
     </script>
 </body>
 </html>
