@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Solar Pool Services Inc. Case Study | Noctis</title>
+    <meta name="description" content="How Samhith Mitra designed and launched a B2C website for a Southern California solar pool-heating specialist.">
+    <link rel="icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #FFFFFF;
+            --bg-dark: #0F172A;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-tertiary: #94A3B8;
+            --accent: #1E3A8A;
+            --accent-light: #3B82F6;
+            --border: #E2E8F0;
+
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Newsreader', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+        img { display: block; max-width: 100%; }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-weight: 600; font-size: 15px; }
+        nav { display: flex; gap: 40px; }
+        nav a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+        nav a:hover { color: var(--text-primary); }
+
+        /* Hero */
+        .hero {
+            background: var(--bg-dark);
+            color: white;
+            padding: 160px 48px 80px;
+        }
+
+        .hero-inner { max-width: 1200px; margin: 0 auto; }
+
+        .hero-back {
+            display: flex;
+            width: fit-content;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 48px;
+            transition: color 0.2s;
+        }
+
+        .hero-back:hover { color: rgba(255,255,255,0.9); }
+        .hero-back svg { width: 16px; height: 16px; }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            background: rgba(59, 130, 246, 0.15);
+            padding: 6px 12px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            max-width: 800px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.7);
+            max-width: 640px;
+            margin-bottom: 48px;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .meta-item { display: flex; flex-direction: column; gap: 6px; }
+        .meta-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
+        .meta-value { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); }
+
+        /* Main Layout */
+        .case-study-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr 280px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 64px 48px 120px;
+            gap: 48px;
+        }
+
+        /* Sidebar */
+        .sidebar { position: sticky; top: 100px; height: fit-content; }
+
+        .sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
+        .sidebar-nav a {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-tertiary);
+            padding: 8px 16px;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .sidebar-nav a:hover { color: var(--text-secondary); }
+        .sidebar-nav a.active {
+            color: #1E3A8A;
+            border-left-color: #1E3A8A;
+            background: rgba(30, 58, 138, 0.04);
+        }
+
+        /* Meta Sidebar */
+        .meta-sidebar { position: sticky; top: 100px; height: fit-content; }
+
+        .meta-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .meta-card-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-tertiary);
+            margin-bottom: 20px;
+        }
+
+        .meta-card-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .meta-card-item:last-child { border-bottom: none; }
+
+        .meta-card-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
+            margin-bottom: 4px;
+        }
+
+        .meta-card-value { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+
+        /* Content */
+        .content { max-width: 640px; }
+        .section { margin-bottom: 80px; }
+        .section:last-child { margin-bottom: 0; }
+        .section { scroll-margin-top: 112px; }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #1E3A8A;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section h2 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 1.3;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .section h3 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        .section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .section p.note { font-size: 14px; }
+
+        /* Findings Grid */
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .finding-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .finding-number {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 400;
+            color: #1E3A8A;
+        }
+
+        .finding-card h4 { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-top: 8px; }
+        .finding-card p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); margin: 4px 0 0; }
+
+        /* Callout */
+        .callout {
+            background: rgba(30, 58, 138, 0.04);
+            border-left: 3px solid #1E3A8A;
+            padding: 20px 24px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .callout p {
+            font-size: 15px;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Process Timeline */
+        .process-timeline { margin: 32px 0; }
+
+        .process-step {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .process-step:last-child { border-bottom: none; }
+
+        .process-number {
+            width: 32px;
+            height: 32px;
+            background: #1E3A8A;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .process-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .process-content p { font-size: 14px; line-height: 1.7; color: var(--text-secondary); margin: 0; }
+
+        /* Journey Map */
+        .journey-map {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .journey-map-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-tertiary);
+        }
+
+        .journey-steps {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .journey-step {
+            border-left: 3px solid #1E3A8A;
+            background: rgba(30, 58, 138, 0.04);
+            border-radius: 0 8px 8px 0;
+            padding: 16px;
+        }
+
+        .journey-step-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #1E3A8A;
+        }
+
+        .journey-step p { font-size: 13px; line-height: 1.6; color: var(--text-primary); margin: 6px 0 0; }
+
+        /* Prototype Viewer */
+        .prototype-viewer {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 32px;
+        }
+
+        .prototype-tabs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .prototype-tabs button {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: transparent;
+            border: none;
+            border-right: 1px solid var(--border);
+            padding: 14px 12px;
+            min-height: 48px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .prototype-tabs button:last-child { border-right: none; }
+        .prototype-tabs button:hover { background: rgba(30, 58, 138, 0.04); }
+        .prototype-tabs button.active { background: #1E3A8A; color: white; }
+
+        .prototype-panel { padding: 32px; }
+
+        .prototype-caption {
+            border-top: 1px solid var(--border);
+            padding: 24px 32px;
+        }
+
+        .prototype-caption .stage-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #1E3A8A;
+        }
+
+        .prototype-caption p { font-size: 14px; line-height: 1.7; color: var(--text-secondary); margin: 8px 0 0; }
+
+        .prototype-stage { display: none; }
+        .prototype-stage.active { display: block; }
+
+        /* Wireframe grid backdrop */
+        .case-grid {
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 24px 24px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        /* Site map */
+        .sitemap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            max-width: 576px;
+            margin: 0 auto;
+            padding: 32px;
+        }
+
+        .map-node {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .map-node.strong { border-color: #1E3A8A; background: rgba(30, 58, 138, 0.06); }
+
+        .map-node-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-primary);
+        }
+
+        .map-node p { font-size: 13px; color: var(--text-secondary); margin: 6px 0 0; }
+
+        /* Wireframe mock */
+        .wireframe {
+            aspect-ratio: 16 / 10;
+            padding: 28px;
+            overflow: hidden;
+        }
+
+        .wireframe-browser {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(15, 23, 42, 0.15);
+            background: #FFFFFF;
+        }
+
+        .wireframe-bar {
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12px;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.15);
+        }
+
+        .wireframe-bar .bar-logo { width: 64px; height: 8px; background: rgba(15, 23, 42, 0.2); }
+        .bar-links { display: flex; gap: 8px; }
+        .bar-links span { width: 32px; height: 8px; background: rgba(15, 23, 42, 0.15); }
+
+        .wireframe-body {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 16px;
+            padding: 16px;
+        }
+
+        .wireframe-copy { display: flex; flex-direction: column; justify-content: center; }
+        .wireframe-copy .wf-eyebrow { width: 80px; height: 12px; background: #1E3A8A; }
+        .wireframe-copy .wf-h1a { width: 80%; height: 24px; background: rgba(15, 23, 42, 0.75); margin-top: 12px; }
+        .wireframe-copy .wf-h1b { width: 60%; height: 24px; background: rgba(15, 23, 42, 0.75); margin-top: 8px; }
+        .wireframe-copy .wf-line1 { width: 100%; height: 8px; background: rgba(15, 23, 42, 0.15); margin-top: 16px; }
+        .wireframe-copy .wf-line2 { width: 80%; height: 8px; background: rgba(15, 23, 42, 0.15); margin-top: 8px; }
+        .wireframe-copy .wf-cta { width: 112px; height: 32px; background: #1E3A8A; margin-top: 20px; }
+        .wireframe-media { background: rgba(15, 23, 42, 0.1); }
+
+        .wireframe-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            padding: 12px;
+            border-top: 1px solid rgba(15, 23, 42, 0.15);
+        }
+
+        .wireframe-cards span { height: 48px; border: 1px solid rgba(15, 23, 42, 0.15); }
+
+        /* Quote paths */
+        .quotepath-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            max-width: 576px;
+            margin: 0 auto;
+            padding: 32px;
+        }
+
+        .quotepath-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .quotepath-card svg { width: 18px; height: 18px; color: #1E3A8A; }
+        .quotepath-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #1E3A8A; margin-top: 16px; }
+        .quotepath-card h4 { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-top: 4px; }
+        .quotepath-card p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); margin: 4px 0 0; }
+
+        /* Final UI stage */
+        .final-ui { position: relative; }
+
+        .final-ui img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            object-position: top;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .launched-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #1E3A8A;
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* Evidence Grid */
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .evidence-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .evidence-card svg { width: 18px; height: 18px; color: #1E3A8A; }
+        .evidence-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-top: 16px; }
+        .evidence-value { font-family: var(--font-serif); font-size: 20px; font-weight: 500; color: var(--text-primary); margin-top: 4px; }
+
+        /* Launch visuals */
+        .launch-grid {
+            display: grid;
+            grid-template-columns: 1fr 180px;
+            gap: 24px;
+            align-items: start;
+            margin-top: 32px;
+        }
+
+        .launch-desktop { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+        .launch-desktop img { width: 100%; }
+
+        .launch-mobile {
+            width: 100%;
+            max-width: 180px;
+            margin: 0 auto;
+            border: 6px solid #0F172A;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -4px rgba(15, 23, 42, 0.1);
+        }
+
+        .launch-mobile img { width: 100%; }
+
+        .screen-evidence {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .screen-evidence + .screen-evidence { margin-top: 16px; }
+
+        .screen-evidence .screen-image {
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+        }
+
+        .screen-evidence img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+
+        .screen-evidence figcaption { padding: 24px; }
+        .screen-evidence h4 { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+        .screen-evidence figcaption p { font-size: 14px; line-height: 1.7; color: var(--text-secondary); margin: 4px 0 0; }
+
+        .live-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #1E3A8A;
+            padding-bottom: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1E3A8A;
+            margin-top: 32px;
+            transition: opacity 0.2s;
+        }
+
+        .live-link:hover { opacity: 0.8; }
+        .live-link svg { width: 15px; height: 15px; }
+
+        /* Reflection List */
+        .reflection-list { list-style: none; padding: 0; margin: 24px 0; }
+
+        .reflection-list li {
+            display: flex;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .reflection-list li:last-child { border-bottom: none; }
+
+        .reflection-icon {
+            width: 24px;
+            height: 24px;
+            color: #1E3A8A;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .reflection-list span { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links { display: flex; gap: 32px; }
+        .footer-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+        .footer-links a:hover { color: #1E3A8A; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .case-study-layout {
+                grid-template-columns: 1fr;
+                padding: 48px 32px 80px;
+            }
+            .sidebar, .meta-sidebar { position: relative; top: 0; }
+            .meta-sidebar { order: -1; }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner { padding: 16px 24px; }
+            nav { gap: 24px; }
+            .hero { padding: 120px 24px 48px; }
+            .case-study-layout { padding: 32px 24px 64px; }
+            .footer-inner {
+                padding: 32px 24px;
+                flex-direction: column;
+                gap: 24px;
+            }
+            .findings-grid, .evidence-grid { grid-template-columns: 1fr; }
+            .prototype-tabs { grid-template-columns: repeat(2, 1fr); }
+            .prototype-tabs button { border-bottom: 1px solid var(--border); }
+            .prototype-panel, .prototype-caption, .sitemap-grid, .quotepath-grid { padding: 20px; }
+            .sitemap-grid, .quotepath-grid { grid-template-columns: 1fr; }
+            .journey-steps { grid-template-columns: 1fr; }
+            .launch-grid { grid-template-columns: 1fr; }
+            .wireframe { padding: 16px; }
+            .wireframe-body { grid-template-columns: 1fr; }
+            .wireframe-media { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">Noctis</a>
+            <nav>
+                <a href="index.html">Work</a>
+                <a href="about.html">About</a>
+                <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="#" id="contact-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <a href="index.html" class="hero-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Work
+            </a>
+
+            <span class="hero-tag">B2C Web Experience</span>
+            <h1>Turning a specialized solar service into a clear homeowner journey</h1>
+            <p class="hero-description">
+                I designed and launched the customer-facing website for Solar Pool Services Inc., helping Southern California homeowners understand solar pool heating, identify the service they need, and choose a practical path to a quote.
+            </p>
+
+            <div class="hero-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">UX/UI Designer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Product</span>
+                    <span class="meta-value">Responsive B2C website</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Ownership</span>
+                    <span class="meta-value">Design & launch</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Live Project</span>
+                    <span class="meta-value"><a href="https://www.solarpoolservicesinc.com" target="_blank" style="color: #FFFFFF;">View Website</a></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="case-study-layout">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="#overview" class="active">Overview</a>
+                <a href="#challenge">Challenge</a>
+                <a href="#structure">Structure</a>
+                <a href="#exploration">Exploration</a>
+                <a href="#experience">Experience</a>
+                <a href="#launch">Launch</a>
+                <a href="#reflection">Reflection</a>
+            </nav>
+        </aside>
+
+        <div class="content">
+            <!-- Overview -->
+            <section id="overview" class="section">
+                <span class="section-label">Overview</span>
+                <h2>A considered purchase needs clarity before conversion</h2>
+                <p>
+                    Solar pool heating sits between home improvement and a technical service. A homeowner may know the outcome they want—a warmer pool without recurring gas costs—but not how rooftop thermal panels work, how much collector area they need, or whether their existing system should be repaired or replaced.
+                </p>
+                <p>
+                    The website needed to support several levels of intent at once: first-time buyers comparing heating options, existing owners with a leak or no-heat problem, and homeowners preparing for roof work or a property purchase.
+                </p>
+
+                <div class="callout">
+                    <p>"How might the experience make a specialized system feel understandable, credible, and easy to act on?"</p>
+                </div>
+
+                <div class="findings-grid">
+                    <div class="finding-card">
+                        <div class="finding-number">01</div>
+                        <h4>Explain</h4>
+                        <p>Translate thermal solar into a simple, homeowner-friendly story.</p>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">02</div>
+                        <h4>Route</h4>
+                        <p>Help people recognize the right service from the symptom or situation they already know.</p>
+                    </div>
+                    <div class="finding-card">
+                        <div class="finding-number">03</div>
+                        <h4>Reassure</h4>
+                        <p>Use verifiable experience, warranties, real work, and customer voices to reduce risk.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Challenge -->
+            <section id="challenge" class="section">
+                <span class="section-label">Challenge</span>
+                <h2>One website had to serve new buyers and existing system owners</h2>
+                <p>
+                    The service model is broader than installation. The company installs new systems, repairs leaks and no-heat issues, handles warranty replacements, removes and reinstalls panels for reroofing, and inspects aging or inherited systems.
+                </p>
+                <p>
+                    A single generic contact path would have hidden those differences. The design challenge was to create a clear front door while preserving direct routes for people who already knew what was wrong.
+                </p>
+
+                <div class="callout">
+                    <p>"The organizing principle became customer situation—not product terminology."</p>
+                </div>
+
+                <p class="note">
+                    This case study documents design decisions visible in the launched experience. It does not claim research findings, analytics, or performance results that were not provided.
+                </p>
+            </section>
+
+            <!-- Structure -->
+            <section id="structure" class="section">
+                <span class="section-label">Structure</span>
+                <h2>Build confidence in layers, then offer the right next step</h2>
+                <p>I structured the experience around four questions a homeowner needs answered before contacting a specialist.</p>
+
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <span class="process-number">1</span>
+                        <div class="process-content">
+                            <h4>What does it do for me?</h4>
+                            <p>Lead with a warmer, more usable pool and freedom from a monthly gas bill—not technical specifications.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-number">2</span>
+                        <div class="process-content">
+                            <h4>How does it work?</h4>
+                            <p>Explain the loop simply: the existing pump moves water to roof panels, the sun warms it, and heated water returns to the pool.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-number">3</span>
+                        <div class="process-content">
+                            <h4>Can I trust this company?</h4>
+                            <p>Bring 40+ years of experience, licensing, warranty coverage, real installations, and attributed reviews into the decision path.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-number">4</span>
+                        <div class="process-content">
+                            <h4>What should I do next?</h4>
+                            <p>Offer a phone call, a quick satellite-based estimate, an advanced roof layout, and a standard request form for different comfort levels.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-map">
+                    <span class="journey-map-label">Customer journey</span>
+                    <div class="journey-steps">
+                        <div class="journey-step">
+                            <span class="journey-step-label">Need</span>
+                            <p>Warmer water or a system problem</p>
+                        </div>
+                        <div class="journey-step">
+                            <span class="journey-step-label">Confidence</span>
+                            <p>Understand fit, method, and proof</p>
+                        </div>
+                        <div class="journey-step">
+                            <span class="journey-step-label">Action</span>
+                            <p>Call, estimate, configure, or request</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exploration -->
+            <section id="exploration" class="section">
+                <span class="section-label">Exploration</span>
+                <h2>From information model to a launch-ready system</h2>
+                <p>The frames below reconstruct the progression behind the launched design. They clarify hierarchy and interaction decisions; they are not presented as original research artifacts or dated production files.</p>
+
+                <div class="prototype-viewer">
+                    <div class="prototype-tabs" role="tablist">
+                        <button data-stage="0" role="tab">Site map</button>
+                        <button data-stage="1" role="tab">Page hierarchy</button>
+                        <button data-stage="2" role="tab">Quote paths</button>
+                        <button data-stage="3" role="tab" class="active">Final UI</button>
+                    </div>
+
+                    <div class="prototype-panel">
+                        <!-- Stage 0: Site map -->
+                        <div class="prototype-stage" data-stage="0">
+                            <div class="case-grid sitemap-grid">
+                                <div class="map-node strong">
+                                    <div class="map-node-title">Core</div>
+                                    <p>Home</p><p>Quote</p><p>Contact</p>
+                                </div>
+                                <div class="map-node">
+                                    <div class="map-node-title">Services</div>
+                                    <p>Installation</p><p>Repair</p><p>Replacement</p><p>Removal</p><p>Inspection</p>
+                                </div>
+                                <div class="map-node">
+                                    <div class="map-node-title">Learn & trust</div>
+                                    <p>How it works</p><p>Gallery</p><p>Reviews</p><p>Warranty</p><p>Live data</p>
+                                </div>
+                                <div class="map-node">
+                                    <div class="map-node-title">Local relevance</div>
+                                    <p>Riverside</p><p>Orange County</p><p>San Bernardino</p><p>High Desert</p><p>Palm Springs</p>
+                                </div>
+                                <div class="map-node">
+                                    <div class="map-node-title">Company</div>
+                                    <p>About</p><p>FAQ</p><p>Blog</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stage 1: Page hierarchy wireframe -->
+                        <div class="prototype-stage" data-stage="1">
+                            <div class="case-grid wireframe">
+                                <div class="wireframe-browser">
+                                    <div class="wireframe-bar">
+                                        <span class="bar-logo"></span>
+                                        <div class="bar-links"><span></span><span></span><span></span></div>
+                                    </div>
+                                    <div class="wireframe-body">
+                                        <div class="wireframe-copy">
+                                            <span class="wf-eyebrow"></span>
+                                            <span class="wf-h1a"></span>
+                                            <span class="wf-h1b"></span>
+                                            <span class="wf-line1"></span>
+                                            <span class="wf-line2"></span>
+                                            <span class="wf-cta"></span>
+                                        </div>
+                                        <div class="wireframe-media"></div>
+                                    </div>
+                                    <div class="wireframe-cards"><span></span><span></span><span></span><span></span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stage 2: Quote paths -->
+                        <div class="prototype-stage" data-stage="2">
+                            <div class="case-grid quotepath-grid">
+                                <div class="quotepath-card">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                    <div class="quotepath-label">Firm quote</div>
+                                    <h4>Call</h4>
+                                    <p>Talk directly with the team.</p>
+                                </div>
+                                <div class="quotepath-card">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                                    <div class="quotepath-label">Preliminary</div>
+                                    <h4>Quick estimate</h4>
+                                    <p>Trace the pool from satellite view.</p>
+                                </div>
+                                <div class="quotepath-card">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.3 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>
+                                    <div class="quotepath-label">Advanced</div>
+                                    <h4>System designer</h4>
+                                    <p>Measure the pool and lay out roof panels.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stage 3: Final UI -->
+                        <div class="prototype-stage active" data-stage="3">
+                            <div class="final-ui">
+                                <img src="solar/home-desktop.png" alt="Final launched website interface">
+                                <span class="launched-badge">Launched</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prototype-caption">
+                        <span class="stage-label" id="stage-label">Stage 04 · Execution</span>
+                        <p id="stage-copy">Carry the hierarchy into a responsive visual language built around high-contrast typography, real installations, and direct actions.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section id="experience" class="section">
+                <span class="section-label">Experience</span>
+                <h2>Five decisions shaped the final customer experience</h2>
+
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <span class="process-number">01</span>
+                        <div class="process-content">
+                            <h4>Sell the outcome before the mechanism</h4>
+                            <p>"Actually enjoy your pool. Without the gas bill." frames the offer in the homeowner's language before introducing UV-stable mats or system mechanics.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-number">02</span>
+                        <div class="process-content">
+                            <h4>Turn the service catalog into recognition</h4>
+                            <p>Installation, repair, replacement, removal, and inspection each receive a dedicated path. Supporting copy maps visible symptoms and life events to the appropriate service.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-number">03</span>
+                        <div class="process-content">
+                            <h4>Make proof specific and verifiable</h4>
+                            <p>The experience combines the C-46 license number, 12-year panel warranty, decades in business, before-and-after work, certifications, and reviews linked to their source.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-number">04</span>
+                        <div class="process-content">
+                            <h4>Let customers choose their quote commitment</h4>
+                            <p>The quote page distinguishes a direct call for a firm quote from a quick estimate, an advanced system designer, and a standard request form.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="process-number">05</span>
+                        <div class="process-content">
+                            <h4>Design a content system, not a single page</h4>
+                            <p>Service pages, regional coverage, the solar explainer, gallery, FAQ, warranty, reviews, and live system data answer different objections without overloading the homepage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evidence-grid">
+                    <div class="evidence-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                        <div class="evidence-label">Value</div>
+                        <div class="evidence-value">$0 monthly gas bill</div>
+                    </div>
+                    <div class="evidence-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                        <div class="evidence-label">Trust</div>
+                        <div class="evidence-value">License and warranties</div>
+                    </div>
+                    <div class="evidence-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.3 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>
+                        <div class="evidence-label">Action</div>
+                        <div class="evidence-value">Three quote pathways</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Launch -->
+            <section id="launch" class="section">
+                <span class="section-label">Launch</span>
+                <h2>A responsive ecosystem for research and action</h2>
+                <p>The launched website extends beyond a marketing homepage. It supports product education, service selection, regional relevance, visual proof, and several ways to request an estimate across desktop and mobile.</p>
+
+                <div class="launch-grid">
+                    <div class="launch-desktop">
+                        <img src="solar/home-desktop.png" alt="Desktop view of the launched Solar Pool Services Inc. homepage">
+                    </div>
+                    <div class="launch-mobile">
+                        <img src="solar/home-mobile.png" alt="Mobile view of the launched Solar Pool Services Inc. homepage">
+                    </div>
+                </div>
+
+                <h3>The supporting journeys</h3>
+
+                <figure class="screen-evidence">
+                    <div class="screen-image"><img src="solar/how-it-works.png" alt="How solar pool heating works page"></div>
+                    <figcaption>
+                        <h4>Make the system legible</h4>
+                        <p>A dedicated explainer turns an unfamiliar technology into a three-step water loop and a transparent working process.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="screen-evidence">
+                    <div class="screen-image"><img src="solar/quote.png" alt="Quote request page"></div>
+                    <figcaption>
+                        <h4>Match the quoting style</h4>
+                        <p>Customers can call, create a quick estimate, configure a roof layout, or leave details for follow-up.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="screen-evidence">
+                    <div class="screen-image"><img src="solar/gallery.png" alt="Installation gallery page"></div>
+                    <figcaption>
+                        <h4>Show the work itself</h4>
+                        <p>Real installations demonstrate roof types, mounting approaches, system scale, and construction quality.</p>
+                    </figcaption>
+                </figure>
+
+                <a href="https://www.solarpoolservicesinc.com" target="_blank" class="live-link">
+                    View live website
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                </a>
+            </section>
+
+            <!-- Reflection -->
+            <section id="reflection" class="section">
+                <span class="section-label">Reflection</span>
+                <h2>What this project demonstrates</h2>
+                <p>
+                    This project required more than giving a local service company a polished interface. The work translated a technical category into a consumer decision journey, built an information architecture for several service intents, and connected education and trust to multiple conversion paths.
+                </p>
+
+                <div class="callout">
+                    <p>"Strong B2C design makes a complex purchase feel understandable without making the expertise behind it feel small."</p>
+                </div>
+
+                <h3>What I would measure next</h3>
+                <ul class="reflection-list">
+                    <li>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                        <span>Which homepage paths lead to qualified quote requests</span>
+                    </li>
+                    <li>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                        <span>Where new buyers still need explanation before acting</span>
+                    </li>
+                    <li>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                        <span>How people choose between call, quick estimate, and advanced configuration</span>
+                    </li>
+                    <li>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                        <span>Which proof signals matter most by service type and device</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <aside class="meta-sidebar">
+            <div class="meta-card">
+                <div class="meta-card-title">Project Details</div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Company</div>
+                    <div class="meta-card-value">Solar Pool Services Inc.</div>
+                </div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Audience</div>
+                    <div class="meta-card-value">Southern California homeowners</div>
+                </div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Category</div>
+                    <div class="meta-card-value">Solar pool heating</div>
+                </div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Services</div>
+                    <div class="meta-card-value">Install, repair, replace, remove & inspect</div>
+                </div>
+                <div class="meta-card-item">
+                    <div class="meta-card-label">Delivery</div>
+                    <div class="meta-card-value">Designed & launched</div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <a href="index.html" class="logo">Noctis</a>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/samhithmitra/" target="_blank">LinkedIn</a>
+                <a href="#" id="footer-email">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var user = 'samhithm';
+            var domain = 'gmail.com';
+            var email = user + '@' + domain;
+            document.getElementById('contact-link').setAttribute('href', 'mailto:' + email);
+            document.getElementById('footer-email').setAttribute('href', 'mailto:' + email);
+
+            // Scroll spy
+            var sections = document.querySelectorAll('.section');
+            var navLinks = document.querySelectorAll('.sidebar-nav a');
+
+            var observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        var activeLink = document.querySelector('.sidebar-nav a[href="#' + entry.target.id + '"]');
+                        if (activeLink) activeLink.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-20% 0px -80% 0px' });
+
+            sections.forEach(section => observer.observe(section));
+
+            // Prototype tabs
+            var stageCopy = {
+                0: ['Stage 01 · Architecture', 'Separate service, learning, proof, location, and company content while maintaining a persistent route to a quote.'],
+                1: ['Stage 02 · Page priority', 'Sequence the homepage from outcome to service recognition, benefits, evidence, coverage, reviews, and action.'],
+                2: ['Stage 03 · Conversion choice', 'Support users who want a conversation, a fast ballpark, or control over a detailed roof configuration.'],
+                3: ['Stage 04 · Execution', 'Carry the hierarchy into a responsive visual language built around high-contrast typography, real installations, and direct actions.']
+            };
+
+            var tabs = document.querySelectorAll('.prototype-tabs button');
+            var stages = document.querySelectorAll('.prototype-stage');
+            var stageLabel = document.getElementById('stage-label');
+            var stageCopyEl = document.getElementById('stage-copy');
+
+            tabs.forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    var stage = tab.getAttribute('data-stage');
+                    tabs.forEach(function(t) { t.classList.remove('active'); });
+                    tab.classList.add('active');
+                    stages.forEach(function(s) {
+                        s.classList.toggle('active', s.getAttribute('data-stage') === stage);
+                    });
+                    var copy = stageCopy[stage];
+                    stageLabel.textContent = copy[0];
+                    stageCopyEl.textContent = copy[1];
+                });
+            });
+        });
+    </script>
+</body>
+</html>
