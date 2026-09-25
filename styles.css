@@ -1,15 +1,4 @@
-<!DOCTYPE html>
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>About — Second Draft</title>
-<meta content="Second Draft is a founder-led transformation studio led by Samhith Mitra — brand, web, content, and AI systems, built and managed as one practice." name="description"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&amp;display=swap" rel="stylesheet"/>
-<style>
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
   *, ::before, ::after, ::backdrop { --tw-translate-x: 0; --tw-translate-y: 0; --tw-translate-z: 0; --tw-rotate-x: initial; --tw-rotate-y: initial; --tw-rotate-z: initial; --tw-skew-x: initial; --tw-skew-y: initial; --tw-space-y-reverse: 0; --tw-space-x-reverse: 0; --tw-border-style: solid; --tw-leading: initial; --tw-font-weight: initial; --tw-tracking: initial; --tw-ordinal: initial; --tw-slashed-zero: initial; --tw-numeric-figure: initial; --tw-numeric-spacing: initial; --tw-numeric-fraction: initial; --tw-shadow: 0 0 #0000; --tw-shadow-color: initial; --tw-shadow-alpha: 100%; --tw-inset-shadow: 0 0 #0000; --tw-inset-shadow-color: initial; --tw-inset-shadow-alpha: 100%; --tw-ring-color: initial; --tw-ring-shadow: 0 0 #0000; --tw-inset-ring-color: initial; --tw-inset-ring-shadow: 0 0 #0000; --tw-ring-inset: initial; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-offset-shadow: 0 0 #0000; --tw-outline-style: solid; --tw-blur: initial; --tw-brightness: initial; --tw-contrast: initial; --tw-grayscale: initial; --tw-hue-rotate: initial; --tw-invert: initial; --tw-opacity: initial; --tw-saturate: initial; --tw-sepia: initial; --tw-drop-shadow: initial; --tw-drop-shadow-color: initial; --tw-drop-shadow-alpha: 100%; --tw-drop-shadow-size: initial; --tw-backdrop-blur: initial; --tw-backdrop-brightness: initial; --tw-backdrop-contrast: initial; --tw-backdrop-grayscale: initial; --tw-backdrop-hue-rotate: initial; --tw-backdrop-invert: initial; --tw-backdrop-opacity: initial; --tw-backdrop-saturate: initial; --tw-backdrop-sepia: initial; --tw-duration: initial; --tw-ease: initial; --tw-content: ""; --tw-animation-delay: 0s; --tw-animation-direction: normal; --tw-animation-duration: initial; --tw-animation-fill-mode: none; --tw-animation-iteration-count: 1; --tw-enter-blur: 0; --tw-enter-opacity: 1; --tw-enter-rotate: 0; --tw-enter-scale: 1; --tw-enter-translate-x: 0; --tw-enter-translate-y: 0; --tw-exit-blur: 0; --tw-exit-opacity: 1; --tw-exit-rotate: 0; --tw-exit-scale: 1; --tw-exit-translate-x: 0; --tw-exit-translate-y: 0; }
@@ -1076,143 +1065,25 @@ html { scroll-behavior: smooth; }
 .insights-band{border-bottom:1px solid var(--border)}.insights-inner{max-width:1536px;margin:auto;padding:5rem 1.25rem}.insights-grid{display:grid;border-top:1px solid var(--border);margin-top:2.5rem}.insight-link{display:grid;gap:.6rem;padding:1.5rem 0;border-bottom:1px solid var(--border);color:inherit;text-decoration:none}.insight-link span{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted-foreground)}.insight-link strong{font:400 clamp(1.35rem,3vw,2rem)/1.15 var(--font-display)}
 @media(min-width:768px){.agency-menu__inner{padding:1.5rem 2.5rem 5rem}.agency-menu__grid{grid-template-columns:.7fr 1.35fr 1.35fr 1.05fr;gap:3rem}.agency-menu__utility{grid-column:1/-1;grid-template-columns:repeat(4,1fr);border-top:1px solid color-mix(in srgb,var(--background) 22%,transparent);padding-top:2rem}.agency-menu__utility a{font-size:1.45rem}.insights-inner{padding:7rem 2.5rem}.insights-grid{grid-template-columns:repeat(3,1fr)}.insight-link{padding:2rem;border-right:1px solid var(--border)}.insight-link:first-child{padding-left:0}.insight-link:last-child{border-right:0}}
 @media(prefers-reduced-motion:reduce){.agency-menu{transition:none}}
-</style>
-</head>
-<body>
-<div class="min-h-screen bg-background text-foreground">
-<header class="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
-<div class="mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-5 sm:px-8 lg:px-10">
-<a aria-label="Second Draft, home" class="brand-wordmark" href="2nddraft.html">Second Draft<span class="text-primary">.</span></a>
 
 
-<div style="display:flex;align-items:center;gap:.65rem"><button aria-controls="agency-menu" aria-expanded="false" class="agency-menu-trigger" type="button"><span aria-hidden="true" class="agency-menu-trigger__icon"><i></i><i></i></span>Menu</button><a class="inline-flex items-center justify-center gap-2 whitespace-nowrap border py-2 h-10 rounded-full border-foreground bg-transparent px-5 text-xs font-semibold shadow-none hover:bg-foreground hover:text-background" href="2nddraft.html#book">Book a Fit Call <span aria-hidden="true">↗</span></a></div></div>
-</header>
-<div aria-hidden="true" class="agency-menu" id="agency-menu">
-<div class="agency-menu__inner">
-<div class="agency-menu__top">
-<p class="agency-menu__label">Second Draft / Agency index</p>
-<button aria-label="Close agency menu" class="agency-menu__close" type="button">×</button>
-</div>
-<div class="agency-menu__grid">
-<div class="agency-menu__primary">
-<a href="2nddraft.html">Home</a>
-<a href="about-v2.html">About</a>
-</div>
-<div class="agency-menu__group">
-<p>Transformation</p>
-<a href="2nddraft.html#market-differentiation"><strong>Market Differentiation</strong><span>Repositioning startups and growing businesses as market leaders through Brand &amp; Content Systems.</span></a>
-<a href="2nddraft.html#digital-transformation"><strong>Digital Transformation</strong><span>Reshaping startups’ and growing businesses’ digital presence through Web &amp; AI Systems.</span></a>
-</div>
-<div class="agency-menu__group">
-<p>Expertise</p>
-<a href="2nddraft.html#brand-system"><strong>Brand System</strong><span>Establishing a powerful and cohesive brand presence that resonates with your customers.</span></a>
-<a href="2nddraft.html#web-system"><strong>Web System</strong><span>Creating and maintaining an impactful and comprehensive online presence.</span></a>
-<a href="2nddraft.html#content-system"><strong>Content System</strong><span>Creating, distributing, and managing content across the platforms where attention lives.</span></a>
-<a href="2nddraft.html#ai-system"><strong>AI System</strong><span>Implementing AI workflow automations and systems that streamline operations.</span></a>
-</div>
-<div class="agency-menu__group">
-<p>Methodology</p>
-<a href="methodology-v2.html#ideation"><strong>Ideation</strong><span>Discover the solution.</span></a>
-<a href="methodology-v2.html#integration"><strong>Integration</strong><span>Develop the solution.</span></a>
-<a href="methodology-v2.html#implementation"><strong>Implementation</strong><span>Deploy the solution.</span></a>
-<a href="methodology-v2.html#impact"><strong>Impact</strong><span>Evaluate the solution.</span></a>
-</div>
-<div class="agency-menu__primary agency-menu__utility">
-<a href="methodology-v2.html">How It Works</a>
-<a href="2nddraft.html#work">Case Studies</a>
-<a href="2nddraft.html#insights">Insights</a>
-<a href="2nddraft.html#book">Book a Fit Call</a>
-</div>
-</div>
-</div>
-</div>
-<main id="top">
-<section class="hero-field border-b border-border">
-<div class="mx-auto flex min-h-[calc(100svh-5rem)] max-w-screen-2xl flex-col justify-end px-5 pb-10 pt-24 sm:px-8 sm:pb-14 lg:px-10 lg:pb-16">
-<p class="animate-rise mb-8 text-sm font-medium">The studio — About Second Draft</p>
-<h1 class="animate-rise max-w-[1320px] font-display text-[clamp(2.9rem,6.4vw,7.2rem)] font-normal leading-[0.94] text-balance" style="animation-delay:0.08s">
-          A studio of one, <span class="text-muted-foreground">built for businesses becoming what they already are.</span>
-</h1>
-<p class="animate-rise mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground" style="animation-delay:0.16s">
-          Second Draft® is led by Samhith Mitra — a designer by training who ended up running transformations, because that is where design actually decides something.
-        </p>
-</div>
-</section>
-<section aria-label="Why the name" class="border-b border-border">
-<div class="mx-auto max-w-screen-2xl px-5 py-20 sm:px-8 sm:py-28 lg:px-10">
-<p class="eyebrow mb-8">Why the name</p>
-<p class="max-w-4xl font-display text-[clamp(1.7rem,3.2vw,3rem)] font-normal leading-snug text-balance">
-          Every business already has a first draft — the site built in a hurry, the brand that stopped matching the work, the words no one chose on purpose. <span class="italic text-primary">The second draft is where intention shows up.</span> That is the only thing we do: take what exists and make it deliberate.
-        </p>
-</div>
-</section>
-<section aria-label="The founder" class="border-b border-border">
-<div class="mx-auto grid max-w-screen-2xl gap-14 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[1fr_1.35fr] lg:px-10">
-<div>
-<p class="eyebrow">The person behind it</p>
-<h2 class="mt-8 section-title">Samhith Mitra.<br/><span class="font-serif font-normal italic text-primary">Designer, by training.</span></h2>
-</div>
-<div class="max-w-2xl space-y-6 text-lg leading-relaxed text-muted-foreground lg:pt-12">
-<p>Samhith is a graphic designer — BFA-trained — which shows up in the work as an uncommon amount of care: typography that is actually set, images that are actually chosen, layouts that hold together on every screen.</p>
-<p>But a studio of one means the design eye is only the beginning. The same person who hears the problem shapes the strategy, designs the pages, writes the words, wires the systems, and follows the work after launch.</p>
-<p>No account-manager relay. No work disappearing into a production line. One accountable partner, from the first conversation to the day your second draft is quietly running your business.</p>
-<a class="inline-block text-xs font-semibold uppercase tracking-widest text-foreground underline decoration-primary underline-offset-4" href="methodology-v2.html">See how the work gets done ↗</a>
-</div>
-</div>
-</section>
-<section aria-label="Track record" class="border-b border-border bg-foreground text-background">
-<div class="mx-auto max-w-screen-2xl px-5 pt-12 sm:px-8 lg:px-10">
-<p class="eyebrow text-background/55">In plain numbers</p>
-<p class="mt-6 text-xl font-medium sm:text-2xl" id="days-line">In business since March 4, 2020.</p>
-</div>
-<div class="mx-auto max-w-screen-2xl px-5 pb-12 pt-8 sm:px-8 lg:px-10">
-<ul class="flex flex-wrap gap-6">
-<li class="text-xs font-semibold uppercase tracking-widest sm:text-sm">Solar Pool Services</li>
-<li class="text-xs font-semibold uppercase tracking-widest sm:text-sm">Mygrant Glass</li>
-<li class="text-xs font-semibold uppercase tracking-widest sm:text-sm">Dahtech</li>
-</ul>
-</div>
-</section>
-<section class="bg-foreground text-background" id="book">
-<div class="mx-auto max-w-screen-2xl px-5 py-24 sm:px-8 sm:py-32 lg:px-10">
-<p class="eyebrow text-background/55">A better next version starts here</p>
-<div class="mt-10 grid gap-10 lg:grid-cols-[1.4fr_0.6fr] lg:items-end">
-<h2 class="font-display text-[clamp(3.2rem,7vw,8rem)] font-normal leading-[0.9]">Ready for your<br/><span class="italic text-accent">second draft?</span></h2>
-<div class="space-y-6 lg:pb-3">
-<p class="leading-relaxed text-background/65">Bring your current site and the one thing you wish it communicated better. Leave with a clear point of view on what should change first.</p>
-<a class="inline-flex items-center justify-center gap-2 h-12 rounded-full bg-background px-6 text-xs font-semibold text-foreground shadow-none hover:bg-accent hover:text-accent-foreground" href="#book">Book a Fit Call <span aria-hidden="true" class="text-base leading-none">↗</span></a>
-</div>
-</div>
-</div>
-</section>
-</main>
-<footer class="border-t border-background/15 bg-foreground text-background">
-<div class="mx-auto flex max-w-screen-2xl flex-col gap-3 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-10">
-<span class="brand-wordmark">Second Draft<span class="text-accent">.</span></span>
-<span class="eyebrow text-background/50">© 2026 · Brand / Web / Content / AI Systems</span>
-</div>
-</footer>
-</div>
-<script>
-  (function () {
-    var start = new Date("2020-03-04T00:00:00-08:00").getTime();
-    var days = Math.floor((Date.now() - start) / 86400000);
-    var el = document.getElementById("days-line");
-    if (el && days > 0) el.textContent = days.toLocaleString() + " days in business since March 4, 2020.";
-  })();
-</script>
-
-<script>
-(function(){
- const menu=document.getElementById('agency-menu');
- const open=document.querySelector('.agency-menu-trigger');
- const close=document.querySelector('.agency-menu__close');
- if(!menu||!open||!close)return;
- const setOpen=(value)=>{menu.classList.toggle('is-open',value);menu.setAttribute('aria-hidden',String(!value));open.setAttribute('aria-expanded',String(value));document.body.classList.toggle('menu-open',value);if(value)close.focus();else open.focus()};
- open.addEventListener('click',()=>setOpen(true));close.addEventListener('click',()=>setOpen(false));
- menu.addEventListener('click',(event)=>{if(event.target===menu)setOpen(false)});
- document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&menu.classList.contains('is-open'))setOpen(false)});
- menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>setOpen(false)));
-})();
-</script>
-</body></html>
+/* Second Draft motion and process system */
+:root { --motion-ease: cubic-bezier(.22,1,.36,1); --motion-fast: 260ms; --motion-slow: 820ms; }
+.scroll-progress{position:fixed;inset:0 0 auto;z-index:150;height:2px;pointer-events:none}.scroll-progress i{display:block;width:100%;height:100%;background:var(--primary);transform:scaleX(0);transform-origin:left center;will-change:transform}
+header{transition:transform .45s var(--motion-ease),background-color .3s ease}header.is-hidden{transform:translateY(-100%)}
+.brand-wordmark{position:relative;transition:opacity var(--motion-fast) ease}.brand-wordmark:hover{opacity:.62}
+.agency-menu-trigger__icon i{transition:transform .35s var(--motion-ease),width .35s var(--motion-ease)}.agency-menu-trigger:hover .agency-menu-trigger__icon i:first-child{width:11px}.agency-menu-trigger:hover .agency-menu-trigger__icon i:last-child{width:16px}.agency-menu-trigger[aria-expanded=true] .agency-menu-trigger__icon i:first-child{transform:translateY(2.5px) rotate(45deg)}.agency-menu-trigger[aria-expanded=true] .agency-menu-trigger__icon i:last-child{transform:translateY(-2.5px) rotate(-45deg)}
+.agency-menu__close{transition:transform .5s var(--motion-ease),background-color .25s ease,color .25s ease}.agency-menu__close:hover{transform:rotate(90deg);background:var(--background);color:var(--foreground)}
+.agency-menu__grid>a,.agency-menu__grid div>a{transition:color .25s ease,transform .45s var(--motion-ease)}.agency-menu__grid a:hover{transform:translateX(.45rem)}
+.motion-ready .agency-menu__grid>*{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .7s var(--motion-ease)}.motion-ready .agency-menu.is-open .agency-menu__grid>*{opacity:1;transform:none}.motion-ready .agency-menu.is-open .agency-menu__grid>*:nth-child(2){transition-delay:.05s}.motion-ready .agency-menu.is-open .agency-menu__grid>*:nth-child(3){transition-delay:.1s}.motion-ready .agency-menu.is-open .agency-menu__grid>*:nth-child(4){transition-delay:.15s}.motion-ready .agency-menu.is-open .agency-menu__grid>*:nth-child(5){transition-delay:.2s}
+.motion-ready [data-reveal]{opacity:0;transform:translateY(34px);transition:opacity .72s ease,transform .9s var(--motion-ease)}.motion-ready [data-reveal].is-visible{opacity:1;transform:none}.motion-ready [data-reveal-delay="1"]{transition-delay:.08s}.motion-ready [data-reveal-delay="2"]{transition-delay:.16s}
+.motion-ready .section-title .word{display:inline-block;overflow:hidden;vertical-align:bottom}.motion-ready .section-title .word>i{display:inline-block;font:inherit;transform:translateY(110%);transition:transform .8s var(--motion-ease)}.motion-ready .section-title.is-visible .word>i{transform:none}
+a[href] span[aria-hidden=true]{display:inline-block;transition:transform .35s var(--motion-ease)}a[href]:hover span[aria-hidden=true]{transform:translate(.18rem,-.18rem)}
+.service-row{position:relative;transition:padding-left .55s var(--motion-ease),background-color .35s ease}.service-row:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--primary);transform:scaleY(0);transform-origin:top;transition:transform .55s var(--motion-ease)}.service-row:hover{padding-left:1.25rem}.service-row:hover:before{transform:scaleY(1)}.service-row>.eyebrow{transition:transform .45s var(--motion-ease),color .3s ease}.service-row:hover>.eyebrow{transform:translateY(-.2rem);color:var(--primary)}
+.project-frame{overflow:hidden}.project-frame img{will-change:transform;transition:transform 1s var(--motion-ease),filter .45s ease!important}.project-frame:hover img{transform:scale(1.035)}
+.process-gallery{display:grid;gap:1px;margin:3.5rem 0 1rem;background:var(--border);border:1px solid var(--border)}.process-gallery__item{position:relative;overflow:hidden;background:var(--background);aspect-ratio:8/5}.process-gallery__item img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--motion-ease),filter .45s ease}.process-gallery__item:hover img{transform:scale(1.035)}.process-gallery__item figcaption{position:absolute;left:1rem;bottom:1rem;padding:.55rem .7rem;background:var(--background);color:var(--foreground);font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;transform:translateY(.35rem);opacity:0;transition:opacity .35s ease,transform .45s var(--motion-ease)}.process-gallery__item:hover figcaption{opacity:1;transform:none}
+.insight-link{position:relative;overflow:hidden;transition:padding-left .5s var(--motion-ease)}.insight-link:before{content:"";position:absolute;inset:auto 0 0;height:3px;background:var(--primary);transform:scaleX(0);transform-origin:left;transition:transform .55s var(--motion-ease)}.insight-link:hover:before{transform:scaleX(1)}
+[data-magnetic]{transition:transform .25s var(--motion-ease)}
+@media(min-width:768px){.process-gallery{grid-template-columns:1fr 1fr}.process-gallery__item figcaption{left:1.5rem;bottom:1.5rem}}
+@media(hover:none){.process-gallery__item figcaption{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scroll-progress{display:none}header,.agency-menu-trigger__icon i,.agency-menu__close,.agency-menu__grid>*,.agency-menu__grid div>a,[data-reveal],.section-title .word>i,.service-row,.service-row:before,.project-frame img,.process-gallery__item img,.process-gallery__item figcaption,.insight-link:before,[data-magnetic]{animation:none!important;transition:none!important;transform:none!important}.motion-ready [data-reveal],.motion-ready .agency-menu__grid>*{opacity:1!important}.motion-ready .section-title .word>i{transform:none!important}}
