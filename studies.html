@@ -76,7 +76,20 @@
         .study-row:hover .study-media::after { opacity: 1; }
 
         .coming-soon { padding: 40px 0; border-top: 1px solid var(--border); }
-        .coming-soon p { font-size: 14px; color: var(--text-tertiary); }
+        .coming-soon p { font-size: 14px; color: var(--text-tertiary); max-width: 56ch; }
+
+        .roadmap { padding: 16px 0 0; }
+        .roadmap-heading { font-family: var(--font-serif); font-size: 20px; font-weight: 500; margin-bottom: 24px; }
+        .roadmap-item { display: grid; grid-template-columns: 48px 1fr; gap: 20px; padding: 22px 0; border-top: 1px solid var(--border); opacity: 0; transform: translateY(16px); transition: opacity .6s var(--ease-out), transform .7s var(--ease-out); }
+        .roadmap-item.is-visible { opacity: 1; transform: none; }
+        .roadmap-item:last-of-type { border-bottom: 1px solid var(--border); }
+        .roadmap-num { font-size: 13px; font-weight: 600; color: var(--text-tertiary); padding-top: 2px; }
+        .roadmap-item.is-next .roadmap-num { color: var(--accent); }
+        .roadmap-badge { display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); background: rgba(30,58,138,0.08); padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; }
+        .roadmap-body h4 { font-family: var(--font-serif); font-size: 17px; font-weight: 500; margin-bottom: 8px; }
+        .roadmap-q { font-size: 14.5px; color: var(--text-primary); margin-bottom: 6px; }
+        .roadmap-out { font-size: 14px; color: var(--text-secondary); }
+        .roadmap-note { font-size: 13.5px; color: var(--text-tertiary); margin-top: 28px; max-width: 60ch; }
 
         footer { border-top: 1px solid var(--border); background: var(--bg-secondary); }
         .footer-inner { max-width: 1400px; margin: 0 auto; padding: 48px; display: flex; justify-content: space-between; align-items: center; }
@@ -91,6 +104,7 @@
             .study-row { grid-template-columns: 1fr; gap: 28px; }
             .study-media { order: 1; }
             .study-copy { order: 2; }
+            .roadmap-item { grid-template-columns: 1fr; gap: 8px; }
         }
         @media (max-width: 768px) {
             .header-inner { padding: 16px 24px; }
@@ -101,8 +115,8 @@
             .footer-left { align-items: center; }
         }
         @media (prefers-reduced-motion: reduce) {
-            .study-row, .study-media img { transition: none !important; }
-            .study-row { opacity: 1 !important; transform: none !important; }
+            .study-row, .study-media img, .roadmap-item { transition: none !important; }
+            .study-row, .roadmap-item { opacity: 1 !important; transform: none !important; }
         }
     </style>
 </head>
@@ -131,10 +145,10 @@
         <section class="studies-list">
             <a href="macrame.html" class="study-row" data-reveal>
                 <div class="study-copy">
-                    <span class="study-index">01</span>
+                    <span class="study-index">Study 01</span>
                     <span class="study-tag">Craft & Material Research</span>
                     <h2 class="study-title">Data Physicalization: Tactile Textile Interfaces</h2>
-                    <p class="study-desc">I kept thinking about how a crime map is something you look at once and forget. So I tried encoding actual GTPD safety data into a macramé panel by hand, using knot density and bead placement to see if data could be something you read with your hands instead.</p>
+                    <p class="study-desc">I kept thinking about how a crime map is something you look at once and forget. So I tried encoding actual GTPD safety data into a macramé panel by hand, using knot density and bead placement to explore whether data could be read with your hands instead of just your eyes. This one ended up being the starting point for a bigger question I'm still working through: can knots, beads, and material contrast function like interface elements.</p>
                     <span class="study-link">
                         Read the study
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -146,7 +160,53 @@
             </a>
 
             <div class="coming-soon">
-                <p>More of these coming as I finish them.</p>
+                <p>The macramé piece turned out to raise more questions than it answered, so the next few studies each chase one of them down on its own.</p>
+            </div>
+
+            <div class="roadmap">
+                <h3 class="roadmap-heading">What's next</h3>
+                <div class="roadmap-item is-next" data-reveal>
+                    <div class="roadmap-num">02</div>
+                    <div class="roadmap-body">
+                        <span class="roadmap-badge">Up next</span>
+                        <h4>The Knot Affordance Library</h4>
+                        <p class="roadmap-q">Which knots naturally suggest pulling, pressing, twisting, or tracing?</p>
+                        <p class="roadmap-out">A photographed swatchbook, tested with people to see what they guess a knot does before being told.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item" data-reveal>
+                    <div class="roadmap-num">03</div>
+                    <div class="roadmap-body">
+                        <h4>Quiet Controls</h4>
+                        <p class="roadmap-q">Can macramé and embroidery work as eyes-free controls in a stationary automotive interior?</p>
+                        <p class="roadmap-out">A leather door-card test rig with conductive textile inputs.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item" data-reveal>
+                    <div class="roadmap-num">04</div>
+                    <div class="roadmap-body">
+                        <h4>Tension as Feedback</h4>
+                        <p class="roadmap-q">Can cord tension communicate system status without a screen?</p>
+                        <p class="roadmap-out">Three states, loose, balanced, resistant, tested with people to see if the difference actually reads.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item" data-reveal>
+                    <div class="roadmap-num">05</div>
+                    <div class="roadmap-body">
+                        <h4>Sound in Fiber</h4>
+                        <p class="roadmap-q">Which features of a recording stay recognizable once translated into knot rhythm and embroidery?</p>
+                        <p class="roadmap-out">Three physical translations made from one sound sample.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item" data-reveal>
+                    <div class="roadmap-num">06</div>
+                    <div class="roadmap-body">
+                        <h4>Designed to Be Undone</h4>
+                        <p class="roadmap-q">Can a premium textile surface stay repairable and separable instead of permanent?</p>
+                        <p class="roadmap-out">Reversible knots, stitched leather tabs, and removable hardware.</p>
+                    </div>
+                </div>
+                <p class="roadmap-note">Each of these gets documented with my own process photos as I go: materials, failed attempts, grids, hands actually working on it, test setups, revisions, the final piece. No generated images.</p>
             </div>
         </section>
     </main>
