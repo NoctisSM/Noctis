@@ -1,168 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Data Physicalization: Tactile Textile Interfaces | Noctis</title>
-<meta name="description" content="Noctis | A macramé data-physicalization study translating campus safety patterns into a tactile textile interface."/>
-<meta name="robots" content="noindex, nofollow"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap" rel="stylesheet"/>
-<link href="styles.css" rel="stylesheet"/>
-<style>
-  /* Page-specific styles — reuses site tokens from styles.css (--background, --foreground, --primary, --accent, --border, --muted-foreground, --font-sans, --font-display) */
-  body{background:var(--background); color:var(--foreground); font-family:var(--font-sans);}
-  .cs-nav{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--background) 95%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--border);}
-  .cs-nav-inner{max-width:1320px; margin:0 auto; padding:0 1.25rem; height:5rem; display:flex; align-items:center; justify-content:space-between;}
-  .cs-nav-inner nav{display:flex; gap:1.75rem;}
-  .cs-nav-inner nav a{color:var(--muted-foreground); font-size:.8125rem; font-weight:600; text-decoration:none;}
-  .cs-nav-inner nav a:hover{color:var(--foreground);}
-  .cs-back{max-width:1320px; margin:0 auto; padding:2.5rem 1.25rem 0;}
-  .cs-back a{color:var(--muted-foreground); font-size:.8125rem; font-weight:600; text-decoration:none;}
-  .cs-back a:hover{color:var(--foreground);}
-  .cs-hero{max-width:1320px; margin:0 auto; padding:1.5rem 1.25rem 2.5rem;}
-  .cs-hero h1{font-family:var(--font-display); font-weight:500; letter-spacing:-0.03em; line-height:.98; font-size:clamp(2.1rem,4.4vw,3.6rem); margin:1rem 0 1.5rem; max-width:18ch;}
-  .cs-dek{font-size:1.05rem; color:var(--muted-foreground); max-width:58ch; margin:0 0 2.5rem;}
-  .cs-meta{display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem 2rem; padding-top:1.75rem; border-top:1px solid var(--border);}
-  .cs-meta div span{display:block; font-size:.6875rem; text-transform:uppercase; letter-spacing:.14em; color:var(--muted-foreground); font-weight:700; margin-bottom:.35rem;}
-  .cs-meta div p{margin:0; font-size:.875rem;}
-  .cs-hero-img{max-width:1320px; margin:0 auto; padding:0 1.25rem 1rem;}
-  .cs-hero-img img{width:100%; display:block;}
-  .cs-hero-img figcaption{font-size:.8rem; color:var(--muted-foreground); margin-top:.75rem;}
-  .cs-anchornav{border-top:1px solid var(--border); border-bottom:1px solid var(--border); position:sticky; top:5rem; z-index:40; background:var(--background);}
-  .cs-anchornav-inner{max-width:1320px; margin:0 auto; padding:0 1.25rem; display:flex; gap:1.75rem; overflow-x:auto; height:3rem; align-items:center;}
-  .cs-anchornav-inner a{white-space:nowrap; font-size:.75rem; font-weight:600; color:var(--muted-foreground); text-decoration:none; text-transform:uppercase; letter-spacing:.08em;}
-  .cs-anchornav-inner a:hover{color:var(--primary);}
-  .cs-section{max-width:760px; margin:0 auto; padding:4.5rem 1.25rem; border-bottom:1px solid var(--border); scroll-margin-top:9rem;}
-  .cs-section h2{font-family:var(--font-display); font-weight:500; letter-spacing:-0.02em; font-size:clamp(1.5rem,2.6vw,2.1rem); line-height:1.08; margin:.9rem 0 1.5rem;}
-  .cs-section p{font-size:1rem; line-height:1.7; margin:0 0 1.25rem; max-width:64ch;}
-  .cs-section ul{margin:0 0 1.5rem; padding-left:1.2rem;}
-  .cs-section ul li{margin-bottom:.65rem; font-size:.95rem; line-height:1.6;}
-  .cs-table{width:100%; border-collapse:collapse; margin:.5rem 0 1.75rem; font-size:.9rem;}
-  .cs-table th, .cs-table td{text-align:left; padding:.85rem 1rem; border-bottom:1px solid var(--border);}
-  .cs-table th{font-size:.6875rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted-foreground); font-weight:700;}
-  .cs-note{font-size:.85rem; color:var(--muted-foreground); border-left:2px solid var(--primary); padding-left:1rem; margin:1.5rem 0;}
-  .cs-card{background:var(--secondary); padding:1.5rem 1.6rem; margin-bottom:1rem;}
-  .cs-card h3{font-size:.9rem; font-weight:700; margin:0 0 .5rem;}
-  .cs-card p{margin:0; font-size:.9rem; color:var(--muted-foreground);}
-  .cs-footer{max-width:1320px; margin:0 auto; padding:3rem 1.25rem 4rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;}
-  .cs-footer a{color:var(--muted-foreground); font-size:.8125rem; text-decoration:none;}
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Data Physicalization: Tactile Textile Interfaces | Noctis</title>
+    <meta name="description" content="Noctis | A macramé data-physicalization study translating campus safety patterns into a tactile textile interface.">
+    <link rel="icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #FAFAFA;
+            --bg-secondary: #FFFFFF;
+            --bg-card: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-tertiary: #94A3B8;
+            --accent: #1E3A8A;
+            --border: #E2E8F0;
+            --border-hover: #CBD5E1;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Newsreader', Georgia, serif;
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,250,250,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+        .header-inner { max-width: 1400px; margin: 0 auto; padding: 16px 48px; display: flex; align-items: center; }
+        .logo { font-weight: 600; font-size: 15px; letter-spacing: -0.02em; }
+        nav { display: flex; gap: 40px; align-items: center; margin-left: auto; }
+        nav a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color .2s; position: relative; }
+        nav a:hover { color: var(--text-primary); }
+        nav a.active { color: var(--text-primary); }
+        nav a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--accent); }
+
+        .back-row { max-width: 800px; margin: 0 auto; padding: 128px 48px 0; }
+        .back-row a { font-size: 14px; font-weight: 500; color: var(--text-secondary); display: inline-flex; align-items: center; gap: 8px; transition: gap .2s var(--ease-out), color .2s ease; }
+        .back-row a:hover { color: var(--accent); gap: 12px; }
+        .back-row svg { width: 16px; height: 16px; }
+
+        .cs-hero { max-width: 800px; margin: 0 auto; padding: 24px 48px 40px; }
+        .cs-label { font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 20px; }
+        .cs-hero h1 { font-family: var(--font-serif); font-size: clamp(2rem, 4.2vw, 3rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 24px; }
+        .cs-hero h1 em { font-style: italic; }
+        .cs-hero p.dek { font-size: 18px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 40px; }
+
+        .cs-meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 32px; padding-top: 28px; border-top: 1px solid var(--border); }
+        .cs-meta div { opacity: 0; transform: translateY(10px); transition: opacity .6s var(--ease-out), transform .6s var(--ease-out); }
+        .cs-meta.is-visible div { opacity: 1; transform: none; }
+        .cs-meta.is-visible div:nth-child(1) { transition-delay: 0s; }
+        .cs-meta.is-visible div:nth-child(2) { transition-delay: .08s; }
+        .cs-meta.is-visible div:nth-child(3) { transition-delay: .16s; }
+        .cs-meta.is-visible div:nth-child(4) { transition-delay: .24s; }
+        .cs-meta div span { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-tertiary); margin-bottom: 6px; }
+        .cs-meta div p { font-size: 14px; color: var(--text-primary); }
+
+        .cs-hero-img { max-width: 1000px; margin: 0 auto; padding: 0 48px 16px; }
+        .cs-hero-img .frame { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); }
+        .cs-hero-img img { width: 100%; display: block; transition: transform 1.1s var(--ease-out); }
+        .cs-hero-img .frame:hover img { transform: scale(1.02); }
+        .cs-hero-img figcaption { font-size: 13px; color: var(--text-tertiary); margin-top: 12px; }
+
+        .cs-body { max-width: 800px; margin: 0 auto; padding: 0 48px; }
+        .cs-section { padding: 56px 0; border-bottom: 1px solid var(--border); opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease-out), transform .9s var(--ease-out); }
+        .cs-section.is-visible { opacity: 1; transform: none; }
+        .cs-section:last-of-type { border-bottom: none; }
+        .cs-section h2 { font-family: var(--font-serif); font-size: clamp(1.4rem, 2.4vw, 1.9rem); font-weight: 500; line-height: 1.25; letter-spacing: -0.01em; margin: 8px 0 20px; }
+        .cs-section p { font-size: 16px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 20px; }
+        .cs-section p strong { color: var(--text-primary); }
+        .cs-section ul { margin: 0 0 20px; padding-left: 20px; }
+        .cs-section ul li { font-size: 15px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 10px; }
+        .cs-section ul li strong { color: var(--text-primary); }
+
+        .cs-table { width: 100%; border-collapse: collapse; margin: 8px 0 28px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; font-size: 14px; }
+        .cs-table th, .cs-table td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+        .cs-table th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-tertiary); background: var(--bg-secondary); font-weight: 600; }
+        .cs-table tr:last-child td { border-bottom: none; }
+        .cs-table tr { transition: background-color .25s ease; }
+        .cs-table tbody tr:hover { background: rgba(30,58,138,0.035); }
+
+        .cs-note { font-size: 14px; color: var(--text-secondary); background: rgba(30,58,138,0.05); border-left: 3px solid var(--accent); padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+
+        .cs-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px 26px; margin-bottom: 16px; transition: all .3s var(--ease-out); }
+        .cs-card:hover { border-color: var(--border-hover); box-shadow: 0 12px 24px -10px rgba(0,0,0,0.08); transform: translateY(-3px); }
+        .cs-card h3 { font-family: var(--font-serif); font-size: 17px; font-weight: 500; margin-bottom: 8px; }
+        .cs-card p { font-size: 14.5px; color: var(--text-secondary); margin: 0; }
+
+        footer { border-top: 1px solid var(--border); background: var(--bg-secondary); margin-top: 40px; }
+        .footer-inner { max-width: 1400px; margin: 0 auto; padding: 48px; display: flex; justify-content: space-between; align-items: center; }
+        .footer-left { display: flex; flex-direction: column; gap: 8px; }
+        .footer-name { font-weight: 600; font-size: 15px; }
+        .footer-status { font-size: 14px; color: var(--text-secondary); }
+        .footer-links { display: flex; gap: 32px; }
+        .footer-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color .2s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .header-inner { padding: 16px 24px; }
+            nav { gap: 20px; }
+            .back-row, .cs-hero, .cs-hero-img, .cs-body { padding-left: 24px; padding-right: 24px; }
+            .back-row { padding-top: 108px; }
+            .cs-meta { grid-template-columns: 1fr; }
+            .footer-inner { padding: 32px 24px; flex-direction: column; gap: 20px; text-align: center; }
+            .footer-left { align-items: center; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .cs-section, .cs-meta div, .cs-hero-img img, .cs-card { transition: none !important; }
+            .cs-section, .cs-meta div { opacity: 1 !important; transform: none !important; }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">Noctis</a>
+            <nav>
+                <a href="index.html">Work</a>
+                <a href="studies.html" class="active">Studies</a>
+                <a href="about.html">About</a>
+                <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
+                <a href="#" id="contact-link">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-<div class="cs-nav">
-  <div class="cs-nav-inner">
-    <a class="brand-wordmark" href="index.html">Noctis</a>
-    <nav>
-      <a href="index.html">Work</a>
-      <a href="about.html">About</a>
-      <a href="resume.pdf">Resume</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</div>
+    <main>
+        <div class="back-row">
+            <a href="studies.html">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to Studies
+            </a>
+        </div>
 
-<div class="cs-back">
-  <a href="index.html">&larr; Back to Work</a>
-</div>
+        <div class="cs-hero">
+            <div class="cs-label">Craft &amp; Material Research</div>
+            <h1>Data Physicalization: translating campus safety data into a <em>tactile</em> textile interface</h1>
+            <p class="dek">A hand-knotted macramé panel that encodes real incident patterns from GTPD's published safety reporting — proving that data can be read by touch, not just sight.</p>
+            <div class="cs-meta" data-reveal>
+                <div><span>Role</span><p>Design &amp; fabrication</p></div>
+                <div><span>Timeline</span><p>Spring 2026 &middot; ID 6520, Georgia Tech</p></div>
+                <div><span>Materials</span><p>Cotton cord, wood beads, dyed accent bead</p></div>
+                <div><span>Data source</span><p>GTPD Clery Act safety reporting</p></div>
+            </div>
+        </div>
 
-<div class="cs-hero">
-  <p class="eyebrow">Craft &amp; Material Research</p>
-  <h1>Data Physicalization: translating campus safety data into a tactile textile interface</h1>
-  <p class="cs-dek">A hand-knotted macramé panel that encodes real incident patterns from GTPD's published safety reporting — proving that data can be read by touch, not just sight.</p>
-  <div class="cs-meta">
-    <div><span>Role</span><p>Design &amp; fabrication</p></div>
-    <div><span>Timeline</span><p>Spring 2026 &middot; ID 6520, Georgia Tech</p></div>
-    <div><span>Materials</span><p>Cotton cord, wood beads, dyed accent bead</p></div>
-    <div><span>Data source</span><p>GTPD Clery Act safety reporting</p></div>
-  </div>
-</div>
+        <figure class="cs-hero-img">
+            <div class="frame">
+                <img src="macrame/macrame-panel.jpg" alt="Macramé wall panel with wooden beads knotted into a mesh grid, one red bead as accent">
+            </div>
+            <figcaption>Final panel. Cotton cord mesh, wood dowel mount, 11 standard beads and 1 red accent bead seated into knot intersections.</figcaption>
+        </figure>
 
-<figure class="cs-hero-img">
-  <img alt="Macramé wall panel with wooden beads knotted into a mesh grid, one red bead as accent" src="images/macrame-panel.jpg"/>
-  <figcaption>Final panel. Cotton cord mesh, wood dowel mount, 11 standard beads and 1 red accent bead seated into knot intersections.</figcaption>
-</figure>
+        <div class="cs-body">
+            <section class="cs-section" data-reveal>
+                <div class="cs-label">Overview</div>
+                <h2>Bridging digital UX and physical material engineering</h2>
+                <p>This project converts abstract campus safety data into a physical, touchable object — proof that UX principles like hierarchy and affordance transfer directly into material systems.</p>
+                <p>Using macramé, a knot-based fiber structure, I built a woven panel that encodes incident data through knot density, bead placement, and material contrast. The result is a tactile interface: something you read with your hands, not just your eyes. It's a bridge between the two disciplines I want to combine — digital experience design and bespoke physical craftsmanship.</p>
+            </section>
 
-<div class="cs-anchornav">
-  <div class="cs-anchornav-inner">
-    <a href="#overview">Overview</a>
-    <a href="#problem">Problem</a>
-    <a href="#specs">Specs</a>
-    <a href="#horizons">Horizons</a>
-    <a href="#takeaways">Takeaways</a>
-  </div>
-</div>
+            <section class="cs-section" data-reveal>
+                <div class="cs-label">The Design Problem &amp; UX Mindset</div>
+                <h2>Flat maps are functional. They aren't felt.</h2>
+                <p>A digital crime map compresses risk into color gradients and dots. It's efficient, but disposable — glanced at, scrolled past, abstracted from the body that actually has to walk through that space. It asks for visual attention and rarely asks for physical engagement.</p>
+                <p>The UX insight driving this project: intuition is multisensory. People build spatial understanding through touch, proximity, and repetition, not just sight. A woven object you run your hands across creates a slower, more embodied relationship to information than a map you scroll past.</p>
+                <p>So instead of asking how to visualize the data, I asked how to let someone feel it — encoding severity and frequency directly into knot type, bead scale, and color contrast, so reading the data becomes a physical, almost narrative experience.</p>
+            </section>
 
-<section class="cs-section" id="overview">
-  <p class="eyebrow">Overview</p>
-  <h2>Bridging digital UX and physical material engineering</h2>
-  <p>This project converts abstract campus safety data into a physical, touchable object — proof that UX principles like hierarchy and affordance transfer directly into material systems.</p>
-  <p>Using macramé, a knot-based fiber structure, I built a woven panel that encodes incident data through knot density, bead placement, and material contrast. The result is a tactile interface: something you read with your hands, not just your eyes. It's a bridge between the two disciplines I want to combine — digital experience design and bespoke physical craftsmanship.</p>
-</section>
+            <section class="cs-section" data-reveal>
+                <div class="cs-label">Technical Specs &amp; Data Architecture</div>
+                <h2>Materials and structure</h2>
+                <ul>
+                    <li><strong>Base structure</strong> — cotton cord, hand-tied with spiral knots, square knots, and mesh patterning</li>
+                    <li><strong>Mounting</strong> — natural wood dowel, suspended cord wrap</li>
+                    <li><strong>Data markers</strong> — wooden beads for high-frequency events, one dyed red bead as a high-severity anchor</li>
+                    <li><strong>Method</strong> — knot studies developed by hand first, then translated into a digital grid to control spacing, alignment, and repeatability, preserving tactile character while gaining computational precision over placement</li>
+                </ul>
 
-<section class="cs-section" id="problem">
-  <p class="eyebrow">The Design Problem &amp; UX Mindset</p>
-  <h2>Flat maps are functional. They aren't felt.</h2>
-  <p>A digital crime map compresses risk into color gradients and dots. It's efficient, but disposable — glanced at, scrolled past, abstracted from the body that actually has to walk through that space. It asks for visual attention and rarely asks for physical engagement.</p>
-  <p>The UX insight driving this project: intuition is multisensory. People build spatial understanding through touch, proximity, and repetition, not just sight. A woven object you run your hands across creates a slower, more embodied relationship to information than a map you scroll past.</p>
-  <p>So instead of asking how to visualize the data, I asked how to let someone feel it — encoding severity and frequency directly into knot type, bead scale, and color contrast, so reading the data becomes a physical, almost narrative experience.</p>
-</section>
+                <h2>What the knots represent structurally</h2>
+                <p>The woven mesh functions as a coordinate system. Each knot intersection is a nodal point a bead can be seated into, turning the textile into a grid onto which categorical data can be pinned. The continuous woven field ties every data point into one connected system, rather than isolated markers on a blank background — mirroring how incidents on a real campus exist within a connected geography, not in isolation.</p>
 
-<section class="cs-section" id="specs">
-  <p class="eyebrow">Technical Specs &amp; Data Architecture</p>
-  <h2>Materials and structure</h2>
-  <ul>
-    <li><strong>Base structure</strong> — cotton cord, hand-tied with spiral knots, square knots, and mesh patterning</li>
-    <li><strong>Mounting</strong> — natural wood dowel, suspended cord wrap</li>
-    <li><strong>Data markers</strong> — wooden beads for high-frequency events, one dyed red bead as a high-severity anchor</li>
-    <li><strong>Method</strong> — knot studies developed by hand first, then translated into a digital grid to control spacing, alignment, and repeatability, preserving tactile character while gaining computational precision over placement</li>
-  </ul>
+                <h2>The data coding system</h2>
+                <table class="cs-table">
+                    <tr><th>Element</th><th>Count</th><th>Represents</th></tr>
+                    <tr><td>Standard wood beads</td><td>11</td><td>High-frequency property crime (bicycle theft)</td></tr>
+                    <tr><td>Red accent bead</td><td>1</td><td>High-severity incident anchor (assault-category incidents)</td></tr>
+                </table>
+                <p class="cs-note">Coding is informed by patterns in GTPD's published Clery Act Annual Security &amp; Safety Reports and campus crime log — the same categories (larceny/bicycle theft, assault) those reports disclose.</p>
+                <p>The logic is intentional, not decorative. Frequency maps to repetition: common incidents get a repeated, evenly distributed bead, so density communicates volume by touch the way a bar chart would by sight. Severity maps to contrast: the single red bead breaks the pattern, findable without looking — the same hierarchy a UX designer builds with a single accent color, expressed here in material instead of pixels.</p>
+            </section>
 
-  <h2>What the knots represent structurally</h2>
-  <p>The woven mesh functions as a coordinate system. Each knot intersection is a nodal point a bead can be seated into, turning the textile into a grid onto which categorical data can be pinned. The continuous woven field ties every data point into one connected system, rather than isolated markers on a blank background — mirroring how incidents on a real campus exist within a connected geography, not in isolation.</p>
+            <section class="cs-section" data-reveal>
+                <div class="cs-label">Future Horizons</div>
+                <h2>Where this methodology could go next: bespoke automotive interiors</h2>
+                <p>This project is a proof of concept. The next step I want to explore is bringing this data-to-textile methodology into bespoke automotive interiors — a space where materials already carry meaning, and houses like Ferrari Tailor Made and Rolls-Royce Bespoke have proven that clients want objects, not just products.</p>
+                <p class="cs-note">These are conceptual directions for future design studies, not manufactured or client-commissioned work.</p>
 
-  <h2>The data coding system</h2>
-  <table class="cs-table">
-    <tr><th>Element</th><th>Count</th><th>Represents</th></tr>
-    <tr><td>Standard wood beads</td><td>11</td><td>High-frequency property crime (bicycle theft)</td></tr>
-    <tr><td>Red accent bead</td><td>1</td><td>High-severity incident anchor (assault-category incidents)</td></tr>
-  </table>
-  <p class="cs-note">Coding is informed by patterns in GTPD's published Clery Act Annual Security &amp; Safety Reports and campus crime log — the same categories (larceny/bicycle theft, assault) those reports disclose.</p>
-  <p>The logic is intentional, not decorative. Frequency maps to repetition: common incidents get a repeated, evenly distributed bead, so density communicates volume by touch the way a bar chart would by sight. Severity maps to contrast: the single red bead breaks the pattern, findable without looking — the same hierarchy a UX designer builds with a single accent color, expressed here in material instead of pixels.</p>
-</section>
+                <div class="cs-card">
+                    <h3>Narrative textiles</h3>
+                    <p>Cultural and material history — Mongolian horsehair weaving traditions, for example — woven directly into performance seat trim. Knot density and placement could reflect provenance, craft lineage, or an owner's history, encoded structurally rather than printed on.</p>
+                </div>
+                <div class="cs-card">
+                    <h3>Acoustic data visualization</h3>
+                    <p>A V12's soundwave frequency is, structurally, just another dataset — amplitude, harmonic layering, frequency spikes across an RPM range. The same coding logic used for the safety map could translate that signature into 3D-printed texture or embroidery across cabin door cards, so the sound of the car becomes something felt in the surface of the interior.</p>
+                </div>
+            </section>
 
-<section class="cs-section" id="horizons">
-  <p class="eyebrow">Future Horizons</p>
-  <h2>Where this methodology could go next: bespoke automotive interiors</h2>
-  <p>This project is a proof of concept. The next step I want to explore is bringing this data-to-textile methodology into bespoke automotive interiors — a space where materials already carry meaning, and houses like Ferrari Tailor Made and Rolls-Royce Bespoke have proven that clients want objects, not just products.</p>
-  <p class="cs-note">These are conceptual directions for future design studies, not manufactured or client-commissioned work.</p>
+            <section class="cs-section" data-reveal>
+                <div class="cs-label">Key Takeaways</div>
+                <h2>What this proves</h2>
+                <div class="cs-card"><p>Translating abstract data into physical, sensorial systems — not just charts, but touchable objects with real informational hierarchy.</p></div>
+                <div class="cs-card"><p>Working across craft and computation — hand-built knot studies refined through a digital grid, balancing tactile authenticity with precision.</p></div>
+                <div class="cs-card"><p>Understanding material as an interface — knot type, bead scale, and color function as UI elements in a physical medium.</p></div>
+                <div class="cs-card"><p>Designing coding systems that scale — this bead/knot grammar could be re-applied to new datasets and new contexts, automotive trim included.</p></div>
+            </section>
+        </div>
+    </main>
 
-  <div class="cs-card">
-    <h3>Narrative textiles</h3>
-    <p>Cultural and material history — Mongolian horsehair weaving traditions, for example — woven directly into performance seat trim. Knot density and placement could reflect provenance, craft lineage, or an owner's history, encoded structurally rather than printed on.</p>
-  </div>
-  <div class="cs-card">
-    <h3>Acoustic data visualization</h3>
-    <p>A V12's soundwave frequency is, structurally, just another dataset — amplitude, harmonic layering, frequency spikes across an RPM range. The same coding logic used for the safety map could translate that signature into 3D-printed texture or embroidery across cabin door cards, so the sound of the car becomes something felt in the surface of the interior.</p>
-  </div>
-</section>
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <span class="footer-name">Noctis</span>
+                <span class="footer-status">MS HCI @ Georgia Tech, 2026</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
+                <a href="mailto:samhithm@gmail.com">samhithm@gmail.com</a>
+            </div>
+        </div>
+    </footer>
 
-<section class="cs-section" id="takeaways" style="border-bottom:none;">
-  <p class="eyebrow">Key Takeaways</p>
-  <h2>What this proves</h2>
-  <div class="cs-card"><p style="color:var(--foreground);">Translating abstract data into physical, sensorial systems — not just charts, but touchable objects with real informational hierarchy.</p></div>
-  <div class="cs-card"><p style="color:var(--foreground);">Working across craft and computation — hand-built knot studies refined through a digital grid, balancing tactile authenticity with precision.</p></div>
-  <div class="cs-card"><p style="color:var(--foreground);">Understanding material as an interface — knot type, bead scale, and color function as UI elements in a physical medium.</p></div>
-  <div class="cs-card"><p style="color:var(--foreground);">Designing coding systems that scale — this bead/knot grammar could be re-applied to new datasets and new contexts, automotive trim included.</p></div>
-</section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var user = 'samhithm', domain = 'gmail.com';
+            document.getElementById('contact-link').setAttribute('href', 'mailto:' + user + '@' + domain);
 
-<footer class="cs-footer" id="contact">
-  <a class="brand-wordmark" href="index.html">Noctis</a>
-  <a href="https://www.linkedin.com/in/samhithmitra">LinkedIn</a>
-  <a href="mailto:samhithm@gmail.com">Email</a>
-</footer>
-
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+                var els = document.querySelectorAll('[data-reveal]');
+                var io = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            io.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12 });
+                els.forEach(function(el) { io.observe(el); });
+            } else {
+                document.querySelectorAll('[data-reveal]').forEach(function(el) { el.classList.add('is-visible'); });
+            }
+        });
+    </script>
 </body>
 </html>

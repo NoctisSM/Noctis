@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Studies | Noctis</title>
+    <meta name="description" content="Noctis | Material and craft studies — exploratory work outside the primary case studies.">
+    <link rel="icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #FAFAFA;
+            --bg-secondary: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-tertiary: #94A3B8;
+            --accent: #1E3A8A;
+            --border: #E2E8F0;
+            --border-hover: #CBD5E1;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Newsreader', Georgia, serif;
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,250,250,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+        .header-inner { max-width: 1400px; margin: 0 auto; padding: 16px 48px; display: flex; align-items: center; }
+        .logo { font-weight: 600; font-size: 15px; letter-spacing: -0.02em; }
+        nav { display: flex; gap: 40px; align-items: center; margin-left: auto; }
+        nav a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color .2s; position: relative; }
+        nav a:hover { color: var(--text-primary); }
+        nav a.active { color: var(--text-primary); }
+        nav a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--accent); }
+
+        .hero { max-width: 1000px; margin: 0 auto; padding: 168px 48px 72px; }
+        .hero-label { font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 24px; }
+        .hero h1 { font-family: var(--font-serif); font-size: clamp(2.2rem, 4.6vw, 3.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 24px; max-width: 16ch; }
+        .hero h1 em { font-style: italic; }
+        .hero p { font-size: 17px; line-height: 1.75; color: var(--text-secondary); max-width: 60ch; }
+
+        .studies-list { max-width: 1200px; margin: 0 auto; padding: 0 48px 120px; }
+
+        .study-row {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 56px;
+            align-items: center;
+            padding: 64px 0;
+            border-top: 1px solid var(--border);
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .8s var(--ease-out), transform .9s var(--ease-out);
+        }
+        .study-row.is-visible { opacity: 1; transform: none; }
+        .study-row:last-child { border-bottom: 1px solid var(--border); }
+
+        .study-copy { order: 1; }
+        .study-index { font-size: 13px; font-weight: 600; color: var(--text-tertiary); letter-spacing: .06em; margin-bottom: 14px; display: block; }
+        .study-tag { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); background: rgba(30,58,138,0.06); padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; }
+        .study-title { font-family: var(--font-serif); font-size: clamp(1.5rem, 2.6vw, 2.1rem); font-weight: 500; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.01em; }
+        .study-desc { font-size: 15.5px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 24px; max-width: 46ch; }
+        .study-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--accent); }
+        .study-link svg { width: 16px; height: 16px; transition: transform .3s var(--ease-out); }
+        .study-row:hover .study-link svg { transform: translateX(4px); }
+
+        .study-media { order: 2; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); aspect-ratio: 4/3; position: relative; }
+        .study-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s var(--ease-out), filter .5s ease; filter: saturate(0.94); }
+        .study-row:hover .study-media img { transform: scale(1.045); filter: saturate(1.05); }
+        .study-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(30,58,138,0.05), transparent 60%); pointer-events: none; opacity: 0; transition: opacity .4s ease; }
+        .study-row:hover .study-media::after { opacity: 1; }
+
+        .coming-soon { padding: 40px 0; border-top: 1px solid var(--border); }
+        .coming-soon p { font-size: 14px; color: var(--text-tertiary); }
+
+        footer { border-top: 1px solid var(--border); background: var(--bg-secondary); }
+        .footer-inner { max-width: 1400px; margin: 0 auto; padding: 48px; display: flex; justify-content: space-between; align-items: center; }
+        .footer-left { display: flex; flex-direction: column; gap: 8px; }
+        .footer-name { font-weight: 600; font-size: 15px; }
+        .footer-status { font-size: 14px; color: var(--text-secondary); }
+        .footer-links { display: flex; gap: 32px; }
+        .footer-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color .2s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 860px) {
+            .study-row { grid-template-columns: 1fr; gap: 28px; }
+            .study-media { order: 1; }
+            .study-copy { order: 2; }
+        }
+        @media (max-width: 768px) {
+            .header-inner { padding: 16px 24px; }
+            nav { gap: 20px; }
+            .hero { padding: 140px 24px 56px; }
+            .studies-list { padding: 0 24px 80px; }
+            .footer-inner { padding: 32px 24px; flex-direction: column; gap: 20px; text-align: center; }
+            .footer-left { align-items: center; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .study-row, .study-media img { transition: none !important; }
+            .study-row { opacity: 1 !important; transform: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">Noctis</a>
+            <nav>
+                <a href="index.html">Work</a>
+                <a href="studies.html" class="active">Studies</a>
+                <a href="about.html">About</a>
+                <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
+                <a href="#" id="contact-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-label">Studies</div>
+            <h1>Material and craft <em>explorations</em> outside the case studies.</h1>
+            <p>Shorter, process-driven work — testing a material, a technique, or a way of thinking that later feeds into the product work above. Less about shipped outcomes, more about what a craft can teach a design practice.</p>
+        </section>
+
+        <section class="studies-list">
+            <a href="macrame.html" class="study-row" data-reveal>
+                <div class="study-copy">
+                    <span class="study-index">01</span>
+                    <span class="study-tag">Craft & Material Research</span>
+                    <h2 class="study-title">Data Physicalization: Tactile Textile Interfaces</h2>
+                    <p class="study-desc">Flat crime maps ask for visual attention but not physical engagement. I encoded GTPD safety data into a hand-knotted macramé panel — proof that data can be read by touch, not just sight.</p>
+                    <span class="study-link">
+                        Read the study
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </span>
+                </div>
+                <div class="study-media">
+                    <img src="macrame/macrame-panel.jpg" alt="Macramé data physicalization panel">
+                </div>
+            </a>
+
+            <div class="coming-soon">
+                <p>More studies in progress.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <span class="footer-name">Noctis</span>
+                <span class="footer-status">MS HCI @ Georgia Tech, 2026</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
+                <a href="mailto:samhithm@gmail.com">samhithm@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var user = 'samhithm', domain = 'gmail.com';
+            document.getElementById('contact-link').setAttribute('href', 'mailto:' + user + '@' + domain);
+
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+                var rows = document.querySelectorAll('[data-reveal]');
+                var io = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            io.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+                rows.forEach(function(row) { io.observe(row); });
+            } else {
+                document.querySelectorAll('[data-reveal]').forEach(function(row) {
+                    row.classList.add('is-visible');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
