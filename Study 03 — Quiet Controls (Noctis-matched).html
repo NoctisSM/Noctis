@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Quiet Controls | Noctis</title>
+    <meta name="description" content="Noctis | Study 03: can a secondary vehicle control be integrated into leather and textile trim so its location, gesture, and response are understandable through touch.">
+    <link rel="icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #FAFAFA; --bg-secondary: #FFFFFF; --bg-card: #FFFFFF;
+            --text-primary: #0F172A; --text-secondary: #475569; --text-tertiary: #94A3B8;
+            --accent: #1E3A8A; --border: #E2E8F0; --border-hover: #CBD5E1;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Newsreader', Georgia, serif;
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+        a.textlink { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,250,250,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+        .header-inner { max-width: 1400px; margin: 0 auto; padding: 16px 48px; display: flex; align-items: center; }
+        .logo { font-weight: 600; font-size: 15px; letter-spacing: -0.02em; }
+        nav { display: flex; gap: 40px; align-items: center; margin-left: auto; }
+        nav a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color .2s; position: relative; }
+        nav a:hover { color: var(--text-primary); }
+        nav a.active { color: var(--text-primary); }
+        nav a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--accent); }
+
+        .back-row { max-width: 800px; margin: 0 auto; padding: 128px 48px 0; }
+        .back-row a { font-size: 14px; font-weight: 500; color: var(--text-secondary); display: inline-flex; align-items: center; gap: 8px; }
+        .back-row a:hover { color: var(--accent); }
+        .back-row svg.icon { width: 16px; height: 16px; }
+
+        .cs-hero { max-width: 800px; margin: 0 auto; padding: 24px 48px 32px; }
+        .cs-label { font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 12px; }
+        .status-chip { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); background: rgba(30,58,138,0.08); padding: 4px 10px; border-radius: 4px; margin-left: 8px; vertical-align: middle; }
+        .cs-hero h1 { font-family: var(--font-serif); font-size: clamp(2rem, 4.2vw, 3rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; }
+        .cs-hero p.dek { font-size: 17px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 24px; }
+        .meta-line { font-size: 13px; color: var(--text-tertiary); border-top: 1px solid var(--border); padding-top: 20px; }
+        .meta-line strong { color: var(--text-secondary); font-weight: 600; }
+
+        .ref-image { max-width: 1000px; margin: 0 auto; padding: 0 48px 8px; }
+        .ref-image .frame { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+        .ref-image img { width: 100%; display: block; }
+        .ref-caption-outer { max-width: 800px; margin: 0 auto; padding: 0 48px; font-size: 12.5px; color: var(--text-tertiary); font-style: italic; margin-bottom: 8px; }
+        .ref-caption-outer strong { font-style: normal; color: var(--text-secondary); }
+
+        .cs-body { max-width: 800px; margin: 0 auto; padding: 8px 48px 0; }
+        .cs-section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+        .cs-section:last-of-type { border-bottom: none; }
+        .cs-section h2 { font-family: var(--font-serif); font-size: clamp(1.35rem, 2.2vw, 1.75rem); font-weight: 500; line-height: 1.25; letter-spacing: -0.01em; margin: 4px 0 18px; }
+        .cs-section h3 { font-family: var(--font-serif); font-size: 17px; font-weight: 600; margin: 26px 0 10px; color: var(--text-primary); }
+        .cs-section p { font-size: 15.5px; line-height: 1.7; color: var(--text-secondary); margin-bottom: 18px; }
+        .cs-section p strong { color: var(--text-primary); }
+        .cs-section ol, .cs-section ul { margin: 0 0 18px; padding-left: 20px; }
+        .cs-section li { font-size: 15px; line-height: 1.65; color: var(--text-secondary); margin-bottom: 10px; }
+        .cs-section li strong { color: var(--text-primary); }
+        sup a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+        .research-q { font-family: var(--font-serif); font-size: 19px; font-style: italic; color: var(--text-primary); border-left: 3px solid var(--accent); padding: 4px 0 4px 20px; margin: 24px 0; }
+        .cs-note { font-size: 13.5px; color: var(--text-secondary); background: rgba(30,58,138,0.05); border-left: 3px solid var(--accent); padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 18px 0; }
+
+        .fig-frame { border: 1px solid var(--border); border-radius: 12px; background: var(--bg-secondary); padding: 20px 16px; margin: 12px 0 6px; }
+        .fig-frame svg { width: 100%; height: auto; display: block; }
+        .fig-caption { font-size: 12.5px; color: var(--text-tertiary); margin: 0 0 28px; }
+        .fig-caption strong { color: var(--text-secondary); font-weight: 600; }
+
+        .dac-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0 6px; }
+        .dac-card { border: 1px solid var(--border); border-radius: 10px; padding: 14px 12px; background: var(--bg-secondary); text-align: center; }
+        .dac-card svg { width: 100%; height: 70px; display: block; margin-bottom: 8px; }
+        .dac-card h4 { font-size: 13px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 4px; }
+        .dac-card p { font-size: 11.5px; color: var(--text-secondary); margin: 0; }
+
+        .layer-stack { display: flex; flex-direction: column; gap: 4px; margin: 12px 0 6px; }
+        .layer-row { display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: center; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-secondary); font-size: 13px; }
+        .layer-row .num { font-weight: 700; color: var(--accent); font-size: 12px; }
+        .layer-row .name { color: var(--text-primary); }
+        .layer-row .role { color: var(--text-tertiary); font-size: 11.5px; }
+
+        .context-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin: 12px 0 6px; }
+        .context-card { border: 1px solid var(--border); border-radius: 10px; padding: 14px 12px; background: var(--bg-secondary); }
+        .context-card .step-num { font-size: 11px; font-weight: 700; color: var(--text-tertiary); margin-bottom: 6px; }
+        .context-card h4 { font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+        .context-card p { font-size: 11.5px; color: var(--text-secondary); margin: 0; }
+
+        .boundary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0 6px; }
+        .boundary-col { border-radius: 10px; padding: 18px 16px; }
+        .boundary-col.demo { background: rgba(30,58,138,0.05); border: 1px solid rgba(30,58,138,0.2); }
+        .boundary-col.prod { background: var(--bg-secondary); border: 1px solid var(--border); }
+        .boundary-col h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 10px; }
+        .boundary-col.demo h4 { color: var(--accent); }
+        .boundary-col.prod h4 { color: var(--text-tertiary); }
+        .boundary-col ul { margin: 0; padding-left: 16px; }
+        .boundary-col li { font-size: 12.5px; margin-bottom: 6px; color: var(--text-secondary); }
+
+        .source-notes { list-style: none; padding: 0; margin: 0; counter-reset: src; }
+        .source-notes li { counter-increment: src; font-size: 13.5px; color: var(--text-secondary); margin-bottom: 12px; padding-left: 26px; position: relative; }
+        .source-notes li::before { content: counter(src); position: absolute; left: 0; top: 0; font-weight: 700; color: var(--accent); font-size: 12px; }
+
+        .study-nav { display: flex; justify-content: space-between; gap: 16px; padding: 24px 0; }
+        .study-nav a { font-size: 13.5px; color: var(--text-secondary); }
+        .study-nav a:hover { color: var(--accent); }
+        .study-nav .dir { display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-tertiary); margin-bottom: 4px; }
+        .study-nav .next-disabled { color: var(--text-tertiary); cursor: default; }
+
+        footer { border-top: 1px solid var(--border); background: var(--bg-secondary); margin-top: 24px; }
+        .footer-inner { max-width: 1400px; margin: 0 auto; padding: 48px; display: flex; justify-content: space-between; align-items: center; }
+        .footer-left { display: flex; flex-direction: column; gap: 8px; }
+        .footer-name { font-weight: 600; font-size: 15px; }
+        .footer-status { font-size: 14px; color: var(--text-secondary); }
+        .footer-links { display: flex; gap: 32px; }
+        .footer-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); }
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .header-inner { padding: 16px 24px; }
+            nav { gap: 20px; }
+            .back-row, .cs-hero, .cs-body, .ref-image, .ref-caption-outer { padding-left: 24px; padding-right: 24px; }
+            .back-row { padding-top: 108px; }
+            .dac-grid { grid-template-columns: 1fr; }
+            .layer-row { grid-template-columns: 20px 1fr; }
+            .boundary-grid { grid-template-columns: 1fr; }
+            .footer-inner { padding: 32px 24px; flex-direction: column; gap: 20px; text-align: center; }
+            .footer-left { align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">Noctis</a>
+            <nav>
+                <a href="index.html">Work</a>
+                <a href="studies.html" class="active">Studies</a>
+                <a href="about.html">About</a>
+                <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
+                <a href="#" id="contact-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="back-row">
+            <a href="studies.html">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to Studies
+            </a>
+        </div>
+
+        <div class="cs-hero">
+            <div class="cs-label">Craft &amp; Material Research &middot; Study 03<span class="status-chip">In Progress</span></div>
+            <h1>Quiet Controls</h1>
+            <p class="dek">Can a secondary vehicle control be integrated into leather and textile trim so its location, gesture, and response are understandable through touch alone?</p>
+            <div class="meta-line">
+                <strong>May 2026</strong> &middot; Independent Material Research &middot; Methods: layered material prototyping, interaction mapping, systems analysis &middot; Materials: upholstery leather, polyester thread, conductive thread, felt, cord, rigid carrier, capacitive sensor, haptic actuator
+            </div>
+        </div>
+
+        <div class="ref-image">
+            <div class="frame">
+                <img src="https://images.unsplash.com/photo-1630477577863-4baf945ddb22?fm=jpg&amp;q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="Close-up reference photo of black leather texture" data-image-status="temporary">
+            </div>
+        </div>
+        <p class="ref-caption-outer"><strong>Temporary hero, not this project's leather.</strong> Photo by Bernd Dittrich on Unsplash. Replace with a top-view shot of the actual door-card panel once built.</p>
+
+        <div class="cs-body">
+            <section class="cs-section">
+                <div class="cs-label">Overview</div>
+                <h2>The cabin does not need another glowing rectangle</h2>
+                <p>A flat display can present many controls, but its surface often feels identical from one function to the next. Physical controls support a different sequence: the hand can locate a boundary, identify a target, perform an action, and feel confirmation.</p>
+                <p>Automotive haptics research separates those moments because finding a control and confirming input are different perceptual tasks.<sup><a href="#src1">1</a></sup> This study asks:</p>
+                <p class="research-q">Can a secondary vehicle control be integrated into leather and textile trim so its location, gesture, and response are understandable through touch?</p>
+                <p>The project focuses on a stationary seating buck or passenger-side context. It is a material-interface investigation, not a road-ready control or a replacement for safety-critical hardware.</p>
+            </section>
+
+            <section class="cs-section">
+                <div class="cs-label">Precedent &amp; Scenario</div>
+                <h2>Three noncritical media functions</h2>
+                <p>Conductive embroidery has been used to build fabric widgets such as rockers, menus, zipper controls, proximity controls, and multitouch surfaces.<sup><a href="#src2">2</a></sup> FabriCar explored e-textile sensing across fabric and leather for in-car media interaction.<sup><a href="#src3">3</a></sup> This study narrows that design space into one restrained, materially integrated control.</p>
+                <p>The demonstrator supports three functions: press the center to play or pause, trace forward to skip, trace backward to return. It sits where a passenger's hand naturally rests on a leather-covered door-card section, with no screen or hard bezel. A shallow embroidered boundary, raised center node, and two stitch terminations communicate its presence and direction.</p>
+            </section>
+
+            <section class="cs-section">
+                <div class="cs-label">Interaction Model</div>
+                <h2>Discover, act, confirm</h2>
+                <p>A quiet control needs three distinct moments, and this study assigns each to a different material property rather than expecting one texture to do everything.</p>
+
+                <div class="dac-grid">
+                    <div class="dac-card">
+                        <svg viewBox="0 0 140 90"><rect x="20" y="20" width="100" height="50" rx="22" fill="none" stroke="#1E3A8A" stroke-width="3"/><circle cx="45" cy="45" r="4" fill="#1E3A8A"/><circle cx="95" cy="45" r="4" fill="#1E3A8A"/></svg>
+                        <h4>Discover</h4>
+                        <p>A stitched capsule boundary, asymmetric ends, localized cord relief beneath the leather</p>
+                    </div>
+                    <div class="dac-card">
+                        <svg viewBox="0 0 140 90"><rect x="20" y="20" width="100" height="50" rx="22" fill="none" stroke="#E2E8F0" stroke-width="3"/><circle cx="70" cy="45" r="10" fill="#1E3A8A"/><path d="M 40 45 L 55 45" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/><path d="M 85 45 L 100 45" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/></svg>
+                        <h4>Act</h4>
+                        <p>Embroidered channel for tracing, padded knot beneath center for a distinct press target</p>
+                    </div>
+                    <div class="dac-card">
+                        <svg viewBox="0 0 140 90"><rect x="20" y="20" width="100" height="50" rx="22" fill="none" stroke="#E2E8F0" stroke-width="3"/><circle cx="70" cy="45" r="7" fill="#1E3A8A"/><circle cx="70" cy="45" r="15" fill="none" stroke="#1E3A8A" stroke-width="1.5" opacity="0.5"/><circle cx="70" cy="45" r="22" fill="none" stroke="#1E3A8A" stroke-width="1" opacity="0.25"/></svg>
+                        <h4>Confirm</h4>
+                        <p>Short localized vibration, optional reflected light, appears only after input</p>
+                    </div>
+                </div>
+                <p class="fig-caption"><strong>Fig. 03.1.</strong> Same cross-section, three states. Static cues in blue outline, the confirmation pulse rendered as a radiating highlight.</p>
+
+                <h3>Discoverability</h3>
+                <p>The outer boundary is a 70 &times; 38 mm stitched capsule. The forward end terminates in three tightening stitches, the backward end in one broad bar tack, giving direction without printed arrows. A narrow knotted cord sits beneath the leather perimeter, behaving like localized piping that creates enough relief to locate the control while keeping the exposed surface quiet.</p>
+
+                <h3>Gesture</h3>
+                <p>A central embroidered channel defines the tracing path, with conductive thread following beneath the visible top stitch. A padded knot beneath the center creates a distinct press target, so the continuous directional gestures and the discrete center action have different geometries.</p>
+
+                <h3>Confirmation</h3>
+                <p>A short localized vibration confirms a successful press or trace. Soft reflected light can provide secondary feedback in the door pocket. The boundary itself remains static, confirmation appears only after input, so the search cue and the response cue stay physically distinguishable.</p>
+            </section>
+
+            <section class="cs-section">
+                <div class="cs-label">Material Architecture</div>
+                <h2>Nine layers, visible surface to carrier</h2>
+                <p>Embroidery defines a controlled path and routes conductive thread. Knotting creates volume, resistance, and a soft target. Leather unifies the visual surface. Electronics sense and confirm the action. The interface is built through the operations that construct the trim, not printed onto finished trim afterward.</p>
+
+                <div class="fig-frame">
+                    <div class="layer-stack">
+                        <div class="layer-row"><span class="num">1</span><span class="name">Upholstery leather</span><span class="role">visible surface</span></div>
+                        <div class="layer-row"><span class="num">2</span><span class="name">Bonded polyester top stitch</span><span class="role">defines path</span></div>
+                        <div class="layer-row"><span class="num">3</span><span class="name">Silver-plated conductive thread</span><span class="role">sensing</span></div>
+                        <div class="layer-row"><span class="num">4</span><span class="name">Nonconductive felt spacer</span><span class="role">isolation</span></div>
+                        <div class="layer-row"><span class="num">5</span><span class="name">Cotton or polyester relief cord</span><span class="role">tactile relief</span></div>
+                        <div class="layer-row"><span class="num">6</span><span class="name">Conductive shield / ground layer</span><span class="role">where required</span></div>
+                        <div class="layer-row"><span class="num">7</span><span class="name">Removable rigid carrier</span><span class="role">structure</span></div>
+                        <div class="layer-row"><span class="num">8</span><span class="name">Capacitive-sensing controller</span><span class="role">electronics</span></div>
+                        <div class="layer-row"><span class="num">9</span><span class="name">Local haptic actuator</span><span class="role">confirmation</span></div>
+                    </div>
+                </div>
+                <p class="fig-caption"><strong>Fig. 03.2.</strong> Exploded material stack. Layer thicknesses remain editable until physically measured.</p>
+            </section>
+
+            <section class="cs-section">
+                <div class="cs-label">Framework</div>
+                <h2>Sensing zones and reach</h2>
+                <p>The center, forward, and backward zones need guard space between them so an accidental touch at the boundary doesn't register as input, and each end needs its own electrical exit for routing to the controller.</p>
+
+                <div class="fig-frame">
+                    <svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="40" y="50" width="520" height="60" rx="30" fill="none" stroke="#CBD5E1" stroke-width="2"/>
+                        <rect x="55" y="60" width="140" height="40" rx="8" fill="rgba(30,58,138,0.08)"/>
+                        <text x="125" y="85" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#1E3A8A" font-weight="600">Backward</text>
+                        <rect x="230" y="60" width="140" height="40" rx="8" fill="rgba(30,58,138,0.15)"/>
+                        <text x="300" y="85" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#1E3A8A" font-weight="600">Center</text>
+                        <rect x="405" y="60" width="140" height="40" rx="8" fill="rgba(30,58,138,0.08)"/>
+                        <text x="475" y="85" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#1E3A8A" font-weight="600">Forward</text>
+                        <text x="212" y="35" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#94A3B8">guard space</text>
+                        <text x="388" y="35" text-anchor="middle" font-family="Inter, sans-serif" font-size="10.5" fill="#94A3B8">guard space</text>
+                        <line x1="55" y1="115" x2="55" y2="130" stroke="#94A3B8" stroke-width="1.5"/><text x="55" y="145" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#94A3B8">bar tack</text>
+                        <line x1="545" y1="115" x2="545" y2="130" stroke="#94A3B8" stroke-width="1.5"/><text x="545" y="145" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#94A3B8">3 stitches</text>
+                    </svg>
+                </div>
+                <p class="fig-caption"><strong>Fig. 03.3.</strong> Top-view sensing-zone plan. Positions conceptual until the sensing layer is built.</p>
+
+                <div class="fig-frame">
+                    <svg viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="120" cy="90" r="26" fill="none" stroke="#0F172A" stroke-width="3"/>
+                        <line x1="120" y1="116" x2="120" y2="180" stroke="#0F172A" stroke-width="3"/>
+                        <line x1="120" y1="130" x2="90" y2="200" stroke="#0F172A" stroke-width="3"/>
+                        <line x1="120" y1="130" x2="150" y2="200" stroke="#0F172A" stroke-width="3"/>
+                        <line x1="120" y1="140" x2="90" y2="160" stroke="#0F172A" stroke-width="3"/>
+                        <line x1="120" y1="140" x2="60" y2="150" stroke="#0F172A" stroke-width="3"/>
+                        <rect x="330" y="60" width="20" height="140" fill="#f8fafc" stroke="#CBD5E1" stroke-width="1.5"/>
+                        <path d="M 60 150 A 130 130 0 0 1 165 45" fill="none" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4"/>
+                        <path d="M 90 160 A 90 90 0 0 1 195 90" fill="none" stroke="#1E3A8A" stroke-width="1.5" stroke-dasharray="4 4"/>
+                        <path d="M 100 175 A 50 50 0 0 1 150 145" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 4"/>
+                        <text x="230" y="40" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8">extended</text>
+                        <text x="220" y="80" font-family="Inter, sans-serif" font-size="11" fill="#1E3A8A">neutral</text>
+                        <text x="175" y="130" font-family="Inter, sans-serif" font-size="11" fill="#94A3B8">comfortable</text>
+                        <text x="335" y="55" font-family="Inter, sans-serif" font-size="11" fill="#475569">door card</text>
+                    </svg>
+                </div>
+                <p class="fig-caption"><strong>Fig. 03.4.</strong> Side-elevation reach map. Arc placement is conceptual and needs validation against an actual seated buck.</p>
+            </section>
+
+            <section class="cs-section">
+                <div class="cs-label">Systems View</div>
+                <h2>Hidden routing</h2>
+                <div class="fig-frame">
+                    <svg viewBox="0 0 700 130" xmlns="http://www.w3.org/2000/svg">
+                        <g font-family="Inter, sans-serif" font-size="12">
+                        <rect x="10" y="45" width="150" height="42" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/><text x="85" y="70" text-anchor="middle" fill="#0F172A">Conductive stitch</text>
+                        <line x1="160" y1="66" x2="185" y2="66" stroke="#CBD5E1" stroke-width="1.5"/><polygon points="185,66 178,61 178,71" fill="#CBD5E1"/>
+                        <rect x="190" y="45" width="150" height="42" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/><text x="265" y="70" text-anchor="middle" fill="#0F172A">Capacitive sensing</text>
+                        <line x1="340" y1="66" x2="365" y2="66" stroke="#CBD5E1" stroke-width="1.5"/><polygon points="365,66 358,61 358,71" fill="#CBD5E1"/>
+                        <rect x="370" y="45" width="150" height="42" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/><text x="445" y="70" text-anchor="middle" fill="#0F172A">Gesture classify</text>
+                        <line x1="520" y1="58" x2="545" y2="30" stroke="#CBD5E1" stroke-width="1.5"/><polygon points="545,30 536,32 542,39" fill="#CBD5E1"/>
+                        <line x1="520" y1="74" x2="545" y2="100" stroke="#CBD5E1" stroke-width="1.5"/><polygon points="545,100 536,97 542,90" fill="#CBD5E1"/>
+                        <rect x="550" y="10" width="140" height="38" rx="8" fill="rgba(30,58,138,0.06)" stroke="#1E3A8A" stroke-width="1.2"/><text x="620" y="33" text-anchor="middle" fill="#1E3A8A" font-weight="600">Vibration</text>
+                        <rect x="550" y="82" width="140" height="38" rx="8" fill="rgba(30,58,138,0.06)" stroke="#1E3A8A" stroke-width="1.2"/><text x="620" y="105" text-anchor="middle" fill="#1E3A8A" font-weight="600">Reflected light</text>
+                        </g>
+                    </svg>
+                </div>
+                <p class="fig-caption"><strong>Fig. 03.5.</strong> Conductive stitching through gesture classification to output. Electronics remain exposed on the reverse of any physical prototype so routing and repair stay legible.</p>
+            </section>
+
+            <section class="cs-section">
+                <div class="cs-label">Prototype Progression</div>
+                <h2>From appearance to context</h2>
+                <div class="context-grid">
+                    <div class="context-card"><div class="step-num">01</div><h4>Surface study</h4><p>Visible embroidery, no relief or sensing. Establishes size, proportion, seam language under grazing light.</p></div>
+                    <div class="context-card"><div class="step-num">02</div><h4>Tactile buck</h4><p>Concealed knotted perimeter and padded center. Tests whether the area can be found and the ends distinguished.</p></div>
+                    <div class="context-card"><div class="step-num">03</div><h4>Sensing layer</h4><p>Separate center, forward, backward zones. Electronics exposed on the reverse for legibility.</p></div>
+                    <div class="context-card"><div class="step-num">04</div><h4>Door-card context</h4><p>300 &times; 450 mm panel with armrest edge, seam, pocket. Tests lateral approach without direct vision.</p></div>
+                </div>
+                <p class="fig-caption"><strong>Fig. 03.6.</strong> Each stage resolves one question before the next is added.</p>
+
+                <div class="ref-image" style="padding:0; max-width:none;">
+                    <div class="frame">
+                        <img src="https://images.unsplash.com/photo-1546957236-5fde4e0b25eb?fm=jpg&amp;q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Reference photo of thread and needle" data-image-status="temporary">
+                    </div>
+                </div>
+                <p class="ref-caption-outer" style="padding:0;"><strong>Temporary reference, not this prototype's stitching.</strong> Photo by amirali mirhashemian on Unsplash. Replace with a macro of the actual conductive top stitch.</p>
+            </section>
+
+            <section class="cs-section">
+                <div class="cs-label">Validation Protocol</div>
+                <h2>Discovery, interpretation, operation</h2>
+                <p><strong>Discovery:</strong> locate the active area with vision and then without it. Record first contact, search path, and whether the perimeter is mistaken for ordinary trim.</p>
+                <p><strong>Interpretation:</strong> before functions are explained, describe what actions the surface appears to support.</p>
+                <p><strong>Operation:</strong> after orientation, perform play/pause, next, and previous. Record incorrect zones, reversed directions, repeated inputs, and whether confirmation is noticed.</p>
+                <p>Research on eyes-free textile controls indicates that size, placement, and orientation affect performance and must be treated as variables rather than assumed constants.<sup><a href="#src4">4</a></sup></p>
+            </section>
+
+            <section class="cs-section">
+                <div class="cs-label">Production Boundary</div>
+                <h2>What this demonstrator does not establish</h2>
+                <p>The demonstrator establishes interaction architecture, not automotive readiness. Production would require false-activation analysis; glove, moisture, dust, and cleaning tests; abrasion, heat, UV, chemical, and aging tests; electromagnetic compatibility; airbag and crash-zone review; service planning; and driving-simulator and on-road studies.</p>
+                <p>The study does not claim the interface is safer than a touchscreen. It establishes a defensible hypothesis: tactile structure may support lower-visual-attention interaction and warrants controlled evaluation.</p>
+
+                <div class="fig-frame">
+                    <div class="boundary-grid">
+                        <div class="boundary-col demo">
+                            <h4>Material demonstrator (this study)</h4>
+                            <ul>
+                                <li>Discover / act / confirm architecture</li>
+                                <li>Nine-layer material stack</li>
+                                <li>Stationary seating buck context</li>
+                                <li>Discovery, interpretation, operation testing</li>
+                            </ul>
+                        </div>
+                        <div class="boundary-col prod">
+                            <h4>Production qualification (not yet started)</h4>
+                            <ul>
+                                <li>False-activation analysis</li>
+                                <li>Environmental and durability testing</li>
+                                <li>EMC and airbag / crash-zone review</li>
+                                <li>Driving-simulator and on-road studies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="fig-caption"><strong>Fig. 03.7.</strong> These two columns are not the same claim. Nothing on the left substitutes for anything on the right.</p>
+            </section>
+
+            <section class="cs-section">
+                <div class="cs-label">Synthesis</div>
+                <h2>Design synthesis</h2>
+                <p>A quiet control requires three distinct moments: a stable boundary that persists before and after use, a directional or compressible feature that communicates the gesture, and a temporary response that cannot be mistaken for the search cue. Assigning each responsibility to a different material property is clearer than asking one texture to perform all three.</p>
+
+                <h3>Bespoke-interior direction</h3>
+                <p>This architecture suggests a cabin where functionality is constructed into trim rather than applied afterward. A client-specific stitch geometry could identify a passenger control. A concealed knot could create a tactile signature unique to one commission. Conductive paths could follow an embroidered motif without making the cabin look electronic.</p>
+                <p class="cs-note">Conceptual direction only, not manufactured or client-commissioned work.</p>
+            </section>
+
+            <section class="cs-section">
+                <div class="cs-label">Status &amp; Next Steps</div>
+                <h2>What this study establishes</h2>
+                <ul>
+                    <li>A layered architecture for leather, embroidery, knotting, sensing, and feedback.</li>
+                    <li>A discover-act-confirm model for soft controls.</li>
+                    <li>A progression from appearance to tactility, sensing, and context.</li>
+                    <li>A clear boundary between material demonstrator and automotive product.</li>
+                    <li>A bridge from hand craft to e-textile interaction design.</li>
+                </ul>
+                <p>The vocabulary from Study 02 (pull, press, twist, trace, slide) informed this control's shape directly: the center node borrows the "node" family's press logic, the tracing channel borrows the "ridge" family's guided direction. Next up is Study 04, Tension as Feedback, which asks whether cord tension alone can communicate system state.</p>
+            </section>
+
+            <section class="cs-section" style="border-bottom:none;">
+                <div class="cs-label">Source Notes</div>
+                <ol class="source-notes">
+                    <li id="src1">Rümelin, S. et al., <a class="textlink" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6676796/" target="_blank">"A Theoretical Framework of Haptic Processing in Automotive User Interfaces"</a>, PMC.</li>
+                    <li id="src2"><a class="textlink" href="https://www.computer.org/csdl/proceedings-article/iswc/2010/05665876/12OmNxFsmqh" target="_blank">Textile Interface Swatchbook</a>, ISWC proceedings, on conductive embroidery widgets.</li>
+                    <li id="src3"><a class="textlink" href="https://dl.acm.org/doi/fullHtml/10.1145/3563657.3595988" target="_blank">FabriCar</a>, ACM DL, e-textile sensing across fabric and leather for in-car media interaction. Findings belong to that study and are not transferred here.</li>
+                    <li id="src4"><a class="textlink" href="https://hci.rwth-aachen.de/towards-texui-design-guidelines" target="_blank">"Towards Textile User Interface Design Guidelines for Eyes-free Use"</a>, RWTH Aachen.</li>
+                </ol>
+            </section>
+
+            <div class="study-nav">
+                <a href="knot-affordance.html"><span class="dir">Previous</span>Study 02, Perceived Affordances in Knots</a>
+                <span class="next-disabled"><span class="dir">Next</span>Study 04, Tension as Feedback (coming soon)</span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <span class="footer-name">Noctis</span>
+                <span class="footer-status">MS HCI @ Georgia Tech, 2026</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
+                <a href="mailto:samhithm@gmail.com">samhithm@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var user = 'samhithm', domain = 'gmail.com';
+            document.getElementById('contact-link').setAttribute('href', 'mailto:' + user + '@' + domain);
+        });
+    </script>
+</body>
+</html>
