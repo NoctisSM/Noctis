@@ -1087,3 +1087,15 @@ a[href] span[aria-hidden=true]{display:inline-block;transition:transform .35s va
 @media(min-width:768px){.process-gallery{grid-template-columns:1fr 1fr}.process-gallery__item figcaption{left:1.5rem;bottom:1.5rem}}
 @media(hover:none){.process-gallery__item figcaption{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scroll-progress{display:none}header,.agency-menu-trigger__icon i,.agency-menu__close,.agency-menu__grid>*,.agency-menu__grid div>a,[data-reveal],.section-title .word>i,.service-row,.service-row:before,.project-frame img,.process-gallery__item img,.process-gallery__item figcaption,.insight-link:before,[data-magnetic]{animation:none!important;transition:none!important;transform:none!important}.motion-ready [data-reveal],.motion-ready .agency-menu__grid>*{opacity:1!important}.motion-ready .section-title .word>i{transform:none!important}}
+
+/* === 4th Park pacing pass: denser rhythm, sharper sections (fonts unchanged) === */
+main#top > section.py-20, main#top section .sm\:py-28 { padding-top: clamp(3.5rem,6vw,5.5rem); padding-bottom: clamp(3.5rem,6vw,5.5rem); }
+main#top .section-title { font-size: clamp(2.1rem,3.4vw,3.9rem); line-height: 1; }
+main#top .hero-field > div { min-height: min(calc(88svh - 5rem), 760px); }
+main#top .hero-field h1 { font-size: clamp(2.6rem,5.6vw,6.2rem); letter-spacing: -0.03em; }
+main#top .eyebrow { letter-spacing: 0.18em; }
+main#top .project-frame { border-radius: 0.5rem; }
+main#top figure.group, main#top article.scroll-target { transition: transform var(--motion-fast,220ms) ease; }
+main#top figure.group:hover { transform: translateY(-4px); }
+main#top ol > li { transition: padding-left 220ms ease, background-color 220ms ease; }
+main#top ol > li:hover { padding-left: 1rem; background: color-mix(in oklab, var(--foreground) 4%, transparent); }
