@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex, nofollow">
-    <title>OVERWATCH: Drone Dispatch | Noctis</title>
-    <meta name="description" content="Noctis | Design research and systems for defense, automotive, and healthcare. Specialized in high-stakes environments.">
+    <meta name="robots" content="index, follow">
+    <title>OVERWATCH: Drone Dispatch | Samhith Mitra</title>
+    <meta name="description" content="Samhith Mitra | Design research and systems for defense, automotive, and healthcare. Specialized in high-stakes environments.">
     <link rel="icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -645,16 +645,26 @@
         @media (prefers-reduced-motion: reduce) {
             .dashboard-hotspot, .dashboard-hotspot::after, .dashboard-region-button { transition: none; }
         }
+
+        /* Small screens: let the nav wrap instead of overflowing */
+        @media (max-width: 600px) {
+            .header-inner { flex-wrap: wrap; row-gap: 10px; }
+            header nav { width: 100%; margin-left: 0; flex-wrap: wrap; gap: 8px 18px; }
+            header nav a { font-size: 13px; }
+            .footer-links { flex-wrap: wrap; justify-content: center; gap: 12px 24px; }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="header-inner">
-            <a href="index.html" class="logo">Noctis</a>
+            <a href="index.html" class="logo">Samhith Mitra</a>
             <nav>
                 <a href="index.html">Work</a>
-                <a href="about.html">About</a>
+                <a href="studies.html">Studies</a>
+                <a href="about-me.html">About</a>
                 <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
                 <a href="#" id="contact-link">Contact</a>
             </nav>
         </div>
@@ -1379,7 +1389,7 @@
 
     <footer>
         <div class="footer-inner">
-            <a href="index.html" class="logo">Noctis</a>
+            <a href="index.html" class="logo">Samhith Mitra</a>
             <div class="footer-links">
                 <a href="https://www.linkedin.com/in/samhithmitra/" target="_blank">LinkedIn</a>
                 <a href="#" id="footer-email">Email</a>
