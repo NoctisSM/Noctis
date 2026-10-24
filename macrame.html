@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Data Physicalization: Tactile Textile Interfaces | Noctis</title>
-    <meta name="description" content="Noctis | A macramé data-physicalization study translating campus safety patterns into a tactile textile interface.">
+    <meta name="robots" content="index, follow">
+    <title>Data Physicalization: Tactile Textile Interfaces | Samhith Mitra</title>
+    <meta name="description" content="Samhith Mitra | A macramé data-physicalization study translating campus safety patterns into a tactile textile interface.">
     <link rel="icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,16 +113,24 @@
             .cs-section, .cs-meta div, .cs-hero-img img, .cs-card { transition: none !important; }
             .cs-section, .cs-meta div { opacity: 1 !important; transform: none !important; }
         }
+
+        /* Small screens: let the nav wrap instead of overflowing */
+        @media (max-width: 600px) {
+            .header-inner { flex-wrap: wrap; row-gap: 10px; }
+            header nav { width: 100%; margin-left: 0; flex-wrap: wrap; gap: 8px 18px; }
+            header nav a { font-size: 13px; }
+            .footer-links { flex-wrap: wrap; justify-content: center; gap: 12px 24px; }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="header-inner">
-            <a href="index.html" class="logo">Noctis</a>
+            <a href="index.html" class="logo">Samhith Mitra</a>
             <nav>
                 <a href="index.html">Work</a>
                 <a href="studies.html" class="active">Studies</a>
-                <a href="about.html">About</a>
+                <a href="about-me.html">About</a>
                 <a href="resume.pdf" target="_blank">Resume</a>
                 <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
                 <a href="#" id="contact-link">Contact</a>
@@ -227,7 +235,7 @@
     <footer>
         <div class="footer-inner">
             <div class="footer-left">
-                <span class="footer-name">Noctis</span>
+                <span class="footer-name">Samhith Mitra</span>
                 <span class="footer-status">MS HCI @ Georgia Tech, 2026</span>
             </div>
             <div class="footer-links">
