@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Noctis | Design Research</title>
-    <meta name="description" content="Noctis | Design research and systems for public safety, automotive, and healthcare. Specialized in high-stakes environments.">
+    <meta name="robots" content="index, follow">
+    <title>Samhith Mitra | Product Designer</title>
+    <meta name="description" content="Samhith Mitra | Product designer. Design research and systems for public safety, automotive, and healthcare. Specialized in high-stakes environments.">
     <link rel="icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -438,20 +438,36 @@
                 align-items: center;
             }
         }
+
+        .project-metric { display: flex; }
+        .hero-level { font-size: 14px; color: var(--text-tertiary); margin-top: 20px; }
+        .project-meta { flex-wrap: wrap; gap: 8px 12px; }
+        .more-work { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--border); }
+        .more-row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 18px 0; border-bottom: 1px solid var(--border); transition: color .2s; }
+        .more-row:hover .more-title { color: var(--accent); }
+        .more-title { font-family: var(--font-serif); font-size: 18px; color: var(--text-primary); }
+        .more-meta { font-size: 13px; color: var(--text-tertiary); }
+
+        /* Small screens: let the nav wrap instead of overflowing */
+        @media (max-width: 600px) {
+            .header-inner { flex-wrap: wrap; row-gap: 10px; }
+            header nav { width: 100%; margin-left: 0; flex-wrap: wrap; gap: 8px 18px; }
+            header nav a { font-size: 13px; }
+            .footer-links { flex-wrap: wrap; justify-content: center; gap: 12px 24px; }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="header-inner">
-            <a href="index.html" class="logo">Noctis</a>
+            <a href="index.html" class="logo">Samhith Mitra</a>
             <nav>
                 <a href="index.html" class="active">Work</a>
                 <a href="studies.html">Studies</a>
-                <a href="about.html">About</a>
+                <a href="about-me.html">About</a>
                 <a href="resume.pdf" target="_blank">Resume</a>
                 <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
                 <a href="#" id="contact-link">Contact</a>
-                <a href="2nddraft.html" style="color:#1E3A8A;">2nd Draft ↗</a>
             </nav>
         </div>
     </header>
@@ -465,6 +481,7 @@
                     <p class="hero-description">
                         Complex systems. High-pressure environments.<br class="hero-break"> When confusion isn't an inconvenience, it's a risk.
                     </p>
+                    <p class="hero-level">Previously UX Designer at Align Technology and Sr. UX Designer Consultant at Dahlstrom Technologies &middot; MS HCI, Georgia Tech</p>
                 </div>
             </div>
         </section>
@@ -475,29 +492,6 @@
             </div>
 
             <div class="projects-grid">
-<!-- Solar Pool Services -->
-                <a href="solar.html" class="project-card">
-                    <div class="project-image">
-                        <img class="project-image-top" src="solar/home-desktop.png" alt="Solar Pool Services Inc. website header and hero section">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-meta">
-                            <span class="project-tag">B2C Web Design</span>
-                            <span class="project-year">2026</span>
-                        </div>
-                        <h3 class="project-title">Designed & Launched: Solar Pool Services Inc.</h3>
-                        <p class="project-description">
-                            A specialized solar pool-heating service needed a website that made an unfamiliar technology feel understandable. I designed and launched the full B2C experience — service architecture, proof, and three quote pathways.
-                        </p>
-                        <span class="project-cta">
-                            View Case Study
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                        </span>
-                    </div>
-                </a>
-
                 <!-- Thesis -->
                 <a href="thesis.html" class="project-card">
                     <div class="project-image">
@@ -506,12 +500,14 @@
                     <div class="project-content">
                         <div class="project-meta">
                             <span class="project-tag">Public Safety</span>
+                            <span class="project-tag">Mission-critical ops</span>
                             <span class="project-year">Thesis 2026</span>
                         </div>
                         <h3 class="project-title">Drone Intelligence for Police Dispatch</h3>
                         <p class="project-description">
                             Dispatchers weren't overwhelmed by how much they handled — they were overwhelmed by how many places they had to look. I designed for consolidation, not reduction.
                         </p>
+                        <span class="project-metric">SUS 78 with 10 sworn officers</span>
                         <span class="project-cta">
                             View Case Study
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -556,30 +552,7 @@
                         </div>
                         <h3 class="project-title">Patient Dashboard for 12M Users</h3>
                         <p class="project-description">
-                            Patients didn't need more data — they needed to know what to do next. I redesigned around next-step clarity instead of information density, increasing engagement by 35%.
-                        </p>
-                        <span class="project-cta">
-                            View Case Study
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Accessories -->
-                <a href="accessories.html" class="project-card">
-                    <div class="project-image">
-                        <img src="Accessories/accessories.jpg" alt="Invisalign Accessories">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-meta">
-                            <span class="project-tag">E-Commerce</span>
-                            <span class="project-year">2022</span>
-                        </div>
-                        <h3 class="project-title">Checkout Flow for Healthcare Accessories</h3>
-                        <p class="project-description">
-                            A 7-step purchase flow was killing conversions. I reduced it to 3 steps with contextual product recommendations, lifting conversion by 60%.
+                            Patients didn't need more data — they needed to know what to do next. I redesigned around next-step clarity instead of information density, lifting treatment engagement from 48% to 65%.
                         </p>
                         <span class="project-cta">
                             View Case Study
@@ -610,20 +583,28 @@
                                 <path d="M5 12h14M12 5l7 7-7 7"/>
                             </svg>
                         </span>
+                    </div>
+                </a>
             </div>
 
+            <div class="more-work">
+                <span class="section-title">More work</span>
+                <a href="accessories.html" class="more-row"><span class="more-title">Checkout Flow for Healthcare Accessories</span><span class="more-meta">E-Commerce &middot; Align Technology &middot; 2022</span></a>
+                <a href="solar.html" class="more-row"><span class="more-title">Designed &amp; Launched: Solar Pool Services Inc.</span><span class="more-meta">B2C Web Design &middot; 2026</span></a>
+            </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-inner">
             <div class="footer-left">
-                <span class="footer-name">Noctis</span>
+                <span class="footer-name">Samhith Mitra</span>
                 <span class="footer-status">MS HCI @ Georgia Tech, 2026</span>
             </div>
             <div class="footer-links">
                 <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
                 <a href="mailto:samhithm@gmail.com">samhithm@gmail.com</a>
+                <a href="2nddraft.html">Second Draft studio ↗</a>
             </div>
         </div>
     </footer>
