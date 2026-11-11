@@ -35,18 +35,19 @@
     <link rel="icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #FFFFFF;
-            --bg-secondary: #FFFFFF;
-            --bg-dark: #0F172A;
-            --text-primary: #0F172A;
-            --text-secondary: #475569;
-            --text-tertiary: #94A3B8;
-            --accent: #1E3A8A;
-            --accent-light: #3B82F6;
-            --border: #E2E8F0;
+            --bg-primary: #0A0A0B;
+            --bg-secondary: #16171A;
+            --bg-dark: #05060A;
+            --text-primary: #F5F5F4;
+            --text-secondary: #A1A1AA;
+            --text-tertiary: #6B6B74;
+            --accent: #3B82F6;
+            --accent-light: #60A5FA;
+            --accent-dim: rgba(59, 130, 246, 0.12);
+            --border: rgba(255, 255, 255, 0.08);
 
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-serif: 'Newsreader', Georgia, serif;
@@ -57,30 +58,30 @@
         body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
         a { color: inherit; text-decoration: none; }
 
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: #FFFFFF;
-            border-bottom: 1px solid var(--border);
-        }
-
+        /* Floating pill nav */
+        header { position: fixed; top: 20px; left: 0; right: 0; z-index: 100; display: flex; justify-content: center; }
         .header-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 16px 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; align-items: center; gap: 36px;
+            background: rgba(22, 23, 26, 0.75);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 10px 14px 10px 10px;
         }
-
-        .logo { font-weight: 600; font-size: 15px; }
-        nav { display: flex; gap: 40px; }
-        nav a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+        .logo {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--accent-dim); color: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 13px; letter-spacing: -0.02em;
+        }
+        nav { display: flex; gap: 26px; align-items: center; }
+        nav a { font-size: 13px; font-weight: 500; color: var(--text-secondary); transition: color .2s; }
         nav a:hover { color: var(--text-primary); }
+        nav a.active { color: var(--text-primary); }
+        nav .nav-contact {
+            background: var(--text-primary); color: var(--bg-primary);
+            padding: 8px 16px; border-radius: 999px; font-weight: 600;
+        }
 
         /* Hero */
         .hero {
@@ -188,9 +189,9 @@
         }
         .sidebar-nav a:hover { color: var(--text-secondary); }
         .sidebar-nav a.active {
-            color: #1E3A8A;
-            border-left-color: #1E3A8A;
-            background: rgba(30, 58, 138, 0.04);
+            color: var(--accent);
+            border-left-color: var(--accent);
+            background: var(--accent-dim);
         }
 
         /* Meta Sidebar */
@@ -236,7 +237,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: #1E3A8A;
+            color: var(--accent);
             margin-bottom: 16px;
         }
 
@@ -293,7 +294,7 @@
             font-family: var(--font-serif);
             font-size: 36px;
             font-weight: 400;
-            color: #1E3A8A;
+            color: var(--accent);
             margin-bottom: 4px;
         }
 
@@ -301,17 +302,20 @@
 
         /* Callout */
         .callout {
-            background: rgba(30, 58, 138, 0.04);
-            border-left: 3px solid #1E3A8A;
-            padding: 20px 24px;
+            background: transparent;
+            border: none;
+            border-left: 2px solid var(--accent);
+            padding: 6px 0 6px 28px;
             margin: 32px 0;
-            border-radius: 0 8px 8px 0;
         }
 
         .callout p {
-            font-size: 15px;
+            font-family: var(--font-serif);
             font-style: italic;
-            color: var(--text-secondary);
+            font-size: clamp(21px, 2.3vw, 29px);
+            line-height: 1.36;
+            color: var(--text-primary);
+            max-width: 40ch;
             margin: 0;
         }
 
@@ -330,7 +334,7 @@
         .process-number {
             width: 32px;
             height: 32px;
-            background: #1E3A8A;
+            background: var(--accent);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -365,7 +369,7 @@
         .reflection-icon {
             width: 24px;
             height: 24px;
-            color: #1E3A8A;
+            color: var(--accent);
             flex-shrink: 0;
             margin-top: 2px;
         }
@@ -399,9 +403,11 @@
             align-items: center;
         }
 
+        .footer-name { font-weight: 700; font-size: 14px; }
+        .footer-status { font-size: 13px; color: var(--text-tertiary); margin-top: 4px; }
         .footer-links { display: flex; gap: 32px; }
         .footer-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
-        .footer-links a:hover { color: #1E3A8A; }
+        .footer-links a:hover { color: var(--accent); }
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -415,83 +421,15 @@
         }
 
         @media (max-width: 768px) {
-            .header-inner { padding: 16px 24px; }
-            nav { gap: 24px; }
-            .hero { padding: 120px 24px 48px; }
+            .header-inner { gap: 16px; padding: 8px 10px 8px 8px; }
+            nav { gap: 14px; }
+            .hero { padding: 140px 24px 48px; }
             .case-study-layout { padding: 32px 24px 64px; }
             .metrics-grid { grid-template-columns: 1fr; }
             .footer-inner {
                 padding: 32px 24px;
                 flex-direction: column;
                 gap: 24px;
-            }
-        }
-    
-        /* Mobile header: keep the full menu on small phones */
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-            width: 40px;
-            height: 40px;
-            padding: 0;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-        }
-
-        .nav-toggle span {
-            display: block;
-            width: 22px;
-            height: 2px;
-            background: var(--text-primary);
-            border-radius: 2px;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-        }
-
-        header.nav-open .nav-toggle span:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        header.nav-open .nav-toggle span:nth-child(2) {
-            opacity: 0;
-        }
-
-        header.nav-open .nav-toggle span:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
-        @media (max-width: 480px) {
-            .header-inner {
-                padding: 14px 16px;
-                flex-wrap: wrap;
-            }
-            .nav-toggle {
-                display: flex;
-                margin-left: auto;
-            }
-            header nav {
-                order: 3;
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0;
-                margin-left: 0;
-                margin-top: 10px;
-                border-top: 1px solid var(--border);
-            }
-            header.nav-open nav {
-                display: flex;
-            }
-            header nav a {
-                font-size: 15px;
-                padding: 13px 2px;
-                border-bottom: 1px solid var(--border);
-            }
-            header nav a:last-child {
-                border-bottom: none;
             }
         }
 
@@ -564,22 +502,6 @@
             color: var(--accent);
         }
 
-        .callout {
-            background: transparent;
-            border: none;
-            border-left: 2px solid var(--accent);
-            padding: 6px 0 6px 28px;
-        }
-
-        .callout p {
-            font-family: var(--font-serif);
-            font-style: italic;
-            font-size: clamp(21px, 2.3vw, 29px);
-            line-height: 1.36;
-            color: var(--text-primary);
-            max-width: 40ch;
-        }
-
         .prototype-caption,
         .dashboard-caption,
         figcaption {
@@ -602,7 +524,6 @@
             .section > p:first-of-type { font-size: 18px; }
             #overview > p:first-of-type::first-letter { font-size: 52px; padding-right: 9px; }
         }
-
 
         /* ---- Mobile width safety ---- */
         @media (max-width: 900px) {
@@ -641,18 +562,14 @@
         will-change: opacity, transform;
     }
     .reveal.is-visible { opacity: 1; transform: none; }
-    .reveal-d1 { transition-delay: .06s; }
-    .reveal-d2 { transition-delay: .12s; }
-    .reveal-d3 { transition-delay: .18s; }
 
-    /* Link craft: editorial underline that grows from the left */
     .content a:not(.project-card):not(.btn):not(.sidebar-nav a),
-    .lede a, .about-text a, footer .footer-links a, header nav a {
+    .lede a, .about-text a, footer .footer-links a {
         text-decoration: none;
         position: relative;
     }
     .content p a, .about-text a, .lede a {
-        color: var(--accent, #1E3A8A);
+        color: var(--accent, #3B82F6);
         background-image: linear-gradient(currentColor, currentColor);
         background-position: 0 100%;
         background-repeat: no-repeat;
@@ -661,7 +578,7 @@
         transition: background-size .28s cubic-bezier(.22,.61,.36,1), color .2s;
     }
     .content p a:hover, .about-text a:hover, .lede a:hover { background-size: 100% 2px; }
-    header nav a::after, footer .footer-links a::after {
+    footer .footer-links a::after {
         content: '';
         position: absolute;
         left: 0; right: 0; bottom: -4px;
@@ -671,20 +588,19 @@
         transform-origin: left center;
         transition: transform .28s cubic-bezier(.22,.61,.36,1);
     }
-    header nav a:hover::after, footer .footer-links a:hover::after { transform: scaleX(1); }
-    a, button, .project-card, .region-btn { -webkit-tap-highlight-color: transparent; }
+    footer .footer-links a:hover::after { transform: scaleX(1); }
+    a, button, .project-card { -webkit-tap-highlight-color: transparent; }
     a:focus-visible, button:focus-visible, .project-card:focus-visible {
         outline: 2px solid #3B82F6;
         outline-offset: 3px;
         border-radius: 2px;
     }
 
-    /* Footer sign-off */
     .footer-signoff {
         max-width: 1200px;
         margin: 0 auto;
         padding: 20px 48px 36px;
-        border-top: 1px solid var(--border, #E2E8F0);
+        border-top: 1px solid var(--border, rgba(255,255,255,0.08));
         display: flex;
         justify-content: space-between;
         align-items: baseline;
@@ -696,21 +612,21 @@
         font-style: italic;
         font-size: 15px;
         line-height: 1.5;
-        color: var(--text-secondary, #475569);
+        color: var(--text-secondary, #A1A1AA);
         margin: 0;
     }
     .footer-signoff span {
         font-size: 12px;
         letter-spacing: .12em;
         text-transform: uppercase;
-        color: var(--text-tertiary, #94A3B8);
+        color: var(--text-tertiary, #6B6B74);
     }
     @media (max-width: 767px) {
         .footer-signoff { padding: 18px 24px 30px; }
     }
     @media (prefers-reduced-motion: reduce) {
         .reveal { opacity: 1; transform: none; transition: none; }
-        header nav a::after, footer .footer-links a::after { transition: none; }
+        footer .footer-links a::after { transition: none; }
         * { scroll-behavior: auto !important; }
     }
     </style>
@@ -718,16 +634,12 @@
 <body>
     <header>
         <div class="header-inner">
-            <a href="index.html" class="logo">Samhith Mitra</a>
+            <a href="index.html" class="logo">SM</a>
             <nav>
-                <a href="index.html">Work</a>
-                <a href="studies.html">Studies</a>
+                <a href="index.html" class="active">Work</a>
                 <a href="about-me.html">About</a>
-                <a href="resume.pdf" target="_blank">Resume</a>
-                <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
-                <a href="#" id="contact-link">Contact</a>
+                <a href="#" id="contact-link" class="nav-contact">Contact</a>
             </nav>
-            <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
     </header>
 
@@ -819,14 +731,14 @@
                 <div style="margin: 40px 0; padding: 32px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
                     <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">The Scale of the Problem</h4>
 
-                    <!-- 67% Task Failure -->
+                    <!-- 33% Task Failure -->
                     <div style="margin-bottom: 20px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
                             <span style="font-size: 13px; color: var(--text-secondary);">Task Failure Rate</span>
-                            <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">33%</span>
+                            <span style="font-size: 14px; font-weight: 600; color: var(--accent);">33%</span>
                         </div>
-                        <div style="height: 12px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
-                            <div style="width: 33%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
+                        <div style="height: 12px; background: var(--border); border-radius: 6px; overflow: hidden;">
+                            <div style="width: 33%; height: 100%; background: var(--accent); border-radius: 6px;"></div>
                         </div>
                     </div>
 
@@ -834,10 +746,10 @@
                     <div style="margin-bottom: 20px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
                             <span style="font-size: 13px; color: var(--text-secondary);">Mobile Traffic (desktop-optimized flows)</span>
-                            <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">60%</span>
+                            <span style="font-size: 14px; font-weight: 600; color: var(--accent);">60%</span>
                         </div>
-                        <div style="height: 12px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
-                            <div style="width: 60%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
+                        <div style="height: 12px; background: var(--border); border-radius: 6px; overflow: hidden;">
+                            <div style="width: 60%; height: 100%; background: var(--accent); border-radius: 6px;"></div>
                         </div>
                     </div>
 
@@ -845,16 +757,16 @@
                     <div style="margin-bottom: 20px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
                             <span style="font-size: 13px; color: var(--text-secondary);">Critical Content Depth</span>
-                            <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">4-5 clicks</span>
+                            <span style="font-size: 14px; font-weight: 600; color: var(--accent);">4-5 clicks</span>
                         </div>
-                        <div style="height: 12px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
-                            <div style="width: 80%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
+                        <div style="height: 12px; background: var(--border); border-radius: 6px; overflow: hidden;">
+                            <div style="width: 80%; height: 100%; background: var(--accent); border-radius: 6px;"></div>
                         </div>
                     </div>
 
                     <!-- 300+ Pages -->
                     <div style="display: flex; align-items: center; gap: 16px; padding-top: 16px; border-top: 1px solid var(--border);">
-                        <div style="font-family: var(--font-serif); font-size: 48px; font-weight: 400; color: #1E3A8A;">300+</div>
+                        <div style="font-family: var(--font-serif); font-size: 48px; font-weight: 400; color: var(--accent);">300+</div>
                         <div style="font-size: 14px; color: var(--text-secondary); line-height: 1.5;">pages across 90+ markets, each with different regulatory requirements</div>
                     </div>
                 </div>
@@ -863,20 +775,20 @@
                 <h3>Where Users Got Lost</h3>
                 <p>Session analysis revealed three critical friction points in the user journey:</p>
                 <div style="margin: 24px 0; display: flex; gap: 16px;">
-                    <div style="flex: 1; padding: 20px; background: #FFFFFF; border: 2px solid #1E3A8A; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 32px; font-weight: 600; color: #1E3A8A; margin-bottom: 8px;">41%</div>
-                        <div style="font-size: 12px; font-weight: 600; color: #1E3A8A; text-transform: uppercase; letter-spacing: 0.05em;">Navigation Menu</div>
-                        <div style="font-size: 11px; color: #1E3A8A; margin-top: 4px;">Patient vs. provider confusion</div>
+                    <div style="flex: 1; padding: 20px; background: var(--bg-secondary); border: 2px solid var(--accent); border-radius: 12px; text-align: center;">
+                        <div style="font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 8px;">41%</div>
+                        <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em;">Navigation Menu</div>
+                        <div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px;">Patient vs. provider confusion</div>
                     </div>
-                    <div style="flex: 1; padding: 20px; background: #FFFFFF; border: 2px solid #1E3A8A; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 32px; font-weight: 600; color: #1E3A8A; margin-bottom: 8px;">34%</div>
-                        <div style="font-size: 12px; font-weight: 600; color: #1E3A8A; text-transform: uppercase; letter-spacing: 0.05em;">Provider Finder</div>
-                        <div style="font-size: 11px; color: #1E3A8A; margin-top: 4px;">Abandoned before results</div>
+                    <div style="flex: 1; padding: 20px; background: var(--bg-secondary); border: 2px solid var(--accent); border-radius: 12px; text-align: center;">
+                        <div style="font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 8px;">34%</div>
+                        <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em;">Provider Finder</div>
+                        <div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px;">Abandoned before results</div>
                     </div>
-                    <div style="flex: 1; padding: 20px; background: #FFFFFF; border: 2px solid #1E3A8A; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 32px; font-weight: 600; color: #1E3A8A; margin-bottom: 8px;">25%</div>
-                        <div style="font-size: 12px; font-weight: 600; color: #1E3A8A; text-transform: uppercase; letter-spacing: 0.05em;">Treatment Info</div>
-                        <div style="font-size: 11px; color: #1E3A8A; margin-top: 4px;">Couldn't find answers</div>
+                    <div style="flex: 1; padding: 20px; background: var(--bg-secondary); border: 2px solid var(--accent); border-radius: 12px; text-align: center;">
+                        <div style="font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 8px;">25%</div>
+                        <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em;">Treatment Info</div>
+                        <div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px;">Couldn't find answers</div>
                     </div>
                 </div>
             </section>
@@ -893,43 +805,43 @@
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0;">
                     <!-- Content Audit Card -->
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
-                        <div style="width: 48px; height: 48px; background: #EFF6FF; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2">
+                        <div style="width: 48px; height: 48px; background: var(--accent-dim); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
                             </svg>
                         </div>
                         <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Content Audit</h4>
                         <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Inventoried all pages across markets, identifying redundancies, gaps, and content that had drifted from user needs.</p>
                         <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
-                            <span style="font-size: 11px; font-weight: 600; color: #1E3A8A; text-transform: uppercase;">300+ Pages Audited</span>
+                            <span style="font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase;">300+ Pages Audited</span>
                         </div>
                     </div>
 
                     <!-- Card Sorting Card -->
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
-                        <div style="width: 48px; height: 48px; background: #EFF6FF; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2">
+                        <div style="width: 48px; height: 48px; background: var(--accent-dim); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
                                 <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
                             </svg>
                         </div>
                         <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Card Sorting</h4>
                         <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Open and closed card sorts with patients, parents, and providers to understand mental models across user types.</p>
                         <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
-                            <span style="font-size: 11px; font-weight: 600; color: #1E3A8A; text-transform: uppercase;">200+ Participants</span>
+                            <span style="font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase;">200+ Participants</span>
                         </div>
                     </div>
 
                     <!-- Tree Testing Card -->
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
-                        <div style="width: 48px; height: 48px; background: #EFF6FF; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2">
+                        <div style="width: 48px; height: 48px; background: var(--accent-dim); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
                             </svg>
                         </div>
                         <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Tree Testing</h4>
                         <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Validated proposed taxonomy with task-based tree testing before committing to development resources.</p>
                         <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
-                            <span style="font-size: 11px; font-weight: 600; color: #1E3A8A; text-transform: uppercase;">15 Task Scenarios</span>
+                            <span style="font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase;">15 Task Scenarios</span>
                         </div>
                     </div>
                 </div>
@@ -939,24 +851,24 @@
 
                 <!-- Insight Cards -->
                 <div style="margin: 24px 0;">
-                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid #1E3A8A; border-radius: 0 12px 12px 0; margin-bottom: 12px;">
-                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: #EFF6FF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A8A; font-size: 14px;">1</div>
+                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; margin-bottom: 12px;">
+                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: var(--accent-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent); font-size: 14px;">1</div>
                         <div>
                             <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Navigation Confusion</h4>
                             <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"I clicked on 'For Doctors' by accident and got completely lost. I'm just trying to find out if my insurance covers this." — Patient participant</p>
                         </div>
                     </div>
 
-                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid #1E3A8A; border-radius: 0 12px 12px 0; margin-bottom: 12px;">
-                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: #EFF6FF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A8A; font-size: 14px;">2</div>
+                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; margin-bottom: 12px;">
+                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: var(--accent-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent); font-size: 14px;">2</div>
                         <div>
                             <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Content Depth</h4>
                             <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"I gave up after clicking through five pages trying to find treatment time information. Why is this so hard?" — Parent participant</p>
                         </div>
                     </div>
 
-                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid #1E3A8A; border-radius: 0 12px 12px 0;">
-                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: #EFF6FF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A8A; font-size: 14px;">3</div>
+                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0;">
+                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: var(--accent-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent); font-size: 14px;">3</div>
                         <div>
                             <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Mobile Experience</h4>
                             <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"The menu takes up my whole screen and I still can't find what I need. I'll just call my dentist instead." — Mobile user participant</p>
@@ -981,7 +893,7 @@
                     <!-- Task-First Navigation -->
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
                         <div style="display: flex; gap: 20px; align-items: flex-start;">
-                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: #1E3A8A; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                                     <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
                                 </svg>
@@ -989,8 +901,8 @@
                             <div style="flex: 1;">
                                 <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Task-First Navigation</h4>
                                 <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Reorganize around user tasks ("Find a doctor", "Learn about treatment") rather than business units. Clear audience separation with persistent wayfinding so users always know where they are.</p>
-                                <div style="margin-top: 12px; padding: 12px 16px; background: #EFF6FF; border-radius: 8px;">
-                                    <span style="font-size: 12px; color: #1E3A8A; font-weight: 500;">Addresses: Navigation Confusion</span>
+                                <div style="margin-top: 12px; padding: 12px 16px; background: var(--accent-dim); border-radius: 8px;">
+                                    <span style="font-size: 12px; color: var(--accent); font-weight: 500;">Addresses: Navigation Confusion</span>
                                 </div>
                             </div>
                         </div>
@@ -999,7 +911,7 @@
                     <!-- Progressive Disclosure -->
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
                         <div style="display: flex; gap: 20px; align-items: flex-start;">
-                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: #1E3A8A; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                                     <path d="M4 6h16M4 12h10M4 18h6"/>
                                 </svg>
@@ -1007,8 +919,8 @@
                             <div style="flex: 1;">
                                 <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Progressive Disclosure</h4>
                                 <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Surface key information upfront with clear paths to detail. Reduce maximum depth from 5 clicks to 3 for critical content while maintaining comprehensive information for those who want it.</p>
-                                <div style="margin-top: 12px; padding: 12px 16px; background: #EFF6FF; border-radius: 8px;">
-                                    <span style="font-size: 12px; color: #1E3A8A; font-weight: 500;">Addresses: Content Depth</span>
+                                <div style="margin-top: 12px; padding: 12px 16px; background: var(--accent-dim); border-radius: 8px;">
+                                    <span style="font-size: 12px; color: var(--accent); font-weight: 500;">Addresses: Content Depth</span>
                                 </div>
                             </div>
                         </div>
@@ -1017,7 +929,7 @@
                     <!-- Mobile-First -->
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
                         <div style="display: flex; gap: 20px; align-items: flex-start;">
-                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: #1E3A8A; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                                     <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
                                 </svg>
@@ -1025,8 +937,8 @@
                             <div style="flex: 1;">
                                 <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Mobile-First Redesign</h4>
                                 <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Design for the 60% first. Simplified navigation patterns, thumb-friendly tap targets, and streamlined provider finder optimized for on-the-go research.</p>
-                                <div style="margin-top: 12px; padding: 12px 16px; background: #EFF6FF; border-radius: 8px;">
-                                    <span style="font-size: 12px; color: #1E3A8A; font-weight: 500;">Addresses: Mobile Experience</span>
+                                <div style="margin-top: 12px; padding: 12px 16px; background: var(--accent-dim); border-radius: 8px;">
+                                    <span style="font-size: 12px; color: var(--accent); font-weight: 500;">Addresses: Mobile Experience</span>
                                 </div>
                             </div>
                         </div>
@@ -1041,28 +953,28 @@
                     <div style="display: flex; gap: 12px; align-items: stretch;">
                         <!-- Step 1 -->
                         <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
-                            <div style="background: #1E3A8A; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">1</div>
+                            <div style="background: var(--accent); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">1</div>
                             <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Content Audit</h4>
                             <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">Inventory and gap analysis</p>
                         </div>
-                        <div style="display: flex; align-items: center; color: #1E3A8A; font-size: 18px;">→</div>
+                        <div style="display: flex; align-items: center; color: var(--accent); font-size: 18px;">→</div>
                         <!-- Step 2 -->
                         <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
-                            <div style="background: #1E3A8A; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">2</div>
+                            <div style="background: var(--accent); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">2</div>
                             <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Card Sorting</h4>
                             <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">User mental model mapping</p>
                         </div>
-                        <div style="display: flex; align-items: center; color: #1E3A8A; font-size: 18px;">→</div>
+                        <div style="display: flex; align-items: center; color: var(--accent); font-size: 18px;">→</div>
                         <!-- Step 3 -->
                         <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
-                            <div style="background: #1E3A8A; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">3</div>
+                            <div style="background: var(--accent); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">3</div>
                             <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Tree Testing</h4>
                             <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">Validate new taxonomy</p>
                         </div>
-                        <div style="display: flex; align-items: center; color: #1E3A8A; font-size: 18px;">→</div>
+                        <div style="display: flex; align-items: center; color: var(--accent); font-size: 18px;">→</div>
                         <!-- Step 4 -->
                         <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
-                            <div style="background: #1E3A8A; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">4</div>
+                            <div style="background: var(--accent); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">4</div>
                             <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Global Rollout</h4>
                             <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">Phased deployment</p>
                         </div>
@@ -1082,15 +994,15 @@
                     <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;">Rollout Strategy</h4>
                     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
                         <div style="text-align: center;">
-                            <div style="font-family: var(--font-serif); font-size: 32px; color: #1E3A8A; margin-bottom: 4px;">6</div>
+                            <div style="font-family: var(--font-serif); font-size: 32px; color: var(--accent); margin-bottom: 4px;">6</div>
                             <div style="font-size: 13px; color: var(--text-secondary);">Month phased rollout</div>
                         </div>
                         <div style="text-align: center;">
-                            <div style="font-family: var(--font-serif); font-size: 32px; color: #1E3A8A; margin-bottom: 4px;">90+</div>
+                            <div style="font-family: var(--font-serif); font-size: 32px; color: var(--accent); margin-bottom: 4px;">90+</div>
                             <div style="font-size: 13px; color: var(--text-secondary);">Markets launched</div>
                         </div>
                         <div style="text-align: center;">
-                            <div style="font-family: var(--font-serif); font-size: 32px; color: #1E3A8A; margin-bottom: 4px;">0</div>
+                            <div style="font-family: var(--font-serif); font-size: 32px; color: var(--accent); margin-bottom: 4px;">0</div>
                             <div style="font-size: 13px; color: var(--text-secondary);">SEO ranking drops</div>
                         </div>
                     </div>
@@ -1106,26 +1018,26 @@
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
                             <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Task Success Rate</span>
-                            <span style="font-size: 13px; font-weight: 600; color: #1E3A8A; background: #EFF6FF; padding: 4px 12px; border-radius: 20px;">↑ 27 pts (+40% relative)</span>
+                            <span style="font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 12px; border-radius: 20px;">↑ 27 pts (+40% relative)</span>
                         </div>
                         <div style="display: flex; gap: 24px; align-items: center;">
                             <div style="flex: 1;">
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                                    <span style="font-size: 12px; color: #1E3A8A;">Before</span>
-                                    <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">67%</span>
+                                    <span style="font-size: 12px; color: var(--text-tertiary);">Before</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: var(--accent);">67%</span>
                                 </div>
-                                <div style="height: 24px; background: #DBEAFE; border-radius: 6px; overflow: hidden;">
-                                    <div style="width: 67%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
+                                <div style="height: 24px; background: var(--border); border-radius: 6px; overflow: hidden;">
+                                    <div style="width: 67%; height: 100%; background: var(--accent); border-radius: 6px;"></div>
                                 </div>
                             </div>
                             <div style="font-size: 20px; color: var(--text-tertiary);">→</div>
                             <div style="flex: 1;">
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                                    <span style="font-size: 12px; color: #1E3A8A;">After</span>
-                                    <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">94%</span>
+                                    <span style="font-size: 12px; color: var(--text-tertiary);">After</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: var(--accent);">94%</span>
                                 </div>
-                                <div style="height: 24px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
-                                    <div style="width: 94%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
+                                <div style="height: 24px; background: var(--border); border-radius: 6px; overflow: hidden;">
+                                    <div style="width: 94%; height: 100%; background: var(--accent); border-radius: 6px;"></div>
                                 </div>
                             </div>
                         </div>
@@ -1135,26 +1047,26 @@
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
                             <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Bounce Rate</span>
-                            <span style="font-size: 13px; font-weight: 600; color: #1E3A8A; background: #EFF6FF; padding: 4px 12px; border-radius: 20px;">↓ 20 pts (&minus;34% relative)</span>
+                            <span style="font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 12px; border-radius: 20px;">↓ 20 pts (&minus;34% relative)</span>
                         </div>
                         <div style="display: flex; gap: 24px; align-items: center;">
                             <div style="flex: 1;">
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                                    <span style="font-size: 12px; color: #1E3A8A;">Before</span>
-                                    <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">58%</span>
+                                    <span style="font-size: 12px; color: var(--text-tertiary);">Before</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: var(--accent);">58%</span>
                                 </div>
-                                <div style="height: 24px; background: #DBEAFE; border-radius: 6px; overflow: hidden;">
-                                    <div style="width: 58%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
+                                <div style="height: 24px; background: var(--border); border-radius: 6px; overflow: hidden;">
+                                    <div style="width: 58%; height: 100%; background: var(--accent); border-radius: 6px;"></div>
                                 </div>
                             </div>
                             <div style="font-size: 20px; color: var(--text-tertiary);">→</div>
                             <div style="flex: 1;">
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                                    <span style="font-size: 12px; color: #1E3A8A;">After</span>
-                                    <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">38%</span>
+                                    <span style="font-size: 12px; color: var(--text-tertiary);">After</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: var(--accent);">38%</span>
                                 </div>
-                                <div style="height: 24px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
-                                    <div style="width: 38%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
+                                <div style="height: 24px; background: var(--border); border-radius: 6px; overflow: hidden;">
+                                    <div style="width: 38%; height: 100%; background: var(--accent); border-radius: 6px;"></div>
                                 </div>
                             </div>
                         </div>
@@ -1164,24 +1076,24 @@
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
                             <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Provider Finder Conversions</span>
-                            <span style="font-size: 13px; font-weight: 600; color: #1E3A8A; background: #EFF6FF; padding: 4px 12px; border-radius: 20px;">↑ 42% increase</span>
+                            <span style="font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 12px; border-radius: 20px;">↑ 42% increase</span>
                         </div>
                         <div style="display: flex; gap: 24px; align-items: center;">
-                            <div style="flex: 1; text-align: center; padding: 20px; background: #DBEAFE; border-radius: 8px;">
-                                <div style="font-family: var(--font-serif); font-size: 36px; color: #1E3A8A;">1x</div>
-                                <div style="font-size: 12px; color: #1E3A8A; margin-top: 4px;">Before</div>
+                            <div style="flex: 1; text-align: center; padding: 20px; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 8px;">
+                                <div style="font-family: var(--font-serif); font-size: 36px; color: var(--accent);">1x</div>
+                                <div style="font-size: 12px; color: var(--text-tertiary); margin-top: 4px;">Before</div>
                             </div>
-                            <div style="font-size: 24px; color: #1E3A8A;">→</div>
-                            <div style="flex: 1; text-align: center; padding: 20px; background: #EFF6FF; border-radius: 8px;">
-                                <div style="font-family: var(--font-serif); font-size: 36px; color: #1E3A8A;">1.42x</div>
-                                <div style="font-size: 12px; color: #1E3A8A; margin-top: 4px;">After</div>
+                            <div style="font-size: 24px; color: var(--accent);">→</div>
+                            <div style="flex: 1; text-align: center; padding: 20px; background: var(--accent-dim); border-radius: 8px;">
+                                <div style="font-family: var(--font-serif); font-size: 36px; color: var(--accent);">1.42x</div>
+                                <div style="font-size: 12px; color: var(--text-tertiary); margin-top: 4px;">After</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Traffic Growth -->
-                <div style="background: #1E3A8A; border-radius: 12px; padding: 24px; margin: 32px 0;">
+                <div style="background: var(--accent); border-radius: 12px; padding: 24px; margin: 32px 0;">
                     <div style="display: flex; gap: 16px; align-items: center;">
                         <div style="flex-shrink: 0; width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
@@ -1264,8 +1176,13 @@
 
     <footer>
         <div class="footer-inner">
-            <a href="index.html" class="logo">Samhith Mitra</a>
+            <div>
+                <div class="footer-name">Samhith Mitra</div>
+                <div class="footer-status">MS HCI @ Georgia Tech, 2026</div>
+            </div>
             <div class="footer-links">
+                <a href="index.html">Work</a>
+                <a href="about-me.html">About</a>
                 <a href="https://www.linkedin.com/in/samhithmitra/" target="_blank">LinkedIn</a>
                 <a href="#" id="footer-email">Email</a>
             </div>
@@ -1300,24 +1217,6 @@
 
             sections.forEach(section => observer.observe(section));
         });
-    </script>
-
-    <script>
-    (function () {
-        var header = document.querySelector('header');
-        var toggle = document.getElementById('navToggle');
-        if (!header || !toggle) return;
-        toggle.addEventListener('click', function () {
-            var open = header.classList.toggle('nav-open');
-            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-        header.querySelectorAll('nav a').forEach(function (link) {
-            link.addEventListener('click', function () {
-                header.classList.remove('nav-open');
-                toggle.setAttribute('aria-expanded', 'false');
-            });
-        });
-    })();
     </script>
 
     <script>
