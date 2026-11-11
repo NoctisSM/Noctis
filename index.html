@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Kode+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script>
     function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
     o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
@@ -30,6 +30,7 @@
             --border: rgba(255, 255, 255, 0.08);
             --font-sans: 'General Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-serif: 'Newsreader', Georgia, serif;
+            --font-mono: 'Kode Mono', ui-monospace, 'SF Mono', monospace;
             --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -99,13 +100,33 @@
             display: flex;
             flex-direction: column;
         }
-        .hero-timeline .spine { position: absolute; left: 3px; top: 0; bottom: 0; width: 1px; background: var(--border); }
-        .hero-timeline .tick { position: relative; padding-left: 20px; margin-bottom: 52px; }
+        .hero-timeline .spine { position: absolute; left: 4px; top: 0; bottom: 0; width: 1px; background: var(--border); }
+        .hero-timeline .tick { position: relative; padding-left: 26px; margin-bottom: 52px; }
         .hero-timeline .tick:last-child { margin-bottom: 0; }
-        .hero-timeline .tick::before { content: ''; position: absolute; left: 0; top: 6px; width: 7px; height: 1px; background: var(--text-tertiary); }
-        .hero-timeline .tick .yr { font-size: 13px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
+        .hero-timeline .tick::before {
+            content: ''; position: absolute; left: -3px; top: 1px;
+            width: 12px; height: 12px; border-radius: 50%;
+            border: 1.5px solid var(--text-tertiary); background: var(--bg-primary);
+        }
+        .hero-timeline .tick::after {
+            content: ''; position: absolute; left: 1.5px; top: 5.5px;
+            width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+        }
+        .hero-timeline .tick .yr { font-family: var(--font-mono); font-size: 13px; font-weight: 600; color: var(--text-primary); letter-spacing: -0.01em; }
         .hero-timeline .tick .ms { display: block; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-tertiary); margin-top: 2px; }
         @media (max-width: 1240px) { .hero-timeline { display: none; } }
+
+        /* Signature: engraved reference plates — an instrument-panel detail, not a reproduction of any trademarked watch design */
+        .plate {
+            font-family: var(--font-mono); font-size: 10px; font-weight: 500; letter-spacing: 0.06em;
+            color: var(--text-primary); background: rgba(10, 10, 10, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            padding: 3px 7px; border-radius: 4px;
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+        }
+        .proj-image { position: relative; }
+        .proj-plate { position: absolute; right: 10px; bottom: 10px; z-index: 2; }
+        .hero-tag-row { font-family: var(--font-mono); }
         .hero-tag-row {
             position: relative; z-index: 1;
             display: flex; justify-content: space-between; align-items: center;
@@ -260,13 +281,13 @@
         <div class="status-strip">
             <span class="eyebrow">Currently</span>
             <span class="value">Sr. UX Designer Consultant, Dahlstrom Technologies</span>
-            <a href="about-me.html">More about me →</a>
+            <a href="about.html">More about me →</a>
         </div>
 
         <div class="section-title">Selected Work</div>
         <div class="projects-grid">
-            <a href="flying-car.html" class="proj-card">
-                <div class="proj-image"><img src="FlyingCar/cockpit.jpg" alt="Boeing 787 cockpit, research reference for automation trust"></div>
+            <a href="flyingcar.html" class="proj-card">
+                <div class="proj-image"><img src="FlyingCar/cockpit.jpg" alt="Boeing 787 cockpit, research reference for automation trust"><span class="plate proj-plate">01 / 05</span></div>
                 <div class="proj-body">
                     <div class="proj-meta">
                         <span class="proj-tag">Automotive</span>
@@ -280,7 +301,7 @@
             </a>
 
             <a href="thesis.html" class="proj-card">
-                <div class="proj-image"><img src="Thesis/thesis.png" alt="Patrol Command Dashboard"></div>
+                <div class="proj-image"><img src="Thesis/thesis.png" alt="Patrol Command Dashboard"><span class="plate proj-plate">02 / 05</span></div>
                 <div class="proj-body">
                     <div class="proj-meta">
                         <span class="proj-tag">Public Safety</span>
@@ -293,7 +314,7 @@
             </a>
 
             <a href="solar.html" class="proj-card">
-                <div class="proj-image"><img src="Solar/solar.png" alt="Solar Pool Services Inc. website header and hero section"></div>
+                <div class="proj-image"><img src="Solar/solar.png" alt="Solar Pool Services Inc. website header and hero section"><span class="plate proj-plate">03 / 05</span></div>
                 <div class="proj-body">
                     <div class="proj-meta">
                         <span class="proj-tag">B2C Web Design</span>
@@ -306,7 +327,7 @@
             </a>
 
             <a href="dashboard.html" class="proj-card">
-                <div class="proj-image"><img src="Dashboard/dashboard.jpg" alt="Patient Dashboard"></div>
+                <div class="proj-image"><img src="Dashboard/dashboard.jpg" alt="Patient Dashboard"><span class="plate proj-plate">04 / 05</span></div>
                 <div class="proj-body">
                     <div class="proj-meta">
                         <span class="proj-tag">Digital Health</span>
@@ -319,7 +340,7 @@
             </a>
 
             <a href="aligner.html" class="proj-card">
-                <div class="proj-image"><img src="Invisalign.com/invisalign.png" alt="Invisalign.com"></div>
+                <div class="proj-image"><img src="Invisalign.com/invisalign.png" alt="Invisalign.com"><span class="plate proj-plate">05 / 05</span></div>
                 <div class="proj-body">
                     <div class="proj-meta">
                         <span class="proj-tag">Web Platform</span>
@@ -341,7 +362,7 @@
         <div class="section-title">About</div>
         <div class="panel">
             <p>I'm a product designer working across field research with Georgia law enforcement, enterprise workflow automation, and patient-facing products at Align Technology. Previously UX Design Intern at Reviver Auto, designing fleet-management tools for automotive dealerships.</p>
-            <a href="about-me.html" class="more-link">Full background, experience &amp; education →</a>
+            <a href="about.html" class="more-link">Full background, experience &amp; education →</a>
         </div>
 
         <div class="section-title">Recommendation</div>
@@ -352,7 +373,7 @@
                     <div class="rec-author-name">Jeremy Hicks</div>
                     <div class="rec-author-role">Solutions Engineering @ Slack &middot; senior to Samhith at Reviver Auto</div>
                 </div>
-                <a href="about-me.html" class="more-link">Read all recommendations →</a>
+                <a href="about.html" class="more-link">Read all recommendations →</a>
             </div>
         </div>
 
