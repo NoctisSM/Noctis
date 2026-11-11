@@ -14,7 +14,6 @@
     <meta property="og:description" content="Case study: cutting a seven-step healthcare purchase flow to three steps with contextual recommendations, lifting conversion 60%.">
     <meta property="og:url" content="https://samhithmitra.me/accessories.html">
     <meta property="og:image" content="https://samhithmitra.me/Accessories/accessories.jpg">
-    <meta property="og:image:alt" content="Healthcare Accessories Checkout Flow | Samhith Mitra">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Healthcare Accessories Checkout Flow | Samhith Mitra">
     <meta name="twitter:description" content="Case study: cutting a seven-step healthcare purchase flow to three steps with contextual recommendations, lifting conversion 60%.">
@@ -35,1309 +34,395 @@
     <link rel="icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #FFFFFF;
-            --bg-secondary: #FFFFFF;
-            --bg-dark: #0F172A;
-            --text-primary: #0F172A;
-            --text-secondary: #475569;
-            --text-tertiary: #94A3B8;
-            --accent: #1E3A8A;
+            --bg-primary: #0A0A0B;
+            --bg-panel: #16171A;
+            --bg-panel-2: #1D1E22;
+            --bg-secondary: #16171A;
+            --text-primary: #F5F5F4;
+            --text-secondary: #A1A1AA;
+            --text-tertiary: #6B6B74;
+            --accent: #3B82F6;
             --accent-light: #3B82F6;
-            --border: #E2E8F0;
-
+            --accent-dim: rgba(59, 130, 246, 0.12);
+            --border: rgba(255, 255, 255, 0.08);
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-serif: 'Newsreader', Georgia, serif;
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
         body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
         a { color: inherit; text-decoration: none; }
 
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: #FFFFFF;
-            border-bottom: 1px solid var(--border);
-        }
-
+        header { position: fixed; top: 20px; left: 0; right: 0; z-index: 100; display: flex; justify-content: center; }
         .header-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 16px 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; align-items: center; gap: 28px;
+            background: rgba(22, 23, 26, 0.75);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border); border-radius: 999px; padding: 10px 14px 10px 10px;
         }
-
-        .logo { font-weight: 600; font-size: 15px; }
-        nav { display: flex; gap: 40px; }
-        nav a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
+        .logo {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--accent-dim); color: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 13px; letter-spacing: -0.02em;
+        }
+        nav { display: flex; gap: 22px; align-items: center; }
+        nav a { font-size: 13px; font-weight: 500; color: var(--text-secondary); transition: color .2s; white-space: nowrap; }
         nav a:hover { color: var(--text-primary); }
+        nav a.active { color: var(--text-primary); }
+        nav .nav-contact { background: var(--text-primary); color: var(--bg-primary); padding: 8px 16px; border-radius: 999px; font-weight: 600; }
 
-        /* Hero */
-        .hero {
-            background: var(--bg-dark);
-            color: white;
-            padding: 160px 48px 80px;
-        }
+        .case-wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 
-        .hero-inner { max-width: 1200px; margin: 0 auto; }
+        .case-hero { position: relative; margin-top: 108px; border-radius: 32px; overflow: hidden; border: 1px solid var(--border); }
+        .case-hero-media { position: relative; height: 380px; overflow: hidden; background: var(--bg-panel-2); }
+        .case-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+        .case-hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,11,0.15) 0%, rgba(10,10,11,0.85) 100%); }
+        .case-hero-content { position: relative; padding: 72px 56px; background: var(--bg-panel); }
+        .case-back { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--text-secondary); margin-bottom: 28px; transition: color .2s; }
+        .case-back:hover { color: var(--text-primary); }
+        .case-back svg { width: 16px; height: 16px; }
+        .case-tags { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-tertiary); }
+        .case-tags .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+        .case-tags .dot:nth-child(3) { opacity: 0.7; }
+        .case-hero h1 { font-weight: 800; letter-spacing: -0.03em; line-height: 1.04; font-size: clamp(2.2rem, 6vw, 3.8rem); margin-bottom: 20px; }
+        .case-hero h1 .line2 { display: block; color: var(--accent); }
+        .case-hero .lede { font-size: 17px; line-height: 1.7; color: var(--text-secondary); max-width: 620px; }
 
-        .hero-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            font-weight: 500;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 48px;
-            transition: color 0.2s;
-        }
-
-        .hero-back:hover { color: rgba(255,255,255,0.9); }
-        .hero-back svg { width: 16px; height: 16px; }
-
-        .hero-tag {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent-light);
-            background: rgba(59, 130, 246, 0.15);
-            padding: 6px 12px;
-            border-radius: 4px;
-            margin-bottom: 24px;
-        }
-
-        .hero h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 400;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            margin-bottom: 24px;
-            max-width: 800px;
-        }
-
-        .hero-description {
-            font-size: 18px;
-            line-height: 1.7;
-            color: rgba(255,255,255,0.7);
-            max-width: 640px;
-            margin-bottom: 48px;
-        }
-
-        .hero-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 48px;
-            padding-top: 32px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .meta-item { display: flex; flex-direction: column; gap: 6px; }
-        .meta-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
-        .meta-value { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); }
+        .case-meta-strip { display: flex; flex-wrap: wrap; gap: 28px; border: 1px solid var(--border); border-radius: 20px; padding: 24px 32px; margin: 20px 0; background: rgba(22, 23, 26, 0.6); }
+        .case-meta-item { display: flex; flex-direction: column; gap: 6px; }
+        .case-meta-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary); }
+        .case-meta-value { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+        .case-meta-value a { color: var(--accent); }
 
         .nda-notice {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-top: 32px;
-            padding: 16px 20px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            font-size: 13px;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.6;
+            display: flex; align-items: flex-start; gap: 12px;
+            border: 1px solid var(--border); border-radius: 16px; padding: 18px 24px; margin: 0 0 20px;
+            font-size: 13px; color: var(--text-secondary); line-height: 1.6; background: var(--bg-panel);
         }
+        .nda-notice svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; color: var(--accent); }
 
-        .nda-notice svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
+        .story-panel { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 32px; padding: 56px; margin-bottom: 20px; }
+        .eyebrow { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 16px; }
+        .story-panel h2 { font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; font-size: clamp(1.7rem, 3.6vw, 2.5rem); color: var(--text-primary); margin-bottom: 24px; }
+        .story-panel h3 { font-family: var(--font-serif); font-size: 20px; font-weight: 500; color: var(--text-primary); margin-top: 40px; margin-bottom: 14px; }
+        .story-panel p { font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 20px; max-width: 760px; }
 
-        /* Main Layout */
-        .case-study-layout {
-            display: grid;
-            grid-template-columns: 200px 1fr 280px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 64px 48px 120px;
-            gap: 48px;
-        }
+        .callout { background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 20px 24px; margin: 28px 0; border-radius: 0 8px 8px 0; }
+        .callout p { font-size: 16px; font-style: italic; color: var(--text-secondary); margin: 0; max-width: none; }
 
-        /* Sidebar */
-        .sidebar { position: sticky; top: 100px; height: fit-content; }
-
-        .sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
-        .sidebar-nav a {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-tertiary);
-            padding: 8px 16px;
-            border-left: 2px solid transparent;
-            transition: all 0.2s;
-        }
-        .sidebar-nav a:hover { color: var(--text-secondary); }
-        .sidebar-nav a.active {
-            color: #1E3A8A;
-            border-left-color: #1E3A8A;
-            background: rgba(30, 58, 138, 0.04);
-        }
-
-        /* Meta Sidebar */
-        .meta-sidebar { position: sticky; top: 100px; height: fit-content; }
-
-        .meta-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-        }
-
-        .meta-card-title {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-tertiary);
-            margin-bottom: 20px;
-        }
-
-        .meta-card-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
-        .meta-card-item:last-child { border-bottom: none; }
-
-        .meta-card-label {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-tertiary);
-            margin-bottom: 4px;
-        }
-
-        .meta-card-value { font-size: 14px; font-weight: 500; color: var(--text-primary); }
-
-        /* Content */
-        .content { max-width: 640px; }
-        .section { margin-bottom: 80px; }
-        .section:last-child { margin-bottom: 0; }
-
-        .section-label {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #1E3A8A;
-            margin-bottom: 16px;
-        }
-
-        .section h2 {
-            font-family: var(--font-serif);
-            font-size: 28px;
-            font-weight: 400;
-            line-height: 1.3;
-            color: var(--text-primary);
-            margin-bottom: 24px;
-        }
-
-        .section h3 {
-            font-family: var(--font-serif);
-            font-size: 20px;
-            font-weight: 500;
-            color: var(--text-primary);
-            margin-top: 40px;
-            margin-bottom: 16px;
-        }
-
-        .section p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
-
-        .section ul { margin-bottom: 20px; padding-left: 24px; }
-
-        .section li {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-        }
-
-        /* Metrics Grid */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin: 32px 0;
-        }
-
-        .metric-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-        }
-
-        .metric-value {
-            font-family: var(--font-serif);
-            font-size: 36px;
-            font-weight: 400;
-            color: #1E3A8A;
-            margin-bottom: 4px;
-        }
-
-        .metric-label { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
-
-        /* Callout */
-        .callout {
-            background: rgba(30, 58, 138, 0.04);
-            border-left: 3px solid #1E3A8A;
-            padding: 20px 24px;
-            margin: 32px 0;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .callout p {
-            font-size: 15px;
-            font-style: italic;
-            color: var(--text-secondary);
-            margin: 0;
-        }
-
-        /* Process Timeline */
-        .process-timeline { margin: 32px 0; }
-
-        .process-step {
-            display: flex;
-            gap: 20px;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .process-step:last-child { border-bottom: none; }
-
-        .process-number {
-            width: 32px;
-            height: 32px;
-            background: #1E3A8A;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        .process-content h4 {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-
-        .process-content p { font-size: 14px; color: var(--text-secondary); margin: 0; }
-
-        /* Reflection List */
         .reflection-list { list-style: none; padding: 0; margin: 24px 0; }
-
-        .reflection-list li {
-            display: flex;
-            gap: 16px;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
+        .reflection-list li { display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--border); }
         .reflection-list li:last-child { border-bottom: none; }
+        .reflection-icon { width: 24px; height: 24px; color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+        .reflection-content h4 { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+        .reflection-content p { font-size: 14px; line-height: 1.7; color: var(--text-secondary); margin: 0; max-width: none; }
 
-        .reflection-icon {
-            width: 24px;
-            height: 24px;
-            color: #1E3A8A;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .reflection-content h4 {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-
-        .reflection-content p {
-            font-size: 14px;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            margin: 0;
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border);
-            background: var(--bg-secondary);
-        }
-
-        .footer-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-links { display: flex; gap: 32px; }
-        .footer-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
-        .footer-links a:hover { color: #1E3A8A; }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .case-study-layout {
-                grid-template-columns: 1fr;
-                padding: 48px 32px 80px;
-            }
-            .sidebar, .meta-sidebar { position: relative; top: 0; }
-            .meta-sidebar { order: -1; }
-            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-        }
+        footer { border-top: 1px solid var(--border); margin-top: 24px; }
+        .footer-inner { max-width: 1040px; margin: 0 auto; padding: 40px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-name { font-weight: 700; font-size: 14px; }
+        .footer-status { font-size: 13px; color: var(--text-tertiary); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 13px; color: var(--text-secondary); }
+        .footer-links a:hover { color: var(--accent); }
 
         @media (max-width: 768px) {
-            .header-inner { padding: 16px 24px; }
-            nav { gap: 24px; }
-            .hero { padding: 120px 24px 48px; }
-            .case-study-layout { padding: 32px 24px 64px; }
-            .metrics-grid { grid-template-columns: 1fr; }
-            .footer-inner {
-                padding: 32px 24px;
-                flex-direction: column;
-                gap: 24px;
-            }
+            .header-inner { gap: 14px; padding: 8px 10px 8px 8px; }
+            nav { gap: 12px; }
+            nav a { font-size: 12px; }
+            .case-hero { margin-top: 96px; border-radius: 24px; }
+            .case-hero-media { height: 220px; }
+            .case-hero-content { padding: 40px 24px; }
+            .case-meta-strip { padding: 20px; gap: 20px; border-radius: 16px; }
+            .story-panel { padding: 32px 24px; border-radius: 22px; }
+            .footer-inner { flex-direction: column; text-align: center; }
         }
-    
-        /* Mobile header: keep the full menu on small phones */
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-            width: 40px;
-            height: 40px;
-            padding: 0;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-        }
-
-        .nav-toggle span {
-            display: block;
-            width: 22px;
-            height: 2px;
-            background: var(--text-primary);
-            border-radius: 2px;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-        }
-
-        header.nav-open .nav-toggle span:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        header.nav-open .nav-toggle span:nth-child(2) {
-            opacity: 0;
-        }
-
-        header.nav-open .nav-toggle span:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
-        @media (max-width: 480px) {
-            .header-inner {
-                padding: 14px 16px;
-                flex-wrap: wrap;
-            }
-            .nav-toggle {
-                display: flex;
-                margin-left: auto;
-            }
-            header nav {
-                order: 3;
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0;
-                margin-left: 0;
-                margin-top: 10px;
-                border-top: 1px solid var(--border);
-            }
-            header.nav-open nav {
-                display: flex;
-            }
-            header nav a {
-                font-size: 15px;
-                padding: 13px 2px;
-                border-bottom: 1px solid var(--border);
-            }
-            header nav a:last-child {
-                border-bottom: none;
-            }
-        }
-
-        /* ============ Editorial layer ============ */
-        .hero h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(34px, 4.8vw, 58px);
-            line-height: 1.08;
-            letter-spacing: -0.025em;
-            font-weight: 400;
-        }
-
-        .hero-tag,
-        .hero-label,
-        .section-label,
-        .project-stage {
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .section-label {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            width: 100%;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        .section-label::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        .section + .section {
-            border-top: 1px solid var(--border);
-        }
-
-        .section h2 {
-            font-family: var(--font-serif);
-            font-size: clamp(27px, 3.2vw, 40px);
-            line-height: 1.17;
-            letter-spacing: -0.02em;
-            font-weight: 400;
-            max-width: 780px;
-        }
-
-        .section p {
-            font-size: 17px;
-            line-height: 1.8;
-            max-width: 68ch;
-        }
-
-        .section > p:first-of-type {
-            font-size: 20px;
-            line-height: 1.7;
-            color: var(--text-primary);
-        }
-
-        #overview > p:first-of-type::first-letter {
-            font-family: var(--font-serif);
-            float: left;
-            font-size: 66px;
-            line-height: 0.82;
-            padding: 6px 12px 0 0;
-            color: var(--accent);
-        }
-
-        .callout {
-            background: transparent;
-            border: none;
-            border-left: 2px solid var(--accent);
-            padding: 6px 0 6px 28px;
-        }
-
-        .callout p {
-            font-family: var(--font-serif);
-            font-style: italic;
-            font-size: clamp(21px, 2.3vw, 29px);
-            line-height: 1.36;
-            color: var(--text-primary);
-            max-width: 40ch;
-        }
-
-        .prototype-caption,
-        .dashboard-caption,
-        figcaption {
-            font-family: var(--font-serif);
-            font-style: italic;
-            font-size: 14px;
-            line-height: 1.6;
-            color: var(--text-tertiary);
-        }
-
-        .project-title,
-        .how-step h3,
-        .reflection-title {
-            font-family: var(--font-serif);
-            font-weight: 400;
-            letter-spacing: -0.01em;
-        }
-
-        @media (max-width: 640px) {
-            .section > p:first-of-type { font-size: 18px; }
-            #overview > p:first-of-type::first-letter { font-size: 52px; padding-right: 9px; }
-        }
-
-
-        /* ---- Mobile width safety ---- */
-        @media (max-width: 900px) {
-            .case-study-layout,
-            .case-study-layout > *,
-            .content,
-            .sidebar { min-width: 0; max-width: 100%; }
-            .content img,
-            .content table { max-width: 100%; height: auto; }
-            .content h1, .content h2, .content h3 { overflow-wrap: break-word; }
-        }
-
-        @media (max-width: 700px) {
-            .content div[style*="grid-template-columns"] {
-                grid-template-columns: minmax(0, 1fr) !important;
-            }
-            .content div[style*="grid"] { min-width: 0; }
-            .content div[style*="flex"] {
-                flex-wrap: wrap !important;
-                min-width: 0;
-            }
-            .content div[style*="flex: 1"],
-            .content div[style*="flex:1"] {
-                flex-basis: 100% !important;
-            }
-        }
-
-</style>
-
-    <style>
-    /* ---------- Polish layer: motion, link craft, footer sign-off ---------- */
-    .reveal {
-        opacity: 0;
-        transform: translateY(18px);
-        transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
-        will-change: opacity, transform;
-    }
-    .reveal.is-visible { opacity: 1; transform: none; }
-    .reveal-d1 { transition-delay: .06s; }
-    .reveal-d2 { transition-delay: .12s; }
-    .reveal-d3 { transition-delay: .18s; }
-
-    /* Link craft: editorial underline that grows from the left */
-    .content a:not(.project-card):not(.btn):not(.sidebar-nav a),
-    .lede a, .about-text a, footer .footer-links a, header nav a {
-        text-decoration: none;
-        position: relative;
-    }
-    .content p a, .about-text a, .lede a {
-        color: var(--accent, #1E3A8A);
-        background-image: linear-gradient(currentColor, currentColor);
-        background-position: 0 100%;
-        background-repeat: no-repeat;
-        background-size: 100% 1px;
-        padding-bottom: 1px;
-        transition: background-size .28s cubic-bezier(.22,.61,.36,1), color .2s;
-    }
-    .content p a:hover, .about-text a:hover, .lede a:hover { background-size: 100% 2px; }
-    header nav a::after, footer .footer-links a::after {
-        content: '';
-        position: absolute;
-        left: 0; right: 0; bottom: -4px;
-        height: 1px;
-        background: currentColor;
-        transform: scaleX(0);
-        transform-origin: left center;
-        transition: transform .28s cubic-bezier(.22,.61,.36,1);
-    }
-    header nav a:hover::after, footer .footer-links a:hover::after { transform: scaleX(1); }
-    a, button, .project-card, .region-btn { -webkit-tap-highlight-color: transparent; }
-    a:focus-visible, button:focus-visible, .project-card:focus-visible {
-        outline: 2px solid #3B82F6;
-        outline-offset: 3px;
-        border-radius: 2px;
-    }
-
-    /* Footer sign-off */
-    .footer-signoff {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px 48px 36px;
-        border-top: 1px solid var(--border, #E2E8F0);
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 16px;
-        flex-wrap: wrap;
-    }
-    .footer-signoff p {
-        font-family: 'Newsreader', Georgia, serif;
-        font-style: italic;
-        font-size: 15px;
-        line-height: 1.5;
-        color: var(--text-secondary, #475569);
-        margin: 0;
-    }
-    .footer-signoff span {
-        font-size: 12px;
-        letter-spacing: .12em;
-        text-transform: uppercase;
-        color: var(--text-tertiary, #94A3B8);
-    }
-    @media (max-width: 767px) {
-        .footer-signoff { padding: 18px 24px 30px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-        .reveal { opacity: 1; transform: none; transition: none; }
-        header nav a::after, footer .footer-links a::after { transition: none; }
-        * { scroll-behavior: auto !important; }
-    }
     </style>
 </head>
 <body>
     <header>
         <div class="header-inner">
-            <a href="index.html" class="logo">Samhith Mitra</a>
+            <a href="index.html" class="logo">SM</a>
             <nav>
-                <a href="index.html">Work</a>
-                <a href="studies.html">Studies</a>
-                <a href="about-me.html">About</a>
-                <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="about.html">About</a>
+                <a href="index.html" class="active">Work</a>
                 <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
-                <a href="#" id="contact-link">Contact</a>
+                <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="#" id="contact-link" class="nav-contact">Contact</a>
             </nav>
-            <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-inner">
-            <a href="index.html" class="hero-back">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7"/>
-                </svg>
-                Back to Work
-            </a>
-
-            <span class="hero-tag">E-Commerce</span>
-            <h1>Engineering a 60% Conversion Lift Through Friction Reduction</h1>
-            <p class="hero-description">
-                Streamlined the Invisalign accessories purchase flow by eliminating redundant steps and surfacing contextual product recommendations.
-            </p>
-
-            <div class="hero-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">UX Designer</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Stage</span>
-                    <span class="meta-value">1&rarr;n &middot; Flow optimization</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Timeline</span>
-                    <span class="meta-value">2022</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Team</span>
-                    <span class="meta-value">2 Designers, 4 Engineers</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Live Project</span>
-                    <span class="meta-value"><a href="https://shop.invisalign.com" target="_blank" style="color: var(--accent-light);">View Shop</a></span>
-                </div>
+    <div class="case-wrap">
+        <section class="case-hero">
+            <div class="case-hero-media">
+                <img src="Accessories/accessories.jpg" alt="Healthcare accessories checkout flow">
+                <div class="case-hero-scrim"></div>
             </div>
-
-            <div class="nda-notice">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                </svg>
-                <span>Due to my NDA with Align Technology, I cannot disclose detailed designs from this project. The information below focuses on process, outcomes, and learnings while protecting confidential work.</span>
+            <div class="case-hero-content">
+                <a href="index.html" class="case-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back to Work
+                </a>
+                <div class="case-tags"><span class="dot"></span><span class="dot"></span>E-COMMERCE, FLOW OPTIMIZATION</div>
+                <h1>Healthcare Accessories Checkout<span class="line2">Engineering a 60% Conversion Lift Through Friction Reduction</span></h1>
+                <p class="lede">Streamlined the Invisalign accessories purchase flow by eliminating redundant steps and surfacing contextual product recommendations.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <main class="case-study-layout">
-        <aside class="sidebar">
-            <nav class="sidebar-nav">
-                <a href="#overview" class="active">Overview</a>
-                <a href="#problem">Problem</a>
-                <a href="#research">Research</a>
-                <a href="#solution">Solution</a>
-                <a href="#outcomes">Outcomes</a>
-                <a href="#reflection">Reflection</a>
-            </nav>
-        </aside>
-
-        <div class="content">
-            <section id="overview" class="section reveal">
-                <span class="section-label">Overview</span>
-                <h2>The Challenge</h2>
-                <p>
-                    The Invisalign accessories shop had a 72% cart abandonment rate. Patients struggled to find compatible products, shipping costs surprised them at checkout, and the purchase flow required too many steps for simple reorders.
-                </p>
-                <p>
-                    I was tasked with redesigning the e-commerce experience to reduce friction and increase both conversion rate and average order value.
-                </p>
-
-                <div class="callout">
-                    <p>"How might we reduce friction in the accessories purchase flow while increasing average order value?"</p>
-                </div>
-            </section>
-
-            <!-- Problem -->
-            <section id="problem" class="section reveal">
-                <span class="section-label">Problem</span>
-                <h2>A Leaky Funnel</h2>
-                <p>
-                    The existing shop was built as an afterthought to the main Invisalign experience. It lacked the polish of modern e-commerce and created unnecessary friction at every step of the purchase journey.
-                </p>
-
-                <!-- Visual Metrics Bar Chart -->
-                <div style="margin: 40px 0; padding: 32px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
-                    <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">The Scale of the Problem</h4>
-
-                    <!-- 72% Cart Abandonment -->
-                    <div style="margin-bottom: 20px;">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                            <span style="font-size: 13px; color: var(--text-secondary);">Cart Abandonment Rate</span>
-                            <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">72%</span>
-                        </div>
-                        <div style="height: 12px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
-                            <div style="width: 72%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
-                        </div>
-                    </div>
-
-                    <!-- 5 Steps to Purchase -->
-                    <div style="margin-bottom: 20px;">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                            <span style="font-size: 13px; color: var(--text-secondary);">Steps to Complete Purchase</span>
-                            <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">5 steps</span>
-                        </div>
-                        <div style="height: 12px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
-                            <div style="width: 100%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
-                        </div>
-                    </div>
-
-                    <!-- 23% Reorder Rate -->
-                    <div style="margin-bottom: 20px;">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                            <span style="font-size: 13px; color: var(--text-secondary);">Repeat Customer Reorder Rate</span>
-                            <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">23%</span>
-                        </div>
-                        <div style="height: 12px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
-                            <div style="width: 23%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
-                        </div>
-                    </div>
-
-                    <!-- $18 AOV -->
-                    <div style="display: flex; align-items: center; gap: 16px; padding-top: 16px; border-top: 1px solid var(--border);">
-                        <div style="font-family: var(--font-serif); font-size: 48px; font-weight: 400; color: #1E3A8A;">$18</div>
-                        <div style="font-size: 14px; color: var(--text-secondary); line-height: 1.5;">average order value, well below industry benchmarks for healthcare accessories</div>
-                    </div>
-                </div>
-
-                <!-- Drop-off Visualization -->
-                <h3>Where Users Dropped Off</h3>
-                <p>Funnel analysis revealed three critical friction points in the purchase journey:</p>
-                <div style="margin: 24px 0; display: flex; gap: 16px;">
-                    <div style="flex: 1; padding: 20px; background: #FFFFFF; border: 2px solid #1E3A8A; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 32px; font-weight: 600; color: #1E3A8A; margin-bottom: 8px;">38%</div>
-                        <div style="font-size: 12px; font-weight: 600; color: #1E3A8A; text-transform: uppercase; letter-spacing: 0.05em;">Product Selection</div>
-                        <div style="font-size: 11px; color: #1E3A8A; margin-top: 4px;">Compatibility confusion</div>
-                    </div>
-                    <div style="flex: 1; padding: 20px; background: #FFFFFF; border: 2px solid #1E3A8A; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 32px; font-weight: 600; color: #1E3A8A; margin-bottom: 8px;">29%</div>
-                        <div style="font-size: 12px; font-weight: 600; color: #1E3A8A; text-transform: uppercase; letter-spacing: 0.05em;">Shipping Page</div>
-                        <div style="font-size: 11px; color: #1E3A8A; margin-top: 4px;">Cost surprise</div>
-                    </div>
-                    <div style="flex: 1; padding: 20px; background: #FFFFFF; border: 2px solid #1E3A8A; border-radius: 12px; text-align: center;">
-                        <div style="font-size: 32px; font-weight: 600; color: #1E3A8A; margin-bottom: 8px;">21%</div>
-                        <div style="font-size: 12px; font-weight: 600; color: #1E3A8A; text-transform: uppercase; letter-spacing: 0.05em;">Account Creation</div>
-                        <div style="font-size: 11px; color: #1E3A8A; margin-top: 4px;">Required signup</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Research -->
-            <section id="research" class="section reveal">
-                <span class="section-label">Research</span>
-                <h2>Understanding Purchase Friction</h2>
-                <p>
-                    My approach centered on understanding where users struggled and why. I combined competitive benchmarking, funnel analytics, and qualitative interviews to build a comprehensive picture of purchase friction.
-                </p>
-
-                <!-- Research Methodology Cards -->
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0;">
-                    <!-- Competitive Analysis Card -->
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
-                        <div style="width: 48px; height: 48px; background: #EFF6FF; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2">
-                                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-                            </svg>
-                        </div>
-                        <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Competitive Analysis</h4>
-                        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Benchmarked Nike, ASOS, and Bloomingdale's to identify e-commerce best practices and gaps.</p>
-                        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
-                            <span style="font-size: 11px; font-weight: 600; color: #1E3A8A; text-transform: uppercase;">5 Competitors Analyzed</span>
-                        </div>
-                    </div>
-
-                    <!-- Funnel Analysis Card -->
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
-                        <div style="width: 48px; height: 48px; background: #EFF6FF; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                            </svg>
-                        </div>
-                        <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Funnel Analysis</h4>
-                        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Analyzed analytics and session recordings to identify exact drop-off points and rage clicks.</p>
-                        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
-                            <span style="font-size: 11px; font-weight: 600; color: #1E3A8A; text-transform: uppercase;">500+ Sessions Reviewed</span>
-                        </div>
-                    </div>
-
-                    <!-- User Interviews Card -->
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
-                        <div style="width: 48px; height: 48px; background: #EFF6FF; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                            </svg>
-                        </div>
-                        <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">User Interviews</h4>
-                        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Interviewed patients who abandoned carts and those who completed purchases to understand motivations.</p>
-                        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
-                            <span style="font-size: 11px; font-weight: 600; color: #1E3A8A; text-transform: uppercase;">12 Participants</span>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>Key Insights</h3>
-                <p>Research synthesis revealed three core friction points that mapped directly to the drop-off data:</p>
-
-                <!-- Insight Cards -->
-                <div style="margin: 24px 0;">
-                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid #1E3A8A; border-radius: 0 12px 12px 0; margin-bottom: 12px;">
-                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: #EFF6FF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A8A; font-size: 14px;">1</div>
-                        <div>
-                            <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Shipping Surprise</h4>
-                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"I was ready to buy until I saw $8 shipping on a $12 product. That's ridiculous. I'll just get it at my dentist." — Abandoned cart participant</p>
-                        </div>
-                    </div>
-
-                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid #1E3A8A; border-radius: 0 12px 12px 0; margin-bottom: 12px;">
-                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: #EFF6FF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A8A; font-size: 14px;">2</div>
-                        <div>
-                            <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Product Confusion</h4>
-                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"I don't know if these cleaning crystals work with my type of aligners. There's nothing telling me what I actually need." — Abandoned cart participant</p>
-                        </div>
-                    </div>
-
-                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid #1E3A8A; border-radius: 0 12px 12px 0;">
-                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: #EFF6FF; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1E3A8A; font-size: 14px;">3</div>
-                        <div>
-                            <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Reorder Friction</h4>
-                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"I buy the same thing every month. Why do I have to re-enter everything? Amazon remembers my orders." — Repeat customer participant</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Solution -->
-            <section id="solution" class="section reveal">
-                <span class="section-label">Solution</span>
-                <h2>Friction-Free Commerce</h2>
-                <p>
-                    Rather than incremental fixes, we redesigned the entire purchase flow around three core principles that directly addressed the research findings.
-                </p>
-
-                <!-- Design Principles Cards -->
-                <h3>Three Design Principles</h3>
-                <p>The solution was grounded in three core principles that directly addressed the research findings:</p>
-
-                <div style="margin: 24px 0;">
-                    <!-- Transparent Pricing -->
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
-                        <div style="display: flex; gap: 20px; align-items: flex-start;">
-                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: #1E3A8A; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                    <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                                </svg>
-                            </div>
-                            <div style="flex: 1;">
-                                <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Transparent Pricing</h4>
-                                <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Show shipping costs upfront on product pages, not at checkout. Display free shipping thresholds clearly to encourage larger orders and eliminate surprise friction.</p>
-                                <div style="margin-top: 12px; padding: 12px 16px; background: #EFF6FF; border-radius: 8px;">
-                                    <span style="font-size: 12px; color: #1E3A8A; font-weight: 500;">Addresses: Shipping Surprise</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Smart Recommendations -->
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
-                        <div style="display: flex; gap: 20px; align-items: flex-start;">
-                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: #1E3A8A; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                            </div>
-                            <div style="flex: 1;">
-                                <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Smart Recommendations</h4>
-                                <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Surface personalized product recommendations based on treatment data. Show "Works with your aligners" badges to eliminate compatibility confusion and build confidence.</p>
-                                <div style="margin-top: 12px; padding: 12px 16px; background: #EFF6FF; border-radius: 8px;">
-                                    <span style="font-size: 12px; color: #1E3A8A; font-weight: 500;">Addresses: Product Confusion</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- One-Click Reorder -->
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
-                        <div style="display: flex; gap: 20px; align-items: flex-start;">
-                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: #1E3A8A; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                    <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
-                                </svg>
-                            </div>
-                            <div style="flex: 1;">
-                                <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">One-Click Reorder</h4>
-                                <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Enable returning customers to reorder previous purchases with a single click. Save payment and shipping information to eliminate repetitive data entry.</p>
-                                <div style="margin-top: 12px; padding: 12px 16px; background: #EFF6FF; border-radius: 8px;">
-                                    <span style="font-size: 12px; color: #1E3A8A; font-weight: 500;">Addresses: Reorder Friction</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Flow Diagram -->
-                <div style="margin: 48px 0;">
-                    <h3 style="font-family: var(--font-serif); font-size: 22px; font-weight: 500; margin-bottom: 24px; color: var(--text-primary);">
-                        Streamlined Purchase Flow
-                    </h3>
-                    <div style="display: flex; gap: 12px; align-items: stretch;">
-                        <!-- Step 1 -->
-                        <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
-                            <div style="background: #1E3A8A; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">1</div>
-                            <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Browse Products</h4>
-                            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">See prices with shipping upfront</p>
-                        </div>
-                        <div style="display: flex; align-items: center; color: #1E3A8A; font-size: 18px;">-></div>
-                        <!-- Step 2 -->
-                        <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
-                            <div style="background: #1E3A8A; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">2</div>
-                            <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Add to Cart</h4>
-                            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">Smart recommendations shown</p>
-                        </div>
-                        <div style="display: flex; align-items: center; color: #1E3A8A; font-size: 18px;">-></div>
-                        <!-- Step 3 -->
-                        <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
-                            <div style="background: #1E3A8A; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">3</div>
-                            <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Quick Checkout</h4>
-                            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">One page, saved info</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="outcomes" class="section reveal">
-                <span class="section-label">Outcomes</span>
-                <h2>Business Impact</h2>
-                <p>
-                    The redesigned accessories shop was A/B tested over eight weeks before full rollout. Results exceeded targets across all key metrics.
-                </p>
-
-                <!-- Testing Methodology -->
-                <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0;">
-                    <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;">A/B Testing Methodology</h4>
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
-                        <div style="text-align: center;">
-                            <div style="font-family: var(--font-serif); font-size: 32px; color: #1E3A8A; margin-bottom: 4px;">8</div>
-                            <div style="font-size: 13px; color: var(--text-secondary);">Weeks duration</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-family: var(--font-serif); font-size: 32px; color: #1E3A8A; margin-bottom: 4px;">15K</div>
-                            <div style="font-size: 13px; color: var(--text-secondary);">Users in test sample</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="font-family: var(--font-serif); font-size: 32px; color: #1E3A8A; margin-bottom: 4px;">50/50</div>
-                            <div style="font-size: 13px; color: var(--text-secondary);">Control vs. treatment</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Before/After Comparison -->
-                <div style="margin: 40px 0;">
-                    <h3 style="font-family: var(--font-serif); font-size: 22px; font-weight: 500; margin-bottom: 24px; color: var(--text-primary);">
-                        Measured Impact
-                    </h3>
-
-                    <!-- Conversion Rate -->
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-                            <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Conversion Rate</span>
-                            <span style="font-size: 13px; font-weight: 600; color: #1E3A8A; background: #EFF6FF; padding: 4px 12px; border-radius: 20px;">+60% increase</span>
-                        </div>
-                        <div style="display: flex; gap: 24px; align-items: center;">
-                            <div style="flex: 1;">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                                    <span style="font-size: 12px; color: #1E3A8A;">Before</span>
-                                    <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">2.1%</span>
-                                </div>
-                                <div style="height: 24px; background: #DBEAFE; border-radius: 6px; overflow: hidden;">
-                                    <div style="width: 21%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
-                                </div>
-                            </div>
-                            <div style="font-size: 20px; color: var(--text-tertiary);">-></div>
-                            <div style="flex: 1;">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                                    <span style="font-size: 12px; color: #1E3A8A;">After</span>
-                                    <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">3.4%</span>
-                                </div>
-                                <div style="height: 24px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
-                                    <div style="width: 34%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Cart Abandonment -->
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-                            <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Cart Abandonment</span>
-                            <span style="font-size: 13px; font-weight: 600; color: #1E3A8A; background: #EFF6FF; padding: 4px 12px; border-radius: 20px;">-45% reduction</span>
-                        </div>
-                        <div style="display: flex; gap: 24px; align-items: center;">
-                            <div style="flex: 1;">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                                    <span style="font-size: 12px; color: #1E3A8A;">Before</span>
-                                    <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">72%</span>
-                                </div>
-                                <div style="height: 24px; background: #DBEAFE; border-radius: 6px; overflow: hidden;">
-                                    <div style="width: 72%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
-                                </div>
-                            </div>
-                            <div style="font-size: 20px; color: var(--text-tertiary);">-></div>
-                            <div style="flex: 1;">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                                    <span style="font-size: 12px; color: #1E3A8A;">After</span>
-                                    <span style="font-size: 14px; font-weight: 600; color: #1E3A8A;">40%</span>
-                                </div>
-                                <div style="height: 24px; background: #EFF6FF; border-radius: 6px; overflow: hidden;">
-                                    <div style="width: 40%; height: 100%; background: #1E3A8A; border-radius: 6px;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Average Order Value -->
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-                            <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Average Order Value</span>
-                            <span style="font-size: 13px; font-weight: 600; color: #1E3A8A; background: #EFF6FF; padding: 4px 12px; border-radius: 20px;">+130% increase</span>
-                        </div>
-                        <div style="display: flex; gap: 24px; align-items: center;">
-                            <div style="flex: 1; text-align: center; padding: 20px; background: #DBEAFE; border-radius: 8px;">
-                                <div style="font-family: var(--font-serif); font-size: 36px; color: #1E3A8A;">$18</div>
-                                <div style="font-size: 12px; color: #1E3A8A; margin-top: 4px;">Before</div>
-                            </div>
-                            <div style="font-size: 24px; color: #1E3A8A;">-></div>
-                            <div style="flex: 1; text-align: center; padding: 20px; background: #EFF6FF; border-radius: 8px;">
-                                <div style="font-family: var(--font-serif); font-size: 36px; color: #1E3A8A;">$41</div>
-                                <div style="font-size: 12px; color: #1E3A8A; margin-top: 4px;">After</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Revenue Impact -->
-                <div style="background: #1E3A8A; border-radius: 12px; padding: 24px; margin: 32px 0;">
-                    <div style="display: flex; gap: 16px; align-items: center;">
-                        <div style="flex-shrink: 0; width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 style="font-size: 16px; font-weight: 600; color: white; margin-bottom: 4px;">6x Revenue Per Session</h4>
-                            <p style="font-size: 14px; color: rgba(255,255,255,0.8); margin: 0;">Combined improvements in conversion rate and average order value drove a 6x increase in revenue per session, exceeding the initial project targets.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="reflection" class="section reveal">
-                <span class="section-label">Reflection</span>
-                <h2>What I Learned</h2>
-
-                <ul class="reflection-list">
-                    <li>
-                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
-                        </svg>
-                        <div class="reflection-content">
-                            <h4>Transparency Builds Trust</h4>
-                            <p>Showing shipping costs early reduced abandonment more than any checkout optimization. Users prefer honest friction upfront to surprises at the end.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
-                        </svg>
-                        <div class="reflection-content">
-                            <h4>Personalization Drives Value</h4>
-                            <p>Contextual recommendations based on treatment data increased AOV more than generic upsells. Relevance beats volume.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
-                        </svg>
-                        <div class="reflection-content">
-                            <h4>Small Fixes Compound</h4>
-                            <p>No single change drove the 60% lift. It was the combination of dozens of micro-optimizations that created the impact.</p>
-                        </div>
-                    </li>
-                </ul>
-            </section>
+        <div class="case-meta-strip">
+            <div class="case-meta-item"><span class="case-meta-label">Role</span><span class="case-meta-value">UX Designer</span></div>
+            <div class="case-meta-item"><span class="case-meta-label">Stage</span><span class="case-meta-value">1&rarr;n, flow optimization</span></div>
+            <div class="case-meta-item"><span class="case-meta-label">Timeline</span><span class="case-meta-value">2022</span></div>
+            <div class="case-meta-item"><span class="case-meta-label">Team</span><span class="case-meta-value">2 Designers, 4 Engineers</span></div>
+            <div class="case-meta-item"><span class="case-meta-label">Live Project</span><span class="case-meta-value"><a href="https://shop.invisalign.com" target="_blank">View Shop &rarr;</a></span></div>
         </div>
 
-        <aside class="meta-sidebar">
-            <div class="meta-card">
-                <div class="meta-card-title">Project Details</div>
-                <div class="meta-card-item">
-                    <div class="meta-card-label">Company</div>
-                    <div class="meta-card-value">Align Technology</div>
+        <div class="nda-notice">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Due to my NDA with Align Technology, I cannot disclose detailed designs from this project. The information below focuses on process, outcomes, and learnings while protecting confidential work.</span>
+        </div>
+
+        <section id="overview" class="story-panel">
+            <span class="eyebrow">The Brief</span>
+            <h2>A leaky funnel with a 72% abandonment rate</h2>
+            <p>The Invisalign accessories shop had a 72% cart abandonment rate. Patients struggled to find compatible products, shipping costs surprised them at checkout, and the purchase flow required too many steps for simple reorders.</p>
+            <p>I was tasked with redesigning the e-commerce experience to reduce friction and increase both conversion rate and average order value.</p>
+            <div class="callout"><p>"How might we reduce friction in the accessories purchase flow while increasing average order value?"</p></div>
+        </section>
+
+        <section id="problem" class="story-panel">
+            <span class="eyebrow">The Problem</span>
+            <h2>Built as an afterthought</h2>
+            <p>The existing shop was built as an afterthought to the main Invisalign experience. It lacked the polish of modern e-commerce and created unnecessary friction at every step of the purchase journey.</p>
+
+            <div style="margin: 40px 0; padding: 32px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
+                <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">The Scale of the Problem</h4>
+                <div style="margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span style="font-size: 13px; color: var(--text-secondary);">Cart Abandonment Rate</span><span style="font-size: 14px; font-weight: 600; color: var(--accent);">72%</span></div>
+                    <div style="height: 12px; background: var(--border); border-radius: 6px; overflow: hidden;"><div style="width: 72%; height: 100%; background: var(--accent); border-radius: 6px;"></div></div>
                 </div>
-                <div class="meta-card-item">
-                    <div class="meta-card-label">Role</div>
-                    <div class="meta-card-value">UX Designer</div>
+                <div style="margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span style="font-size: 13px; color: var(--text-secondary);">Steps to Complete Purchase</span><span style="font-size: 14px; font-weight: 600; color: var(--accent);">5 steps</span></div>
+                    <div style="height: 12px; background: var(--border); border-radius: 6px; overflow: hidden;"><div style="width: 100%; height: 100%; background: var(--accent); border-radius: 6px;"></div></div>
                 </div>
-                <div class="meta-card-item">
-                    <div class="meta-card-label">Duration</div>
-                    <div class="meta-card-value">6 months</div>
+                <div style="margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;"><span style="font-size: 13px; color: var(--text-secondary);">Repeat Customer Reorder Rate</span><span style="font-size: 14px; font-weight: 600; color: var(--accent);">23%</span></div>
+                    <div style="height: 12px; background: var(--border); border-radius: 6px; overflow: hidden;"><div style="width: 23%; height: 100%; background: var(--accent); border-radius: 6px;"></div></div>
                 </div>
-                <div class="meta-card-item">
-                    <div class="meta-card-label">Skills</div>
-                    <div class="meta-card-value">E-commerce UX, Conversion Optimization, A/B Testing</div>
-                </div>
-                <div class="meta-card-item">
-                    <div class="meta-card-label">Tools</div>
-                    <div class="meta-card-value">Figma, Optimizely, Hotjar</div>
+                <div style="display: flex; align-items: center; gap: 16px; padding-top: 16px; border-top: 1px solid var(--border);">
+                    <div style="font-family: var(--font-serif); font-size: 48px; font-weight: 400; color: var(--accent);">$18</div>
+                    <div style="font-size: 14px; color: var(--text-secondary); line-height: 1.5;">average order value, well below industry benchmarks for healthcare accessories</div>
                 </div>
             </div>
-        </aside>
-    </main>
+
+            <h3>Where Users Dropped Off</h3>
+            <p>Funnel analysis revealed three critical friction points in the purchase journey:</p>
+            <div style="margin: 24px 0; display: flex; gap: 16px;">
+                <div style="flex: 1; padding: 20px; background: var(--bg-secondary); border: 2px solid var(--accent); border-radius: 12px; text-align: center;">
+                    <div style="font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 8px;">38%</div>
+                    <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em;">Product Selection</div>
+                    <div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px;">Compatibility confusion</div>
+                </div>
+                <div style="flex: 1; padding: 20px; background: var(--bg-secondary); border: 2px solid var(--accent); border-radius: 12px; text-align: center;">
+                    <div style="font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 8px;">29%</div>
+                    <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em;">Shipping Page</div>
+                    <div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px;">Cost surprise</div>
+                </div>
+                <div style="flex: 1; padding: 20px; background: var(--bg-secondary); border: 2px solid var(--accent); border-radius: 12px; text-align: center;">
+                    <div style="font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 8px;">21%</div>
+                    <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em;">Account Creation</div>
+                    <div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px;">Required signup</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="story-panel">
+            <span class="eyebrow">The Research</span>
+            <h2>Understanding purchase friction</h2>
+            <p>My approach centered on understanding where users struggled and why. I combined competitive benchmarking, funnel analytics, and qualitative interviews to build a comprehensive picture of purchase friction.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0;">
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                    <div style="width: 48px; height: 48px; background: var(--accent-dim); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+                    <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Competitive Analysis</h4>
+                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Benchmarked Nike, ASOS, and Bloomingdale's to identify e-commerce best practices and gaps.</p>
+                    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);"><span style="font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase;">5 Competitors Analyzed</span></div>
+                </div>
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                    <div style="width: 48px; height: 48px; background: var(--accent-dim); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                    <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Funnel Analysis</h4>
+                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Analyzed analytics and session recordings to identify exact drop-off points and rage clicks.</p>
+                    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);"><span style="font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase;">500+ Sessions Reviewed</span></div>
+                </div>
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                    <div style="width: 48px; height: 48px; background: var(--accent-dim); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">User Interviews</h4>
+                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Interviewed patients who abandoned carts and those who completed purchases to understand motivations.</p>
+                    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);"><span style="font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase;">12 Participants</span></div>
+                </div>
+            </div>
+
+            <h3>Key Insights</h3>
+            <p>Research synthesis revealed three core friction points that mapped directly to the drop-off data:</p>
+            <div style="margin: 24px 0;">
+                <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; margin-bottom: 12px;">
+                    <div style="flex-shrink: 0; width: 32px; height: 32px; background: var(--accent-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent); font-size: 14px;">1</div>
+                    <div><h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Shipping Surprise</h4><p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"I was ready to buy until I saw $8 shipping on a $12 product. That's ridiculous. I'll just get it at my dentist." &mdash; Abandoned cart participant</p></div>
+                </div>
+                <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; margin-bottom: 12px;">
+                    <div style="flex-shrink: 0; width: 32px; height: 32px; background: var(--accent-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent); font-size: 14px;">2</div>
+                    <div><h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Product Confusion</h4><p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"I don't know if these cleaning crystals work with my type of aligners. There's nothing telling me what I actually need." &mdash; Abandoned cart participant</p></div>
+                </div>
+                <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0;">
+                    <div style="flex-shrink: 0; width: 32px; height: 32px; background: var(--accent-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent); font-size: 14px;">3</div>
+                    <div><h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Reorder Friction</h4><p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"I buy the same thing every month. Why do I have to re-enter everything? Amazon remembers my orders." &mdash; Repeat customer participant</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="story-panel">
+            <span class="eyebrow">The Solution</span>
+            <h2>Friction-free commerce</h2>
+            <p>Rather than incremental fixes, we redesigned the entire purchase flow around three core principles that directly addressed the research findings.</p>
+
+            <h3>Three design principles</h3>
+            <div style="margin: 24px 0;">
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+                    <div style="display: flex; gap: 20px; align-items: flex-start;">
+                        <div style="flex-shrink: 0; width: 56px; height: 56px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                        <div style="flex: 1;">
+                            <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Transparent Pricing</h4>
+                            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Show shipping costs upfront on product pages, not at checkout. Display free shipping thresholds clearly to encourage larger orders and eliminate surprise friction.</p>
+                            <div style="margin-top: 12px; padding: 12px 16px; background: var(--accent-dim); border-radius: 8px;"><span style="font-size: 12px; color: var(--accent); font-weight: 500;">Addresses: Shipping Surprise</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+                    <div style="display: flex; gap: 20px; align-items: flex-start;">
+                        <div style="flex-shrink: 0; width: 56px; height: 56px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                        <div style="flex: 1;">
+                            <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Smart Recommendations</h4>
+                            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Surface personalized product recommendations based on treatment data. Show "Works with your aligners" badges to eliminate compatibility confusion and build confidence.</p>
+                            <div style="margin-top: 12px; padding: 12px 16px; background: var(--accent-dim); border-radius: 8px;"><span style="font-size: 12px; color: var(--accent); font-weight: 500;">Addresses: Product Confusion</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                    <div style="display: flex; gap: 20px; align-items: flex-start;">
+                        <div style="flex-shrink: 0; width: 56px; height: 56px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
+                        <div style="flex: 1;">
+                            <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">One-Click Reorder</h4>
+                            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Enable returning customers to reorder previous purchases with a single click. Save payment and shipping information to eliminate repetitive data entry.</p>
+                            <div style="margin-top: 12px; padding: 12px 16px; background: var(--accent-dim); border-radius: 8px;"><span style="font-size: 12px; color: var(--accent); font-weight: 500;">Addresses: Reorder Friction</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Streamlined purchase flow</h3>
+            <div style="display: flex; gap: 12px; align-items: stretch;">
+                <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;"><div style="background: var(--accent); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">1</div><h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Browse Products</h4><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">See prices with shipping upfront</p></div>
+                <div style="display: flex; align-items: center; color: var(--accent); font-size: 18px;">&rarr;</div>
+                <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;"><div style="background: var(--accent); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">2</div><h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Add to Cart</h4><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">Smart recommendations shown</p></div>
+                <div style="display: flex; align-items: center; color: var(--accent); font-size: 18px;">&rarr;</div>
+                <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;"><div style="background: var(--accent); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">3</div><h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Quick Checkout</h4><p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">One page, saved info</p></div>
+            </div>
+        </section>
+
+        <section id="outcomes" class="story-panel">
+            <span class="eyebrow">The Outcome</span>
+            <h2>Business impact</h2>
+            <p>The redesigned accessories shop was A/B tested over eight weeks before full rollout. Results exceeded targets across all key metrics.</p>
+
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0;">
+                <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;">A/B Testing Methodology</h4>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+                    <div style="text-align: center;"><div style="font-family: var(--font-serif); font-size: 32px; color: var(--accent); margin-bottom: 4px;">8</div><div style="font-size: 13px; color: var(--text-secondary);">Weeks duration</div></div>
+                    <div style="text-align: center;"><div style="font-family: var(--font-serif); font-size: 32px; color: var(--accent); margin-bottom: 4px;">15K</div><div style="font-size: 13px; color: var(--text-secondary);">Users in test sample</div></div>
+                    <div style="text-align: center;"><div style="font-family: var(--font-serif); font-size: 32px; color: var(--accent); margin-bottom: 4px;">50/50</div><div style="font-size: 13px; color: var(--text-secondary);">Control vs. treatment</div></div>
+                </div>
+            </div>
+
+            <h3>Measured impact</h3>
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;"><span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Conversion Rate</span><span style="font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 12px; border-radius: 20px;">+60% increase</span></div>
+                <div style="display: flex; gap: 24px; align-items: center;">
+                    <div style="flex: 1;"><div style="display: flex; justify-content: space-between; margin-bottom: 6px;"><span style="font-size: 12px; color: var(--text-tertiary);">Before</span><span style="font-size: 14px; font-weight: 600; color: var(--accent);">2.1%</span></div><div style="height: 24px; background: var(--border); border-radius: 6px; overflow: hidden;"><div style="width: 21%; height: 100%; background: var(--accent); border-radius: 6px;"></div></div></div>
+                    <div style="font-size: 20px; color: var(--text-tertiary);">&rarr;</div>
+                    <div style="flex: 1;"><div style="display: flex; justify-content: space-between; margin-bottom: 6px;"><span style="font-size: 12px; color: var(--text-tertiary);">After</span><span style="font-size: 14px; font-weight: 600; color: var(--accent);">3.4%</span></div><div style="height: 24px; background: var(--border); border-radius: 6px; overflow: hidden;"><div style="width: 34%; height: 100%; background: var(--accent); border-radius: 6px;"></div></div></div>
+                </div>
+            </div>
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;"><span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Cart Abandonment</span><span style="font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 12px; border-radius: 20px;">-45% reduction</span></div>
+                <div style="display: flex; gap: 24px; align-items: center;">
+                    <div style="flex: 1;"><div style="display: flex; justify-content: space-between; margin-bottom: 6px;"><span style="font-size: 12px; color: var(--text-tertiary);">Before</span><span style="font-size: 14px; font-weight: 600; color: var(--accent);">72%</span></div><div style="height: 24px; background: var(--border); border-radius: 6px; overflow: hidden;"><div style="width: 72%; height: 100%; background: var(--accent); border-radius: 6px;"></div></div></div>
+                    <div style="font-size: 20px; color: var(--text-tertiary);">&rarr;</div>
+                    <div style="flex: 1;"><div style="display: flex; justify-content: space-between; margin-bottom: 6px;"><span style="font-size: 12px; color: var(--text-tertiary);">After</span><span style="font-size: 14px; font-weight: 600; color: var(--accent);">40%</span></div><div style="height: 24px; background: var(--border); border-radius: 6px; overflow: hidden;"><div style="width: 40%; height: 100%; background: var(--accent); border-radius: 6px;"></div></div></div>
+                </div>
+            </div>
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;"><span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Average Order Value</span><span style="font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 12px; border-radius: 20px;">+130% increase</span></div>
+                <div style="display: flex; gap: 24px; align-items: center;">
+                    <div style="flex: 1; text-align: center; padding: 20px; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 8px;"><div style="font-family: var(--font-serif); font-size: 36px; color: var(--accent);">$18</div><div style="font-size: 12px; color: var(--text-tertiary); margin-top: 4px;">Before</div></div>
+                    <div style="font-size: 24px; color: var(--accent);">&rarr;</div>
+                    <div style="flex: 1; text-align: center; padding: 20px; background: var(--accent-dim); border-radius: 8px;"><div style="font-family: var(--font-serif); font-size: 36px; color: var(--accent);">$41</div><div style="font-size: 12px; color: var(--text-tertiary); margin-top: 4px;">After</div></div>
+                </div>
+            </div>
+
+            <div style="background: var(--accent); border-radius: 12px; padding: 24px; margin: 32px 0;">
+                <div style="display: flex; gap: 16px; align-items: center;">
+                    <div style="flex-shrink: 0; width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                    <div><h4 style="font-size: 16px; font-weight: 600; color: white; margin-bottom: 4px;">6x Revenue Per Session</h4><p style="font-size: 14px; color: rgba(255,255,255,0.8); margin: 0;">Combined improvements in conversion rate and average order value drove a 6x increase in revenue per session, exceeding the initial project targets.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reflection" class="story-panel">
+            <span class="eyebrow">The Reflection</span>
+            <h2>What I learned</h2>
+            <ul class="reflection-list">
+                <li>
+                    <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <div class="reflection-content"><h4>Transparency Builds Trust</h4><p>Showing shipping costs early reduced abandonment more than any checkout optimization. Users prefer honest friction upfront to surprises at the end.</p></div>
+                </li>
+                <li>
+                    <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <div class="reflection-content"><h4>Personalization Drives Value</h4><p>Contextual recommendations based on treatment data increased AOV more than generic upsells. Relevance beats volume.</p></div>
+                </li>
+                <li>
+                    <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <div class="reflection-content"><h4>Small Fixes Compound</h4><p>No single change drove the 60% lift. It was the combination of dozens of micro-optimizations that created the impact.</p></div>
+                </li>
+            </ul>
+        </section>
+    </div>
 
     <footer>
         <div class="footer-inner">
-            <a href="index.html" class="logo">Samhith Mitra</a>
+            <div>
+                <div class="footer-name">Samhith Mitra</div>
+                <div class="footer-status">MS HCI @ Georgia Tech, 2026</div>
+            </div>
             <div class="footer-links">
+                <a href="index.html">Work</a>
+                <a href="about.html">About</a>
                 <a href="https://www.linkedin.com/in/samhithmitra/" target="_blank">LinkedIn</a>
                 <a href="#" id="footer-email">Email</a>
             </div>
-        </div>
-        <div class="footer-signoff">
-            <p>Designed and built by hand, no template.</p>
-            <span>© 2026 Samhith Mitra</span>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var user = 'samhithm';
-            var domain = 'gmail.com';
-            var email = user + '@' + domain;
+            var user = 'samhithm', domain = 'gmail.com', email = user + '@' + domain;
             document.getElementById('contact-link').setAttribute('href', 'mailto:' + email);
             document.getElementById('footer-email').setAttribute('href', 'mailto:' + email);
-
-            // Scroll spy
-            const sections = document.querySelectorAll('.section');
-            const navLinks = document.querySelectorAll('.sidebar-nav a');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        navLinks.forEach(link => link.classList.remove('active'));
-                        const activeLink = document.querySelector(`.sidebar-nav a[href="#${entry.target.id}"]`);
-                        if (activeLink) activeLink.classList.add('active');
-                    }
-                });
-            }, { rootMargin: '-20% 0px -80% 0px' });
-
-            sections.forEach(section => observer.observe(section));
         });
-    </script>
-
-    <script>
-    (function () {
-        var header = document.querySelector('header');
-        var toggle = document.getElementById('navToggle');
-        if (!header || !toggle) return;
-        toggle.addEventListener('click', function () {
-            var open = header.classList.toggle('nav-open');
-            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-        header.querySelectorAll('nav a').forEach(function (link) {
-            link.addEventListener('click', function () {
-                header.classList.remove('nav-open');
-                toggle.setAttribute('aria-expanded', 'false');
-            });
-        });
-    })();
-    </script>
-
-    <script>
-    /* Scroll reveal: one gesture, applied once, honours reduced-motion. */
-    (function () {
-        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var targets = document.querySelectorAll('.reveal');
-        if (reduce || !('IntersectionObserver' in window)) {
-            for (var i = 0; i < targets.length; i++) targets[i].classList.add('is-visible');
-            return;
-        }
-        var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    io.unobserve(entry.target);
-                }
-            });
-        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-        targets.forEach(function (el) { io.observe(el); });
-        /* Failsafe: never let content stay invisible. */
-        window.setTimeout(function () {
-            document.querySelectorAll('.reveal:not(.is-visible)').forEach(function (el) {
-                if (el.getBoundingClientRect().top < window.innerHeight * 1.5) el.classList.add('is-visible');
-            });
-        }, 2500);
-    })();
     </script>
 </body>
 </html>
