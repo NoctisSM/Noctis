@@ -315,8 +315,9 @@
             </div>
             <div class="footer-links">
                 <a href="index.html">Work</a>
-                <a href="about-me.html">About</a>
-                <a href="2nddraft.html">Second Draft studio ↗</a>
+                <a href="about.html">About</a>
+                <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
+                <a href="#" id="footer-email">Email</a>
             </div>
         </div>
     </footer>
@@ -325,7 +326,9 @@
         document.addEventListener('DOMContentLoaded', function() {
             var user = 'samhithm';
             var domain = 'gmail.com';
-            document.getElementById('contact-link').setAttribute('href', 'mailto:' + user + '@' + domain);
+            var email = user + '@' + domain;
+            document.getElementById('contact-link').setAttribute('href', 'mailto:' + email);
+            document.getElementById('footer-email').setAttribute('href', 'mailto:' + email);
         });
     </script>
 </body>
