@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <title>Flying Car Interaction | Samhith Mitra</title>
+    <meta name="description" content="Samhith Mitra | VR research on trust and automation across the driving-to-flying transition. Georgia Tech CS 8803 Sonification Lab.">
+    <link rel="icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Newsreader:ital,wght@0,500,0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0A0A0B;
+            --bg-panel: #16171A;
+            --bg-panel-2: #1D1E22;
+            --bg-secondary: #16171A;
+            --text-primary: #F5F5F4;
+            --text-secondary: #A1A1AA;
+            --text-tertiary: #6B6B74;
+            --accent: #3B82F6;
+            --accent-dim: rgba(59, 130, 246, 0.12);
+            --border: rgba(255, 255, 255, 0.08);
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Newsreader', Georgia, serif;
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+
+        header { position: fixed; top: 20px; left: 0; right: 0; z-index: 100; display: flex; justify-content: center; }
+        .header-inner {
+            display: flex; align-items: center; gap: 36px;
+            background: rgba(22, 23, 26, 0.75);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border); border-radius: 999px; padding: 10px 14px 10px 10px;
+        }
+        .logo {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--accent-dim); color: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 13px; letter-spacing: -0.02em;
+        }
+        nav { display: flex; gap: 26px; align-items: center; }
+        nav a { font-size: 13px; font-weight: 500; color: var(--text-secondary); transition: color .2s; }
+        nav a:hover { color: var(--text-primary); }
+        nav a.active { color: var(--text-primary); }
+        nav .nav-contact { background: var(--text-primary); color: var(--bg-primary); padding: 8px 16px; border-radius: 999px; font-weight: 600; }
+
+        .case-wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+        .case-hero { position: relative; margin-top: 108px; padding: 0; border-radius: 32px; overflow: hidden; border: 1px solid var(--border); }
+        .case-hero-media { position: relative; height: 340px; overflow: hidden; }
+        .case-hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .case-hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,11,0.1) 0%, rgba(10,10,11,0.75) 100%); }
+        .case-hero-content { position: relative; padding: 72px 56px; background: var(--bg-panel); }
+        .case-back { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--text-secondary); margin-bottom: 28px; transition: color .2s; }
+        .case-back:hover { color: var(--text-primary); }
+        .case-back svg { width: 16px; height: 16px; }
+        .case-tags { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-tertiary); }
+        .case-tags .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+        .case-tags .dot:nth-child(3) { opacity: 0.7; }
+        .case-hero h1 { font-weight: 800; letter-spacing: -0.03em; line-height: 1.04; font-size: clamp(2.2rem, 6vw, 3.8rem); margin-bottom: 20px; }
+        .case-hero h1 .line2 { display: block; color: var(--accent); }
+        .case-hero .lede { font-size: 17px; line-height: 1.7; color: var(--text-secondary); max-width: 620px; }
+
+        .case-meta-strip { display: flex; flex-wrap: wrap; gap: 32px; border: 1px solid var(--border); border-radius: 20px; padding: 24px 32px; margin: 20px 0; background: rgba(22, 23, 26, 0.6); }
+        .case-meta-item { display: flex; flex-direction: column; gap: 6px; }
+        .case-meta-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary); }
+        .case-meta-value { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+
+        .story-panel { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 32px; padding: 56px; margin-bottom: 20px; }
+        .eyebrow { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 16px; }
+        .story-panel h2 { font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; font-size: clamp(1.7rem, 3.6vw, 2.5rem); color: var(--text-primary); margin-bottom: 24px; }
+        .story-panel h3 { font-family: var(--font-serif); font-size: 20px; font-weight: 500; color: var(--text-primary); margin-top: 40px; margin-bottom: 14px; }
+        .story-panel p { font-size: 17px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 20px; max-width: 760px; }
+        .story-panel ul { margin-bottom: 20px; padding-left: 22px; max-width: 760px; }
+        .story-panel li { font-size: 16px; line-height: 1.75; color: var(--text-secondary); margin-bottom: 10px; }
+
+        .callout { background: var(--accent-dim); border-left: 3px solid var(--accent); padding: 20px 24px; margin: 28px 0; border-radius: 0 8px 8px 0; }
+        .callout p { font-size: 16px; font-style: italic; color: var(--text-secondary); margin: 0; max-width: none; }
+
+        .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+        .insight-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 22px; }
+        .insight-card h4 { font-family: var(--font-serif); font-size: 16px; font-weight: 500; color: var(--text-primary); margin-bottom: 8px; }
+        .insight-card p { font-size: 14.5px; line-height: 1.65; color: var(--text-secondary); margin: 0; max-width: none; }
+
+        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 32px 0; }
+        .compare-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+        .compare-card.good { border-color: rgba(34,197,94,0.3); }
+        .compare-card.bad { border-color: rgba(220,38,38,0.25); }
+        .compare-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+        .compare-card.good h4 { color: #4ADE80; }
+        .compare-card.bad h4 { color: #F87171; }
+        .compare-card ul { padding-left: 18px; margin: 0; }
+        .compare-card li { font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.6; }
+
+        .reflection-list { list-style: none; padding: 0; margin: 28px 0; }
+        .reflection-list li { padding: 22px 0; border-bottom: 1px solid var(--border); }
+        .reflection-list li:last-child { border-bottom: none; }
+        .reflection-list h4 { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+        .reflection-list p { font-size: 14.5px; line-height: 1.7; color: var(--text-secondary); margin: 0; max-width: none; }
+
+        .fc-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 32px 0; }
+        .fc-figure img { width: 100%; border-radius: 12px; border: 1px solid var(--border); display: block; }
+        .fc-figure figcaption { font-size: 13px; color: var(--text-tertiary); margin-top: 10px; }
+
+        footer { border-top: 1px solid var(--border); margin-top: 24px; }
+        .footer-inner { max-width: 1040px; margin: 0 auto; padding: 40px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-name { font-weight: 700; font-size: 14px; }
+        .footer-status { font-size: 13px; color: var(--text-tertiary); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 13px; color: var(--text-secondary); }
+        .footer-links a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .header-inner { gap: 16px; padding: 8px 10px 8px 8px; }
+            nav { gap: 14px; }
+            nav a:not(.nav-contact):not(.active) { display: none; }
+            .case-hero { margin-top: 96px; border-radius: 24px; }
+            .case-hero-media { height: 220px; }
+            .case-hero-content { padding: 40px 24px; }
+            .case-meta-strip { padding: 20px; gap: 20px; border-radius: 16px; }
+            .story-panel { padding: 32px 24px; border-radius: 22px; }
+            .insight-grid, .compare-grid, .fc-grid-2 { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">SM</a>
+            <nav>
+                <a href="index.html" class="active">Work</a>
+                <a href="about-me.html">About</a>
+                <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
+                <a href="#" id="contact-link" class="nav-contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="case-wrap">
+        <section class="case-hero">
+            <div class="case-hero-media">
+                <img src="FlyingCar/cockpit.jpg" alt="Boeing 787 Dreamliner cockpit, reference research for automation trust and lighting">
+                <div class="case-hero-scrim"></div>
+            </div>
+            <div class="case-hero-content">
+                <a href="index.html" class="case-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back to Work
+                </a>
+                <div class="case-tags">
+                    <span class="dot"></span><span class="dot"></span>
+                    AUTOMOTIVE, VR RESEARCH
+                </div>
+                <h1>Flying Car Interaction<span class="line2">Trust Across the Driving-to-Flying Transition</span></h1>
+                <p class="lede">How do we establish trust, comfort, and engagement in users when they ride in cars that can switch between driving and flying autonomously? A VR research project on the moment that question matters most: the transition itself.</p>
+            </div>
+        </section>
+
+        <div class="case-meta-strip">
+            <div class="case-meta-item"><span class="case-meta-label">Role</span><span class="case-meta-value">UX Researcher &amp; Interaction Designer</span></div>
+            <div class="case-meta-item"><span class="case-meta-label">Team</span><span class="case-meta-value">2-person team, with Jiayi Chen</span></div>
+            <div class="case-meta-item"><span class="case-meta-label">Timeline</span><span class="case-meta-value">Spring 2025 &middot; Georgia Tech</span></div>
+            <div class="case-meta-item"><span class="case-meta-label">Tools</span><span class="case-meta-value">Unity, SteamVR, HTC Vive</span></div>
+        </div>
+
+        <section class="story-panel">
+            <span class="eyebrow">The Brief</span>
+            <h2>The moment a car becomes an aircraft is where trust is won or lost.</h2>
+            <p>This was a semester-long project for Georgia Tech's CS 8803 Sonification Lab, done with Jiayi Chen. We explored what it would feel like to ride in a flying car in a near-future city — specifically the transition stages between ground driving and airborne flight, and how those stages affect trust, comfort, and perceived control.</p>
+            <p>Our goal wasn't to make something that just looked futuristic. We wanted to understand what interaction design decisions reduce cognitive load, support situational awareness, and keep users feeling in command of a vehicle that can suddenly become something else.</p>
+            <p>Using Unity and VR hardware, we built a cityscape simulation to prototype vehicle behavior, test transitions between driving and flying modes, and test how interface, lighting, and feedback decisions affected the illusion of being in control. Central to the work was <strong>VertiSpots</strong> — takeoff and landing hubs for vertical flight — and both manual and automated vehicle modes, so we could study how control handoffs land with users in an immersive setting.</p>
+        </section>
+
+        <section class="story-panel">
+            <span class="eyebrow">The Research Questions</span>
+            <h2>Four questions shaped everything we built</h2>
+            <ul>
+                <li>How do people sense trust and safety during the transition from driving to flying mode?</li>
+                <li>What kind of feedback — visual, audio, or haptic — helps people feel more comfortable or in control during that transition?</li>
+                <li>How is the experience different for a driver versus a passenger?</li>
+                <li>What can real-world automation systems like Tesla's Full Self-Driving or Rivian's Level 4 teach us about building trust into flying vehicles?</li>
+            </ul>
+            <p>We hypothesized that timely feedback, ambient feedback, and clear role definition (driver or passenger) would directly affect how safe and real the experience felt. Both held up in testing.</p>
+        </section>
+
+        <section class="story-panel">
+            <span class="eyebrow">The Build</span>
+            <h2>What didn't work taught us as much as what did</h2>
+            <p>We started from an inherited project with missing dependencies and incomplete documentation, and neither of us had VR development experience going in. We rebuilt from there: a new VR city environment on SteamVR (cross-platform across Meta Quest, HTC Vive, and Valve Index), re-factored for a VR render pipeline, with a dynamic play-space boundary so users couldn't wander out of the simulation or exit the vehicle unintentionally.</p>
+            <h3>The automation pivot</h3>
+            <p>Our first approach to simulating autonomous driving used Unity's NavMesh. It didn't work — NavMesh is built for omnidirectional movement like humans or animals, not wheeled vehicles bound by lanes and traffic rules, and the resulting cars drove unrealistically and ignored traffic laws entirely. We switched to a recording-and-playback system instead: we drove routes manually, recorded the sessions, and played them back in VR to simulate the automated condition. It gave us fine-grained, repeatable control over "autonomous" behavior for testing, at the cost of only working for fixed routes we'd recorded in advance.</p>
+            <div class="fc-grid-2">
+                <figure class="fc-figure">
+                    <img src="FlyingCar/city-topdown.jpg" alt="Unity city environment with VertiSpots and road network">
+                    <figcaption>The VR cityscape we built, with VertiSpots (takeoff/landing hubs) woven into the street grid.</figcaption>
+                </figure>
+                <figure class="fc-figure">
+                    <img src="FlyingCar/driving-view.jpg" alt="First-person driving view in the Unity simulation, with scene editor inset">
+                    <figcaption>First-person driving view inside the simulation, scripted route replacing the failed NavMesh approach.</figcaption>
+                </figure>
+            </div>
+            <h3>Interface and ambient design</h3>
+            <p>For the heads-up display, we wanted control states to be immediately legible, so we looked outside the automotive world: Boeing 787 Dreamliner cockpit lighting (soft blue and red tones that protect night vision while keeping pilots focused over long hauls) and GM SuperCruise's ambient lighting approach, which uses subtle light shifts to signal transitions between manual and autonomous modes without a user having to read a dashboard.</p>
+        </section>
+
+        <section class="story-panel">
+            <span class="eyebrow">The Testing</span>
+            <h2>People wanted more feedback, not less</h2>
+            <p>We ran a small user study comparing three ways to experience the same ride: driving it yourself, riding as a passenger in an automated car, and controlling it with a gamepad in a more gamified version.</p>
+            <div class="fc-grid-2">
+                <figure class="fc-figure">
+                    <img src="FlyingCar/vr-cabin.jpg" alt="VR cabin interior showing driving mode indicator and world map display">
+                    <figcaption>Inside the VR cabin during a driving-mode session — status label and map display visible on the seat-back screens.</figcaption>
+                </figure>
+                <figure class="fc-figure">
+                    <img src="FlyingCar/hud-readout.jpg" alt="Speed and altitude HUD readout on the vehicle dashboard">
+                    <figcaption>The speed/altitude HUD — one of the readouts participants specifically asked for more of.</figcaption>
+                </figure>
+            </div>
+            <div class="insight-grid">
+                <div class="insight-card">
+                    <h4>Driving felt riskiest, not safest</h4>
+                    <p>Manual driving felt more disorienting and anxiety-inducing than being a passenger. The added responsibility and control made it feel more risky, not less.</p>
+                </div>
+                <div class="insight-card">
+                    <h4>The controller felt safe but less real</h4>
+                    <p>The gamepad version read as game-like, which lowered perceived risk but also pulled people out of the experience — it felt less immersive and less realistic.</p>
+                </div>
+                <div class="insight-card">
+                    <h4>Trust tracked with visible control</h4>
+                    <p>Trust in the automation went up when there were visible signs of it working — a driver avatar, regular feedback, smooth handoffs. Trust dropped when the participant was driving or using the controller, since it felt more like a simulation than a real ride.</p>
+                </div>
+                <div class="insight-card">
+                    <h4>Silence was the biggest problem</h4>
+                    <p>People didn't understand where they were going, when a transition was coming, or what the system was "thinking." Predictive path displays, a speedometer, and Waymo-style confidence indicators were requested repeatedly — even a simple top-down map made people feel noticeably more oriented.</p>
+                </div>
+            </div>
+            <div class="callout">
+                <p>Participants rated their sense of safety about equally across all three scenarios, but on instinct rather than any specific stated reason — trust here wasn't fully conscious or articulable.</p>
+            </div>
+        </section>
+
+        <section class="story-panel">
+            <span class="eyebrow">The Comparative Analysis</span>
+            <h2>Rivian's Level 4, not Tesla's FSD</h2>
+            <p>To ground our design decisions outside the simulation, we compared two real automation systems: Rivian's Level 4 highway automation and Tesla's Full Self-Driving.</p>
+            <div class="compare-grid">
+                <div class="compare-card good">
+                    <h4>Rivian Level 4 — the model to follow</h4>
+                    <ul>
+                        <li>Handles most situations independently, letting the user relax instead of constantly monitoring</li>
+                        <li>Smooth, predictable transitions between driving and automation</li>
+                        <li>Natural decision-making at mode shifts — exactly what driving-to-takeoff needs</li>
+                    </ul>
+                </div>
+                <div class="compare-card bad">
+                    <h4>Tesla FSD — what to avoid</h4>
+                    <ul>
+                        <li>Requires frequent human intervention, which is the opposite of what seamless flight transitions need</li>
+                        <li>Higher cognitive load and stress during mode shifts</li>
+                        <li>Abrupt handling that would translate to real discomfort transitioning to flight</li>
+                    </ul>
+                </div>
+            </div>
+            <p>The takeaway we carried into the design: flying car automation should look like Rivian's approach, not Tesla's. Mode transitions need to be smooth, gradual, and clearly communicated — trust is built through predictability, and sudden control shifts are what break it.</p>
+        </section>
+
+        <section class="story-panel">
+            <span class="eyebrow">The Reflection</span>
+            <h2>What we learned</h2>
+            <ul class="reflection-list">
+                <li>
+                    <h4>Communication matters more than full transparency</h4>
+                    <p>Users don't need to understand an autonomous system's internal reasoning, but they need to feel it's communicating with them. Thin feedback on state transitions caused real confusion; clear indicators and light changes meaningfully increased trust.</p>
+                </li>
+                <li>
+                    <h4>Realism is timing and cues, not graphics</h4>
+                    <p>A well-timed lighting shift or directional cue did more for a sense of realism than texture quality or visual polish ever did.</p>
+                </li>
+                <li>
+                    <h4>Designing with constraints is the actual skill</h4>
+                    <p>The NavMesh failure, missing dependencies, and our own inexperience with VR tooling forced trade-off decisions at every step. Most problems had more than one solution; the job was picking the one that delivered the most with the time we had.</p>
+                </li>
+                <li>
+                    <h4>Letting go of perfection, personally</h4>
+                    <p>I pushed us toward prioritizing learning over a polished deliverable, and working through unfinished information instead of waiting for certainty. It reframed immersive UX for me — less a showcase of futuristic interface, and more a way to study human emotion and cognition under speculative conditions.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="story-panel">
+            <span class="eyebrow">What's Next</span>
+            <h2>Where this research would go with more time</h2>
+            <ul>
+                <li>Biometric monitoring — heart rate, skin conductance — to get an objective read on stress and trust instead of relying only on self-report</li>
+                <li>Making the system explainable: voice commentary or AI narration so riders understand what's happening and why, not just that something is happening</li>
+                <li>Dynamic route planning and multi-VertiSpot support, so the system feels like real infrastructure instead of a scripted demo</li>
+                <li>Testing failure modes directly — what happens when something breaks, and how people react — since resilience and recovery matter as much as the happy path for any human-monitored automation</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <div class="footer-name">Samhith Mitra</div>
+                <div class="footer-status">MS HCI @ Georgia Tech, 2026</div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Work</a>
+                <a href="about-me.html">About</a>
+                <a href="2nddraft.html">Second Draft studio ↗</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var user = 'samhithm';
+            var domain = 'gmail.com';
+            document.getElementById('contact-link').setAttribute('href', 'mailto:' + user + '@' + domain);
+        });
+    </script>
+</body>
+</html>
