@@ -64,7 +64,7 @@
         .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
 
         /* Hero: schematic / console motif */
-        .hero { position: relative; padding: 196px 0 100px; overflow: hidden; }
+        .hero { position: relative; padding: 196px 0 100px; overflow: visible; }
         .hero-grid-bg {
             position: absolute; inset: -40px -5% -40px -5%;
             background-image:
@@ -87,6 +87,20 @@
         .hero-reticle::after {
             content: ''; position: absolute; top: 50%; left: -40px; right: -40px; height: 1px; background: var(--border);
         }
+        .hero-timeline {
+            position: absolute;
+            top: 132px;
+            left: calc(100% + 48px);
+            display: flex;
+            flex-direction: column;
+        }
+        .hero-timeline .spine { position: absolute; left: 3px; top: 0; bottom: 0; width: 1px; background: var(--border); }
+        .hero-timeline .tick { position: relative; padding-left: 20px; margin-bottom: 52px; }
+        .hero-timeline .tick:last-child { margin-bottom: 0; }
+        .hero-timeline .tick::before { content: ''; position: absolute; left: 0; top: 6px; width: 7px; height: 1px; background: var(--text-tertiary); }
+        .hero-timeline .tick .yr { font-size: 13px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
+        .hero-timeline .tick .ms { display: block; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-tertiary); margin-top: 2px; }
+        @media (max-width: 1240px) { .hero-timeline { display: none; } }
         .hero-tag-row {
             position: relative; z-index: 1;
             display: flex; justify-content: space-between; align-items: center;
@@ -217,6 +231,14 @@
         <section class="hero">
             <div class="hero-grid-bg" aria-hidden="true"></div>
             <div class="hero-reticle" aria-hidden="true"></div>
+            <div class="hero-timeline" aria-hidden="true">
+                <span class="spine"></span>
+                <div class="tick"><span class="yr">2019</span><span class="ms">Reviver Auto</span></div>
+                <div class="tick"><span class="yr">2020</span><span class="ms">Align Technology</span></div>
+                <div class="tick"><span class="yr">2022</span><span class="ms">12M-user ship</span></div>
+                <div class="tick"><span class="yr">2024</span><span class="ms">Dahlstrom</span></div>
+                <div class="tick"><span class="yr">2026</span><span class="ms">MS HCI, Thesis</span></div>
+            </div>
             <div class="hero-tag-row">
                 <span><span class="status-dot"></span>AVAILABLE FOR WORK</span>
                 <span>SAMHITH MITRA &middot; PRODUCT DESIGNER</span>
