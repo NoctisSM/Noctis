@@ -4,29 +4,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow, max-image-preview:large">
-    <title>Solar Pool Services: 0→1 B2C Website | Samhith Mitra</title>
-    <meta name="description" content="Case study: designing and launching the customer-facing website for a Southern California solar pool-heating specialist — service architecture, proof, and three quote pathways.">
+    <title>Invisalign Patient Dashboard for 12M Users | Samhith Mitra</title>
+    <meta name="description" content="Case study: designing around next-step clarity instead of information density for a patient dashboard serving 12 million users, increasing engagement 35%.">
     <meta name="author" content="Samhith Mitra">
-    <link rel="canonical" href="https://samhithmitra.me/solar.html">
+    <link rel="canonical" href="https://samhithmitra.me/dashboard.html">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Samhith Mitra — Product Designer">
-    <meta property="og:title" content="Solar Pool Services: 0→1 B2C Website | Samhith Mitra">
-    <meta property="og:description" content="Case study: designing and launching the customer-facing website for a Southern California solar pool-heating specialist — service architecture, proof, and three quote pathways.">
-    <meta property="og:url" content="https://samhithmitra.me/solar.html">
-    <meta property="og:image" content="https://samhithmitra.me/solar/home-desktop.png">
-    <meta property="og:image:alt" content="Solar Pool Services: 0→1 B2C Website | Samhith Mitra">
+    <meta property="og:title" content="Invisalign Patient Dashboard for 12M Users | Samhith Mitra">
+    <meta property="og:description" content="Case study: designing around next-step clarity instead of information density for a patient dashboard serving 12 million users, increasing engagement 35%.">
+    <meta property="og:url" content="https://samhithmitra.me/dashboard.html">
+    <meta property="og:image" content="https://samhithmitra.me/Dashboard/dashboard.jpg">
+    <meta property="og:image:alt" content="Invisalign Patient Dashboard for 12M Users | Samhith Mitra">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Solar Pool Services: 0→1 B2C Website | Samhith Mitra">
-    <meta name="twitter:description" content="Case study: designing and launching the customer-facing website for a Southern California solar pool-heating specialist — service architecture, proof, and three quote pathways.">
-    <meta name="twitter:image" content="https://samhithmitra.me/solar/home-desktop.png">
+    <meta name="twitter:title" content="Invisalign Patient Dashboard for 12M Users | Samhith Mitra">
+    <meta name="twitter:description" content="Case study: designing around next-step clarity instead of information density for a patient dashboard serving 12 million users, increasing engagement 35%.">
+    <meta name="twitter:image" content="https://samhithmitra.me/Dashboard/dashboard.jpg">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Solar Pool Services: 0→1 B2C Website",
-      "description": "Case study: designing and launching the customer-facing website for a Southern California solar pool-heating specialist — service architecture, proof, and three quote pathways.",
-      "image": "https://samhithmitra.me/solar/home-desktop.png",
-      "url": "https://samhithmitra.me/solar.html",
+      "headline": "Invisalign Patient Dashboard for 12M Users",
+      "description": "Case study: designing around next-step clarity instead of information density for a patient dashboard serving 12 million users, increasing engagement 35%.",
+      "image": "https://samhithmitra.me/Dashboard/dashboard.jpg",
+      "url": "https://samhithmitra.me/dashboard.html",
       "author": {"@type": "Person", "name": "Samhith Mitra", "url": "https://samhithmitra.me/"},
       "publisher": {"@type": "Person", "name": "Samhith Mitra"},
       "isPartOf": {"@type": "CollectionPage", "name": "Selected Work", "url": "https://samhithmitra.me/"}
@@ -57,7 +57,6 @@
         html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
         body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
         a { color: inherit; text-decoration: none; }
-        img { display: block; max-width: 100%; }
 
         /* Floating pill nav */
         header { position: fixed; top: 20px; left: 0; right: 0; z-index: 100; display: flex; justify-content: center; }
@@ -94,8 +93,7 @@
         .hero-inner { max-width: 1200px; margin: 0 auto; }
 
         .hero-back {
-            display: flex;
-            width: fit-content;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
             font-size: 13px;
@@ -150,6 +148,22 @@
         .meta-item { display: flex; flex-direction: column; gap: 6px; }
         .meta-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
         .meta-value { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); }
+
+        .nda-notice {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-top: 32px;
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+
+        .nda-notice svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
 
         /* Main Layout */
         .case-study-layout {
@@ -217,7 +231,6 @@
         .content { max-width: 640px; }
         .section { margin-bottom: 80px; }
         .section:last-child { margin-bottom: 0; }
-        .section { scroll-margin-top: 112px; }
 
         .section-label {
             font-size: 11px;
@@ -226,7 +239,6 @@
             letter-spacing: 0.1em;
             color: var(--accent);
             margin-bottom: 16px;
-            display: block;
         }
 
         .section h2 {
@@ -254,45 +266,56 @@
             margin-bottom: 20px;
         }
 
-        .section p.note { font-size: 14px; }
+        .section ul { margin-bottom: 20px; padding-left: 24px; }
 
-        /* Findings Grid */
-        .findings-grid {
+        .section li {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
             margin: 32px 0;
         }
 
-        .finding-card {
+        .metric-card {
+            background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 24px;
         }
 
-        .finding-number {
+        .metric-value {
             font-family: var(--font-serif);
-            font-size: 28px;
+            font-size: 36px;
             font-weight: 400;
             color: var(--accent);
+            margin-bottom: 4px;
         }
 
-        .finding-card h4 { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-top: 8px; }
-        .finding-card p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); margin: 4px 0 0; }
+        .metric-label { font-size: 13px; color: var(--text-secondary); line-height: 1.4; }
 
         /* Callout */
         .callout {
-            background: var(--accent-dim);
-            border-left: 3px solid var(--accent);
-            padding: 20px 24px;
+            background: transparent;
+            border: none;
+            border-left: 2px solid var(--accent);
+            padding: 6px 0 6px 28px;
             margin: 32px 0;
-            border-radius: 0 8px 8px 0;
         }
 
         .callout p {
-            font-size: 15px;
+            font-family: var(--font-serif);
             font-style: italic;
-            color: var(--text-secondary);
+            font-size: clamp(21px, 2.3vw, 29px);
+            line-height: 1.36;
+            color: var(--text-primary);
+            max-width: 40ch;
             margin: 0;
         }
 
@@ -329,314 +352,7 @@
             margin-bottom: 4px;
         }
 
-        .process-content p { font-size: 14px; line-height: 1.7; color: var(--text-secondary); margin: 0; }
-
-        /* Journey Map */
-        .journey-map {
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-            margin: 32px 0;
-        }
-
-        .journey-map-label {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-tertiary);
-        }
-
-        .journey-steps {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .journey-step {
-            border-left: 3px solid var(--accent);
-            background: var(--accent-dim);
-            border-radius: 0 8px 8px 0;
-            padding: 16px;
-        }
-
-        .journey-step-label {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-        }
-
-        .journey-step p { font-size: 13px; line-height: 1.6; color: var(--text-primary); margin: 6px 0 0; }
-
-        /* Prototype Viewer */
-        .prototype-viewer {
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            margin-top: 32px;
-        }
-
-        .prototype-tabs {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .prototype-tabs button {
-            font-family: var(--font-sans);
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-secondary);
-            background: transparent;
-            border: none;
-            border-right: 1px solid var(--border);
-            padding: 14px 12px;
-            min-height: 48px;
-            cursor: pointer;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .prototype-tabs button:last-child { border-right: none; }
-        .prototype-tabs button:hover { background: var(--accent-dim); }
-        .prototype-tabs button.active { background: var(--accent); color: white; }
-
-        .prototype-panel { padding: 32px; }
-
-        .prototype-caption {
-            border-top: 1px solid var(--border);
-            padding: 24px 32px;
-        }
-
-        .prototype-caption .stage-label {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-        }
-
-        .prototype-caption p { font-size: 14px; line-height: 1.7; color: var(--text-secondary); margin: 8px 0 0; }
-
-        .prototype-stage { display: none; }
-        .prototype-stage.active { display: block; }
-
-        /* Wireframe grid backdrop */
-        .case-grid {
-            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 24px 24px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-
-        /* Site map */
-        .sitemap-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            max-width: 576px;
-            margin: 0 auto;
-            padding: 32px;
-        }
-
-        .map-node {
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 16px;
-        }
-
-        .map-node.strong { border-color: var(--accent); background: var(--accent-dim); }
-
-        .map-node-title {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-primary);
-        }
-
-        .map-node p { font-size: 13px; color: var(--text-secondary); margin: 6px 0 0; }
-
-        /* Wireframe mock (kept light — it's depicting an actual browser/webpage, not the site's theme) */
-        .wireframe {
-            aspect-ratio: 16 / 10;
-            padding: 28px;
-            overflow: hidden;
-        }
-
-        .wireframe-browser {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(15, 23, 42, 0.15);
-            background: #FFFFFF;
-        }
-
-        .wireframe-bar {
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 12px;
-            border-bottom: 1px solid rgba(15, 23, 42, 0.15);
-        }
-
-        .wireframe-bar .bar-logo { width: 64px; height: 8px; background: rgba(15, 23, 42, 0.2); }
-        .bar-links { display: flex; gap: 8px; }
-        .bar-links span { width: 32px; height: 8px; background: rgba(15, 23, 42, 0.15); }
-
-        .wireframe-body {
-            flex: 1;
-            display: grid;
-            grid-template-columns: 1.25fr 0.75fr;
-            gap: 16px;
-            padding: 16px;
-        }
-
-        .wireframe-copy { display: flex; flex-direction: column; justify-content: center; }
-        .wireframe-copy .wf-eyebrow { width: 80px; height: 12px; background: #1E3A8A; }
-        .wireframe-copy .wf-h1a { width: 80%; height: 24px; background: rgba(15, 23, 42, 0.75); margin-top: 12px; }
-        .wireframe-copy .wf-h1b { width: 60%; height: 24px; background: rgba(15, 23, 42, 0.75); margin-top: 8px; }
-        .wireframe-copy .wf-line1 { width: 100%; height: 8px; background: rgba(15, 23, 42, 0.15); margin-top: 16px; }
-        .wireframe-copy .wf-line2 { width: 80%; height: 8px; background: rgba(15, 23, 42, 0.15); margin-top: 8px; }
-        .wireframe-copy .wf-cta { width: 112px; height: 32px; background: #1E3A8A; margin-top: 20px; }
-        .wireframe-media { background: rgba(15, 23, 42, 0.1); }
-
-        .wireframe-cards {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            padding: 12px;
-            border-top: 1px solid rgba(15, 23, 42, 0.15);
-        }
-
-        .wireframe-cards span { height: 48px; border: 1px solid rgba(15, 23, 42, 0.15); }
-
-        /* Quote paths */
-        .quotepath-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            max-width: 576px;
-            margin: 0 auto;
-            padding: 32px;
-        }
-
-        .quotepath-card {
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px;
-        }
-
-        .quotepath-card svg { width: 18px; height: 18px; color: var(--accent); }
-        .quotepath-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-top: 16px; }
-        .quotepath-card h4 { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-top: 4px; }
-        .quotepath-card p { font-size: 13px; line-height: 1.6; color: var(--text-secondary); margin: 4px 0 0; }
-
-        /* Final UI stage */
-        .final-ui { position: relative; }
-
-        .final-ui img {
-            width: 100%;
-            aspect-ratio: 16 / 10;
-            object-fit: cover;
-            object-position: top;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-
-        .launched-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: var(--accent);
-            color: white;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
-
-        /* Evidence Grid */
-        .evidence-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-top: 32px;
-        }
-
-        .evidence-card {
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-        }
-
-        .evidence-card svg { width: 18px; height: 18px; color: var(--accent); }
-        .evidence-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary); margin-top: 16px; }
-        .evidence-value { font-family: var(--font-serif); font-size: 20px; font-weight: 500; color: var(--text-primary); margin-top: 4px; }
-
-        /* Launch visuals */
-        .launch-grid {
-            display: grid;
-            grid-template-columns: 1fr 180px;
-            gap: 24px;
-            align-items: start;
-            margin-top: 32px;
-        }
-
-        .launch-desktop { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-        .launch-desktop img { width: 100%; }
-
-        .launch-mobile {
-            width: 100%;
-            max-width: 180px;
-            margin: 0 auto;
-            border: 6px solid #0F172A;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
-        }
-
-        .launch-mobile img { width: 100%; }
-
-        .screen-evidence {
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .screen-evidence + .screen-evidence { margin-top: 16px; }
-
-        .screen-evidence .screen-image {
-            aspect-ratio: 16 / 10;
-            overflow: hidden;
-        }
-
-        .screen-evidence img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-
-        .screen-evidence figcaption { padding: 24px; }
-        .screen-evidence h4 { font-size: 15px; font-weight: 600; color: var(--text-primary); }
-        .screen-evidence figcaption p { font-size: 14px; line-height: 1.7; color: var(--text-secondary); margin: 4px 0 0; }
-
-        .live-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border-bottom: 1px solid var(--accent);
-            padding-bottom: 4px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--accent);
-            margin-top: 32px;
-            transition: opacity 0.2s;
-        }
-
-        .live-link:hover { opacity: 0.8; }
-        .live-link svg { width: 15px; height: 15px; }
+        .process-content p { font-size: 14px; color: var(--text-secondary); margin: 0; }
 
         /* Reflection List */
         .reflection-list { list-style: none; padding: 0; margin: 24px 0; }
@@ -658,7 +374,19 @@
             margin-top: 2px;
         }
 
-        .reflection-list span { font-size: 14px; line-height: 1.7; color: var(--text-secondary); }
+        .reflection-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .reflection-content p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+        }
 
         /* Footer */
         footer {
@@ -689,29 +417,20 @@
             }
             .sidebar, .meta-sidebar { position: relative; top: 0; }
             .meta-sidebar { order: -1; }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
             .header-inner { gap: 16px; padding: 8px 10px 8px 8px; }
             nav { gap: 14px; }
-            nav a:not(.nav-contact):not(.active) { display: none; }
             .hero { padding: 140px 24px 48px; }
             .case-study-layout { padding: 32px 24px 64px; }
+            .metrics-grid { grid-template-columns: 1fr; }
             .footer-inner {
                 padding: 32px 24px;
                 flex-direction: column;
                 gap: 24px;
             }
-            .findings-grid, .evidence-grid { grid-template-columns: 1fr; }
-            .prototype-tabs { grid-template-columns: repeat(2, 1fr); }
-            .prototype-tabs button { border-bottom: 1px solid var(--border); }
-            .prototype-panel, .prototype-caption, .sitemap-grid, .quotepath-grid { padding: 20px; }
-            .sitemap-grid, .quotepath-grid { grid-template-columns: 1fr; }
-            .journey-steps { grid-template-columns: 1fr; }
-            .launch-grid { grid-template-columns: 1fr; }
-            .wireframe { padding: 16px; }
-            .wireframe-body { grid-template-columns: 1fr; }
-            .wireframe-media { display: none; }
         }
 
         /* ============ Editorial layer ============ */
@@ -783,22 +502,6 @@
             color: var(--accent);
         }
 
-        .callout {
-            background: transparent;
-            border: none;
-            border-left: 2px solid var(--accent);
-            padding: 6px 0 6px 28px;
-        }
-
-        .callout p {
-            font-family: var(--font-serif);
-            font-style: italic;
-            font-size: clamp(21px, 2.3vw, 29px);
-            line-height: 1.36;
-            color: var(--text-primary);
-            max-width: 40ch;
-        }
-
         .prototype-caption,
         .dashboard-caption,
         figcaption {
@@ -821,7 +524,6 @@
             .section > p:first-of-type { font-size: 18px; }
             #overview > p:first-of-type::first-letter { font-size: 52px; padding-right: 9px; }
         }
-
 
         /* ---- Mobile width safety ---- */
         @media (max-width: 900px) {
@@ -860,11 +562,7 @@
         will-change: opacity, transform;
     }
     .reveal.is-visible { opacity: 1; transform: none; }
-    .reveal-d1 { transition-delay: .06s; }
-    .reveal-d2 { transition-delay: .12s; }
-    .reveal-d3 { transition-delay: .18s; }
 
-    /* Link craft: editorial underline that grows from the left */
     .content a:not(.project-card):not(.btn):not(.sidebar-nav a),
     .lede a, .about-text a, footer .footer-links a {
         text-decoration: none;
@@ -891,14 +589,13 @@
         transition: transform .28s cubic-bezier(.22,.61,.36,1);
     }
     footer .footer-links a:hover::after { transform: scaleX(1); }
-    a, button, .project-card, .region-btn { -webkit-tap-highlight-color: transparent; }
+    a, button, .project-card { -webkit-tap-highlight-color: transparent; }
     a:focus-visible, button:focus-visible, .project-card:focus-visible {
         outline: 2px solid #3B82F6;
         outline-offset: 3px;
         border-radius: 2px;
     }
 
-    /* Footer sign-off */
     .footer-signoff {
         max-width: 1200px;
         margin: 0 auto;
@@ -939,10 +636,8 @@
         <div class="header-inner">
             <a href="index.html" class="logo">SM</a>
             <nav>
-                <a href="about.html">About</a>
                 <a href="index.html" class="active">Work</a>
-                <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
-                <a href="resume.pdf" target="_blank">Resume</a>
+                <a href="about-me.html">About</a>
                 <a href="#" id="contact-link" class="nav-contact">Contact</a>
             </nav>
         </div>
@@ -951,43 +646,47 @@
     <section class="hero">
         <div class="hero-inner">
             <a href="index.html" class="hero-back">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M19 12H5M12 19l-7-7 7-7"/>
                 </svg>
                 Back to Work
             </a>
 
-            <span class="hero-tag">B2C Web Experience</span>
-            <h1>Turning a specialized solar service into a clear homeowner journey</h1>
+            <span class="hero-tag">Digital Health</span>
+            <h1>Lifting Treatment Engagement from 48% to 65% for 12M Users Worldwide</h1>
             <p class="hero-description">
-                I designed and launched the customer-facing website for Solar Pool Services Inc., helping Southern California homeowners understand solar pool heating, identify the service they need, and choose a practical path to a quote.
+                Redesigned the global patient dashboard to surface actionable treatment insights and reduce appointment friction for Invisalign patients.
             </p>
 
             <div class="hero-meta">
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
-                    <span class="meta-value">Senior UX Design Consultant</span>
+                    <span class="meta-value">UX Designer</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Stage</span>
-                    <span class="meta-value">0&rarr;1 &middot; Designed &amp; launched</span>
+                    <span class="meta-value">1&rarr;n &middot; Redesign at scale</span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Client</span>
-                    <span class="meta-value">Dahlstrom Technologies</span>
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">2020 - 2022</span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Product</span>
-                    <span class="meta-value">Responsive B2C website</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Ownership</span>
-                    <span class="meta-value">Design & launch</span>
+                    <span class="meta-label">Team</span>
+                    <span class="meta-value">3 Designers, 6 Engineers</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Live Project</span>
-                    <span class="meta-value"><a href="https://www.solarpoolservicesinc.com" target="_blank" style="color: #FFFFFF;">View Website</a></span>
+                    <span class="meta-value"><a href="https://my.invisalign.com" target="_blank" style="color: var(--accent-light);">View Dashboard</a></span>
                 </div>
+            </div>
+
+            <div class="nda-notice">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <span>Due to my NDA with Align Technology, I cannot disclose detailed designs from this project. The information below focuses on process, outcomes, and learnings while protecting confidential work.</span>
             </div>
         </div>
     </section>
@@ -998,7 +697,6 @@
                 <a href="#overview" class="active">Overview</a>
                 <a href="#problem">Problem</a>
                 <a href="#research">Research</a>
-                <a href="#process">Process</a>
                 <a href="#solution">Solution</a>
                 <a href="#outcomes">Outcomes</a>
                 <a href="#reflection">Reflection</a>
@@ -1006,359 +704,444 @@
         </aside>
 
         <div class="content">
-            <!-- Overview -->
             <section id="overview" class="section reveal">
                 <span class="section-label">Overview</span>
-                <h2>A considered purchase needs clarity before conversion</h2>
+                <h2>The Challenge</h2>
                 <p>
-                    Solar pool heating sits between home improvement and a technical service. A homeowner may know the outcome they want, a warmer pool without recurring gas costs, but not how rooftop thermal panels work, how much collector area they need, or whether their existing system should be repaired or replaced.
+                    Invisalign patients tracked their treatment through fragmented email updates and manual calendar reminders. This led to missed aligner changes, confusion about treatment progress, and high support call volume.
                 </p>
                 <p>
-                    The website needed to support several levels of intent at once: first-time buyers comparing heating options, existing owners with a leak or no-heat problem, and homeowners preparing for roof work or a property purchase.
+                    I was tasked with designing a centralized treatment tracking experience that could serve 12 million users globally while reducing the support burden on orthodontic practices.
                 </p>
 
                 <div class="callout">
-                    <p>"How might the experience make a specialized system feel understandable, credible, and easy to act on?"</p>
-                </div>
-
-                <div class="findings-grid">
-                    <div class="finding-card">
-                        <div class="finding-number">01</div>
-                        <h4>Explain</h4>
-                        <p>Translate thermal solar into a simple, homeowner-friendly story.</p>
-                    </div>
-                    <div class="finding-card">
-                        <div class="finding-number">02</div>
-                        <h4>Route</h4>
-                        <p>Help people recognize the right service from the symptom or situation they already know.</p>
-                    </div>
-                    <div class="finding-card">
-                        <div class="finding-number">03</div>
-                        <h4>Reassure</h4>
-                        <p>Use verifiable experience, warranties, real work, and customer voices to reduce risk.</p>
-                    </div>
+                    <p>"How might we help patients stay engaged with their treatment while reducing the support burden on orthodontic practices?"</p>
                 </div>
             </section>
 
-            <!-- Challenge -->
+            <!-- Problem -->
             <section id="problem" class="section reveal">
                 <span class="section-label">Problem</span>
-                <h2>One website had to serve new buyers and existing system owners</h2>
+                <h2>A Fragmented Patient Experience</h2>
                 <p>
-                    The service model is broader than installation. The company installs new systems, repairs leaks and no-heat issues, handles warranty replacements, removes and reinstalls panels for reroofing, and inspects aging or inherited systems.
-                </p>
-                <p>
-                    A single generic contact path would have hidden those differences. The design challenge was to create a clear front door while preserving direct routes for people who already knew what was wrong.
+                    The existing patient experience was scattered across email, SMS, and provider portals. Patients had no single source of truth for their treatment, leading to confusion, missed aligners, and frustrated support calls.
                 </p>
 
-                <div class="callout">
-                    <p>"The organizing principle became customer situation, not product terminology."</p>
+                <!-- Visual Metrics Bar Chart -->
+                <div style="margin: 40px 0; padding: 32px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px;">
+                    <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.05em;">The Scale of the Problem</h4>
+
+                    <!-- 42% Missed Aligners -->
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-size: 13px; color: var(--text-secondary);">Patients Missing Aligner Changes</span>
+                            <span style="font-size: 14px; font-weight: 600; color: var(--accent);">42%</span>
+                        </div>
+                        <div style="height: 12px; background: var(--border); border-radius: 6px; overflow: hidden;">
+                            <div style="width: 42%; height: 100%; background: var(--accent); border-radius: 6px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Support Call Volume -->
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-size: 13px; color: var(--text-secondary);">Support Calls About Treatment Status</span>
+                            <span style="font-size: 14px; font-weight: 600; color: var(--accent);">35%</span>
+                        </div>
+                        <div style="height: 12px; background: var(--border); border-radius: 6px; overflow: hidden;">
+                            <div style="width: 35%; height: 100%; background: var(--accent); border-radius: 6px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Email Open Rate -->
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-size: 13px; color: var(--text-secondary);">Treatment Email Open Rate</span>
+                            <span style="font-size: 14px; font-weight: 600; color: var(--accent);">18%</span>
+                        </div>
+                        <div style="height: 12px; background: var(--border); border-radius: 6px; overflow: hidden;">
+                            <div style="width: 18%; height: 100%; background: var(--accent); border-radius: 6px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- 12M Users -->
+                    <div style="display: flex; align-items: center; gap: 16px; padding-top: 16px; border-top: 1px solid var(--border);">
+                        <div style="font-family: var(--font-serif); font-size: 48px; font-weight: 400; color: var(--accent);">12M</div>
+                        <div style="font-size: 14px; color: var(--text-secondary); line-height: 1.5;">active patients globally, each on an 18-month average treatment journey</div>
+                    </div>
                 </div>
 
-                <p class="note">
-                    This case study documents design decisions visible in the launched experience. It does not claim research findings, analytics, or performance results that were not provided.
-                </p>
+                <!-- Drop-off Visualization -->
+                <h3>Where Patients Lost Track</h3>
+                <p>Research revealed three critical pain points in the patient journey:</p>
+                <div style="margin: 24px 0; display: flex; gap: 16px;">
+                    <div style="flex: 1; padding: 20px; background: var(--bg-secondary); border: 2px solid var(--accent); border-radius: 12px; text-align: center;">
+                        <div style="font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 8px;">47%</div>
+                        <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em;">Progress Confusion</div>
+                        <div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px;">No visual tracking</div>
+                    </div>
+                    <div style="flex: 1; padding: 20px; background: var(--bg-secondary); border: 2px solid var(--accent); border-radius: 12px; text-align: center;">
+                        <div style="font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 8px;">31%</div>
+                        <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em;">Reminder Fatigue</div>
+                        <div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px;">Generic notifications</div>
+                    </div>
+                    <div style="flex: 1; padding: 20px; background: var(--bg-secondary); border: 2px solid var(--accent); border-radius: 12px; text-align: center;">
+                        <div style="font-size: 32px; font-weight: 600; color: var(--accent); margin-bottom: 8px;">22%</div>
+                        <div style="font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em;">Provider Access</div>
+                        <div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px;">Hard to reach help</div>
+                    </div>
+                </div>
             </section>
 
-            <!-- Structure -->
+            <!-- Research -->
             <section id="research" class="section reveal">
                 <span class="section-label">Research</span>
-                <h2>Build confidence in layers, then offer the right next step</h2>
-                <p>I structured the experience around four questions a homeowner needs answered before contacting a specialist.</p>
-
-                <div class="process-timeline">
-                    <div class="process-step">
-                        <span class="process-number">1</span>
-                        <div class="process-content">
-                            <h4>What does it do for me?</h4>
-                            <p>Lead with a warmer, more usable pool and freedom from a monthly gas bill, not technical specifications.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="process-number">2</span>
-                        <div class="process-content">
-                            <h4>How does it work?</h4>
-                            <p>Explain the loop simply: the existing pump moves water to roof panels, the sun warms it, and heated water returns to the pool.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="process-number">3</span>
-                        <div class="process-content">
-                            <h4>Can I trust this company?</h4>
-                            <p>Bring 40+ years of experience, licensing, warranty coverage, real installations, and attributed reviews into the decision path.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="process-number">4</span>
-                        <div class="process-content">
-                            <h4>What should I do next?</h4>
-                            <p>Offer a phone call, a quick satellite-based estimate, an advanced roof layout, and a standard request form for different comfort levels.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="journey-map">
-                    <span class="journey-map-label">Customer journey</span>
-                    <div class="journey-steps">
-                        <div class="journey-step">
-                            <span class="journey-step-label">Need</span>
-                            <p>Warmer water or a system problem</p>
-                        </div>
-                        <div class="journey-step">
-                            <span class="journey-step-label">Confidence</span>
-                            <p>Understand fit, method, and proof</p>
-                        </div>
-                        <div class="journey-step">
-                            <span class="journey-step-label">Action</span>
-                            <p>Call, estimate, configure, or request</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Exploration -->
-            <section id="process" class="section reveal">
-                <span class="section-label">Process</span>
-                <h2>From information model to a launch-ready system</h2>
-                <p>The frames below reconstruct the progression behind the launched design. They clarify hierarchy and interaction decisions; they are not presented as original research artifacts or dated production files.</p>
-
-                <div class="prototype-viewer">
-                    <div class="prototype-tabs" role="tablist">
-                        <button data-stage="0" role="tab">Site map</button>
-                        <button data-stage="1" role="tab">Page hierarchy</button>
-                        <button data-stage="2" role="tab">Quote paths</button>
-                        <button data-stage="3" role="tab" class="active">Final UI</button>
-                    </div>
-
-                    <div class="prototype-panel">
-                        <!-- Stage 0: Site map -->
-                        <div class="prototype-stage" data-stage="0">
-                            <div class="case-grid sitemap-grid">
-                                <div class="map-node strong">
-                                    <div class="map-node-title">Core</div>
-                                    <p>Home</p><p>Quote</p><p>Contact</p>
-                                </div>
-                                <div class="map-node">
-                                    <div class="map-node-title">Services</div>
-                                    <p>Installation</p><p>Repair</p><p>Replacement</p><p>Removal</p><p>Inspection</p>
-                                </div>
-                                <div class="map-node">
-                                    <div class="map-node-title">Learn & trust</div>
-                                    <p>How it works</p><p>Gallery</p><p>Reviews</p><p>Warranty</p><p>Live data</p>
-                                </div>
-                                <div class="map-node">
-                                    <div class="map-node-title">Local relevance</div>
-                                    <p>Riverside</p><p>Orange County</p><p>San Bernardino</p><p>High Desert</p><p>Palm Springs</p>
-                                </div>
-                                <div class="map-node">
-                                    <div class="map-node-title">Company</div>
-                                    <p>About</p><p>FAQ</p><p>Blog</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Stage 1: Page hierarchy wireframe -->
-                        <div class="prototype-stage" data-stage="1">
-                            <div class="case-grid wireframe">
-                                <div class="wireframe-browser">
-                                    <div class="wireframe-bar">
-                                        <span class="bar-logo"></span>
-                                        <div class="bar-links"><span></span><span></span><span></span></div>
-                                    </div>
-                                    <div class="wireframe-body">
-                                        <div class="wireframe-copy">
-                                            <span class="wf-eyebrow"></span>
-                                            <span class="wf-h1a"></span>
-                                            <span class="wf-h1b"></span>
-                                            <span class="wf-line1"></span>
-                                            <span class="wf-line2"></span>
-                                            <span class="wf-cta"></span>
-                                        </div>
-                                        <div class="wireframe-media"></div>
-                                    </div>
-                                    <div class="wireframe-cards"><span></span><span></span><span></span><span></span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Stage 2: Quote paths -->
-                        <div class="prototype-stage" data-stage="2">
-                            <div class="case-grid quotepath-grid">
-                                <div class="quotepath-card">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                                    <div class="quotepath-label">Firm quote</div>
-                                    <h4>Call</h4>
-                                    <p>Talk directly with the team.</p>
-                                </div>
-                                <div class="quotepath-card">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-                                    <div class="quotepath-label">Preliminary</div>
-                                    <h4>Quick estimate</h4>
-                                    <p>Trace the pool from satellite view.</p>
-                                </div>
-                                <div class="quotepath-card">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.3 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>
-                                    <div class="quotepath-label">Advanced</div>
-                                    <h4>System designer</h4>
-                                    <p>Measure the pool and lay out roof panels.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Stage 3: Final UI -->
-                        <div class="prototype-stage active" data-stage="3">
-                            <div class="final-ui">
-                                <img src="solar/home-desktop.png" alt="Final launched website interface">
-                                <span class="launched-badge">Launched</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="prototype-caption">
-                        <span class="stage-label" id="stage-label">Stage 04 · Execution</span>
-                        <p id="stage-copy">Carry the hierarchy into a responsive visual language built around high-contrast typography, real installations, and direct actions.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Experience -->
-            <section id="solution" class="section reveal">
-                <span class="section-label">Solution</span>
-                <h2>Five decisions shaped the final customer experience</h2>
-
-                <div class="process-timeline">
-                    <div class="process-step">
-                        <span class="process-number">01</span>
-                        <div class="process-content">
-                            <h4>Sell the outcome before the mechanism</h4>
-                            <p>"Actually enjoy your pool. Without the gas bill." frames the offer in the homeowner's language before introducing UV-stable mats or system mechanics.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="process-number">02</span>
-                        <div class="process-content">
-                            <h4>Turn the service catalog into recognition</h4>
-                            <p>Installation, repair, replacement, removal, and inspection each receive a dedicated path. Supporting copy maps visible symptoms and life events to the appropriate service.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="process-number">03</span>
-                        <div class="process-content">
-                            <h4>Make proof specific and verifiable</h4>
-                            <p>The experience combines the C-46 license number, 12-year panel warranty, decades in business, before-and-after work, certifications, and reviews linked to their source.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="process-number">04</span>
-                        <div class="process-content">
-                            <h4>Let customers choose their quote commitment</h4>
-                            <p>The quote page distinguishes a direct call for a firm quote from a quick estimate, an advanced system designer, and a standard request form.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="process-number">05</span>
-                        <div class="process-content">
-                            <h4>Design a content system, not a single page</h4>
-                            <p>Service pages, regional coverage, the solar explainer, gallery, FAQ, warranty, reviews, and live system data answer different objections without overloading the homepage.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="evidence-grid">
-                    <div class="evidence-card">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-                        <div class="evidence-label">Value</div>
-                        <div class="evidence-value">$0 monthly gas bill</div>
-                    </div>
-                    <div class="evidence-card">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
-                        <div class="evidence-label">Trust</div>
-                        <div class="evidence-value">License and warranties</div>
-                    </div>
-                    <div class="evidence-card">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.3 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></svg>
-                        <div class="evidence-label">Action</div>
-                        <div class="evidence-value">Three quote pathways</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Launch -->
-            <section id="outcomes" class="section reveal">
-                <span class="section-label">Outcomes</span>
-                <h2>A responsive ecosystem for research and action</h2>
-                <p>The launched website extends beyond a marketing homepage. It supports product education, service selection, regional relevance, visual proof, and several ways to request an estimate across desktop and mobile.</p>
-
-                <div class="launch-grid">
-                    <div class="launch-desktop">
-                        <img src="solar/home-desktop.png" alt="Desktop view of the launched Solar Pool Services Inc. homepage">
-                    </div>
-                    <div class="launch-mobile">
-                        <img src="solar/home-mobile.png" alt="Mobile view of the launched Solar Pool Services Inc. homepage">
-                    </div>
-                </div>
-
-                <h3>The supporting journeys</h3>
-
-                <figure class="screen-evidence">
-                    <div class="screen-image"><img src="solar/how-it-works.png" alt="How solar pool heating works page"></div>
-                    <figcaption>
-                        <h4>Make the system legible</h4>
-                        <p>A dedicated explainer turns an unfamiliar technology into a three-step water loop and a transparent working process.</p>
-                    </figcaption>
-                </figure>
-
-                <figure class="screen-evidence">
-                    <div class="screen-image"><img src="solar/quote.png" alt="Quote request page"></div>
-                    <figcaption>
-                        <h4>Match the quoting style</h4>
-                        <p>Customers can call, create a quick estimate, configure a roof layout, or leave details for follow-up.</p>
-                    </figcaption>
-                </figure>
-
-                <figure class="screen-evidence">
-                    <div class="screen-image"><img src="solar/gallery.png" alt="Installation gallery page"></div>
-                    <figcaption>
-                        <h4>Show the work itself</h4>
-                        <p>Real installations demonstrate roof types, mounting approaches, system scale, and construction quality.</p>
-                    </figcaption>
-                </figure>
-
-                <a href="https://www.solarpoolservicesinc.com" target="_blank" class="live-link">
-                    View live website
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-                </a>
-            </section>
-
-            <!-- Reflection -->
-            <section id="reflection" class="section reveal">
-                <span class="section-label">Reflection</span>
-                <h2>What this project demonstrates</h2>
+                <h2>Understanding the Treatment Journey</h2>
                 <p>
-                    This project required more than giving a local service company a polished interface. The work translated a technical category into a consumer decision journey, built an information architecture for several service intents, and connected education and trust to multiple conversion paths.
+                    My approach centered on understanding the 18-month patient journey from multiple perspectives. I combined patient interviews, provider consultations, and behavioral analytics to build a comprehensive picture of engagement patterns.
                 </p>
 
-                <div class="callout">
-                    <p>"Strong B2C design makes a complex purchase feel understandable without making the expertise behind it feel small."</p>
+                <!-- Research Methodology Cards -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0;">
+                    <!-- Patient Interviews Card -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                        <div style="width: 48px; height: 48px; background: var(--accent-dim); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Patient Interviews</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">In-depth interviews with patients across treatment stages, from first week to final retainer.</p>
+                        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+                            <span style="font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase;">80+ Participants</span>
+                        </div>
+                    </div>
+
+                    <!-- Provider Consultations Card -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                        <div style="width: 48px; height: 48px; background: var(--accent-dim); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Provider Consultations</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Worked with orthodontists to understand clinical requirements and communication preferences.</p>
+                        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+                            <span style="font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase;">40+ Providers</span>
+                        </div>
+                    </div>
+
+                    <!-- Journey Mapping Card -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                        <div style="width: 48px; height: 48px; background: var(--accent-dim); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Journey Mapping</h4>
+                        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">Documented the full 18-month treatment journey to identify key engagement touchpoints.</p>
+                        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+                            <span style="font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase;">12 Key Moments</span>
+                        </div>
+                    </div>
                 </div>
 
-                <h3>What I would measure next</h3>
+                <h3>Key Insights</h3>
+                <p>Research synthesis revealed three core needs that shaped the solution:</p>
+
+                <!-- Insight Cards -->
+                <div style="margin: 24px 0;">
+                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; margin-bottom: 12px;">
+                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: var(--accent-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent); font-size: 14px;">1</div>
+                        <div>
+                            <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Visual Progress</h4>
+                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"I want to see how far I've come. Looking in the mirror, I can't tell if anything is changing." — Patient, month 6 of treatment</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; margin-bottom: 12px;">
+                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: var(--accent-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent); font-size: 14px;">2</div>
+                        <div>
+                            <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Contextual Reminders</h4>
+                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"I get so many emails I ignore them all. But if something reminded me at the right moment, I'd pay attention." — Patient, missed two aligner changes</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 16px; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0;">
+                        <div style="flex-shrink: 0; width: 32px; height: 32px; background: var(--accent-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent); font-size: 14px;">3</div>
+                        <div>
+                            <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Easy Provider Access</h4>
+                            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">"When something feels wrong, I don't want to call and wait on hold. I want to message my doctor directly." — Patient, experienced fit issues</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Solution -->
+            <section id="solution" class="section reveal">
+                <span class="section-label">Solution</span>
+                <h2>A Unified Treatment Hub</h2>
+                <p>
+                    We designed a dashboard that surfaces the most relevant information based on where patients are in their treatment journey, with progressive disclosure for those who want more detail.
+                </p>
+
+                <!-- Design Principles Cards -->
+                <h3>Three Design Principles</h3>
+                <p>The solution was grounded in three core principles that directly addressed the research findings:</p>
+
+                <div style="margin: 24px 0;">
+                    <!-- Visual Progress Tracking -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+                        <div style="display: flex; gap: 20px; align-items: flex-start;">
+                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+                                </svg>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Visual Progress Tracking</h4>
+                                <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Show treatment progress visually with before/after comparisons and milestone celebrations. Make the invisible visible to keep patients motivated throughout their journey.</p>
+                                <div style="margin-top: 12px; padding: 12px 16px; background: var(--accent-dim); border-radius: 8px;">
+                                    <span style="font-size: 12px; color: var(--accent); font-weight: 500;">Addresses: Progress Confusion</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Smart Notifications -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+                        <div style="display: flex; gap: 20px; align-items: flex-start;">
+                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                                </svg>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Smart Notifications</h4>
+                                <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Replace generic reminders with contextual, timely notifications. Deliver the right message at the right moment based on treatment stage and patient behavior patterns.</p>
+                                <div style="margin-top: 12px; padding: 12px 16px; background: var(--accent-dim); border-radius: 8px;">
+                                    <span style="font-size: 12px; color: var(--accent); font-weight: 500;">Addresses: Reminder Fatigue</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Provider Connection -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                        <div style="display: flex; gap: 20px; align-items: flex-start;">
+                            <div style="flex-shrink: 0; width: 56px; height: 56px; background: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                </svg>
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px;">Direct Provider Connection</h4>
+                                <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0;">Enable secure messaging between patients and providers. Reduce phone tag and give patients confidence that help is always accessible when they need it.</p>
+                                <div style="margin-top: 12px; padding: 12px 16px; background: var(--accent-dim); border-radius: 8px;">
+                                    <span style="font-size: 12px; color: var(--accent); font-weight: 500;">Addresses: Provider Access</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flow Diagram -->
+                <div style="margin: 48px 0;">
+                    <h3 style="font-family: var(--font-serif); font-size: 22px; font-weight: 500; margin-bottom: 24px; color: var(--text-primary);">
+                        Treatment Journey Touchpoints
+                    </h3>
+                    <div style="display: flex; gap: 12px; align-items: stretch;">
+                        <!-- Step 1 -->
+                        <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
+                            <div style="background: var(--accent); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">1</div>
+                            <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Onboarding</h4>
+                            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">Set expectations and goals</p>
+                        </div>
+                        <div style="display: flex; align-items: center; color: var(--accent); font-size: 18px;">-></div>
+                        <!-- Step 2 -->
+                        <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
+                            <div style="background: var(--accent); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">2</div>
+                            <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Active Treatment</h4>
+                            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">Track and celebrate progress</p>
+                        </div>
+                        <div style="display: flex; align-items: center; color: var(--accent); font-size: 18px;">-></div>
+                        <!-- Step 3 -->
+                        <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
+                            <div style="background: var(--accent); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">3</div>
+                            <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Checkpoints</h4>
+                            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">Provider visits and adjustments</p>
+                        </div>
+                        <div style="display: flex; align-items: center; color: var(--accent); font-size: 18px;">-></div>
+                        <!-- Step 4 -->
+                        <div style="flex: 1; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center;">
+                            <div style="background: var(--accent); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; margin: 0 auto 12px;">4</div>
+                            <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;">Completion</h4>
+                            <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0;">Retainer and maintenance</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="outcomes" class="section reveal">
+                <span class="section-label">Outcomes</span>
+                <h2>Business Impact</h2>
+                <p>
+                    The redesigned dashboard was deployed globally over six months, with metrics tracked against the previous version. Results exceeded targets across all key engagement metrics.
+                </p>
+
+                <!-- Testing Methodology -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0;">
+                    <h4 style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;">Global Rollout</h4>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+                        <div style="text-align: center;">
+                            <div style="font-family: var(--font-serif); font-size: 32px; color: var(--accent); margin-bottom: 4px;">6</div>
+                            <div style="font-size: 13px; color: var(--text-secondary);">Month phased rollout</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-family: var(--font-serif); font-size: 32px; color: var(--accent); margin-bottom: 4px;">90+</div>
+                            <div style="font-size: 13px; color: var(--text-secondary);">Markets deployed</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-family: var(--font-serif); font-size: 32px; color: var(--accent); margin-bottom: 4px;">12M</div>
+                            <div style="font-size: 13px; color: var(--text-secondary);">Users reached</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Before/After Comparison -->
+                <div style="margin: 40px 0;">
+                    <h3 style="font-family: var(--font-serif); font-size: 22px; font-weight: 500; margin-bottom: 24px; color: var(--text-primary);">
+                        Measured Impact
+                    </h3>
+
+                    <!-- Treatment Engagement -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Treatment Engagement</span>
+                            <span style="font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 12px; border-radius: 20px;">+17 pts (+35% relative)</span>
+                        </div>
+                        <div style="display: flex; gap: 24px; align-items: center;">
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                    <span style="font-size: 12px; color: var(--text-tertiary);">Before</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: var(--accent);">48%</span>
+                                </div>
+                                <div style="height: 24px; background: var(--border); border-radius: 6px; overflow: hidden;">
+                                    <div style="width: 48%; height: 100%; background: var(--accent); border-radius: 6px;"></div>
+                                </div>
+                            </div>
+                            <div style="font-size: 20px; color: var(--text-tertiary);">-></div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                    <span style="font-size: 12px; color: var(--text-tertiary);">After</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: var(--accent);">65%</span>
+                                </div>
+                                <div style="height: 24px; background: var(--border); border-radius: 6px; overflow: hidden;">
+                                    <div style="width: 65%; height: 100%; background: var(--accent); border-radius: 6px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Support Calls -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">Support Call Volume</span>
+                            <span style="font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 12px; border-radius: 20px;">&minus;10 pts (&minus;28% relative)</span>
+                        </div>
+                        <div style="display: flex; gap: 24px; align-items: center;">
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                    <span style="font-size: 12px; color: var(--text-tertiary);">Before</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: var(--accent);">35%</span>
+                                </div>
+                                <div style="height: 24px; background: var(--border); border-radius: 6px; overflow: hidden;">
+                                    <div style="width: 35%; height: 100%; background: var(--accent); border-radius: 6px;"></div>
+                                </div>
+                            </div>
+                            <div style="font-size: 20px; color: var(--text-tertiary);">-></div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                    <span style="font-size: 12px; color: var(--text-tertiary);">After</span>
+                                    <span style="font-size: 14px; font-weight: 600; color: var(--accent);">25%</span>
+                                </div>
+                                <div style="height: 24px; background: var(--border); border-radius: 6px; overflow: hidden;">
+                                    <div style="width: 25%; height: 100%; background: var(--accent); border-radius: 6px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- App Store Rating -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <span style="font-size: 14px; font-weight: 600; color: var(--text-primary);">App Store Rating</span>
+                            <span style="font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-dim); padding: 4px 12px; border-radius: 20px;">+0.8 stars</span>
+                        </div>
+                        <div style="display: flex; gap: 24px; align-items: center;">
+                            <div style="flex: 1; text-align: center; padding: 20px; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 8px;">
+                                <div style="font-family: var(--font-serif); font-size: 36px; color: var(--accent);">3.8</div>
+                                <div style="font-size: 12px; color: var(--text-tertiary); margin-top: 4px;">Before</div>
+                            </div>
+                            <div style="font-size: 24px; color: var(--accent);">-></div>
+                            <div style="flex: 1; text-align: center; padding: 20px; background: var(--accent-dim); border-radius: 8px;">
+                                <div style="font-family: var(--font-serif); font-size: 36px; color: var(--accent);">4.6</div>
+                                <div style="font-size: 12px; color: var(--text-tertiary); margin-top: 4px;">After</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Global Impact -->
+                <div style="background: var(--accent); border-radius: 12px; padding: 24px; margin: 32px 0;">
+                    <div style="display: flex; gap: 16px; align-items: center;">
+                        <div style="flex-shrink: 0; width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 16px; font-weight: 600; color: white; margin-bottom: 4px;">Global Scale Achieved</h4>
+                            <p style="font-size: 14px; color: rgba(255,255,255,0.8); margin: 0;">Successfully deployed across 90+ markets with full localization, serving 12 million active patients in their native languages and meeting regional compliance requirements.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="reflection" class="section reveal">
+                <span class="section-label">Reflection</span>
+                <h2>What I Learned</h2>
+
                 <ul class="reflection-list">
                     <li>
-                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-                        <span>Which homepage paths lead to qualified quote requests</span>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <div class="reflection-content">
+                            <h4>Global Scale Requires Local Nuance</h4>
+                            <p>What works in the US doesn't automatically work in Japan or Brazil. Localization goes beyond translation to cultural expectations around healthcare communication.</p>
+                        </div>
                     </li>
                     <li>
-                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-                        <span>Where new buyers still need explanation before acting</span>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <div class="reflection-content">
+                            <h4>Healthcare Design Has Unique Constraints</h4>
+                            <p>HIPAA compliance, clinical accuracy requirements, and provider workflows add layers of complexity that consumer apps don't face.</p>
+                        </div>
                     </li>
                     <li>
-                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-                        <span>How people choose between call, quick estimate, and advanced configuration</span>
-                    </li>
-                    <li>
-                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-                        <span>Which proof signals matter most by service type and device</span>
+                        <svg class="reflection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <div class="reflection-content">
+                            <h4>Engagement is Earned, Not Designed</h4>
+                            <p>Features don't create engagement; value does. Every notification and feature had to prove its worth to patients or it created friction.</p>
+                        </div>
                     </li>
                 </ul>
             </section>
@@ -1369,23 +1152,23 @@
                 <div class="meta-card-title">Project Details</div>
                 <div class="meta-card-item">
                     <div class="meta-card-label">Company</div>
-                    <div class="meta-card-value">Solar Pool Services Inc.</div>
+                    <div class="meta-card-value">Align Technology</div>
                 </div>
                 <div class="meta-card-item">
-                    <div class="meta-card-label">Audience</div>
-                    <div class="meta-card-value">Southern California homeowners</div>
+                    <div class="meta-card-label">Role</div>
+                    <div class="meta-card-value">UX Designer</div>
                 </div>
                 <div class="meta-card-item">
-                    <div class="meta-card-label">Category</div>
-                    <div class="meta-card-value">Solar pool heating</div>
+                    <div class="meta-card-label">Duration</div>
+                    <div class="meta-card-value">2 years</div>
                 </div>
                 <div class="meta-card-item">
-                    <div class="meta-card-label">Services</div>
-                    <div class="meta-card-value">Install, repair, replace, remove & inspect</div>
+                    <div class="meta-card-label">Skills</div>
+                    <div class="meta-card-value">User Research, UI Design, Front-end Development, A/B Testing</div>
                 </div>
                 <div class="meta-card-item">
-                    <div class="meta-card-label">Delivery</div>
-                    <div class="meta-card-value">Designed & launched</div>
+                    <div class="meta-card-label">Tools</div>
+                    <div class="meta-card-value">Figma, React, Optimizely</div>
                 </div>
             </div>
         </aside>
@@ -1419,47 +1202,20 @@
             document.getElementById('footer-email').setAttribute('href', 'mailto:' + email);
 
             // Scroll spy
-            var sections = document.querySelectorAll('.section');
-            var navLinks = document.querySelectorAll('.sidebar-nav a');
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.sidebar-nav a');
 
-            var observer = new IntersectionObserver((entries) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         navLinks.forEach(link => link.classList.remove('active'));
-                        var activeLink = document.querySelector('.sidebar-nav a[href="#' + entry.target.id + '"]');
+                        const activeLink = document.querySelector(`.sidebar-nav a[href="#${entry.target.id}"]`);
                         if (activeLink) activeLink.classList.add('active');
                     }
                 });
             }, { rootMargin: '-20% 0px -80% 0px' });
 
             sections.forEach(section => observer.observe(section));
-
-            // Prototype tabs
-            var stageCopy = {
-                0: ['Stage 01 · Architecture', 'Separate service, learning, proof, location, and company content while maintaining a persistent route to a quote.'],
-                1: ['Stage 02 · Page priority', 'Sequence the homepage from outcome to service recognition, benefits, evidence, coverage, reviews, and action.'],
-                2: ['Stage 03 · Conversion choice', 'Support users who want a conversation, a fast ballpark, or control over a detailed roof configuration.'],
-                3: ['Stage 04 · Execution', 'Carry the hierarchy into a responsive visual language built around high-contrast typography, real installations, and direct actions.']
-            };
-
-            var tabs = document.querySelectorAll('.prototype-tabs button');
-            var stages = document.querySelectorAll('.prototype-stage');
-            var stageLabel = document.getElementById('stage-label');
-            var stageCopyEl = document.getElementById('stage-copy');
-
-            tabs.forEach(function(tab) {
-                tab.addEventListener('click', function() {
-                    var stage = tab.getAttribute('data-stage');
-                    tabs.forEach(function(t) { t.classList.remove('active'); });
-                    tab.classList.add('active');
-                    stages.forEach(function(s) {
-                        s.classList.toggle('active', s.getAttribute('data-stage') === stage);
-                    });
-                    var copy = stageCopy[stage];
-                    stageLabel.textContent = copy[0];
-                    stageCopyEl.textContent = copy[1];
-                });
-            });
         });
     </script>
 
