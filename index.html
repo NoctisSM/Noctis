@@ -71,28 +71,28 @@
 
         /* Hero: schematic / console motif */
         .hero { position: relative; padding: 196px 0 100px; overflow: visible; }
-        .hero-grid-bg {
-            position: absolute; inset: -40px -5% -40px -5%;
-            background-image:
-                repeating-linear-gradient(0deg, var(--border) 0, var(--border) 1px, transparent 1px, transparent 64px),
-                repeating-linear-gradient(90deg, var(--border) 0, var(--border) 1px, transparent 1px, transparent 64px);
-            opacity: 0.35;
-            mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, #000 0%, transparent 75%);
-            -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, #000 0%, transparent 75%);
+        /* Topographic contour field — drifts opposite the cursor for a subtle parallax */
+        .hero-topo {
+            position: absolute; inset: -60px -12% -60px -12%;
+            mask-image: radial-gradient(ellipse 62% 58% at 50% 45%, #000 0%, transparent 78%);
+            -webkit-mask-image: radial-gradient(ellipse 62% 58% at 50% 45%, #000 0%, transparent 78%);
+            pointer-events: none;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+        .hero-topo svg { width: 100%; height: 100%; display: block; }
+
+        /* Vertical name mark — a watermark in the margin, our own version of this motif */
+        .hero-name {
+            position: absolute; top: 96px; right: calc(100% + 44px);
+            display: flex; flex-direction: column; align-items: center; gap: 2px;
             pointer-events: none;
         }
-        .hero-reticle {
-            position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%);
-            width: 460px; height: 460px; border-radius: 50%;
-            border: 1px solid var(--border);
-            pointer-events: none;
+        .hero-name span {
+            font-family: var(--font-sans); font-weight: 800; font-size: 30px;
+            line-height: 1; letter-spacing: -0.01em; color: var(--text-tertiary); opacity: 0.55;
         }
-        .hero-reticle::before {
-            content: ''; position: absolute; inset: 56px; border-radius: 50%; border: 1px solid var(--border);
-        }
-        .hero-reticle::after {
-            content: ''; position: absolute; top: 50%; left: -40px; right: -40px; height: 1px; background: var(--border);
-        }
+        @media (max-width: 1240px) { .hero-name { display: none; } }
         .hero-timeline {
             position: absolute;
             top: 132px;
@@ -173,6 +173,14 @@
             overflow: hidden; transition: border-color .3s var(--ease-out), transform .3s var(--ease-out);
             display: flex; flex-direction: column;
         }
+        /* Scatter layout: row 1 is two cards, row 2 is one wide feature card, row 3 is two cards */
+        .projects-grid .proj-card:nth-child(3) { grid-column: 1 / -1; flex-direction: row; }
+        .projects-grid .proj-card:nth-child(3) .proj-image { width: 42%; aspect-ratio: auto; flex-shrink: 0; }
+        .projects-grid .proj-card:nth-child(3) .proj-body { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        @media (max-width: 860px) {
+            .projects-grid .proj-card:nth-child(3) { flex-direction: column; }
+            .projects-grid .proj-card:nth-child(3) .proj-image { width: 100%; aspect-ratio: 16/10; }
+        }
         .proj-card:hover { border-color: var(--accent); transform: translateY(-3px); }
         .proj-image { aspect-ratio: 16/10; overflow: hidden; background: var(--bg-panel-2); }
         .proj-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease-out); }
@@ -181,7 +189,8 @@
         .proj-meta { display: flex; flex-wrap: wrap; gap: 8px 12px; margin-bottom: 16px; align-items: center; }
         .proj-tag { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); background: var(--accent-dim); padding: 5px 11px; border-radius: 999px; }
         .proj-year { font-size: 12px; color: var(--text-tertiary); }
-        .proj-title { font-family: var(--font-serif); font-size: 21px; font-weight: 500; color: var(--text-primary); margin-bottom: 12px; letter-spacing: -0.01em; }
+        .proj-title { font-family: var(--font-sans); font-weight: 800; font-size: 22px; line-height: 1.1; color: var(--text-primary); margin-bottom: 14px; letter-spacing: -0.02em; }
+        .proj-title .line2 { display: block; color: var(--accent); }
         .proj-desc { font-size: 14.5px; line-height: 1.65; color: var(--text-secondary); margin-bottom: 20px; }
         .proj-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--accent); }
         .proj-cta svg { width: 15px; height: 15px; transition: transform .2s var(--ease-out); }
@@ -253,8 +262,23 @@
 
     <main class="wrap">
         <section class="hero">
-            <div class="hero-grid-bg" aria-hidden="true"></div>
-            <div class="hero-reticle" aria-hidden="true"></div>
+            <div class="hero-topo" aria-hidden="true">
+                <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" stroke="var(--border)" stroke-width="1">
+                        <ellipse cx="400" cy="250" rx="40" ry="26" transform="rotate(8 400 250)"/>
+                        <ellipse cx="392" cy="244" rx="80" ry="52" transform="rotate(-6 392 244)"/>
+                        <ellipse cx="408" cy="258" rx="130" ry="84" transform="rotate(12 408 258)"/>
+                        <ellipse cx="385" cy="236" rx="190" ry="122" transform="rotate(-10 385 236)" stroke="var(--accent-dim)"/>
+                        <ellipse cx="415" cy="266" rx="255" ry="164" transform="rotate(6 415 266)"/>
+                        <ellipse cx="378" cy="228" rx="325" ry="208" transform="rotate(-14 378 228)" stroke="var(--accent-dim)"/>
+                        <ellipse cx="420" cy="272" rx="400" ry="256" transform="rotate(9 420 272)"/>
+                        <ellipse cx="368" cy="220" rx="470" ry="300" transform="rotate(-5 368 220)"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="hero-name" aria-hidden="true">
+                <span>M</span><span>I</span><span>T</span><span>R</span><span>A</span>
+            </div>
             <div class="hero-timeline" aria-hidden="true">
                 <span class="spine"></span>
                 <div class="tick"><span class="yr">2019</span><span class="ms">Reviver Auto</span></div>
@@ -294,7 +318,7 @@
                         <span class="proj-tag">VR Research</span>
                         <span class="proj-year">Spring 2025</span>
                     </div>
-                    <h3 class="proj-title">Flying Car Interaction</h3>
+                    <h3 class="proj-title">Flying Car<span class="line2">Interaction</span></h3>
                     <p class="proj-desc">How do you build trust in a vehicle that can switch between driving and flying? VR research on the transition moment, with Jiayi Chen, Georgia Tech CS 8803 Sonification Lab.</p>
                     <span class="proj-cta">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                 </div>
@@ -307,20 +331,20 @@
                         <span class="proj-tag">Public Safety</span>
                         <span class="proj-year">Thesis 2026</span>
                     </div>
-                    <h3 class="proj-title">Drone Intelligence for Police Dispatch</h3>
+                    <h3 class="proj-title">Drone Intelligence<span class="line2">for Police Dispatch</span></h3>
                     <p class="proj-desc">Dispatchers weren't overwhelmed by how much they handled — they were overwhelmed by how many places they had to look. I designed for consolidation, not reduction.</p>
                     <span class="proj-cta">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                 </div>
             </a>
 
             <a href="solar.html" class="proj-card">
-                <div class="proj-image"><img src="Solar/solar.png" alt="Solar Pool Services Inc. website header and hero section"><span class="plate proj-plate">03 / 05</span></div>
+                <div class="proj-image"><img src="solar/pool-house.jpg" alt="Backyard pool at a residential home"><span class="plate proj-plate">03 / 05</span></div>
                 <div class="proj-body">
                     <div class="proj-meta">
                         <span class="proj-tag">B2C Web Design</span>
                         <span class="proj-year">2026</span>
                     </div>
-                    <h3 class="proj-title">Designed &amp; Launched: Solar Pool Services Inc.</h3>
+                    <h3 class="proj-title">Solar Pool Services<span class="line2">0&rarr;1 Launch</span></h3>
                     <p class="proj-desc">Nobody wants solar pool heating — they want a warm pool. I made an unfamiliar technology understandable by designing and launching the full B2C experience.</p>
                     <span class="proj-cta">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                 </div>
@@ -333,7 +357,7 @@
                         <span class="proj-tag">Digital Health</span>
                         <span class="proj-year">2022</span>
                     </div>
-                    <h3 class="proj-title">Patient Dashboard for 12M Users</h3>
+                    <h3 class="proj-title">Patient Dashboard<span class="line2">for 12M Users</span></h3>
                     <p class="proj-desc">Patients didn't need more data — they needed to know what to do next. I redesigned around next-step clarity, lifting treatment engagement from 48% to 65%.</p>
                     <span class="proj-cta">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                 </div>
@@ -346,7 +370,7 @@
                         <span class="proj-tag">Web Platform</span>
                         <span class="proj-year">2020</span>
                     </div>
-                    <h3 class="proj-title">Information Architecture for Invisalign.com</h3>
+                    <h3 class="proj-title">Invisalign.com<span class="line2">Information Architecture</span></h3>
                     <p class="proj-desc">Users couldn't find basic information because the navigation was organized by business unit, not user task. I restructured the IA around patient goals.</p>
                     <span class="proj-cta">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
                 </div>
@@ -408,6 +432,27 @@
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('contact-link').setAttribute('href', 'mailto:' + 'samhithm' + '@' + 'gmail.com');
         });
+    </script>
+    <script>
+        (function() {
+            var hero = document.querySelector('.hero');
+            var topo = document.querySelector('.hero-topo');
+            if (!hero || !topo) return;
+            var raf = null;
+            hero.addEventListener('mousemove', function(e) {
+                var rect = hero.getBoundingClientRect();
+                var x = (e.clientX - rect.left) / rect.width - 0.5;
+                var y = (e.clientY - rect.top) / rect.height - 0.5;
+                if (raf) cancelAnimationFrame(raf);
+                raf = requestAnimationFrame(function() {
+                    topo.style.transform = 'translate(' + (x * -18) + 'px, ' + (y * -14) + 'px)';
+                });
+            });
+            hero.addEventListener('mouseleave', function() {
+                if (raf) cancelAnimationFrame(raf);
+                topo.style.transform = 'translate(0px, 0px)';
+            });
+        })();
     </script>
 </body>
 </html>
