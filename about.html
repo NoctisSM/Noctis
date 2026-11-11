@@ -9,17 +9,18 @@
     <link rel="icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #FAFAFA;
-            --bg-secondary: #FFFFFF;
-            --text-primary: #0F172A;
-            --text-secondary: #475569;
-            --text-tertiary: #94A3B8;
-            --accent: #1E3A8A;
-            --border: #E2E8F0;
-            --border-hover: #CBD5E1;
+            --bg-primary: #0A0A0B;
+            --bg-panel: #16171A;
+            --bg-panel-2: #1D1E22;
+            --text-primary: #F5F5F4;
+            --text-secondary: #A1A1AA;
+            --text-tertiary: #6B6B74;
+            --accent: #3B82F6;
+            --accent-dim: rgba(59, 130, 246, 0.12);
+            --border: rgba(255, 255, 255, 0.08);
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-serif: 'Newsreader', Georgia, serif;
             --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -29,134 +30,257 @@
         body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
         a { color: inherit; text-decoration: none; }
 
-        header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,250,250,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-        .header-inner { max-width: 1400px; margin: 0 auto; padding: 16px 48px; display: flex; align-items: center; }
-        .logo { font-weight: 600; font-size: 15px; letter-spacing: -0.02em; }
-        nav { display: flex; gap: 40px; align-items: center; margin-left: auto; }
-        nav a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color .2s; position: relative; }
+        header { position: fixed; top: 20px; left: 0; right: 0; z-index: 100; display: flex; justify-content: center; }
+        .header-inner {
+            display: flex; align-items: center; gap: 36px;
+            background: rgba(22, 23, 26, 0.75);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 10px 14px 10px 10px;
+        }
+        .logo {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--accent-dim); color: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 13px; letter-spacing: -0.02em;
+        }
+        nav { display: flex; gap: 26px; align-items: center; }
+        nav a { font-size: 13px; font-weight: 500; color: var(--text-secondary); transition: color .2s; }
         nav a:hover { color: var(--text-primary); }
         nav a.active { color: var(--text-primary); }
-        nav a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--accent); }
+        nav .nav-contact {
+            background: var(--text-primary); color: var(--bg-primary);
+            padding: 8px 16px; border-radius: 999px; font-weight: 600;
+        }
 
-        .hero { max-width: 1200px; margin: 0 auto; padding: 168px 48px 72px; text-align: center; }
-        .hero-label { font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 24px; }
-        .hero h1 { font-family: var(--font-serif); font-size: clamp(2.2rem, 4.6vw, 3.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 24px; }
-        .hero h1 em { font-style: italic; }
-        .hero p { font-size: 17px; line-height: 1.75; color: var(--text-secondary); margin: 0 auto; }
+        .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
 
-        .studies-list { max-width: 1200px; margin: 0 auto; padding: 0 48px 120px; }
+        .hero { padding: 168px 0 64px; }
+        .hero-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-tertiary); margin-bottom: 20px; }
+        .hero h1 {
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 800; letter-spacing: -0.03em; line-height: 1.05;
+        }
+        .hero h1 .accent { color: var(--accent); }
 
-            display: grid;
-            grid-template-columns: 1fr 1.15fr;
-            gap: 56px;
-            align-items: center;
-            padding: 64px 0;
-            border-top: 1px solid var(--border);
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity .8s var(--ease-out), transform .9s var(--ease-out);
+        .panel {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 48px;
+            margin-bottom: 24px;
+        }
+        .eyebrow { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-tertiary); margin-bottom: 20px; }
+        .panel p { font-size: 17px; line-height: 1.75; color: var(--text-secondary); margin-bottom: 16px; }
+        .panel p:last-of-type { margin-bottom: 0; }
 
+        .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 36px; padding-top: 32px; border-top: 1px solid var(--border); }
+        .meta-item .eyebrow { margin-bottom: 8px; }
+        .meta-item .meta-value { font-size: 15px; color: var(--text-primary); }
+        .meta-item .meta-value a { color: var(--accent); }
 
-            
-        footer { border-top: 1px solid var(--border); background: var(--bg-secondary); }
-        .footer-inner { max-width: 1400px; margin: 0 auto; padding: 48px; display: flex; justify-content: space-between; align-items: center; }
-        .footer-left { display: flex; flex-direction: column; gap: 8px; }
-        .footer-name { font-weight: 600; font-size: 15px; }
-        .footer-status { font-size: 14px; color: var(--text-secondary); }
-        .footer-links { display: flex; gap: 32px; }
-        .footer-links a { font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: color .2s; }
+        .section-title {
+            font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em;
+            color: var(--text-tertiary); margin: 40px 0 16px; padding: 0 8px;
+        }
+        .row { display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; padding: 24px 32px; border-bottom: 1px solid var(--border); }
+        .row:last-child { border-bottom: none; }
+        .row-title { font-size: 17px; font-weight: 600; color: var(--text-primary); }
+        .row-org { font-size: 14px; color: var(--text-secondary); grid-column: 1; }
+        .row-date { font-size: 12px; color: var(--text-tertiary); grid-column: 2; grid-row: 1; white-space: nowrap; padding-top: 3px; }
+        .row-note { font-size: 14px; line-height: 1.65; color: var(--text-secondary); grid-column: 1 / -1; margin-top: 8px; }
+        .row-note a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+        .focus { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .focus span { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); background: var(--accent-dim); padding: 7px 14px; border-radius: 999px; }
+
+        /* Recommendation carousel */
+        .rec-quote { font-size: 19px; line-height: 1.65; color: var(--text-primary); margin-bottom: 28px; min-height: 168px; }
+        .rec-quote::before { content: '\201C'; color: var(--accent); }
+        .rec-quote::after { content: '\201D'; color: var(--accent); }
+        .rec-footer { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; padding-top: 24px; border-top: 1px solid var(--border); }
+        .rec-author-name { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+        .rec-author-role { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+        .rec-author-note { font-size: 12px; color: var(--text-tertiary); margin-top: 6px; }
+        .rec-controls { display: flex; align-items: center; gap: 16px; }
+        .rec-dots { display: flex; gap: 8px; }
+        .rec-dots button { width: 7px; height: 7px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; padding: 0; }
+        .rec-dots button.active { background: var(--accent); }
+        .rec-arrows { display: flex; gap: 8px; }
+        .rec-arrows button {
+            width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border);
+            background: transparent; color: var(--text-primary); cursor: pointer;
+            display: flex; align-items: center; justify-content: center; font-size: 16px;
+            transition: border-color .2s, background .2s;
+        }
+        .rec-arrows button:hover { border-color: var(--accent); background: var(--accent-dim); }
+
+        .contact-panel h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; }
+        .contact-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+        .contact-links a {
+            font-size: 14px; font-weight: 600; padding: 12px 20px; border-radius: 999px;
+            border: 1px solid var(--border); color: var(--text-primary); transition: border-color .2s, background .2s;
+        }
+        .contact-links a:hover { border-color: var(--accent); background: var(--accent-dim); }
+        .contact-links a.primary { background: var(--text-primary); color: var(--bg-primary); border-color: var(--text-primary); }
+
+        footer { border-top: 1px solid var(--border); margin-top: 24px; }
+        .footer-inner { max-width: 920px; margin: 0 auto; padding: 40px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-name { font-weight: 700; font-size: 14px; }
+        .footer-status { font-size: 13px; color: var(--text-tertiary); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 13px; color: var(--text-secondary); }
         .footer-links a:hover { color: var(--accent); }
 
-        @media (max-width: 860px) {
-        }
         @media (max-width: 768px) {
-            .header-inner { padding: 16px 24px; }
-            nav { gap: 20px; }
-            .hero { padding: 140px 24px 56px; }
-            .studies-list { padding: 0 24px 80px; }
-            .footer-inner { padding: 32px 24px; flex-direction: column; gap: 20px; text-align: center; }
-            .footer-left { align-items: center; }
+            .header-inner { gap: 16px; padding: 8px 10px 8px 8px; }
+            nav { gap: 14px; }
+            nav a:not(.nav-contact):not(.active) { display: none; }
+            .hero { padding: 132px 0 48px; }
+            .panel { padding: 32px 24px; border-radius: 22px; }
+            .meta-grid { grid-template-columns: 1fr; gap: 24px; }
+            .row { padding: 20px 24px; grid-template-columns: 1fr; }
+            .row-date { grid-column: 1; grid-row: auto; padding-top: 0; }
+            .rec-quote { font-size: 17px; min-height: 220px; }
+            .footer-inner { flex-direction: column; text-align: center; }
         }
-        @media (prefers-reduced-motion: reduce) {
-        }
-
-        /* Small screens: let the nav wrap instead of overflowing */
-        @media (max-width: 600px) {
-            .header-inner { flex-wrap: wrap; row-gap: 10px; }
-            header nav { width: 100%; margin-left: 0; flex-wrap: wrap; gap: 8px 18px; }
-            header nav a { font-size: 13px; }
-            .footer-links { flex-wrap: wrap; justify-content: center; gap: 12px 24px; }
-        }
-    
-        .about { max-width: 800px; margin: 0 auto; padding: 160px 48px 96px; }
-        .about h1 { font-family: var(--font-serif); font-size: clamp(2.1rem, 4.4vw, 3.1rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 28px; }
-        .about h1 em { font-style: italic; }
-        .about .lede { font-size: 18px; line-height: 1.75; color: var(--text-secondary); margin-bottom: 18px; }
-        .about h2 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary); margin: 64px 0 8px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
-        .row { display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; padding: 20px 0; border-bottom: 1px solid var(--border); }
-        .row-title { font-family: var(--font-serif); font-size: 19px; color: var(--text-primary); }
-        .row-org { font-size: 15px; color: var(--text-secondary); grid-column: 1; }
-        .row-date { font-size: 13px; color: var(--text-tertiary); grid-column: 2; grid-row: 1; white-space: nowrap; padding-top: 4px; }
-        .row-note { font-size: 14.5px; line-height: 1.65; color: var(--text-secondary); grid-column: 1 / -1; margin-top: 6px; }
-        .row-note a, .contact a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-        .focus { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
-        .focus span { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); background: rgba(30,58,138,0.06); padding: 6px 12px; border-radius: 4px; }
-        .contact { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 20px; font-size: 15px; }
-        @media (max-width: 768px) { .about { padding: 132px 24px 72px; } .row { grid-template-columns: 1fr; } .row-date { grid-column: 1; grid-row: auto; padding-top: 0; } }
     </style>
 </head>
 <body>
     <header>
         <div class="header-inner">
-            <a href="index.html" class="logo">Samhith Mitra</a>
+            <a href="index.html" class="logo">SM</a>
             <nav>
                 <a href="index.html">Work</a>
                 <a href="studies.html">Studies</a>
                 <a href="about-me.html" class="active">About</a>
                 <a href="resume.pdf" target="_blank">Resume</a>
                 <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
-                <a href="#" id="contact-link">Contact</a>
+                <a href="#" id="contact-link" class="nav-contact">Contact</a>
             </nav>
         </div>
     </header>
 
-    <main class="about">
-        <div class="hero-label">About</div>
-        <h1>I design complex tools for people who <em>can't afford</em> to get it wrong.</h1>
-        <p class="lede">I'm Samhith Mitra, a product designer. My work runs from field research with Georgia law enforcement on drone-integrated dispatch, to enterprise workflow automation, to patient-facing products at Align Technology.</p>
-        <p class="lede">I'm looking for Senior Product Designer roles in:</p>
-        <div class="focus"><span>Defense</span><span>Automotive</span><span>Robotics</span><span>Aviation</span><span>Enterprise software</span></div>
+    <main class="wrap">
+        <section class="hero">
+            <div class="hero-label">About</div>
+            <h1>Samhith Mitra is a product designer <span class="accent">and researcher</span> for high-stakes systems.</h1>
+        </section>
 
-        <h2>Experience</h2>
-        <div class="row"><span class="row-title">Sr. UX Designer Consultant</span><span class="row-org">Dahlstrom Technologies &middot; San Diego, CA</span><span class="row-date">Oct 2022 &ndash; May 2024</span></div>
-        <div class="row"><span class="row-title">UX Designer</span><span class="row-org">Align Technology &middot; Raleigh, NC</span><span class="row-date">Mar 2020 &ndash; Oct 2022</span>
-            <p class="row-note">Case studies: <a href="dashboard.html">Patient Dashboard</a>, <a href="aligner.html">Invisalign.com IA</a>, <a href="accessories.html">Accessories checkout</a>.</p></div>
-        <div class="row"><span class="row-title">UX Design Intern</span><span class="row-org">Reviver Auto &middot; Foster City, CA</span><span class="row-date">May 2018 &ndash; Mar 2019</span>
-            <p class="row-note">Designed iOS, Android, and web experiences for fleet management tools used by automotive dealerships. My automotive interior research continues in <a href="studies.html">Studies</a>.</p></div>
+        <section class="panel">
+            <div class="eyebrow">Who</div>
+            <p>I'm Samhith Mitra, a product designer. My work runs from field research with Georgia law enforcement on drone-integrated dispatch, to enterprise workflow automation, to patient-facing products at Align Technology.</p>
+            <p>I'm looking for Product Designer roles in:</p>
+            <div class="focus"><span>Defense</span><span>Automotive</span><span>Robotics</span><span>Aviation</span><span>Enterprise software</span></div>
 
-        <h2>Education</h2>
-        <div class="row"><span class="row-title">MS, Human-Computer Interaction</span><span class="row-org">Georgia Institute of Technology, College of Computing</span><span class="row-date">Aug 2024 &ndash; May 2026</span>
-            <p class="row-note">Thesis: <a href="thesis.html">OVERWATCH, drone intelligence for police dispatch</a>.</p></div>
-        <div class="row"><span class="row-title">UX/UI Design Certificate Program</span><span class="row-org">University of California, Berkeley</span><span class="row-date">Feb 2020 &ndash; Aug 2020</span></div>
-        <div class="row"><span class="row-title">BA, Graphic Design (Dean&rsquo;s Scholar)</span><span class="row-org">San Jose State University</span><span class="row-date">Aug 2015 &ndash; Dec 2019</span></div>
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <div class="eyebrow">Current</div>
+                    <div class="meta-value">Sr. UX Designer Consultant, Dahlstrom Technologies</div>
+                </div>
+                <div class="meta-item">
+                    <div class="eyebrow">Education</div>
+                    <div class="meta-value">MS, Human-Computer Interaction, Georgia Tech</div>
+                </div>
+                <div class="meta-item">
+                    <div class="eyebrow">Email</div>
+                    <div class="meta-value"><a href="mailto:samhithm@gmail.com">samhithm@gmail.com</a></div>
+                </div>
+                <div class="meta-item">
+                    <div class="eyebrow">LinkedIn</div>
+                    <div class="meta-value"><a href="https://www.linkedin.com/in/samhithmitra" target="_blank">samhithmitra</a></div>
+                </div>
+            </div>
+        </section>
 
-        <h2>Contact</h2>
-        <div class="contact">
-            <a href="mailto:samhithm@gmail.com">samhithm@gmail.com</a>
-            <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
-            <a href="resume.pdf" target="_blank">Resume (PDF)</a>
+        <div class="section-title">Experience</div>
+        <div class="panel" style="padding: 0;">
+            <div class="row">
+                <span class="row-title">Sr. UX Designer Consultant</span>
+                <span class="row-org">Dahlstrom Technologies &middot; San Diego, CA</span>
+                <span class="row-date">Oct 2022 &ndash; May 2024</span>
+            </div>
+            <div class="row">
+                <span class="row-title">UX Designer</span>
+                <span class="row-org">Align Technology &middot; Raleigh, NC</span>
+                <span class="row-date">Mar 2020 &ndash; Oct 2022</span>
+                <p class="row-note">Case studies: <a href="dashboard.html">Patient Dashboard</a>, <a href="aligner.html">Invisalign.com IA</a>, <a href="accessories.html">Accessories checkout</a>.</p>
+            </div>
+            <div class="row">
+                <span class="row-title">UX Design Intern</span>
+                <span class="row-org">Reviver Auto &middot; Foster City, CA</span>
+                <span class="row-date">May 2018 &ndash; Mar 2019</span>
+                <p class="row-note">Designed iOS, Android, and web experiences for fleet management tools used by automotive dealerships. My automotive interior research continues in <a href="studies.html">Studies</a>.</p>
+            </div>
+        </div>
+
+        <div class="section-title">Education</div>
+        <div class="panel" style="padding: 0;">
+            <div class="row">
+                <span class="row-title">MS, Human-Computer Interaction</span>
+                <span class="row-org">Georgia Institute of Technology, College of Computing</span>
+                <span class="row-date">Aug 2024 &ndash; May 2026</span>
+                <p class="row-note">Thesis: <a href="thesis.html">OVERWATCH, drone intelligence for police dispatch</a>.</p>
+            </div>
+            <div class="row">
+                <span class="row-title">UX/UI Design Certificate Program</span>
+                <span class="row-org">University of California, Berkeley</span>
+                <span class="row-date">Feb 2020 &ndash; Aug 2020</span>
+            </div>
+            <div class="row">
+                <span class="row-title">BA, Graphic Design (Dean&rsquo;s Scholar)</span>
+                <span class="row-org">San Jose State University</span>
+                <span class="row-date">Aug 2015 &ndash; Dec 2019</span>
+            </div>
+        </div>
+
+        <div class="section-title">Recommendations</div>
+        <div class="panel" id="rec-panel">
+            <p class="rec-quote" id="rec-quote"></p>
+            <div class="rec-footer">
+                <div>
+                    <div class="rec-author-name" id="rec-name"></div>
+                    <div class="rec-author-role" id="rec-role"></div>
+                    <div class="rec-author-note" id="rec-note"></div>
+                </div>
+                <div class="rec-controls">
+                    <div class="rec-dots" id="rec-dots"></div>
+                    <div class="rec-arrows">
+                        <button type="button" id="rec-prev" aria-label="Previous recommendation">&larr;</button>
+                        <button type="button" id="rec-next" aria-label="Next recommendation">&rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">Outside work</div>
+        <div class="panel">
+            <p>Car culture &mdash; specifically a Porsche 997 GT2 and an FJ62 Land Cruiser. Restoration, tinkering, and the occasional track day.</p>
+        </div>
+
+        <div class="section-title">Let's talk</div>
+        <div class="panel contact-panel">
+            <h2>Get in touch.</h2>
+            <p>Always happy to connect — whether it's about a role, a project, or just design.</p>
+            <div class="contact-links">
+                <a href="mailto:samhithm@gmail.com" class="primary">samhithm@gmail.com</a>
+                <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn ↗</a>
+                <a href="resume.pdf" target="_blank">Resume (PDF) ↗</a>
+            </div>
         </div>
     </main>
 
     <footer>
         <div class="footer-inner">
-            <div class="footer-left">
-                <span class="footer-name">Samhith Mitra</span>
-                <span class="footer-status">MS HCI @ Georgia Tech, 2026</span>
+            <div>
+                <div class="footer-name">Samhith Mitra</div>
+                <div class="footer-status">MS HCI @ Georgia Tech, 2026</div>
             </div>
             <div class="footer-links">
-                <a href="https://www.linkedin.com/in/samhithmitra" target="_blank">LinkedIn</a>
-                <a href="mailto:samhithm@gmail.com">samhithm@gmail.com</a>
+                <a href="index.html">Work</a>
+                <a href="studies.html">Studies</a>
+                <a href="about-me.html">About</a>
                 <a href="2nddraft.html">Second Draft studio ↗</a>
             </div>
         </div>
@@ -165,6 +289,65 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('contact-link').setAttribute('href', 'mailto:' + 'samhithm' + '@' + 'gmail.com');
+
+            var recs = [
+                {
+                    quote: "I very much enjoyed working with Samhith for over a year. He has exceptional skills and dedication as a web designer, and most importantly, he is fun to work with. Samhith's ability to turn creative concepts into visually stunning and user-friendly websites, coupled with proficiency in design tools and programming languages, sets him apart in the field. He works hard, pays attention to detail, and has a collaborative spirit, making him a valuable asset.",
+                    name: "Ari Ahmadi",
+                    role: "Marketing Specialist",
+                    note: "Managed Samhith directly &middot; Mar 2024"
+                },
+                {
+                    quote: "Samhith is highly skilled in UI/UX having a strong intuition and creativity. I had the pleasure of working with Samhith for a short period of time and was consistently impressed by his skills as a UI/UX designer. He has a keen eye for detail and a strong understanding of user experience design principles.",
+                    name: "Barış Saraç",
+                    role: "Senior Principal Full Stack Engineer, Mission-Focused Geospatial &amp; Real-Time Systems",
+                    note: "Senior to Samhith &middot; Dec 2022"
+                },
+                {
+                    quote: "Samhith is an out-of-the-box thinker who has excellent technical acumen. He's also quite responsive and takes design feedback extremely well. Samhith and I worked on multiple projects together where he was able to revamp applications from scratch, thinking outside the box and taking them to the next level.",
+                    name: "Ryan Coyne",
+                    role: "Product Management Leader",
+                    note: "Worked with Samhith on different teams &middot; Dec 2022"
+                },
+                {
+                    quote: "Samhith is a creative talent with a genuine passion for mastering his craft. He took control of ReviverAuto's Instagram presence and grew the following substantially, while also helping design future web assets for our live website. He even proved indispensable in on-the-ground installation and field operations, helping wrangle customer vehicles and program hardware for installation on dozens of digital license plates per day.",
+                    name: "Jeremy Hicks",
+                    role: "Solutions Engineering @ Slack",
+                    note: "Senior to Samhith at Reviver Auto &middot; Apr 2019"
+                }
+            ];
+
+            var i = 0;
+            var quoteEl = document.getElementById('rec-quote');
+            var nameEl = document.getElementById('rec-name');
+            var roleEl = document.getElementById('rec-role');
+            var noteEl = document.getElementById('rec-note');
+            var dotsEl = document.getElementById('rec-dots');
+
+            recs.forEach(function(_, idx) {
+                var dot = document.createElement('button');
+                dot.type = 'button';
+                dot.setAttribute('aria-label', 'Go to recommendation ' + (idx + 1));
+                dot.addEventListener('click', function() { show(idx); });
+                dotsEl.appendChild(dot);
+            });
+
+            function show(idx) {
+                i = (idx + recs.length) % recs.length;
+                var r = recs[i];
+                quoteEl.textContent = r.quote;
+                nameEl.textContent = r.name;
+                roleEl.innerHTML = r.role;
+                noteEl.innerHTML = r.note;
+                Array.prototype.forEach.call(dotsEl.children, function(dot, idx2) {
+                    dot.classList.toggle('active', idx2 === i);
+                });
+            }
+
+            document.getElementById('rec-prev').addEventListener('click', function() { show(i - 1); });
+            document.getElementById('rec-next').addEventListener('click', function() { show(i + 1); });
+
+            show(0);
         });
     </script>
 </body>
